@@ -81,11 +81,11 @@ ms.locfileid: "137906937"
    |资源组|新资源组 AZ800-L0601-RG 的名称|
    |虚拟机名称|az800l06-vm0|
    |区域|使用可以在其中预配 Azure 虚拟机的 Azure 区域的名称|
-   |可用性选项|没有所需的基础结构冗余|
+   |可用性选项|不需要基础结构冗余|
    |映像|Windows Server 2022 Datacenter：Azure Edition - Gen2|
    |Azure Spot 实例|否|
    |大小|**Standard_D2s_v3**|
-   |用户名|**学生**|
+   |用户名|**Student**|
    |密码|**Pa55w.rd1234**|
    |公共入站端口|无|
    |是否要使用现有的 Windows Server 许可证|否|
@@ -204,7 +204,7 @@ ms.locfileid: "137906937"
 
 #### <a name="task-2-review-the-just-in-time-access-settings"></a>任务 2：查看实时访问设置
 
-1. 在 Azure 门户中，浏览到 Microsoft Defender for Cloud“工作负载保护”页，并查看“实时 VM 访问”设置 **\|** 。
+1. 在 Azure 门户中，浏览到“Microsoft Defender for Cloud | 工作负载保护”页面，并查看“实时 VM 访问”设置。 **\|** 。
 1. 在“实时 VM 访问”页面上，查看“已配置”、“未配置”和“不支持”选项卡   。
 
    >备注：新部署的 VM 可能需要长达 24 小时才能出现在“不支持”选项卡上。在此期间，与其等待，不如继续下一个练习 。
@@ -277,7 +277,7 @@ ms.locfileid: "137906937"
    
    |设置|值|
    |---|---|
-   |用户名|**学生**|
+   |用户名|**Student**|
    |密码|**Pa55w.rd1234**|
 
 1. 验证是否可以通过远程桌面成功访问在 Azure VM 中运行的操作系统，并关闭远程桌面会话。

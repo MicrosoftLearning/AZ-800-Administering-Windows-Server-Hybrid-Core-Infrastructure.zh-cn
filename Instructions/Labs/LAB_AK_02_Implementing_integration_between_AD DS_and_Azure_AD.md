@@ -80,7 +80,7 @@ ms.locfileid: "137906932"
 1. 在“Microsoft Azure Active Directory Connect”页面中，选择“下载” 。
 1. 在状态栏上，选择“打开文件”。
 1. 在“Microsoft Azure Active Directory Connect”页面上，选中“我同意许可条款和隐私通知”复选框，然后选择“继续”  。
-1. 在“Express 设置”页面上，选择“使用快速设置” 。
+1. 在“快速设置”页面上，选择“使用快速设置” 。
 1. 在“连接到 Azure AD”页上，输入在练习 1 中创建的 Azure AD 全局管理员用户帐户的用户名和密码，然后选择“下一步” 。
 1. 在“连接 AD DS”页上，输入以下凭据，然后选择“下一步” ：
 

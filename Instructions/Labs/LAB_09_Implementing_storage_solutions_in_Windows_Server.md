@@ -44,7 +44,7 @@ ms.locfileid: "137906970"
 
 对于本实验室，你将使用可用的 VM 环境。
 
-## <a name="lab-exercise-1-implementing-data-deduplication"></a>实验室练习 1：实施重复数据删除
+## <a name="lab-exercise-1-implementing-data-deduplication"></a>实验室练习 1：实现重复数据删除
 
 ### <a name="scenario"></a>场景
 
@@ -338,7 +338,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 
    > 注意：这是准备下一次练习的必需的操作。
 
-## <a name="lab-exercise-4-implementing-storage-spaces-direct"></a>实验室练习 4：实施存储空间直通
+## <a name="lab-exercise-4-implementing-storage-spaces-direct"></a>实验室练习 4：实现存储空间直通
 
 ### <a name="scenario"></a>场景
 

@@ -10,7 +10,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 01/28/2022
 ms.locfileid: "137906931"
 ---
-# <a name="lab-answer-key-implementing-identity-services-and-group-policy"></a>实验室答案：实现标识服务和组策略
+# <a name="lab-answer-key-implementing-identity-services-and-group-policy"></a>'实验室解答：实现标识服务和组策略
 
 ## <a name="exercise-1-deploying-a-new-domain-controller-on-server-core"></a>练习 1：在 Server Core 上部署新的域控制器
 

@@ -13,7 +13,7 @@ ms.locfileid: "137906975"
 
 ## <a name="scenario"></a>场景
 
-你在 Contoso Ltd. 担任管理员。公司正通过多个新位置扩展其业务。 Active Directory 域服务 (AD DS) 管理团队当前正在评估 Windows Server 中可用于非交互式远程域控制器部署的方法。 该团队还在寻找一种方法来自动执行某些 AD DS 管理任务。 此外，该团队希望建立基于组策略对象 (GPO) 的配置管理。
+你在 Contoso Ltd. 担任管理员。公司正在多个新地方扩展其业务 Active Directory 域服务 (AD DS) 管理团队当前正在评估 Windows Server 中可用于非交互式远程域控制器部署的方法。 该团队还在寻找一种方法来自动执行某些 AD DS 管理任务。 此外，该团队希望建立基于组策略对象 (GPO) 的配置管理。
 
 ## <a name="objectives"></a>目标
 
@@ -146,7 +146,7 @@ ms.locfileid: "137906975"
    Add-LocalGroupMember -Group 'Administrators' -Member 'CONTOSO\Ty'
    ```
 
-   > 注意：使用 CONTOSO\\Ty 用户帐户登录 SEA-ADM1 时必需此信息  。
+   > :使用 CONTOSO\\Ty 用户帐户登录 SEA-ADM1 时必需此信息
 
 ### <a name="results"></a>结果
 
