@@ -3,12 +3,12 @@ lab:
   title: 实验室：实现 Windows Server IaaS VM 网络
   type: Answer Key
   module: 'Module 8: Implementing Windows Server IaaS VM networking'
-ms.openlocfilehash: b9ae6e391351ac7614b5129914173c78592309b0
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 03d9699e32a1e7d71217abd840829ef21145de68
+ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906921"
+ms.lasthandoff: 03/19/2022
+ms.locfileid: "140742083"
 ---
 # <a name="lab-implementing-hybrid-networking-infrastructure"></a>实验室：实现混合网络基础结构
 
@@ -63,7 +63,7 @@ ms.locfileid: "137906921"
    }
    ```
 
-    >注意：请不要等待部署完成，而是继续执行下一步操作。 安装网络观察程序扩展大约需要 5 分钟。
+    >**注意**：请不要等待部署完成，而是继续执行下一步操作。 安装网络观察程序扩展大约需要 5 分钟。
 
 #### <a name="task-2-configure-the-hub-and-spoke-network-topology"></a>任务 2：配置中心辐射型网络拓扑
 
@@ -120,7 +120,7 @@ ms.locfileid: "137906921"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm0** |
@@ -139,7 +139,7 @@ ms.locfileid: "137906921"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm0** |
@@ -160,7 +160,7 @@ ms.locfileid: "137906921"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm1** |
@@ -213,7 +213,7 @@ ms.locfileid: "137906921"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 位置 | 创建虚拟网络的 Azure 区域的名称 |
     | 名称 | **az800l08-rt12** |
@@ -251,7 +251,7 @@ ms.locfileid: "137906921"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 区域 | 创建虚拟网络的 Azure 区域的名称 |
     | 名称 | **az800l08-rt21** |
@@ -287,7 +287,7 @@ ms.locfileid: "137906921"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm1** |
@@ -310,7 +310,7 @@ ms.locfileid: "137906921"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | 新资源组 AZ800-L0802-RG 的名称 |
     | 名称 | **contoso.org** |
     | 资源组位置 | 此实验室上一练习中部署资源的同一 Azure 区域 |
@@ -345,7 +345,7 @@ ms.locfileid: "137906921"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm1** |
@@ -421,13 +421,13 @@ ms.locfileid: "137906921"
 1. 在 Cloud Shell 页面中，运行以下命令，列出在此实验室中创建的所有资源组：
 
    ```powershell
-   Get-AzResourceGroup -Name 'az800l08*'
+   Get-AzResourceGroup -Name 'AZ800-L08*'
    ```
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 
    ```powershell
-   Get-AzResourceGroup -Name 'az800l08*' | Remove-AzResourceGroup -Force -AsJob
+   Get-AzResourceGroup -Name 'AZ800-L08*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
    >**注意**：该命令异步执行（由 -AsJob 参数决定），因此，虽然你可以随后立即在同一个 PowerShell 会话中运行另一个 PowerShell 命令，但需要几分钟才能实际删除资源组。

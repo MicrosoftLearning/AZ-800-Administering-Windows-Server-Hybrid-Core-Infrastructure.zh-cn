@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Windows Server 中实现和配置虚拟化
   type: Answer Key
   module: 'Module 5: Hyper-V virtualization in Windows Server'
-ms.openlocfilehash: 9202bf8b30582e0c3d8aebfddf7ca0762f53024a
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: c267fd20d8ec5d4f013422119a707253100a9aa6
+ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906920"
+ms.lasthandoff: 03/19/2022
+ms.locfileid: "140742080"
 ---
 # <a name="lab-answer-key-implementing-and-configuring-virtualization-in-windows-server"></a>实验室解答：在 Windows Server 中实现和配置虚拟化
 
@@ -175,7 +175,7 @@ ms.locfileid: "137906920"
 1. 输入以下命令然后按 Enter，列出联机 Microsoft 存储库中的 Docker 基础映像：
 
    ```powershell
-   docker search Microsoft
+   docker search microsoft
    ```
 1. 输入以下命令然后按 Enter，下载包含 Internet Information Services (IIS) 安装的 Nano Server 映像：
 

@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在 Windows Server 中实现和配置虚拟化
   module: 'Module 5: Hyper-V virtualization in Windows Server'
-ms.openlocfilehash: c9ff5dddf134be5073ec9f2fa33d84ca07b0a343
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: e9b70ecdc5eef196b00ea2d0c88471c779d6d701
+ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906938"
+ms.lasthandoff: 03/19/2022
+ms.locfileid: "140742071"
 ---
 # <a name="lab-implementing-and-configuring-virtualization-in-windows-server"></a>实验室：在 Windows Server 中实现和配置虚拟化
 
@@ -191,7 +191,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 1. 运行以下命令，从联机 Microsoft 存储库列出 Docker 基础映像：
 
    ```powershell
-   docker search Microsoft
+   docker search microsoft
    ```
 1. 运行以下命令，下载包含 Internet Information Services (IIS) 安装的 Nano Server 映像：
 

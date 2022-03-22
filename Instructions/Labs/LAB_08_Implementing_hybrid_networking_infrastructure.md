@@ -2,12 +2,12 @@
 lab:
   title: 实验室：实现混合网络基础结构
   module: 'Module 8: Implementing Windows Server IaaS VM networking'
-ms.openlocfilehash: d568d7fb6226cd53fb624f5a87e9efe1180c0da1
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: b56ee27db3848fd2eae0a2621ab8c60579036fd4
+ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906935"
+ms.lasthandoff: 03/19/2022
+ms.locfileid: "140742077"
 ---
 # <a name="lab-implementing-hybrid-networking-infrastructure"></a>实验室：实现混合网络基础结构
 
@@ -38,7 +38,7 @@ ms.locfileid: "137906935"
    - 密码：Pa55w.rd
    - 域名：CONTOSO
 
-对于此实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
+对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
 >**注意**：默认情况下，此实验室需要在你选择用于部署的区域中的 Standard_Dsv3 系列中总共有 6 个可用的 vCPU，因为它涉及部署 Standard_D2s_v3 SKU 的三个 Azure VM。 如果你使用的是免费的 Azure 帐户，并且限制为 4 个 vCPU，则可使用仅需一个 vCPU 的 VM 大小（例如 Standard_B1s）。
 
@@ -159,7 +159,7 @@ ms.locfileid: "137906935"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm0** |
@@ -178,7 +178,7 @@ ms.locfileid: "137906935"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm0** |
@@ -199,7 +199,7 @@ ms.locfileid: "137906935"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm1** |
@@ -249,7 +249,7 @@ ms.locfileid: "137906935"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 位置 | 创建虚拟网络的 Azure 区域的名称 |
     | 名称 | **az800l08-rt12** |
@@ -279,7 +279,7 @@ ms.locfileid: "137906935"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 区域 | 创建虚拟网络的 Azure 区域的名称 |
     | 名称 | **az800l08-rt21** |
@@ -307,7 +307,7 @@ ms.locfileid: "137906935"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm1** |
@@ -343,7 +343,7 @@ ms.locfileid: "137906935"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | 新资源组 AZ800-L0802-RG 的名称 |
     | 名称 | **contoso.org** |
     | 资源组位置 | 此实验室上一练习中部署资源的同一 Azure 区域 |
@@ -376,7 +376,7 @@ ms.locfileid: "137906935"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm1** |
@@ -452,13 +452,13 @@ ms.locfileid: "137906935"
 1. 在 Cloud Shell 窗格中，运行以下命令，列出在此实验室过程中创建的所有资源组：
 
    ```powershell
-   Get-AzResourceGroup -Name 'az800l08*'
+   Get-AzResourceGroup -Name 'AZ800-L08*'
    ```
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 
    ```powershell
-   Get-AzResourceGroup -Name 'az800l08*' | Remove-AzResourceGroup -Force -AsJob
+   Get-AzResourceGroup -Name 'AZ800-L08*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
    >**注意**：该命令异步执行（由 -AsJob 参数决定），因此，虽然你可以随后立即在同一个 PowerShell 会话中运行另一个 PowerShell 命令，但需要几分钟才能实际删除资源组。
