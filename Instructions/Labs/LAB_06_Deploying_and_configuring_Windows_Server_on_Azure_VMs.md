@@ -204,7 +204,7 @@ ms.locfileid: "137906937"
 
 #### <a name="task-2-review-the-just-in-time-access-settings"></a>任务 2：查看实时访问设置
 
-1. 在 Azure 门户中，浏览到“Microsoft Defender for Cloud | 工作负载保护”页面，并查看“实时 VM 访问”设置。 **\|** 。
+1. 在 Azure 门户中，浏览到 **"Microsoft Defender for Cloud \| 工作负载保护"** 页面，并查看 **“实时 VM 访问”** 设置。
 1. 在“实时 VM 访问”页面上，查看“已配置”、“未配置”和“不支持”选项卡   。
 
    >备注：新部署的 VM 可能需要长达 24 小时才能出现在“不支持”选项卡上。在此期间，与其等待，不如继续下一个练习 。

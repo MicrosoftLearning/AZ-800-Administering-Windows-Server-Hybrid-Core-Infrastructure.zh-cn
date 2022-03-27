@@ -10,7 +10,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 01/28/2022
 ms.locfileid: "137906922"
 ---
-# <a name="lab-answer-key-implementing-storage-solutions-in-windows-server"></a>'实验室解答：在 Windows Server 中实现存储解决方案
+# <a name="lab-answer-key-implementing-storage-solutions-in-windows-server"></a>实验室解答：在 Windows Server 中实现存储解决方案
 
 > 注意：请确保在每次练习后复原虚拟机 (VM)。 由于大多数 VM 都是 Windows Server 2019 Server Core，因此在练习中复原和重启所需的时间比尝试撤销对存储环境所做更改所需的时间更快。
 

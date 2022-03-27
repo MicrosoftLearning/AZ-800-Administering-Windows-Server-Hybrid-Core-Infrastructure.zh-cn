@@ -146,7 +146,7 @@ ms.locfileid: "137906975"
    Add-LocalGroupMember -Group 'Administrators' -Member 'CONTOSO\Ty'
    ```
 
-   > :使用 CONTOSO\\Ty 用户帐户登录 SEA-ADM1 时必需此信息
+   > **注意**:使用 **CONTOSO\\Ty** 用户帐户登录 SEA-ADM1 时必需此信息
 
 ### <a name="results"></a>结果
 
