@@ -231,7 +231,7 @@ ms.locfileid: "137906934"
 #### <a name="task-2-test-replication-conflict-resolution"></a>任务 2：测试复制冲突的解决
 
 1. 在 SEA-ADM1 上，找到并排显示 SEA-SVR1\Data 和 SEA-SVR2\Data 内容的文件浏览器窗口 **\\\\\\** **\\\\\\** 。
-1. '在显示 \SEA-SVR1\Data\ 内容的文件资源管理器窗口中，创建一个名为“Demo.txt”的文件 **\\\\\\** 。 
+1. 在显示 SEA-SVR1\Data 内容的文件资源管理器窗口中，创建一个名为“Demo.txt”的文件 **\\\\\\** 。 
 1. 在显示 SEA-SVR2\Data 内容的文件资源管理器窗口中，创建一个名为“Demo.txt”的文件 **\\\\\\** 。 
 1. 在第一个“Demo.txt”文件中添加任意文本并保存更改。
 1. 紧接着向第二个“Demo.txt”文件添加任意文本（与上一步中使用的文本不同）并保存更改。
