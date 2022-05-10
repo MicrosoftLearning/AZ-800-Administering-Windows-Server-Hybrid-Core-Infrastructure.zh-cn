@@ -3,12 +3,12 @@ lab:
   title: 实验室：在混合场景中使用 Windows Admin Center
   type: Answer Key
   module: 'Module 4: Facilitating hybrid management'
-ms.openlocfilehash: bbdbcae39ff3756d24061a0bf4e4df2aaf7d4c0a
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: b7f4d58c81945aae9c79d4cee0197f2fd1f1a407
+ms.sourcegitcommit: fd8252ad223934b8c3e178706dbc03a8fd9bb030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906925"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144813032"
 ---
 # <a name="lab-answer-key-using-windows-admin-center-in-hybrid-scenarios"></a>实验室解答：在混合场景中使用 Windows Admin Center
 
@@ -168,6 +168,7 @@ ms.locfileid: "137906925"
      SubnetName = $subnetName
      GenerateSslCert = $true
      size = $size
+     PublicIPAddressName = $pipname
    }
    ```
 
