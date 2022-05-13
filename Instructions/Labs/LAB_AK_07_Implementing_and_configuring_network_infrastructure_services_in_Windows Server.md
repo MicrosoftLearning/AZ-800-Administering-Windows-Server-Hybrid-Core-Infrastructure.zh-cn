@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Windows Server 中实现和配置网络基础设施服务
   type: Answer Key
   module: 'Module 7: Network Infrastructure services in Windows Server'
-ms.openlocfilehash: b31ce2d69a285e266a1e43c505451fe342d7ebe2
-ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
+ms.openlocfilehash: 1cac073eaffb0c24b73dc4e2731d89e2a143e568
+ms.sourcegitcommit: fd8252ad223934b8c3e178706dbc03a8fd9bb030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2022
-ms.locfileid: "140742074"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144813027"
 ---
 # <a name="lab-answer-key-implementing-and-configuring-network-infrastructure-services-in-windows-server"></a>实验室解答：在 Windows Server 中实现和配置网络基础设施服务
 
@@ -76,6 +76,9 @@ ms.locfileid: "140742074"
 #### <a name="task-3-create-a-scope"></a>任务 3：创建范围
 
 1. 在 SEA-ADM1 上，在 Microsoft Edge 窗口中切换到 Windows Admin Center，其中显示了 SEA-SVR1 上的“DHCP”设置  。
+
+   > **注意**：DHCP 选项可能需要几分钟时间才会出现在菜单中。 如有必要，请刷新与 sea-svr1 的连接。 如果系统提示安装 DHCP Powershell 工具，请选择“安装”。
+
 1. 在“DHCP”页面上，选择“+ 新建范围” 。
 1. 在创建新范围的窗格中，指定以下设置，然后选择“创建”。
 
