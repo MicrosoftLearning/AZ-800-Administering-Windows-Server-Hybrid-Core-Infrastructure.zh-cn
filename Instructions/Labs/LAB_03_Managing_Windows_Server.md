@@ -2,12 +2,12 @@
 lab:
   title: 实验室：管理 Windows Server
   module: 'Module 3: Windows Server administration'
-ms.openlocfilehash: 6a8e3b2971dd2cacbc057a061f51bad7e18ff230
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 7d1545386316c5d6a3aa1e2bcd9425ea534611bc
+ms.sourcegitcommit: f7b3ca18320bb2b31f1c39247fa90ed4c9f8a3eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906976"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141580015"
 ---
 # <a name="lab-managing-windows-server"></a>实验室：管理 Windows Server
 
@@ -65,6 +65,8 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
    ```
 
    > 注意：请等待安装完成。 这大约需要 2 分钟。
+
+   > **注意**：安装完成后，可能会遇到错误消息“ERR_Connection_Refused”。 如果发生这种情况，请重启 SEA-ADM1 以更正此问题。
 
 #### <a name="task-2-add-servers-for-remote-administration"></a>任务 2：添加用于远程管理的服务器
 

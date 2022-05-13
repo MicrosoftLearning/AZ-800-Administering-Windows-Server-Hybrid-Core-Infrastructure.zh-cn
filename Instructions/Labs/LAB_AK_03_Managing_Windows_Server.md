@@ -3,12 +3,12 @@ lab:
   title: 实验室：管理 Windows Server
   type: Answer Key
   module: 'Module 3: Windows Server administration'
-ms.openlocfilehash: 617789fc8fcaf6ef6019c2bb65de0f7366742eac
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 1fec64837c70515784a071bd1ace473965230863
+ms.sourcegitcommit: f7b3ca18320bb2b31f1c39247fa90ed4c9f8a3eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906928"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141580012"
 ---
 # <a name="lab-managing-windows-server"></a>实验室：管理 Windows Server
 
@@ -30,6 +30,8 @@ ms.locfileid: "137906928"
    ```
 
    > 注意：请等待安装完成。 这大约需要 2 分钟。
+   
+   > **注意**：安装完成后，可能会遇到错误消息“ERR_Connection_Refused”。 如果发生这种情况，请重启 SEA-ADM1 以更正此问题。
 
 #### <a name="task-2-add-servers-for-remote-administration"></a>任务 2：添加用于远程管理的服务器
 
@@ -43,13 +45,13 @@ ms.locfileid: "137906928"
 1. 查看“所有连接”页，注意它包含 sea-adm1.contoso.com 条目 。 
 1. 在“所有连接”页面上，选择“+ 添加” 。 
 1. 在“添加或创建资源”窗格中的“服务器”磁贴上，选择“添加” 。
-1. 在“服务器名称”文本框中，输入“sea-svr1.contoso.com” 。
+1. 在“服务器名称”文本框中，输入“sea-dc1.contoso.com” 。
 1. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
 
    - 用户名：CONTOSO\\Administrator
    - 密码：Pa55w.rd
 
-   > 注意：执行步骤 7 后，如果出现“你可将此服务器添加到你的连接列表，但我们无法确认它是否可用。”  的错误消息，请选择“添加”。 在“所有连接”窗格中，选择 sea-svr1.contoso.com，然后选择“管理形式” 。 在“指定凭据”对话框中，确保已选中“对此连接使用另一个帐户”选项，输入管理员凭据，然后选择“继续”  。
+   > 注意：执行步骤 7 后，如果出现“你可将此服务器添加到你的连接列表，但我们无法确认它是否可用。”  的错误消息，请选择“添加”。 在“所有连接”窗格中，选择“sea-svr1.contoso.com”，然后选择“管理形式” 。 在“指定凭据”对话框中，确保已选中“对此连接使用另一个帐户”选项，输入管理员凭据，然后选择“继续”  。
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派。
 
@@ -81,7 +83,7 @@ ms.locfileid: "137906928"
 1. 在右侧的“设置”部分，选择“远程桌面” 。
 1. 在“远程桌面”部分中，选中“允许与此计算机的远程连接”复选框，然后选择“保存”  。
 1. 在左侧窗格的“工具”列表中，选择“远程桌面” 。
-1. 在“远程桌面”窗格中，选中“不再询问我是否连接到此计算机”复选框，然后选择“连接” 。
+1. 在远程桌面窗格中，选中“自动连接到此计算机提供的证书”复选框，然后选择“连接” 。
 1. 出现提示时，选择“确认”，然后选择“连接” 。
 1. 确认通过远程桌面在 Windows Admin Center 界面中成功连接到的 SEA-DC1。
 1. 选择“断开”。

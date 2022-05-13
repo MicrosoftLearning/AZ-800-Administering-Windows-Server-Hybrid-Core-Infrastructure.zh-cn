@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Windows Server 中实现和配置虚拟化
   type: Answer Key
   module: 'Module 5: Hyper-V virtualization in Windows Server'
-ms.openlocfilehash: c267fd20d8ec5d4f013422119a707253100a9aa6
-ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
+ms.openlocfilehash: 9d245ed491ca11a2513ba5bc61627331324aab99
+ms.sourcegitcommit: fd8252ad223934b8c3e178706dbc03a8fd9bb030
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2022
-ms.locfileid: "140742080"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144813030"
 ---
 # <a name="lab-answer-key-implementing-and-configuring-virtualization-in-windows-server"></a>实验室解答：在 Windows Server 中实现和配置虚拟化
 
@@ -20,7 +20,7 @@ ms.locfileid: "140742080"
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“服务器管理器”  。
 1. 在服务器管理器中，选择“所有服务器”。
 1. 在服务器列表中，选择“SEA-SVR1”条目以显示其上下文菜单，然后选择“Hyper-V 管理器” 。
-1. 在 Hyper-V 管理器中，确保已选中“SEA-SVR1.Contoso.com”框。
+1. 在 Hyper-V 管理器中，确保“SEA-SVR1.Contoso.com”是选定的 Hyper-V 服务器。
 1. 在“操作”窗格中，选择“虚拟交换机管理器”。
 1. 在“虚拟交换机管理器”中，在“创建虚拟交换机”窗格中选择“专用”，然后选择“创建虚拟交换机”   。
 1. 在“虚拟交换机属性”框中，指定以下设置，然后选择“确定” ：
@@ -77,7 +77,7 @@ ms.locfileid: "140742080"
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > 注意：请等待安装完成。 这大约需要 2 分钟。 如果网页没有响应，请打开 services.msc 并验证 Windows Admin Center 服务器是否已启动 。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后转到 `https://SEA-ADM1.contoso.com`。 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：

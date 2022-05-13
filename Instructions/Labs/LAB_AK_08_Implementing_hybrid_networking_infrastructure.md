@@ -3,12 +3,12 @@ lab:
   title: 实验室：实现 Windows Server IaaS VM 网络
   type: Answer Key
   module: 'Module 8: Implementing Windows Server IaaS VM networking'
-ms.openlocfilehash: 03d9699e32a1e7d71217abd840829ef21145de68
-ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
+ms.openlocfilehash: 2cdfd4c09ee1b0db6ba40dd32c0fc2e349dedcd7
+ms.sourcegitcommit: 32ed048f66b9810d6ee6f680c4b9637b28ffa316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2022
-ms.locfileid: "140742083"
+ms.lasthandoff: 03/28/2022
+ms.locfileid: "141184694"
 ---
 # <a name="lab-implementing-hybrid-networking-infrastructure"></a>实验室：实现混合网络基础结构
 
@@ -69,8 +69,8 @@ ms.locfileid: "140742083"
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开另一个选项卡，浏览到 [Azure 门户](https://portal.azure.com) 。
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟网络” 。
-1. 在虚拟网络列表中，选择“az800l08-vnet1”。
-1. 在 az800l08-vnet1 虚拟网络页上的“设置”部分中，选择“对等互连”，然后选择“+ 添加”   。
+1. 在虚拟网络列表中，选择“az800l08-vnet0”。
+1. 在 az800l08-vnet0 虚拟网络页上的“设置”部分中，选择“对等互连”，然后选择“+ 添加”   。
 1. 指定以下设置（将其他设置保留为默认值），然后选择“添加”：
 
     | 设置 | 值 |
@@ -120,7 +120,7 @@ ms.locfileid: "140742083"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm0** |
@@ -139,7 +139,7 @@ ms.locfileid: "140742083"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm0** |
@@ -160,7 +160,7 @@ ms.locfileid: "140742083"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm1** |
@@ -213,7 +213,7 @@ ms.locfileid: "140742083"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 位置 | 创建虚拟网络的 Azure 区域的名称 |
     | 名称 | **az800l08-rt12** |
@@ -251,7 +251,7 @@ ms.locfileid: "140742083"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 区域 | 创建虚拟网络的 Azure 区域的名称 |
     | 名称 | **az800l08-rt21** |
@@ -287,7 +287,7 @@ ms.locfileid: "140742083"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm1** |
@@ -310,7 +310,7 @@ ms.locfileid: "140742083"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | 新资源组 AZ800-L0802-RG 的名称 |
     | 名称 | **contoso.org** |
     | 资源组位置 | 此实验室上一练习中部署资源的同一 Azure 区域 |
@@ -345,7 +345,7 @@ ms.locfileid: "140742083"
 
     | 设置 | 值 |
     | --- | --- |
-    | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
     | 源类型 | **虚拟机** |
     | 虚拟机 | **az800l08-vm1** |

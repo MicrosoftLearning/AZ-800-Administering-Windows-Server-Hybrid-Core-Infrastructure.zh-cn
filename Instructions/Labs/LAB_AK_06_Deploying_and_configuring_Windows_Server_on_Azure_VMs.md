@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Azure VM 上部署和配置 Windows Server
   type: Answer Key
   module: 'Module 6: Deploying and Configuring Azure VMs'
-ms.openlocfilehash: 19550acaddcfe670775ddd8bcc56d7df05ef72be
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 350b089387e4765feaa860612d3026138aa4d829
+ms.sourcegitcommit: f7b3ca18320bb2b31f1c39247fa90ed4c9f8a3eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906968"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141580006"
 ---
 # <a name="lab-answer-key-deploying-and-configuring-windows-server-on-azure-vms"></a>实验室解答：在 Azure VM 上部署和配置 Windows Server
 
@@ -57,7 +57,7 @@ ms.locfileid: "137906968"
 1. 选择“下一步: 网络 >”，然后在“创建虚拟机”页面中的“网络”选项卡上，选择“新建”超链接，此链接位于“虚拟网络”文本框之后*    。
 1. 在“创建虚拟网络”页面上，指定以下设置，同时将所有其他设置保留为默认值，然后选择“确定” ：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |名称|az800l06-vnet|
    |地址范围|10.60.0.0/20|
@@ -104,6 +104,7 @@ ms.locfileid: "137906968"
 #### <a name="task-2-add-an-azure-vm-extension-section-to-the-existing-template"></a>任务 2：将 Azure VM 扩展部分添加到现有模板
 
 1. 在 SEA-ADM1 上，在显示 template.json 文件内容的记事本窗口中，在 `    "resources": [` 行后直接插入以下代码 ：
+   >**注意**：如果使用逐行粘贴代码的工具，IntelliSense 可能会添加多余的括号，从而导致验证错误。 可能需要先将代码粘贴到记事本，再将其粘贴到 JSON 文件中。
 
    ```json
         {
@@ -225,7 +226,7 @@ ms.locfileid: "137906968"
 1. 在“ipconfig1”页面的“公共 IP 地址”部分中，选择“关联”，然后在“公共 IP 地址”下拉列表下，选择“新建”    。
 1. 在“添加公共 IP 地址”窗口中，指定以下设置，然后选择“确定” ：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |名称|az800l06-vm0-pip1|
    |SKU|**标准**|

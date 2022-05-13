@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在 Azure VM 上部署和配置 Windows Server
   module: 'Module 6: Deploying and Configuring Azure VMs'
-ms.openlocfilehash: d2505e999d7e5194fd7a407cc035834dee2464f3
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 0acf54cd8a93c3aaaf2c885b10deaaa3e6ddcaad
+ms.sourcegitcommit: f7b3ca18320bb2b31f1c39247fa90ed4c9f8a3eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906937"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141580009"
 ---
 # <a name="lab-deploying-and-configuring-windows-server-on-azure-vms"></a>实验室：在 Azure VM 上部署和配置 Windows Server
 
@@ -81,11 +81,11 @@ ms.locfileid: "137906937"
    |资源组|新资源组 AZ800-L0601-RG 的名称|
    |虚拟机名称|az800l06-vm0|
    |区域|使用可以在其中预配 Azure 虚拟机的 Azure 区域的名称|
-   |可用性选项|不需要基础结构冗余|
+   |可用性选项|没有所需的基础结构冗余|
    |映像|Windows Server 2022 Datacenter：Azure Edition - Gen2|
    |Azure Spot 实例|否|
    |大小|**Standard_D2s_v3**|
-   |用户名|**Student**|
+   |用户名|**学生**|
    |密码|**Pa55w.rd1234**|
    |公共入站端口|无|
    |是否要使用现有的 Windows Server 许可证|否|
@@ -129,6 +129,8 @@ ms.locfileid: "137906937"
 #### <a name="task-2-add-an-azure-vm-extension-section-to-the-existing-template"></a>任务 2：将 Azure VM 扩展部分添加到现有模板
 
 1. 在实验室 VM 上，在显示 template.json 文件内容的记事本窗口中，在 `    "resources": [` 行下直接插入以下代码：
+
+   >**注意**：如果使用逐行粘贴代码的工具，IntelliSense 可能会添加多余的括号，从而导致验证错误。 可能需要先将代码粘贴到记事本，再将其粘贴到 JSON 文件中。
 
    ```json
         {
@@ -226,7 +228,7 @@ ms.locfileid: "137906937"
 
 1. 在 Azure 门户中，使用以下设置创建 NSG，并将所有其他设置保留为其默认值：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ800-L0601-RG|
@@ -235,7 +237,7 @@ ms.locfileid: "137906937"
 
 1. 使用以下设置将入站安全规则添加到新创建的网络安全组，并将所有其他设置保留为其默认值：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |源|**任意**|
    |源端口范围|*|
@@ -250,7 +252,7 @@ ms.locfileid: "137906937"
 1. 在 Azure 门户中，浏览到连接到 az800l06-vm0 Azure VM 的网络接口的页面，并将其与在上一任务中创建的网络安全组关联。
 1. 在 Azure 门户中，浏览到连接到 az800l06-vm0 Azure VM 的网络接口的 IP 配置，并将其与具有以下设置的新的公共 IP 地址相关联，并将所有其他设置保留为其默认值：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |名称|az800l06-vm0-pip1|
    |SKU|**标准**|
@@ -277,7 +279,7 @@ ms.locfileid: "137906937"
    
    |设置|值|
    |---|---|
-   |用户名|**Student**|
+   |用户名|**学生**|
    |密码|**Pa55w.rd1234**|
 
 1. 验证是否可以通过远程桌面成功访问在 Azure VM 中运行的操作系统，并关闭远程桌面会话。
