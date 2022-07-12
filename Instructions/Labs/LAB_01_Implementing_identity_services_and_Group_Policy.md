@@ -2,12 +2,12 @@
 lab:
   title: 实验室：实现标识服务和组策略
   module: 'Module 1: Identity services in Windows Server'
-ms.openlocfilehash: 34c6259da5db4beca5e31998564c06102902ca48
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 62d1b1751656bfbed6f1096ff84b353f46f2f3da
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906975"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039398"
 ---
 # <a name="lab-implementing-identity-services-and-group-policy"></a>实验室：实现标识服务和组策略
 
@@ -163,7 +163,7 @@ ms.locfileid: "137906975"
 1. 创建并编辑 GPO 设置。
 1. 应用并验证客户端计算机上的设置。
 
-### <a name="task-1-create-and-edit-a-gpo"></a>任务 1：创建并编辑 GPO
+#### <a name="task-1-create-and-edit-a-gpo"></a>任务 1：创建并编辑 GPO
 
 1. 在 SEA-ADM1 上，从“服务器管理器”中，打开“组策略管理”控制台  。
 1. 在“组策略对象”容器中创建一个名为“Contoso Standards”的 GPO 。
@@ -172,11 +172,11 @@ ms.locfileid: "137906975"
 1. 浏览到 User Configuration\Policies\Administrative Templates\Control Panel\Personalization 文件夹，然后将“屏幕保护”超时策略配置为“600”秒  。
 1. 启用“对屏幕保护使用密码保护”策略设置，然后关闭“组策略管理编辑器”窗口 。
 
-### <a name="task-2-link-the-gpo"></a>任务 2：链接 GPO
+#### <a name="task-2-link-the-gpo"></a>任务 2：链接 GPO
 
   - 将“Contoso Standards”GPO 链接到 `contoso.com` 域。
 
-### <a name="task-3-review-the-effects-of-the-gpos-settings"></a>任务 3：查看 GPO 设置的效果
+#### <a name="task-3-review-the-effects-of-the-gpos-settings"></a>任务 3：查看 GPO 设置的效果
 
 1. 在 SEA-ADM1 上，打开“控制面板” 。
 1. 使用“Windows Defender 防火墙”接口，启用“远程事件日志管理”域流量 。 
@@ -190,7 +190,7 @@ ms.locfileid: "137906975"
 1. 在 SEA-ADM1 上，在“组策略管理”控制台中，创建名为“Seattle Application Override”的新 GPO，该 GPO 链接到 Seattle OU   。
 1. 将“屏幕保护超时”策略设置配置为禁用，然后关闭“组策略管理编辑器”窗口 。
 
-### <a name="task-5-verify-the-order-of-precedence"></a>任务 5：验证优先顺序
+#### <a name="task-5-verify-the-order-of-precedence"></a>任务 5：验证优先顺序
 
 1. 在 SEA-ADM1 上，从“服务器管理器”中，打开“组策略管理”控制台  。
 1. 在“组策略管理控制台”树中，选择“Seattle”OU 。
@@ -198,12 +198,12 @@ ms.locfileid: "137906975"
 
    > 注意：Seattle Application Override GPO 的优先级高于 CONTOSO Standards GPO。 刚刚在 Seattle Application Override GPO 中配置的屏幕保护程序超时策略设置将在设置 CONTOSO Standards GPO 之后应用。 因此，新设置将覆盖 CONTOSO Standards GPO 设置。 对于 Seattle Application Override GPO 范围内的用户，将禁用屏幕保护程序超时。
 
-### <a name="task-6-configure-the-scope-of-a-gpo-with-security-filtering"></a>任务 6：使用安全筛选配置 GPO 的范围
+#### <a name="task-6-configure-the-scope-of-a-gpo-with-security-filtering"></a>任务 6：使用安全筛选配置 GPO 的范围
 
 1. 在 SEA-ADM1 上，在“组策略管理”控制台中，选择“Seattle Application Override”GPO  。 注意，在“安全筛选”部分，GPO 默认应用于所有经过身份验证的用户。
 1. 在“安全筛选”部分中，首先删除“经过身份验证的用户”，然后添加“SeattleBranchUsers”组和“SEA-ADM1”计算机帐户   。
 
-### <a name="task-7-verify-the-application-of-settings"></a>任务 7：验证应用程序的设置
+#### <a name="task-7-verify-the-application-of-settings"></a>任务 7：验证应用程序的设置
 
 1. 在“组策略管理”的导航窗格中，选择“组策略建模”。
 1. 启动“组策略建模向导”。
