@@ -2,12 +2,12 @@
 lab:
   title: 实验室：管理 Windows Server
   module: 'Module 3: Windows Server administration'
-ms.openlocfilehash: 7d1545386316c5d6a3aa1e2bcd9425ea534611bc
-ms.sourcegitcommit: f7b3ca18320bb2b31f1c39247fa90ed4c9f8a3eb
+ms.openlocfilehash: 88b5dda91ee1aa239f87b94e55ed5bd6f42aca10
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2022
-ms.locfileid: "141580015"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039395"
 ---
 # <a name="lab-managing-windows-server"></a>实验室：管理 Windows Server
 

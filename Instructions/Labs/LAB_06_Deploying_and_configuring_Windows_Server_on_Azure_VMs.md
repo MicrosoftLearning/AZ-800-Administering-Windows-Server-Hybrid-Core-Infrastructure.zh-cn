@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在 Azure VM 上部署和配置 Windows Server
   module: 'Module 6: Deploying and Configuring Azure VMs'
-ms.openlocfilehash: 0acf54cd8a93c3aaaf2c885b10deaaa3e6ddcaad
-ms.sourcegitcommit: f7b3ca18320bb2b31f1c39247fa90ed4c9f8a3eb
+ms.openlocfilehash: bbf7d0657532d3b162ac8c366cc37da11ae3c32c
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2022
-ms.locfileid: "141580009"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039431"
 ---
 # <a name="lab-deploying-and-configuring-windows-server-on-azure-vms"></a>实验室：在 Azure VM 上部署和配置 Windows Server
 
@@ -45,7 +45,7 @@ ms.locfileid: "141580009"
    - 密码：Pa55w.rd
    - 域名：CONTOSO
 
-对于此实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
+对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
 ## <a name="exercise-1-authoring-arm-templates-for-azure-vm-deployment"></a>练习 1：创作用于 Azure VM 部署的 ARM 模板
 
@@ -98,7 +98,7 @@ ms.locfileid: "141580009"
    |NIC 网络安全组|无|
    |加速网络|关|
    |是否将此虚拟机置于现有负载均衡解决方案之后？|否|
-   |启动诊断|已使用托管存储帐户启用（推荐）|
+   |启动诊断|使用托管存储帐户启用（推荐）|
 
 1. 当你到达“创建虚拟机”页的“查看和创建”选项卡时，请继续执行任务 3 。
 
@@ -204,7 +204,7 @@ ms.locfileid: "141580009"
 1. 在 Azure 门户中，浏览到“Microsoft Defender for Cloud”页面。
 1. 验证是否已启用 Microsoft Defender for Cloud 的增强安全功能。
 
-#### <a name="task-2-review-the-just-in-time-access-settings"></a>任务 2：查看实时访问设置
+#### <a name="task-2-review-the-just-in-time-vm-access-settings"></a>任务 2：查看实时 VM 访问设置
 
 1. 在 Azure 门户中，浏览到 **"Microsoft Defender for Cloud \| 工作负载保护"** 页面，并查看 **“实时 VM 访问”** 设置。
 1. 在“实时 VM 访问”页面上，查看“已配置”、“未配置”和“不支持”选项卡   。
@@ -228,7 +228,7 @@ ms.locfileid: "141580009"
 
 1. 在 Azure 门户中，使用以下设置创建 NSG，并将所有其他设置保留为其默认值：
 
-   |设置|Value|
+   |设置|值|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ800-L0601-RG|
@@ -237,7 +237,7 @@ ms.locfileid: "141580009"
 
 1. 使用以下设置将入站安全规则添加到新创建的网络安全组，并将所有其他设置保留为其默认值：
 
-   |设置|Value|
+   |设置|值|
    |---|---|
    |源|**任意**|
    |源端口范围|*|
@@ -252,7 +252,7 @@ ms.locfileid: "141580009"
 1. 在 Azure 门户中，浏览到连接到 az800l06-vm0 Azure VM 的网络接口的页面，并将其与在上一任务中创建的网络安全组关联。
 1. 在 Azure 门户中，浏览到连接到 az800l06-vm0 Azure VM 的网络接口的 IP 配置，并将其与具有以下设置的新的公共 IP 地址相关联，并将所有其他设置保留为其默认值：
 
-   |设置|Value|
+   |设置|值|
    |---|---|
    |名称|az800l06-vm0-pip1|
    |SKU|**标准**|
@@ -268,7 +268,7 @@ ms.locfileid: "141580009"
 
 1. 在 Azure 门户中，浏览回 az800l06-vm0 页。
 1. 在“az800l06-vm0”页上，选择“配置” 。 
-1. 在“az800l06-vm0 \| 配置”页面上，选择“启用 JIT VM 访问”，然后选择“打开 Azure 安全中心”链接  。
+1. 在“az800l06-vm0 \| 配置”页上，选择“启用实时 VM 访问”，然后选择“打开 Azure 安全中心”链接  。
 1. 在“实时 VM 访问”页面上，验证代表 az800l06-vm0 Azure VM 的条目是否出现在“已配置”选项卡上  。
 
 #### <a name="task-4-connect-to-the-azure-vm-via-jit-vm-access"></a>任务 4：通过 JIT VM 访问连接到 Azure VM

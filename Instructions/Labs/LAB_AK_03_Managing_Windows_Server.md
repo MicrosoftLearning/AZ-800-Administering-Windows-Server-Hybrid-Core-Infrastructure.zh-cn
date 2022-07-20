@@ -3,14 +3,14 @@ lab:
   title: 实验室：管理 Windows Server
   type: Answer Key
   module: 'Module 3: Windows Server administration'
-ms.openlocfilehash: 1fec64837c70515784a071bd1ace473965230863
-ms.sourcegitcommit: f7b3ca18320bb2b31f1c39247fa90ed4c9f8a3eb
+ms.openlocfilehash: 2a57ebb13406a063390a232275e354c167c6e494
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2022
-ms.locfileid: "141580012"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039443"
 ---
-# <a name="lab-managing-windows-server"></a>实验室：管理 Windows Server
+# <a name="lab-answer-key-managing-windows-server"></a>实验室答案密钥：管理 Windows Server
 
 ## <a name="exercise-1-implementing-and-using-remote-server-administration"></a>练习 1：实现和使用远程服务器管理
 
@@ -29,7 +29,7 @@ ms.locfileid: "141580012"
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > 备注：请等待安装完成。 这大约需要 2 分钟。
    
    > **注意**：安装完成后，可能会遇到错误消息“ERR_Connection_Refused”。 如果发生这种情况，请重启 SEA-ADM1 以更正此问题。
 
@@ -78,7 +78,7 @@ ms.locfileid: "141580012"
 
 1. 在 SEA-ADM1 上，在 Windows Admin Center 左侧窗格的“工具”列表中，选择“概述”  。 请注意，Windows Admin Center 的“详细信息”窗格显示基本的服务器信息和性能监视。
 1. 在左侧窗格的“工具”列表中，向下滚动并查看可用的基本管理工具。 选择“角色和功能”，并注意哪些角色和功能被列为已安装，哪些角色和功能可以安装。 向下滚动，选中“Telnet 客户端”复选框，然后选择窗格顶部的“+ 安装” 。
-1. 在“安装角色和功能”窗格中，选择“是”，等待确认已成功安装 Telnet 客户端的消息。
+1. 在“安装角色和功能”窗格中，选择“是”，等待确认已成功安装 Telnet 客户端的消息 。
 1. 在左侧窗格的最底部，在“工具”列表下，选择“设置” 。
 1. 在右侧的“设置”部分，选择“远程桌面” 。
 1. 在“远程桌面”部分中，选中“允许与此计算机的远程连接”复选框，然后选择“保存”  。

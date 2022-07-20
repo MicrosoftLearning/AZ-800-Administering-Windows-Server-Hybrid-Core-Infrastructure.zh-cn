@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在混合场景中使用 Windows Admin Center
   module: 'Module 4: Facilitating hybrid management'
-ms.openlocfilehash: e380f49ae9b53ee46e48a21ac40e40cbddd51852
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: a39562df5131e07d2cb50634629bbb40a15f82c8
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906948"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039386"
 ---
 # <a name="lab-using-windows-admin-center-in-hybrid-scenarios"></a>实验室：在混合场景中使用 Windows Admin Center
 
@@ -60,7 +60,7 @@ ms.locfileid: "137906948"
 1. 将 C:\\Labfiles\\Lab04\\L04-sub_template.json 文件上传到 Cloud Shell 主目录。
 1. 在 Cloud Shell 窗格中，运行以下命令以创建一个资源组，其中包含在此实验室中预配的资源。 （将 `<Azure region>` 占位符替换为可在其中部署 Azure 虚拟机的 Azure 区域的名称，例如 eastus）
 
-   >注意：此实验室已使用“美国东部”进行了测试和验证，因此你应该使用该区域。 通常，若要标识可在其中预配 Azure VM 的 Azure 区域，请参阅[查找你所在区域的 Azure 额度产品/服务](https://aka.ms/regions-offers)。
+   >注意：此实验室已使用“美国东部”进行了测试和验证，因此你应该使用该区域。 通常，若要确定可在其中预配 Azure VM 的 Azure 区域，请参阅[查找你所在区域的 Azure 额度套餐](https://aka.ms/regions-offers)。
 
    ```powershell
    $location = '<Azure region>'
@@ -119,7 +119,7 @@ ms.locfileid: "137906948"
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > 备注：请等待安装完成。 这大约需要 2 分钟。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。 
 
@@ -173,14 +173,14 @@ ms.locfileid: "137906948"
    ```powershell
    Enable-AzureRmAlias -Scope Process
    ```
-1. 运行以下命令，设置运行 Windows Admin Center 预配脚本必需的变量值：
+1. 运行以下命令，设置运行 Windows Admin Center 预配脚本必需的变量值（将 `<Azure region>` 占位符替换为你之前在此实验室中向其部署资源的 Azure 区域的名称，例如 eastus）：
 
    ```powershell
    $rgName = 'AZ800-L0401-RG'
    $vnetName = 'az800l04-vnet'
    $nsgName = 'az800l04-web-nsg'
    $subnetName = 'subnet1'
-   $location = 'eastus'
+   $location = '<Azure region>'
    $pipName = 'wac-public-ip'
    $size = 'Standard_D2s_v3'
    ```
@@ -194,9 +194,10 @@ ms.locfileid: "137906948"
      SubnetName = $subnetName
      GenerateSslCert = $true
      size = $size
+     PublicIPAddressName = $pipname
    }
    ```
-1. 运行以下命令以禁用 PowerShell 远程处理的证书验证：
+1. 运行以下命令以禁用 PowerShell 远程处理的证书验证（在第一个命令后出现提示时，输入 A 并按 Enter 键）：
 
    ```powershell
    install-module pswsman

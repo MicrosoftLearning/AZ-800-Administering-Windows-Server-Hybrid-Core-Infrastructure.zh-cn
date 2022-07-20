@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在 Windows Server 中实现存储解决方案
   module: 'Module 9: File servers and storage management in Windows Server'
-ms.openlocfilehash: 26aa54dc19222f7dd15dd5e64db939abdc8fada3
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 934803ee453372faa68572a289154e7c89f4b416
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906970"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039434"
 ---
 # <a name="lab-implementing-storage-solutions-in-windows-server"></a>实验室：在 Windows Server 中实现存储解决方案
 
@@ -143,7 +143,7 @@ ms.locfileid: "137906970"
    Get-DedupMetadata –Volume M: |fl
    ```
 1. 在 SEA-ADM1 上，刷新服务器管理器中的“磁盘”窗格，并显示 M 卷的属性  。
-1. 在“卷 (M:\) 重复数据删除属性”窗口中，查看“重复数据删除率”和“重复数据删除节省”的值  。
+1. 在“卷(M:\\)属性”窗口中，查看“重复数据删除率”和“重复数据删除节省”的值  。
 
 ## <a name="lab-exercise-2-configuring-iscsi-storage"></a>实验室练习 2：配置 iSCSI 存储
 
@@ -360,7 +360,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 1. 在服务器管理器的“磁盘”窗格中，将附加到 SEA-SVR1、SEA-SVR2 和 SEA-SVR3 的所有磁盘转为联机状态   。
 1. 在 SEA-ADM1 上启动 Windows PowerShell ISE 并在其脚本窗格中打开 C:\\Labfiles\\Lab09\\Implement-StorageSpacesDirect.ps1  。
 
-   > 注意：脚本分为多个带编号的步骤。 共有八个步骤，每个步骤都有多个命令。 若要执行单个行，可以将光标置于该行中的任意位置，然后按 F8，或在 Windows PowerShell ISE 窗口的工具栏中选择“运行选择” 。 若要执行多个行，请完全选择所有行，然后使用 F8 或“运行选择”工具栏图标。 此练习的说明中介绍了步骤顺序。 确保每个步骤完成后再开始下一个步骤。
+   > 注意：脚本分为多个带编号的步骤。 共有 8 个步骤，每个步骤都有多个命令。 若要执行单个行，可以将光标置于该行中的任意位置，然后按 F8，或在 Windows PowerShell ISE 窗口的工具栏中选择“运行选择” 。 若要执行多个行，请完全选择所有行，然后使用 F8 或“运行选择”工具栏图标。 此练习的说明中介绍了步骤顺序。 确保每个步骤完成后再开始下一个步骤。
 
 1. 运行步骤 1 中的第一个命令，在 SEA-SVR1、SEA-SVR2 和 SEA-SVR3 上安装文件服务器角色和故障转移群集功能  。
 

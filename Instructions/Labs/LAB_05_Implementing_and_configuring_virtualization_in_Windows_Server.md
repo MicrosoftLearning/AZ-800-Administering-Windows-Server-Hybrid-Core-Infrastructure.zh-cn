@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在 Windows Server 中实现和配置虚拟化
   module: 'Module 5: Hyper-V virtualization in Windows Server'
-ms.openlocfilehash: e9b70ecdc5eef196b00ea2d0c88471c779d6d701
-ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
+ms.openlocfilehash: 7120bfad95a023f547426f44af6a775b98dbf491
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2022
-ms.locfileid: "140742071"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039389"
 ---
 # <a name="lab-implementing-and-configuring-virtualization-in-windows-server"></a>实验室：在 Windows Server 中实现和配置虚拟化
 
@@ -105,7 +105,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > 备注：请等待安装完成。 这大约需要 2 分钟。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
@@ -188,11 +188,6 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 
    > 注意：确认本地存储库存储中没有映像。
 
-1. 运行以下命令，从联机 Microsoft 存储库列出 Docker 基础映像：
-
-   ```powershell
-   docker search microsoft
-   ```
 1. 运行以下命令，下载包含 Internet Information Services (IIS) 安装的 Nano Server 映像：
 
    ```powershell
@@ -244,7 +239,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 #### <a name="task-3-use-windows-admin-center-to-manage-containers"></a>任务 3：使用 Windows Admin Center 管理容器
 
 1. 在 SEA-ADM1 上，在 Windows Admin Center 中 sea-svr1.contoso.com 的“工具”菜单中，选择“容器”   。 系统提示关闭 PowerShell 会话时，选择“继续” 。
-1. 在“容器”窗格中，浏览“摘要”、“容器”、“映像”、“网络”和“卷”选项卡    。
+1. 在“容器”窗格中，浏览“概述”、“容器”、“映像”、“网络”和“卷”选项卡    。
 
 ### <a name="exercise-2-results"></a>练习 2 结果
 

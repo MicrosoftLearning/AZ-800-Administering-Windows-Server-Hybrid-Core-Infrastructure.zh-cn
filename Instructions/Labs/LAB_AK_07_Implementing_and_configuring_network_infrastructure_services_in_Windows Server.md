@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Windows Server 中实现和配置网络基础设施服务
   type: Answer Key
   module: 'Module 7: Network Infrastructure services in Windows Server'
-ms.openlocfilehash: 1cac073eaffb0c24b73dc4e2731d89e2a143e568
-ms.sourcegitcommit: fd8252ad223934b8c3e178706dbc03a8fd9bb030
+ms.openlocfilehash: 5157a50a5a5317acfcb7d38b68fa4e16e5201c01
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2022
-ms.locfileid: "144813027"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039383"
 ---
 # <a name="lab-answer-key-implementing-and-configuring-network-infrastructure-services-in-windows-server"></a>实验室解答：在 Windows Server 中实现和配置网络基础设施服务
 
@@ -32,7 +32,7 @@ ms.locfileid: "144813027"
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > 备注：请等待安装完成。 这大约需要 2 分钟。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后浏览到 `https://SEA-ADM1.contoso.com`。
 
@@ -192,7 +192,7 @@ ms.locfileid: "144813027"
    - 动态更新：不允许动态更新
 
 1. 返回到 DNS 窗格中，选择“TreyResearch.net”，然后选择“+ 创建新的 DNS 记录” 。
-1. 在创建新 DNS 记录窗格中，指定以下设置，然后选择“创建”：
+1. 在“创建新 DNS 记录”窗格中，指定以下设置，然后选择“创建” ：
 
    - DNS 记录类型：主机 (A)
    - 记录名称：TestApp

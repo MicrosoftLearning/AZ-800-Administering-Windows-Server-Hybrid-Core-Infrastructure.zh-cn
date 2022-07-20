@@ -3,14 +3,14 @@ lab:
   title: 实验室：实现 AD DS 与 Azure AD 之间的集成
   type: Answer Key
   module: 'Module 2: Implementing Identity in Hybrid Scenarios'
-ms.openlocfilehash: 7defc132d092b6db2286718a9bfd5ce619c7b632
-ms.sourcegitcommit: fd8252ad223934b8c3e178706dbc03a8fd9bb030
+ms.openlocfilehash: eeedd9f2c83c2165ad1799ff503706629a4ec70a
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2022
-ms.locfileid: "144813024"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039428"
 ---
-# <a name="lab-implementing-integration-between-ad-ds-and-azure-ad"></a>实验室：实现 AD DS 与 Azure AD 之间的集成
+# <a name="lab-answer-key-implementing-integration-between-ad-ds-and-azure-ad"></a>实验室答案密钥：实现 AD DS 与 Azure AD 之间的集成
 
 ## <a name="exercise-1-preparing-azure-ad-for-ad-ds-integration"></a>练习 1：为与 AD DS 集成准备 Azure AD
 
@@ -123,7 +123,7 @@ ms.locfileid: "144813024"
 #### <a name="task-3-update-a-user-account-in-active-directory"></a>任务 3：更新 Active Directory 中的用户帐户
 
 1. 在 SEA-ADM1 上，在服务器管理器的“工具”菜单中选择“Active Directory 用户和计算机”  。
-1. 在“Active Directory 用户和计算机”中，展开“销售”组织单元 (OU)，然后打开“Ben Miller”的属性  。
+1. 在“Active Directory 用户和计算机”中，展开“销售”组织单位 (OU)，然后打开“Sumesh Rajan”的属性  。
 1. 在用户的属性中，选择“组织”选项卡。
 1. 在“职务”文本框中，输入“经理”，然后选择“确定”  。
 
@@ -154,8 +154,8 @@ ms.locfileid: "144813024"
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，然后返回“Azure Active Directory”页面 。
 1. 在“Azure Active Directory”页上，选择“用户” 。
-1. 在“所有用户”页面上，搜索用户“Ben” 。
-1. 打开用户 Ben Miller 的属性页，然后验证“职务”属性是否已从 Active Directory 同步 。
+1. 在“所有用户”页上，搜索用户“Sumesh” 。
+1. 打开用户 Sumesh Rajan 的属性页，然后验证“职务”属性是否已从 Active Directory 同步 。
 1. 在 Microsoft Edge 中，返回“所有用户”页面。
 1. 在“所有用户”页面上，搜索用户“Jordan” 。
 1. 打开用户 Jordan Mitchell 的属性页，然后查看已从 Active Directory 同步的该用户帐户的属性。
@@ -225,14 +225,14 @@ ms.locfileid: "144813024"
 1. 在“无缝单一登录”页面上，留意本地域名。
 1. 在Microsoft Edge中，返回到“Azure AD Connect”页。
 1. 在“Azure AD Connect”页上的“用户登录”下，选择“直通身份验证”  。
-1. 在“直通身份验证”页面上，留意“身份验证代理”下的 SEA-ADM1 服务器名称  。
+1. 在“直通身份验证”页上，留意“身份验证代理”下的 SEA-ADM1 服务器名称  。
 
    > 注意：若要在环境中的多台服务器上安装 Azure AD 身份验证代理，可以从 Azure 门户中的“直通身份验证”页面下载其二进制文件 。 
 
 #### <a name="task-5-install-and-register-the-azure-ad-password-protection-proxy-service-and-dc-agent"></a>任务 5：安装并注册 Azure AD 密码保护代理服务和 DC 代理
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，转到“Microsoft 下载”网站，然后浏览到可下载安装程序的“Windows Server Active Directory 的 Azure AD 密码保护”页面，然后选择“下载”  。
-1. 在“对 Windows Server Active Directory 的 Azure AD 密码保护”页上，选择“AzureADPasswordProtectionProxySetup.msi”和“AzureADPasswordProtectionDCAgentSetup.msi”文件，然后选择“下一步”   。
+1. 在“对 Windows Server Active Directory 的 Azure AD 密码保护”页上，选择“AzureADPasswordProtectionProxySetup.exe”和“AzureADPasswordProtectionDCAgentSetup.msi”文件，然后选择“下一步”   。
 1. 选择“下载”  。
 1. 在“下载多个文件”对话框中，选择“允许” 。
 
@@ -244,7 +244,7 @@ ms.locfileid: "144813024"
    ```powershell
    Get-ChildItem -Path "$env:USERPROFILE\Downloads" -File | Unblock-File
    ```
-1. 运行以下命令在 SEA-SVR1 上创建 C:\Temp 目录，将 AzureADPasswordProtectionProxySetup.msi 安装程序复制到该目录，然后调用该安装程序  ：
+1. 运行以下命令，在 SEA-SVR1 上创建 C:\Temp 目录，将 AzureADPasswordProtectionProxySetup.exe 安装程序复制到该目录，然后调用该安装程序  ：
 
    ```powershell
    New-Item -Type Directory -Path '\\SEA-SVR1.contoso.com\C$\Temp' -Force

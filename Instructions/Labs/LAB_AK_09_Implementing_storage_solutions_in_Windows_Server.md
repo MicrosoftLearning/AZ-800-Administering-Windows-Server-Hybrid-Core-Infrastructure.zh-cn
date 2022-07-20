@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Windows Server 中实现存储解决方案
   type: Answer Key
   module: 'Module 9: File servers and storage management in Windows Server'
-ms.openlocfilehash: 5ee450f409ac2c69a44078f264bd792e39553006
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 6019d7dac7105bf65a5720b292ef5afc46f4faac
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906922"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039377"
 ---
 # <a name="lab-answer-key-implementing-storage-solutions-in-windows-server"></a>实验室解答：在 Windows Server 中实现存储解决方案
 
@@ -53,7 +53,7 @@ ms.locfileid: "137906922"
    Get-PSDrive -Name M
    ```
 
-   > 注意：记录 M 盘上的可用空间 。
+   > 注意：记录 M 盘上的可用空间 。 
 
 #### <a name="task-2-enable-and-configure-data-deduplication"></a>任务 2：启用和配置重复数据删除
 
@@ -61,11 +61,11 @@ ms.locfileid: "137906922"
 1. 在“服务器管理器”树形窗格中，选择“文件和存储服务”，然后选择“磁盘”  。
 1. 在“磁盘”窗格中，浏览到 SEA-SVR3 的磁盘列表，并选择表示在上一个任务中配置的磁盘号 1 的条目 。
 1. 在“卷”窗格中，显示 M: 卷的上下文相关菜单，然后在菜单中选择“配置重复数据删除” 。
-1. 在“卷(M:\) 重复数据删除设置”窗口的“重复数据删除”下拉列表中，选择“一般用途文件服务器”设置  。
+1. 在“卷(M:\\)重复数据删除设置”窗口的“重复数据删除”下拉列表中，选择“常规用途文件服务器”设置  。
 1. 在“删除超过以下天数的文件中的重复数据:”文本框中，将默认值“3”替换为“0”  。
 1. 选择“设置重复数据删除计划”按钮。
 1. 在“SEA-SVR3 重复数据删除计划”窗口中，选择“启用吞吐量优化”，然后选择“确定”  。
-1. 返回“卷(M:\) 重复数据删除设置”窗口，选择“确定” 。
+1. 返回“卷(M:\\)重复数据删除设置”窗口，选择“确定” 。
 
 #### <a name="task-3-test-data-deduplication"></a>任务 3：测试重复数据删除
 
@@ -100,7 +100,7 @@ ms.locfileid: "137906922"
    - 用户名：CONTOSO\\Administrator
    - 密码：Pa55w.rd
 
-1. 在“sea-svr1.contoso.com”页上的“工具”菜单中，选择“PowerShell”，然后在出现提示时，以 CONTOSO\\Administrator 用户身份使用密码 Pa55w.rd 登录    。
+1. 在“sea-svr3.contoso.com”页上的“工具”菜单中，选择“PowerShell”，然后在出现提示时，以 CONTOSO\\Administrator 用户身份使用密码 Pa55w.rd 登录    。
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 键触发重复数据删除：
 
    ```powershell
@@ -126,7 +126,7 @@ ms.locfileid: "137906922"
    ```
 1. 在 SEA-ADM1 上，切换到服务器管理器中的“磁盘”窗格，然后在右上角的“任务”菜单中选择“刷新”   。
 1. 在“卷”部分中选择“M:”卷，显示其上下文相关菜单，然后从菜单中选择“属性”  。 
-1. 在“卷 (M:\) 重复数据删除属性”窗口中，查看“重复数据删除率”和“重复数据删除节省”的值  。
+1. 在“卷(M:\\)属性”窗口中，查看“重复数据删除率”和“重复数据删除节省”的值  。
 
 ## <a name="exercise-2-configuring-iscsi-storage"></a>练习 2：配置 iSCSI 存储
 
@@ -281,7 +281,7 @@ ms.locfileid: "137906922"
 1. 在“指定虚拟磁盘名称”页面的“名称”文本框中输入“Three-Mirror”，然后选择“下一步”   。
 1. 在“指定机箱复原”页上，选择“下一步” 。
 1. 在“选择存储布局”页上，选择“镜像”，然后选择“下一步”  。
-1. 在“指定预配输入”页上，选择“精简”，然后选择“下一步”  。
+1. 在“指定预配类型”页上，选择“精简”，然后选择“下一步”  。
 1. 在“指定虚拟磁盘大小”页上的“指定大小”文本框中，输入“25”，然后选择“下一步”   。
 1. 在“确认选择”页上，查看设置，然后选择“创建” 。
 1. 在“查看结果”页上，清除“在此向导关闭时创建卷”复选框，然后选择“关闭”  。
@@ -420,7 +420,7 @@ ms.locfileid: "137906922"
    > 注意：请等待步骤完成。 此过程应该会在 1 分钟内完成。 
 
 1. 验证该命令的输出是否包含文件共享的定义，并且 Path 属性设置为 C:\\ClusterStorage\\CSV\\VM01 。 这会验证命令是否成功完成。
-1. 在“故障转移群集管理器”窗口中，选择“S2D-SOFS”，然后选择“共享”选项卡  。
+1. 在“故障转移群集管理器”窗口中的“角色”窗格中，选择“名称”列下的“S2D-SOFS”，然后选择“共享”选项卡。    
 1. 验证名为 VM01 的共享是否存在。 这还会验证命令是否已成功完成。
 
 #### <a name="task-5-verify-storage-spaces-direct-functionality"></a>任务 5：验证存储空间直通功能
@@ -442,14 +442,14 @@ ms.locfileid: "137906922"
 1. 确认群集虚拟磁盘 (CSV) 的运行状况状态是否设置为“警告”以及“操作状态”是否设置为“降级”（“操作状态”也可能被列为“未完成”）      。
 1. 在 SEA-ADM1 上，切换到显示 Windows Admin Center 的 Microsoft Edge 窗口 。 
 1. 浏览到“所有连接”窗格，然后选择“+ 添加”。
-1. 在“添加或创建资源”窗格的“服务器群集”窗格中，选择“添加”。
+1. 在“添加或创建资源”窗格的“服务器群集”窗格中，选择“添加”  。
 1. 在“群集名称”文本框中，输入“S2DCluster.Contoso.com” 。
 1. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用帐户连接” ：
 
    - 用户名：CONTOSO\\Administrator
    - 密码：Pa55w.rd
-
-1 清除“还会在群集中添加服务器”选项，选择“添加” 。
+   
+1. 清除“同时在群集中添加服务器”选项，然后选择“添加” 。
 1. 返回到“所有连接”页，选择“s2dcluster.contoso.com” 。
 1. 验证在加载页面时，“仪表板”窗格中是否有一个警报，指出无法访问 SEA-SVR3。 
 1. 将控制台会话切换到 SEA-SVR3 并启动它。 
