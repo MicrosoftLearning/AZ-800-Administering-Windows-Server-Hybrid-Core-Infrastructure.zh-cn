@@ -3,14 +3,14 @@ lab:
   title: 实验室：实现 Windows Server IaaS VM 网络
   type: Answer Key
   module: 'Module 8: Implementing Windows Server IaaS VM networking'
-ms.openlocfilehash: 2cdfd4c09ee1b0db6ba40dd32c0fc2e349dedcd7
-ms.sourcegitcommit: 32ed048f66b9810d6ee6f680c4b9637b28ffa316
+ms.openlocfilehash: f73953e8d4ceac6f4b7e2fd1f0c9ae267da1cf86
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2022
-ms.locfileid: "141184694"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039401"
 ---
-# <a name="lab-implementing-hybrid-networking-infrastructure"></a>实验室：实现混合网络基础结构
+# <a name="lab-answer-key-implementing-hybrid-networking-infrastructure"></a>实验室答案密钥：实现混合网络基础结构
 
 ### <a name="exercise-1-implement-virtual-network-routing-in-azure"></a>练习 1：在 Azure 中实现虚拟网络路由
 
@@ -236,7 +236,7 @@ ms.locfileid: "141184694"
 
     > **注意**：10.80.0.4 表示 az800l08-vm0 的专用 IP 地址 。 
 
-1. 选择“确定”。
+1. 选择 **添加** 。
 1. 在 az800l08-rt12 路由表页上的“设置”部分中，选择“子网”，然后选择“+ 关联”   。
 1. 将路由表 az800l08-rt12 与以下子网关联：
 
@@ -272,7 +272,7 @@ ms.locfileid: "141184694"
     | 下一跃点类型 | **虚拟设备** |
     | 下一跃点地址 | **10.80.0.4** |
 
-1. 选择“确定”。
+1. 选择 **添加** 。
 1. 在 az800l08-rt21 路由表页上的“设置”部分中，选择“子网”，然后选择“+ 关联”   。
 1. 将路由表 az800l08-rt21 与以下子网关联：
 
