@@ -3,12 +3,12 @@ lab:
   title: 实验室：实现 AD DS 与 Azure AD 之间的集成
   type: Answer Key
   module: 'Module 2: Implementing Identity in Hybrid Scenarios'
-ms.openlocfilehash: eeedd9f2c83c2165ad1799ff503706629a4ec70a
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
+ms.openlocfilehash: 19bd0eda7cf9282a1ed3ea6f5597e3dc22811cb6
+ms.sourcegitcommit: a93f00deb8cc1f5cd2d826a0e43ef449dd9b36f6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039428"
+ms.lasthandoff: 08/13/2022
+ms.locfileid: "147563928"
 ---
 # <a name="lab-answer-key-implementing-integration-between-ad-ds-and-azure-ad"></a>实验室答案密钥：实现 AD DS 与 Azure AD 之间的集成
 
@@ -80,7 +80,7 @@ ms.locfileid: "147039428"
 1. 在“Microsoft Azure Active Directory Connect”页面中，选择“下载” 。
 1. 在状态栏上，选择“打开文件”。
 1. 在“Microsoft Azure Active Directory Connect”页面上，选中“我同意许可条款和隐私通知”复选框，然后选择“继续”  。
-1. 在“快速设置”页面上，选择“使用快速设置” 。
+1. 在“Express 设置”页面上，选择“使用快速设置” 。
 1. 在“连接到 Azure AD”页上，输入在练习 1 中创建的 Azure AD 全局管理员用户帐户的用户名和密码，然后选择“下一步” 。
 1. 在“连接 AD DS”页上，输入以下凭据，然后选择“下一步” ：
 
@@ -249,7 +249,7 @@ ms.locfileid: "147039428"
    ```powershell
    New-Item -Type Directory -Path '\\SEA-SVR1.contoso.com\C$\Temp' -Force
    Copy-Item -Path "$env:USERPROFILE\Downloads\AzureADPasswordProtectionProxySetup.exe" -Destination '\\SEA-SVR1.contoso.com\C$\Temp\'
-   Invoke-Command -ComputerName SEA-SVR1.contoso.com -ScriptBlock { Start-Process -FilePath C:\Temp\AzureADPasswordProtectionProxySetup.msi -ArgumentList '/quiet /log C:\Temp\AzureADPPProxyInstall.log' -Wait }
+   Invoke-Command -ComputerName SEA-SVR1.contoso.com -ScriptBlock { Start-Process -FilePath C:\Temp\AzureADPasswordProtectionProxySetup.exe -ArgumentList '/quiet /log C:\Temp\AzureADPPProxyInstall.log' -Wait }
    ```
 1. 运行以下命令在 SEA-DC1 上创建 C:\Temp 目录，将AzureADPasswordProtectionDCAgentSetup.msi 安装程序复制到该目录，调用安装程序，并在安装完成后重新启动域控制器  ：
 
