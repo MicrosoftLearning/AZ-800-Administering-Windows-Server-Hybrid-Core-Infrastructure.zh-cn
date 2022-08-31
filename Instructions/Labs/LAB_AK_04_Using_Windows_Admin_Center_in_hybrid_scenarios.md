@@ -3,12 +3,12 @@ lab:
   title: 实验室：在混合场景中使用 Windows Admin Center
   type: Answer Key
   module: 'Module 4: Facilitating hybrid management'
-ms.openlocfilehash: 421d45b0bd0c9453ad44300759473539e7a82c03
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
+ms.openlocfilehash: a5cdb72ed0fcf358012268fec48b873900082fcf
+ms.sourcegitcommit: dff3b850fb952cbe51f8e1b712359c89f41216f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039446"
+ms.lasthandoff: 08/27/2022
+ms.locfileid: "147695184"
 ---
 # <a name="lab-answer-key-using-windows-admin-center-in-hybrid-scenarios"></a>实验室解答：在混合场景中使用 Windows Admin Center
 
@@ -114,7 +114,7 @@ ms.locfileid: "147039446"
 
 #### <a name="task-2-create-an-azure-network-adapter"></a>任务 2：创建 Azure 网络适配器
 
-1. 在 SEA-ADM1 上，回到显示 Windows Admin Center 的 Microsoft Edge 窗口，浏览到“sea-svr2.contoso.com”页，然后选择“网络”  。
+1. 在 SEA-ADM1 上，回到显示 Windows Admin Center 的 Microsoft Edge 窗口，浏览到“sea-adm1.contoso.com”页，然后选择“网络”  。
 1. 在 Windows Admin Center 的“网络”页上，从“操作”菜单中，再次选择“+ 添加 Azure 网络适配器(预览版)”条目  。
 1. 在“添加 Azure 网络适配器”设置窗格中，指定以下设置，然后选择“创建”（将其他设置保留为默认值）： 
 
