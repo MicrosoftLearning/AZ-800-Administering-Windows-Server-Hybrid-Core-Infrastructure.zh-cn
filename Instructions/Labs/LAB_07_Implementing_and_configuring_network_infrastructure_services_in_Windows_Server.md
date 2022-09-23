@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在 Windows Server 中实现和配置网络基础设施服务
   module: 'Module 7: Network Infrastructure services in Windows Server'
-ms.openlocfilehash: 3d4a37155a7609316235b4ec8c4fcb8360cfe2f7
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: d50ffa7e7dc2631ee6c955b27e8b3507479ee8c9
+ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906936"
+ms.lasthandoff: 03/19/2022
+ms.locfileid: "140742068"
 ---
 # <a name="lab-implementing-and-configuring-network-infrastructure-services-in-windows-server"></a>实验室：在 Windows Server 中实现和配置网络基础设施服务
 
@@ -28,7 +28,7 @@ Contoso, Ltd. 是一家大型组织，对网络服务具有复杂要求。 为�
 
 虚拟机：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 必须正在运行  。 其他 VM 可以运行，但本实验室不需要这些 VM。
 
-> 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-SEA-ADM1 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-ADM1 的安装      
+> 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 虚拟机承载 SEA-DC1、SEA-SVR1 和 SEA-ADM1 的安装      
 
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：
@@ -129,9 +129,9 @@ Contoso 的 Trey Research 部门有一个独立的办公室，该办公室只有
 ### <a name="task-5-verify-dhcp-functionality"></a>任务 5：验证 DHCP 功能
 
 1. 在 SEA-ADM1 上，将 IP 配置从静态分配更改为动态分配。
-1. 检查生成的 IP 配置，并验证 DHCP 租约是否是从 SEA-SVR2 (172.16.10.12) 获取的。
+1. 检查生成的 IP 配置，并验证 DHCP 租约是否是从 SEA-SVR1 (172.16.10.12) 获取的。
 1. 在 SEA-ADM1 上，在 DHCP 管理控制台中，验证这两个 DHCP 服务器是否列出 Contoso 范围内的 SEA-ADM1 的租约   。
-1. 在 SEA-ADM1 上，使用 DHCP 管理控制台停止 SEA-SVR2 (172.16.10.12) 上的 DHCP 服务   。
+1. 在 SEA-ADM1 上，使用 DHCP 管理控制台停止 SEA-SVR1 (172.16.10.12) 上的 DHCP 服务   。
 1. 通过在 SEA-ADM1 上禁用并重新启用以太网网络连接来强制续订租约。
 1. 在 SEA-ADM1 上，验证是否从 SEA-DC1 (172.16.10.10) 获得相同的 DHCP 租约 。
 

@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Azure VM 上部署和配置 Windows Server
   type: Answer Key
   module: 'Module 6: Deploying and Configuring Azure VMs'
-ms.openlocfilehash: 19550acaddcfe670775ddd8bcc56d7df05ef72be
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 3d6e6a2ef296d3f6dcf02d3137f0aad887616b38
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906968"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039449"
 ---
 # <a name="lab-answer-key-deploying-and-configuring-windows-server-on-azure-vms"></a>实验室解答：在 Azure VM 上部署和配置 Windows Server
 
@@ -30,7 +30,7 @@ ms.locfileid: "137906968"
 
 在此任务中，你将使用 Azure 门户创建资源组，并在资源组中创建一个磁盘。
 
-1. 在 SEA-ADM1 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟机”  。 在“虚拟机”页面中，选择“+ 创建”，然后选择“虚拟机”  。
+1. 在 SEA-ADM1 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟机”  。 在“虚拟机”页中，选择“+ 创建”，然后选择“Azure 虚拟机”  。
 1. 在“创建虚拟机”页面中的“基本信息”选项卡上，指定以下设置并将所有其他设置保留为默认值，但不部署它 ：
 
    |设置|值|
@@ -54,7 +54,7 @@ ms.locfileid: "137906968"
    |---|---|
    |OS 磁盘类型|**标准 HDD**|
 
-1. 选择“下一步: 网络 >”，然后在“创建虚拟机”页面中的“网络”选项卡上，选择“新建”超链接，此链接位于“虚拟网络”文本框之后*    。
+1. 选择“下一页:网络 >”，然后在“创建虚拟机”页中的“网络”选项卡上，选择“新建”超链接，此链接位于“虚拟网络”文本框之后   。
 1. 在“创建虚拟网络”页面上，指定以下设置，同时将所有其他设置保留为默认值，然后选择“确定” ：
 
    |设置|值|
@@ -77,7 +77,7 @@ ms.locfileid: "137906968"
 
    |设置|值|
    |---|---|
-   |启动诊断|已使用托管存储帐户启用（推荐）|
+   |启动诊断|使用托管存储帐户启用（推荐）|
    
 1. 选择“下一步: 高级 >”，在“创建虚拟机”页的“高级”选项卡上，查看可用的设置，而不修改任何设置，然后选择“查看 + 创建”   。
 
@@ -104,6 +104,7 @@ ms.locfileid: "137906968"
 #### <a name="task-2-add-an-azure-vm-extension-section-to-the-existing-template"></a>任务 2：将 Azure VM 扩展部分添加到现有模板
 
 1. 在 SEA-ADM1 上，在显示 template.json 文件内容的记事本窗口中，在 `    "resources": [` 行后直接插入以下代码 ：
+   >**注意**：如果使用逐行粘贴代码的工具，IntelliSense 可能会添加多余的括号，从而导致验证错误。 可能需要先将代码粘贴到记事本，再将其粘贴到 JSON 文件中。
 
    ```json
         {
@@ -159,7 +160,7 @@ ms.locfileid: "137906968"
 1. 在“资源组”页面上，选择“AZ800-L0601-RG”条目 。
 1. 在“AZ800-L0601-RG”页的“概述”页上，查看资源列表，其中包括 Azure VM“az800l06-vm0”  。
 1. 在资源列表中，选择 Azure VM“az800l06-vm0”条目。 
-1. 在“az800l06-vm0”页面上，选择“扩展”，然后在扩展列表中验证是否已成功预配 customScriptExtension  。
+1. 在“az800l06-vm0”页上，选择“扩展 + 应用程序”，然后在扩展列表中验证是否已成功预配 customScriptExtension  。
 1. 浏览回“AZ800-L0601-RG”页面，然后在“设置”部分中，选择“部署”  。
 1. 在“AZ800-L0601-RG \| 部署”页面上，选择“Microsoft.Template”链接 。
 1. 在“Microsoft.Template \| 概述”页面上，选择“模板”，你会注意到这是用于部署的同一模板 。
@@ -175,10 +176,10 @@ ms.locfileid: "137906968"
 1. 在“设置 \| 自动预配”页的扩展列表中，在“用于 Azure VM 的 Log Analytics 代理”条目右侧，选择“编辑配置”链接  。
 1. 在“扩展部署配置”上，确保已选中“将 Azure VM 连接到由 Defender for Cloud 创建的默认工作区”条目，选择“应用”，然后回到“设置 \| 自动预配”页，选择“保存”    。
 
-#### <a name="task-2-review-just-in-time-vm-access-settings"></a>任务 2：查看实时 VM 访问设置
+#### <a name="task-2-review-the-just-in-time-vm-access-settings"></a>任务 2：查看实时 VM 访问设置
 
 1. 浏览回到 Microsoft Defender for Cloud 的“概述”页，然后在“云安全”部分中，选择“工作负载保护”  。
-1. 在 *“Microsoft Defender for Cloud \| 工作负载保护”页面上，选择“实时 VM 访问” 。
+1. 在“Microsoft Defender for Cloud \| 工作负载保护”页上，选择“实时 VM 访问” 。
 1. 在“实时 VM 访问”页面上，查看“已配置”、“未配置”和“不支持”选项卡   。
 
    >备注：新部署的 VM 可能需要长达 24 小时才能出现在“不支持”选项卡上。在此期间，与其等待，不如继续下一个练习 。
@@ -243,7 +244,7 @@ ms.locfileid: "137906968"
 
 1. 在 Azure 门户中，浏览回“AZ800-L0601-RG”页面，然后在资源列表中，选择代表 Azure VM az800l06-vm0 的条目 。
 1. 在“az800l06-vm0”页上，选择“配置” 。 
-1. 在“az800l06-vm0 \| 配置”页面上，选择“启用 JIT VM 访问”，然后选择“打开 Azure 安全中心”链接  。
+1. 在“az800l06-vm0 \| 配置”页上，选择“启用实时 VM 访问”，然后选择“打开 Azure 安全中心”链接  。
 1. 在“实时 VM 访问”页面上，验证代表 az800l06-vm0 Azure VM 的条目是否出现在“已配置”选项卡上  。
 
 #### <a name="task-4-connect-to-the-azure-vm-via-jit-vm-access"></a>任务 4：通过 JIT VM 访问连接到 Azure VM

@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在 Azure VM 上部署和配置 Windows Server
   module: 'Module 6: Deploying and Configuring Azure VMs'
-ms.openlocfilehash: d2505e999d7e5194fd7a407cc035834dee2464f3
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: bbf7d0657532d3b162ac8c366cc37da11ae3c32c
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906937"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039431"
 ---
 # <a name="lab-deploying-and-configuring-windows-server-on-azure-vms"></a>实验室：在 Azure VM 上部署和配置 Windows Server
 
@@ -45,7 +45,7 @@ ms.locfileid: "137906937"
    - 密码：Pa55w.rd
    - 域名：CONTOSO
 
-对于此实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
+对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
 ## <a name="exercise-1-authoring-arm-templates-for-azure-vm-deployment"></a>练习 1：创作用于 Azure VM 部署的 ARM 模板
 
@@ -81,11 +81,11 @@ ms.locfileid: "137906937"
    |资源组|新资源组 AZ800-L0601-RG 的名称|
    |虚拟机名称|az800l06-vm0|
    |区域|使用可以在其中预配 Azure 虚拟机的 Azure 区域的名称|
-   |可用性选项|不需要基础结构冗余|
+   |可用性选项|没有所需的基础结构冗余|
    |映像|Windows Server 2022 Datacenter：Azure Edition - Gen2|
    |Azure Spot 实例|否|
    |大小|**Standard_D2s_v3**|
-   |用户名|**Student**|
+   |用户名|**学生**|
    |密码|**Pa55w.rd1234**|
    |公共入站端口|无|
    |是否要使用现有的 Windows Server 许可证|否|
@@ -98,7 +98,7 @@ ms.locfileid: "137906937"
    |NIC 网络安全组|无|
    |加速网络|关|
    |是否将此虚拟机置于现有负载均衡解决方案之后？|否|
-   |启动诊断|已使用托管存储帐户启用（推荐）|
+   |启动诊断|使用托管存储帐户启用（推荐）|
 
 1. 当你到达“创建虚拟机”页的“查看和创建”选项卡时，请继续执行任务 3 。
 
@@ -129,6 +129,8 @@ ms.locfileid: "137906937"
 #### <a name="task-2-add-an-azure-vm-extension-section-to-the-existing-template"></a>任务 2：将 Azure VM 扩展部分添加到现有模板
 
 1. 在实验室 VM 上，在显示 template.json 文件内容的记事本窗口中，在 `    "resources": [` 行下直接插入以下代码：
+
+   >**注意**：如果使用逐行粘贴代码的工具，IntelliSense 可能会添加多余的括号，从而导致验证错误。 可能需要先将代码粘贴到记事本，再将其粘贴到 JSON 文件中。
 
    ```json
         {
@@ -202,9 +204,9 @@ ms.locfileid: "137906937"
 1. 在 Azure 门户中，浏览到“Microsoft Defender for Cloud”页面。
 1. 验证是否已启用 Microsoft Defender for Cloud 的增强安全功能。
 
-#### <a name="task-2-review-the-just-in-time-access-settings"></a>任务 2：查看实时访问设置
+#### <a name="task-2-review-the-just-in-time-vm-access-settings"></a>任务 2：查看实时 VM 访问设置
 
-1. 在 Azure 门户中，浏览到“Microsoft Defender for Cloud | 工作负载保护”页面，并查看“实时 VM 访问”设置。 **\|** 。
+1. 在 Azure 门户中，浏览到 **"Microsoft Defender for Cloud \| 工作负载保护"** 页面，并查看 **“实时 VM 访问”** 设置。
 1. 在“实时 VM 访问”页面上，查看“已配置”、“未配置”和“不支持”选项卡   。
 
    >备注：新部署的 VM 可能需要长达 24 小时才能出现在“不支持”选项卡上。在此期间，与其等待，不如继续下一个练习 。
@@ -266,7 +268,7 @@ ms.locfileid: "137906937"
 
 1. 在 Azure 门户中，浏览回 az800l06-vm0 页。
 1. 在“az800l06-vm0”页上，选择“配置” 。 
-1. 在“az800l06-vm0 \| 配置”页面上，选择“启用 JIT VM 访问”，然后选择“打开 Azure 安全中心”链接  。
+1. 在“az800l06-vm0 \| 配置”页上，选择“启用实时 VM 访问”，然后选择“打开 Azure 安全中心”链接  。
 1. 在“实时 VM 访问”页面上，验证代表 az800l06-vm0 Azure VM 的条目是否出现在“已配置”选项卡上  。
 
 #### <a name="task-4-connect-to-the-azure-vm-via-jit-vm-access"></a>任务 4：通过 JIT VM 访问连接到 Azure VM
@@ -277,7 +279,7 @@ ms.locfileid: "137906937"
    
    |设置|值|
    |---|---|
-   |用户名|**Student**|
+   |用户名|**学生**|
    |密码|**Pa55w.rd1234**|
 
 1. 验证是否可以通过远程桌面成功访问在 Azure VM 中运行的操作系统，并关闭远程桌面会话。

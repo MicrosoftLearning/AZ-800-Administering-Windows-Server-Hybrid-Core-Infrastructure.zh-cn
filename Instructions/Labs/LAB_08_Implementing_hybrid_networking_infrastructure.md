@@ -2,12 +2,12 @@
 lab:
   title: 实验室：实现混合网络基础结构
   module: 'Module 8: Implementing Windows Server IaaS VM networking'
-ms.openlocfilehash: d568d7fb6226cd53fb624f5a87e9efe1180c0da1
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 51779ce44ce596adb1093bc73553836c7b9d3405
+ms.sourcegitcommit: 32ed048f66b9810d6ee6f680c4b9637b28ffa316
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906935"
+ms.lasthandoff: 03/28/2022
+ms.locfileid: "141184692"
 ---
 # <a name="lab-implementing-hybrid-networking-infrastructure"></a>实验室：实现混合网络基础结构
 
@@ -109,8 +109,8 @@ ms.locfileid: "137906935"
 此任务将在之前任务中部署的虚拟网络之间配置本地对等互连，以创建中心辐射型网络拓扑。
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开另一个选项卡，浏览到 [Azure 门户](https://portal.azure.com) 。
-1. 在 Azure 门户中，浏览到 az800l08-vnet1 虚拟网络页面。
-1. 在 az800l08-vnet1 虚拟网络页面上，使用以下设置创建一个对等互连（保留其余设置为默认值）：
+1. 在 Azure 门户中，浏览到 az800l08-vnet0 虚拟网络页面。
+1. 在 az800l08-vnet0 虚拟网络页面上，使用以下设置创建一个对等互连（保留其余设置为默认值）：
 
     | 设置 | 值 |
     | --- | --- |
@@ -452,13 +452,13 @@ ms.locfileid: "137906935"
 1. 在 Cloud Shell 窗格中，运行以下命令，列出在此实验室过程中创建的所有资源组：
 
    ```powershell
-   Get-AzResourceGroup -Name 'az800l08*'
+   Get-AzResourceGroup -Name 'AZ800-L08*'
    ```
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 
    ```powershell
-   Get-AzResourceGroup -Name 'az800l08*' | Remove-AzResourceGroup -Force -AsJob
+   Get-AzResourceGroup -Name 'AZ800-L08*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
    >**注意**：该命令异步执行（由 -AsJob 参数决定），因此，虽然你可以随后立即在同一个 PowerShell 会话中运行另一个 PowerShell 命令，但需要几分钟才能实际删除资源组。

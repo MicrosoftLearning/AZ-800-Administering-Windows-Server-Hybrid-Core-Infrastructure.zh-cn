@@ -3,12 +3,12 @@ lab:
   title: 实验室：在混合场景中使用 Windows Admin Center
   type: Answer Key
   module: 'Module 4: Facilitating hybrid management'
-ms.openlocfilehash: bbdbcae39ff3756d24061a0bf4e4df2aaf7d4c0a
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: a5cdb72ed0fcf358012268fec48b873900082fcf
+ms.sourcegitcommit: dff3b850fb952cbe51f8e1b712359c89f41216f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906925"
+ms.lasthandoff: 08/27/2022
+ms.locfileid: "147695184"
 ---
 # <a name="lab-answer-key-using-windows-admin-center-in-hybrid-scenarios"></a>实验室解答：在混合场景中使用 Windows Admin Center
 
@@ -78,7 +78,7 @@ ms.locfileid: "137906925"
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > 备注：请等待安装完成。 这大约需要 2 分钟。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后浏览到 `https://SEA-ADM1.contoso.com`。
 
@@ -99,7 +99,7 @@ ms.locfileid: "137906925"
    >注意：这将自动在 Windows Admin Center 内的“设置”页上显示 Azure 窗格 。
 
 1. 在 Windows Admin Center 中，在 Azure 窗格中的“设置”页上，选择“注册” 。
-1. 在“Windows Admin Center 中的 Azure 入门”窗格中，选择“复制”以复制注册过程步骤列表中显示的代码。 
+1. 在“Windows Admin Center 中的 Azure 入门”窗格中，选择“复制”以复制注册过程步骤列表中显示的代码 。 
 1. 在注册过程的步骤列表中，选择“输入代码”链接。
 
    >注意：这将在 Microsoft Edge 窗口中打开显示“输入代码”页的另一个选项卡 。
@@ -108,15 +108,15 @@ ms.locfileid: "137906925"
 1. 在“登录”页上，提供在上一个练习中用于登录到 Azure 订阅的用户名，选择“下一步”，提供相应的密码，然后选择“登录”  。
 1. 出现提示“是否尝试登录到 Windows Admin Center?”时，选择“继续” 。
 1. 在 Windows Admin Center 中，验证登录是否成功，并关闭 Microsoft Edge 窗口中新打开的选项卡。
-1. 在“Windows Admin Center 中的 Azure 入门”窗格中，确保“Azure Active Directory 应用程序”设置为“新建”，然后选择“连接”  。
+1. 在“Windows Admin Center 中的 Azure 入门”窗格中，确保“Azure Active Directory 应用程序”设置为“新建”，然后选择“连接”   。
 1. 在注册过程的步骤列表中，选择“登录”。 这将打开一个标有“请求的权限”的弹出窗口。
 1. 在“请求的权限”弹出窗口中，选择“代表你的组织同意”，然后选择“接受”  。
 
 #### <a name="task-2-create-an-azure-network-adapter"></a>任务 2：创建 Azure 网络适配器
 
-1. 在 SEA-ADM1 上，回到显示 Windows Admin Center 的 Microsoft Edge 窗口，浏览到“sea-svr2.contoso.com”页，然后选择“网络”  。
+1. 在 SEA-ADM1 上，回到显示 Windows Admin Center 的 Microsoft Edge 窗口，浏览到“sea-adm1.contoso.com”页，然后选择“网络”  。
 1. 在 Windows Admin Center 的“网络”页上，从“操作”菜单中，再次选择“+ 添加 Azure 网络适配器(预览版)”条目  。
-1. 在“添加网络适配器设置”窗格中，指定以下设置，然后选择“创建”（将其他设置保留为默认值）：
+1. 在“添加 Azure 网络适配器”设置窗格中，指定以下设置，然后选择“创建”（将其他设置保留为默认值）： 
 
    |设置|值|
    |---|---|
@@ -129,7 +129,7 @@ ms.locfileid: "137906925"
    |身份验证证书|自动生成的自签名根证书和客户端证书|
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，在工具栏上的“搜索资源、服务和文档”文本框中搜索并选择“虚拟网络网关”  。
-1. 在“虚拟网络网关”页上，选择“刷新”，并验证名称以“WAC-Created-vpngw-”开头的新项是否显示在虚拟网络网关列表中  。
+1. 在“虚拟网络网关”页上，选择“刷新”，并验证名称以“WAC-Created-vpngw-96”开头的新项是否显示在虚拟网络网关列表中  。
 
 >注意：预配 Azure 虚拟网络网关最多可能需要 45 分钟。 请勿等待预配完成，而是继续执行下一个练习。
 
@@ -168,6 +168,7 @@ ms.locfileid: "137906925"
      SubnetName = $subnetName
      GenerateSslCert = $true
      size = $size
+     PublicIPAddressName = $pipname
    }
    ```
 

@@ -3,14 +3,14 @@ lab:
   title: 实验室：实现 Windows Server IaaS VM 网络
   type: Answer Key
   module: 'Module 8: Implementing Windows Server IaaS VM networking'
-ms.openlocfilehash: b9ae6e391351ac7614b5129914173c78592309b0
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: f73953e8d4ceac6f4b7e2fd1f0c9ae267da1cf86
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906921"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039401"
 ---
-# <a name="lab-implementing-hybrid-networking-infrastructure"></a>实验室：实现混合网络基础结构
+# <a name="lab-answer-key-implementing-hybrid-networking-infrastructure"></a>实验室答案密钥：实现混合网络基础结构
 
 ### <a name="exercise-1-implement-virtual-network-routing-in-azure"></a>练习 1：在 Azure 中实现虚拟网络路由
 
@@ -63,14 +63,14 @@ ms.locfileid: "137906921"
    }
    ```
 
-    >注意：请不要等待部署完成，而是继续执行下一步操作。 安装网络观察程序扩展大约需要 5 分钟。
+    >**注意**：请不要等待部署完成，而是继续执行下一步操作。 安装网络观察程序扩展大约需要 5 分钟。
 
 #### <a name="task-2-configure-the-hub-and-spoke-network-topology"></a>任务 2：配置中心辐射型网络拓扑
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开另一个选项卡，浏览到 [Azure 门户](https://portal.azure.com) 。
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟网络” 。
-1. 在虚拟网络列表中，选择“az800l08-vnet1”。
-1. 在 az800l08-vnet1 虚拟网络页上的“设置”部分中，选择“对等互连”，然后选择“+ 添加”   。
+1. 在虚拟网络列表中，选择“az800l08-vnet0”。
+1. 在 az800l08-vnet0 虚拟网络页上的“设置”部分中，选择“对等互连”，然后选择“+ 添加”   。
 1. 指定以下设置（将其他设置保留为默认值），然后选择“添加”：
 
     | 设置 | 值 |
@@ -236,7 +236,7 @@ ms.locfileid: "137906921"
 
     > **注意**：10.80.0.4 表示 az800l08-vm0 的专用 IP 地址 。 
 
-1. 选择“确定”。
+1. 选择 **添加** 。
 1. 在 az800l08-rt12 路由表页上的“设置”部分中，选择“子网”，然后选择“+ 关联”   。
 1. 将路由表 az800l08-rt12 与以下子网关联：
 
@@ -272,7 +272,7 @@ ms.locfileid: "137906921"
     | 下一跃点类型 | **虚拟设备** |
     | 下一跃点地址 | **10.80.0.4** |
 
-1. 选择“确定”。
+1. 选择 **添加** 。
 1. 在 az800l08-rt21 路由表页上的“设置”部分中，选择“子网”，然后选择“+ 关联”   。
 1. 将路由表 az800l08-rt21 与以下子网关联：
 
@@ -421,13 +421,13 @@ ms.locfileid: "137906921"
 1. 在 Cloud Shell 页面中，运行以下命令，列出在此实验室中创建的所有资源组：
 
    ```powershell
-   Get-AzResourceGroup -Name 'az800l08*'
+   Get-AzResourceGroup -Name 'AZ800-L08*'
    ```
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 
    ```powershell
-   Get-AzResourceGroup -Name 'az800l08*' | Remove-AzResourceGroup -Force -AsJob
+   Get-AzResourceGroup -Name 'AZ800-L08*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
    >**注意**：该命令异步执行（由 -AsJob 参数决定），因此，虽然你可以随后立即在同一个 PowerShell 会话中运行另一个 PowerShell 命令，但需要几分钟才能实际删除资源组。

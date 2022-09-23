@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Windows Server 中实现和配置网络基础设施服务
   type: Answer Key
   module: 'Module 7: Network Infrastructure services in Windows Server'
-ms.openlocfilehash: b07da01785e12c2d025ba76fa3e712fdd35b781a
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 5157a50a5a5317acfcb7d38b68fa4e16e5201c01
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906969"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039383"
 ---
 # <a name="lab-answer-key-implementing-and-configuring-network-infrastructure-services-in-windows-server"></a>实验室解答：在 Windows Server 中实现和配置网络基础设施服务
 
@@ -19,7 +19,7 @@ ms.locfileid: "137906969"
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\\Administrator 的身份使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
 
-   >备注：如果尚未在 SEA-ADM1 上安装 Windows Admin Center，请执行后面两个步骤 。
+   >注意：如果尚未在 SEA-ADM1 上安装 Windows Admin Center，请执行后面两个步骤 。
 
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 下载最新版本的 Windows Admin Center：
     
@@ -36,9 +36,9 @@ ms.locfileid: "137906969"
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后浏览到 `https://SEA-ADM1.contoso.com`。
 
-   >备注：如果链接不起作用，请在 SEA-ADM1 上浏览到 WindowsAdminCenter.msi 文件，打开其上下文菜单，然后选择“修复”   。 修复完成后，刷新 Microsoft Edge。 
+   >注意：如果链接不起作用，请在 SEA-ADM1 上浏览到 WindowsAdminCenter.msi 文件，打开其上下文菜单，然后选择“修复”   。 修复完成后，刷新 Microsoft Edge。 
 
-1. 出现提示时，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
+1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
    - 用户名：CONTOSO\\Administrator
    - 密码：Pa55w.rd
@@ -76,6 +76,9 @@ ms.locfileid: "137906969"
 #### <a name="task-3-create-a-scope"></a>任务 3：创建范围
 
 1. 在 SEA-ADM1 上，在 Microsoft Edge 窗口中切换到 Windows Admin Center，其中显示了 SEA-SVR1 上的“DHCP”设置  。
+
+   > **注意**：DHCP 选项可能需要几分钟时间才会出现在菜单中。 如有必要，请刷新与 sea-svr1 的连接。 如果系统提示安装 DHCP Powershell 工具，请选择“安装”。
+
 1. 在“DHCP”页面上，选择“+ 新建范围” 。
 1. 在创建新范围的窗格中，指定以下设置，然后选择“创建”。
 
@@ -135,7 +138,7 @@ ms.locfileid: "137906969"
 1. 在“以太网属性”对话框中，选择“Internet 协议版本 4 (TCP/IPv4)”，然后选择“属性”  。
 1. 在“Internet 协议版本 4 (TCP/IPv4) 属性”对话框中，选择“自动获取 IP 地址”，选择“自动获取 DNS 服务器地址”，然后选择“确定”   。
 1. 选择“关闭”，然后在“以太网状态”窗口中，选择“详细信息”  。
-1. 在“网络连接详细信息”对话框中，验证 DHCP 是否已启用、是否已获取 IP 地址，以及“SEA-SVR2 (172.16.10.12)”DHCP 服务器是否发出了租约 。
+1. 在“网络连接详细信息”对话框中，验证是否已启用 DHCP、是否已获取 IP 地址，以及“SEA-SVR1 (172.16.10.12)”DHCP 服务器是否发出了租约 。
 1. 选择“关闭”以回到“以太网状态”窗口 。
 1. 在 SEA-ADM1 上，在“DHCP”窗口中，依次展开“172.16.10.12”节点、“IPv4”节点和“范围 [172.16.0.0] Contoso”节点，然后选择“地址租约”     。
 1. 验证是否存在代表 SEA-ADM1.contoso.com 租约的条目。
@@ -189,7 +192,7 @@ ms.locfileid: "137906969"
    - 动态更新：不允许动态更新
 
 1. 返回到 DNS 窗格中，选择“TreyResearch.net”，然后选择“+ 创建新的 DNS 记录” 。
-1. 在创建新 DNS 记录窗格中，指定以下设置，然后选择“创建”：
+1. 在“创建新 DNS 记录”窗格中，指定以下设置，然后选择“创建” ：
 
    - DNS 记录类型：主机 (A)
    - 记录名称：TestApp

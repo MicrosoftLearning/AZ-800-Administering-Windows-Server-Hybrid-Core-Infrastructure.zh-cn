@@ -3,14 +3,14 @@ lab:
   title: 实验室：实现 Azure 文件同步
   type: Answer Key
   module: 'Module 10: Implementing a hybrid file server infrastructure'
-ms.openlocfilehash: 63f6e93a55997fb915a2bd89d6cb7b8a56058092
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: 1acf83d29636f372d12e066e8f48b33f27aae718
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906923"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039380"
 ---
-# <a name="lab-implementing-azure-file-sync"></a>实验室：实现 Azure 文件同步
+# <a name="lab-answer-key-implementing-azure-file-sync"></a>实验室答案密钥：实施 Azure 文件同步
 
 ## <a name="exercise-1-implementing-distributed-file-system-dfs-replication-in-your-on-premises-environment"></a>练习 1：在本地环境中实现分布式文件系统 (DFS) 复制
 
@@ -35,10 +35,10 @@ ms.locfileid: "137906923"
 
 1. 在 SEA-ADM1 上，选择“开始”，输入“DFS”，然后选择“DFS管理”   。
 1. 在“DFS 管理”的导航窗格中，右键单击或访问“名称空间”的上下文菜单，然后选择“添加要显示的名称空间”  。
-1. 在“添加要显示的名称空间”对话框中，在名称空间列表中，选择“\\Contoso.com\Root”，然后选择“确定”  。
+1. 在“添加要显示的命名空间”对话框中，在命名空间列表中，选择“\\\contoso.com\Root”，然后选择“确定”  。
 1. 在导航窗格中，右键单击或访问“复制”的上下文菜单，然后选择“添加要显示的复制组” 。
 1. 在“添加要显示的复制组”对话框中，在“复制组”部分，选择“分支 1”，然后选择“确定”   。
-1. 在导航窗格中，展开“\\Contoso.com\Root”名称空间，然后选择“数据”文件夹 。
+1. 在导航窗格中，展开“\\\contoso.com\Root”命名空间，然后选择“数据”文件夹 。
 1. 在详细信息窗格中，验证“数据”文件夹是否有两个分别对 SEA-SVR1 和 SEA-SVR2 上的“数据”文件夹的引用   。
 1. 在导航窗格中，选择“分支 1”。
 1. 在详细信息窗格中，验证 SEA-SVR1 和 SEA-SVR2 上的“S:\\Data”文件夹是否是“分支 1”复制组的成员   。
@@ -92,7 +92,7 @@ ms.locfileid: "137906923"
 1. 验证“详细信息”窗格中显示文件 File1.txt。 这是上传到 Azure 文件共享的文件。
 1. 双击或选择“File1.txt”，然后按 Enter 在记事本中打开文件。 
 1. 使用记事本，在最后一行中追加自己的姓名来修改文件内容，保存更改并关闭记事本。
-1. 右键单击或访问“File1”的上下文菜单，选择“属性”，然后在“File1.txt”属性窗口中，选择“以前的版本”选项卡   。
+1. 右键单击或访问“File1”的上下文菜单，选择“属性”，然后在“File1 属性”窗口中，选择“以前的版本”选项卡   。
 1. 验证以前的一个文件版本是否可用。 选择该版本 (File1.txt)，选择“还原”两次，然后选择“确定”两次  。
 1. 双击或选择“File1.txt”，选择 Enter，然后确认它不包含你的名字。 这是因为你还原了在修改该文件之前创建的快照。
 1. 关闭“记事本”。

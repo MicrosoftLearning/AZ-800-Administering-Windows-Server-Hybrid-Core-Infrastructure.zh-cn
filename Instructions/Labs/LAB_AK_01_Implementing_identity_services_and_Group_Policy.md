@@ -3,14 +3,14 @@ lab:
   title: 实验室：实现标识服务和组策略
   type: Answer Key
   module: 'Module 1: Identity services in Windows Server'
-ms.openlocfilehash: d68a50f3573f2817f4f83bc25cd69aba82e1d455
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: a0e12921f8971d31e92ba495134b22d3ed2b6895
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906931"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039440"
 ---
-# <a name="lab-answer-key-implementing-identity-services-and-group-policy"></a>'实验室解答：实现标识服务和组策略
+# <a name="lab-answer-key-implementing-identity-services-and-group-policy"></a>实验室解答：实现标识服务和组策略
 
 ## <a name="exercise-1-deploying-a-new-domain-controller-on-server-core"></a>练习 1：在 Server Core 上部署新的域控制器
 
@@ -82,7 +82,7 @@ ms.locfileid: "137906931"
 
    > **注意**：可能需要选择“刷新”。
 
-### <a name="task-3-manage-objects-in-ad-ds"></a>任务 3：管理 AD DS 中的对象
+#### <a name="task-3-manage-objects-in-ad-ds"></a>任务 3：管理 AD DS 中的对象
 
 1. 确保已连接到 SEA-ADM1 的控制台会话。
 1. 切换到“Windows PowerShell (管理员)”。
@@ -196,7 +196,7 @@ ms.locfileid: "137906931"
 1. 返回到“组策略管理控制台”树中，确保选中“Seattle”组织单位 。
 1. 选择“组策略继承”选项卡并查看其内容。
 
-   > **注意**：Seattle Application Override GPO 的优先级高于 CONTOSO 标准 GPO。 刚刚在 Seattle Application Override GPO 中配置的屏幕保护程序超时策略设置将在设置 CONTOSO 标准 GPO 之后应用。 因此，新设置将覆盖 CONTOSO 标准 GPO 设置。 对于 Seattle Application Override GPO 范围内的用户，将禁用屏幕保护程序超时。
+   > 注意：Seattle Application Override GPO 的优先级高于 CONTOSO Standards GPO。 刚刚在 Seattle Application Override GPO 中配置的屏幕保护程序超时策略设置将在设置 CONTOSO Standards GPO 之后应用。 因此，新设置将覆盖 CONTOSO Standards GPO 设置。 对于 Seattle Application Override GPO 范围内的用户，将禁用屏幕保护程序超时。
 
 #### <a name="task-6-configure-the-scope-of-a-gpo-with-security-filtering"></a>任务 6：使用安全筛选配置 GPO 的范围
 

@@ -2,12 +2,12 @@
 lab:
   title: 实验室：实现 AD DS 与 Azure AD 之间的集成
   module: 'Module 2: Implementing Identity in Hybrid Scenarios'
-ms.openlocfilehash: 28c289f8aec85f56f865aedf0df0c352d0f21725
-ms.sourcegitcommit: bd43c7961e93ef200b92fb1d6f09d9ad153dd082
+ms.openlocfilehash: e3ef2ed624f090989019e4d4c4a23276a2f77330
+ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137906977"
+ms.lasthandoff: 07/09/2022
+ms.locfileid: "147039392"
 ---
 # <a name="lab-implementing-integration-between-ad-ds-and-azure-ad"></a>实验室：实现 AD DS 与 Azure AD 之间的集成
 
@@ -33,7 +33,7 @@ ms.locfileid: "137906977"
 
 ## <a name="lab-setup"></a>实验室设置
 
-虚拟机：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 必须处于运行状态  。 可以同时运行其他 VM，但在本实验中不是必需的。 
+虚拟机：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 必须处于运行状态  。 其他 VM 可以运行，但本实验室不需要这些 VM。 
 
 > 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 虚拟机承载 SEA-DC1、SEA-SVR1 和 SEA-ADM1 的安装      
 
@@ -66,7 +66,7 @@ ms.locfileid: "137906977"
 1. 在“Azure Active Directory”页面上，选择“自定义域名”，然后添加 `contoso.com` 。
 1. 查看要用于验证域的 DNS 记录类型，然后关闭窗格而不验证域名。
 
-   > 注意：虽然一般来说要使用 DNS 记录来验证域，但此实验不需要使用验证的域
+   > 注意：虽然一般来说要使用 DNS 记录来验证域，但此实验不需要使用验证的域。
 
 #### <a name="task-2-create-a-user-with-the-global-administrator-role"></a>任务 2：创建具有全局管理员角色的用户
 
@@ -138,7 +138,7 @@ ms.locfileid: "137906977"
 
 1. 在“Azure AD 登录配置”页面上，验证添加的新域是否在 Active Directory UPN 后缀列表中。
 
-   > 注意：提供的域名不必是已验证的域。 虽然通常会在安装 Azure AD Connect 但此实验不需要执行该验证步骤。
+   > 注意：提供的域名不必是已验证的域。 虽然通常会在安装 Azure AD Connect 之前验证某个域，但此实验不需要执行该验证步骤。
 
 1. 选择“继续操作且不将所有 UPN 后缀与已验证的域进行匹配”复选框。
 1. 到达“准备好配置”页面后，查看操作列表，然后开始安装。
@@ -178,12 +178,12 @@ ms.locfileid: "137906977"
 
    > 注意：一个连接器用于 AD DS，另一个连接器用于 Azure AD 租户。 
 
-1. 关闭“同步服务管理器”窗口。
+1. 关闭“Synchronization Service Manager”窗口。
 
 #### <a name="task-3-update-a-user-account-in-active-directory"></a>任务 3：更新 Active Directory 中的用户帐户
 
 1. 在 SEA-ADM1 上，在“服务器管理器”中，打开“Active Directory 用户和计算机”  。
-1. 在“Active Directory 用户和计算机”中，展开“销售”组织单元 (OU)，然后打开“Ben Miller”的属性  。
+1. 在“Active Directory 用户和计算机”中，展开“销售”组织单位 (OU)，然后打开“Sumesh Rajan”的属性  。
 1. 在用户的属性中，选择“组织”选项卡。
 1. 在“职务”文本框中，输入“经理”，然后选择“确定”  。
 
@@ -210,8 +210,8 @@ ms.locfileid: "137906977"
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，然后返回“Azure Active Directory”页面 。
 1. 从“Azure Active Directory”页面浏览到“用户”页面 。
-1. 在“所有用户”页面上，搜索用户“Ben” 。
-1. 打开用户 Ben Miller 的属性页，然后验证“职务”属性是否已从 Active Directory 同步 。
+1. 在“所有用户”页上，搜索用户“Sumesh” 。
+1. 打开用户 Sumesh Rajan 的属性页，然后验证“职务”属性是否已从 Active Directory 同步 。
 1. 在 Microsoft Edge 中，返回“所有用户”页面。
 1. 在“所有用户”页面上，搜索用户“Jordan” 。
 1. 打开用户 Jordan Mitchell 的属性页，然后查看已从 Active Directory 同步的该用户帐户的属性。
@@ -277,8 +277,8 @@ ms.locfileid: "137906977"
 1. 在“Azure AD Connect”页面上，查看“用户登录”下的信息 。
 1. 在“用户登录”下，选择“无缝单一登录” 。
 1. 在“无缝单一登录”页面上，查看本地域名。
-1. 从“无缝单一登录”页面，浏览到“直通身份验证”页面 。
-1. 在“直通身份验证”页面上，查看“身份验证代理”下的服务器列表 。
+1. 从“无缝单一登录”页面，浏览到“直通身份验证”页 。
+1. 在“直通身份验证”页上，查看“身份验证代理”下的服务器列表 。
 
    > 注意：若要在环境中的多台服务器上安装 Azure AD 身份验证代理，可以从 Azure 门户中的“直通身份验证”页面下载其二进制文件 。
 
@@ -356,7 +356,7 @@ ms.locfileid: "137906977"
 1. 在“自定义受禁密码列表”文本框中，输入以下单词（每行一个）：
  
    - **Contoso**
-   - **London**
+   - **伦敦**
 
    > 注意：受禁密码列表中的词语应与组织相关。
 
