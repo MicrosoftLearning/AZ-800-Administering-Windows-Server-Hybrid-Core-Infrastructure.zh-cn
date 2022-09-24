@@ -2,20 +2,15 @@
 lab:
   title: 实验室：在 Azure VM 上部署和配置 Windows Server
   module: 'Module 6: Deploying and Configuring Azure VMs'
-ms.openlocfilehash: bbf7d0657532d3b162ac8c366cc37da11ae3c32c
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039431"
 ---
+
 # <a name="lab-deploying-and-configuring-windows-server-on-azure-vms"></a>实验室：在 Azure VM 上部署和配置 Windows Server
 
 ## <a name="scenario"></a>场景
 
-你需要解决有关当前基础结构的问题。 你有一个过时的运营模型（有限使用自动化），信息安全团队关注应该应用于运行基于 Windows Server 的工作负载的 Azure VM 的其他控制措施。 你已决定为运行 Windows Server 的 Azure VM 开发并实现自动部署和配置过程。
+You need to address concerns regarding your current infrastructure. You have an outdated operational model, a limited use of automation, and Information Security team concerns regarding additional controls that should be applied to Azure VMs running Windows Server-based workloads. You have decided to develop and implement an automated deployment and configuration process for Azure VMs running Windows Server.
 
-此过程将涉及 Azure 资源管理器 (ARM) 模板和通过 Azure VM 扩展的 OS 配置。 它还会纳入其他安全保护机制（不仅仅是已应用于本地系统的机制），例如通过 AppLocker 的应用程序允许列表、文件完整性检查和自适应网络/DDoS 保护。 你还将利用 JIT 功能，将 Azure VM 的管理访问权限限制为与伦敦总部关联的公共 IP 地址范围。
+The process will involve Azure Resource Manager (ARM) templates and OS configuration through Azure VM extensions. It will also incorporate additional security protection mechanisms beyond those already applied to on-premises systems, such as application allow lists through AppLocker, file integrity checks, and adaptive network/DDoS protection. You will also leverage JIT functionality to restrict administrative access to Azure VMs to public IP address ranges associated with the London headquarters.
 
 你的目标是以满足可管理性和安全性要求的方式部署和配置运行 Windows Server 的 Azure VM。
 
@@ -34,7 +29,7 @@ ms.locfileid: "147039431"
 
 ## <a name="lab-setup"></a>实验室设置
 
-虚拟机：AZ-800T00A-SEA-DC1 和 AZ-800T00A-ADM1 必须正在运行 。 其他 VM 可以运行，但此实验室不需要这些 VM。
+Virtual machines: <bpt id="p1">**</bpt>AZ-800T00A-SEA-DC1<ept id="p1">**</ept> and <bpt id="p2">**</bpt>AZ-800T00A-ADM1<ept id="p2">**</ept> must be running. Other VMs can be running, but they aren't required for this lab.
 
 > 注意：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 虚拟机托管 SEA-DC1 和 SEA-ADM1 的安装    。
 
@@ -45,13 +40,13 @@ ms.locfileid: "147039431"
    - 密码：Pa55w.rd
    - 域名：CONTOSO
 
-对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
+For this lab, you'll use the available VM environment and an Azure subscription. Before you begin the lab, ensure that you have an Azure subscription and a user account with the Owner or Contributor role in that subscription.
 
 ## <a name="exercise-1-authoring-arm-templates-for-azure-vm-deployment"></a>练习 1：创作用于 Azure VM 部署的 ARM 模板
 
 ### <a name="scenario"></a>场景
 
-为了简化基于 Azure 的操作，你决定开发并实现 Windows Server 到 Azure VM 的自动部署和配置过程。 你的部署需要符合信息安全团队的要求，并遵守 Contoso, Ltd. 所期望的目标运营模型，包括高可用性。
+你需要解决有关当前基础结构的问题。
 
 此练习的主要任务如下：
 
@@ -102,7 +97,7 @@ ms.locfileid: "147039431"
 
 1. 当你到达“创建虚拟机”页的“查看和创建”选项卡时，请继续执行任务 3 。
 
-   >备注：请勿创建虚拟机。 你将为此目的使用自动生成的模板。
+   >你有一个过时的运营模型（有限使用自动化），信息安全团队关注应该应用于运行基于 Windows Server 的工作负载的 Azure VM 的其他控制措施。
 
 #### <a name="task-3-download-the-arm-template-and-parameters-files-from-the-azure-portal"></a>任务 3：从 Azure 门户下载 ARM 模板和参数文件
 
@@ -113,7 +108,7 @@ ms.locfileid: "147039431"
 
 ### <a name="scenario"></a>场景
 
-除了自动部署 Azure 资源外，你还需要确保可以自动配置在 Azure VM 中运行的 Windows Server。 若要实现此目的，需要测试 Azure 自定义脚本扩展的使用。
+你已决定为运行 Windows Server 的 Azure VM 开发并实现自动部署和配置过程。
 
 此练习的主要任务如下：
 
@@ -123,14 +118,14 @@ ms.locfileid: "147039431"
 #### <a name="task-1-review-the-arm-template-and-parameters-files-for-azure-vm-deployment"></a>任务 1：查看用于 Azure VM 部署的 ARM 模板和参数文件
 
 1. 将已下载的存档的内容提取到 **C:\\Labfiles\\Mod06** 文件夹。
-1. 在记事本中打开 template.json 文件，并查看内容。 使记事本窗口保持打开状态。
+1. Open the <bpt id="p1">**</bpt>template.json<ept id="p1">**</ept> file in Notepad and review the contents. Keep the Notepad window open.
 1. 在记事本中打开 **C:\\Labfiles\\Mod06\\parameters.json** 文件，查看该文件，然后关闭记事本窗口。
 
 #### <a name="task-2-add-an-azure-vm-extension-section-to-the-existing-template"></a>任务 2：将 Azure VM 扩展部分添加到现有模板
 
 1. 在实验室 VM 上，在显示 template.json 文件内容的记事本窗口中，在 `    "resources": [` 行下直接插入以下代码：
 
-   >**注意**：如果使用逐行粘贴代码的工具，IntelliSense 可能会添加多余的括号，从而导致验证错误。 可能需要先将代码粘贴到记事本，再将其粘贴到 JSON 文件中。
+   >此过程将涉及 Azure 资源管理器 (ARM) 模板和通过 Azure VM 扩展的 OS 配置。
 
    ```json
         {
@@ -171,7 +166,7 @@ ms.locfileid: "147039431"
 1. 将模板文件和参数文件加载到“自定义部署”页。
 1. 部署具有以下设置的模板，并将所有其他设置保留为其默认值：
 
-   |设置|值|
+   |设置|“值”|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ800-L0601-RG|
@@ -228,7 +223,7 @@ ms.locfileid: "147039431"
 
 1. 在 Azure 门户中，使用以下设置创建 NSG，并将所有其他设置保留为其默认值：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ800-L0601-RG|
@@ -237,7 +232,7 @@ ms.locfileid: "147039431"
 
 1. 使用以下设置将入站安全规则添加到新创建的网络安全组，并将所有其他设置保留为其默认值：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |源|**任意**|
    |源端口范围|*|
@@ -252,7 +247,7 @@ ms.locfileid: "147039431"
 1. 在 Azure 门户中，浏览到连接到 az800l06-vm0 Azure VM 的网络接口的页面，并将其与在上一任务中创建的网络安全组关联。
 1. 在 Azure 门户中，浏览到连接到 az800l06-vm0 Azure VM 的网络接口的 IP 配置，并将其与具有以下设置的新的公共 IP 地址相关联，并将所有其他设置保留为其默认值：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |名称|az800l06-vm0-pip1|
    |SKU|**标准**|
@@ -260,11 +255,11 @@ ms.locfileid: "147039431"
 1. 从实验室 VM，打开浏览器选项卡，浏览到新创建的公共 IP 地址，并验证该页是否显示以下消息“Hello World from az800l06-vm0”。
 1. 从实验室 VM，尝试建立与同一 IP 地址的远程桌面连接，并验证连接尝试失败。
 
-   >备注：这是预期的结果，因为当前无法通过 TCP 端口 3389 从 Internet 访问 Azure VM。 只能通过 TCP 端口 80 访问它。
+   >它还会纳入其他安全保护机制（不仅仅是已应用于本地系统的机制），例如通过 AppLocker 的应用程序允许列表、文件完整性检查和自适应网络/DDoS 保护。
 
 #### <a name="task-3-trigger-re-evaluation-of-the-jit-status-of-an-azure-vm"></a>任务 3：触发对 Azure VM 的 JIT 状态的重新评估
 
->备注：若要触发对 Azure VM 的 JIT 状态的重新评估，必须执行此任务。 默认情况下，这可能需要长达 24 小时的时间。
+>你还将利用 JIT 功能，将 Azure VM 的管理访问权限限制为与伦敦总部关联的公共 IP 地址范围。
 
 1. 在 Azure 门户中，浏览回 az800l06-vm0 页。
 1. 在“az800l06-vm0”页上，选择“配置” 。 

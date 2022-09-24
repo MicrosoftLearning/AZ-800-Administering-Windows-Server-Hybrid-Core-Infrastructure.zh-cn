@@ -2,18 +2,13 @@
 lab:
   title: 实验室：在 Windows Server 中实现和配置网络基础设施服务
   module: 'Module 7: Network Infrastructure services in Windows Server'
-ms.openlocfilehash: d50ffa7e7dc2631ee6c955b27e8b3507479ee8c9
-ms.sourcegitcommit: 33fdeedf81ac2a39e09176f7a4b7a72b983a072f
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2022
-ms.locfileid: "140742068"
 ---
+
 # <a name="lab-implementing-and-configuring-network-infrastructure-services-in-windows-server"></a>实验室：在 Windows Server 中实现和配置网络基础设施服务
 
 ## <a name="scenario"></a>场景
 
-Contoso, Ltd. 是一家大型组织，对网络服务具有复杂要求。 为了帮助满足这些要求，你将部署和配置 DHCP，以确保服务可用性。 你还将设置 DNS，以便 Trey Research（Contoso 内的一个部门）可以在测试区域中拥有自己的 DNS 服务器。 最后，你将提供对 Windows Admin Center 的远程访问权限，并使用 Web 应用程序代理对其进行保护。
+Contoso, Ltd. is a large organization with complex requirements for network services. To help meet these requirements, you will deploy and configure DHCP so that it is highly available to ensure service availability. You will also set up DNS so that Trey Research, a department within Contoso, can have its own DNS server in the testing area. Finally, you will provide remote access to Windows Admin Center and secure it with Web Application Proxy.
 
 ## <a name="objectives"></a>目标
 
@@ -26,7 +21,7 @@ Contoso, Ltd. 是一家大型组织，对网络服务具有复杂要求。 为�
 
 ## <a name="lab-setup"></a>实验室设置
 
-虚拟机：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 必须正在运行  。 其他 VM 可以运行，但本实验室不需要这些 VM。
+Virtual machines: <bpt id="p1">**</bpt>AZ-800T00A-SEA-DC1<ept id="p1">**</ept>, <bpt id="p2">**</bpt>AZ-800T00A-SEA-SVR1<ept id="p2">**</ept>, and <bpt id="p3">**</bpt>AZ-800T00A-ADM1<ept id="p3">**</ept> must be running. Other VMs can be running, but they aren't required for this lab.
 
 > 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 虚拟机承载 SEA-DC1、SEA-SVR1 和 SEA-ADM1 的安装      
 
@@ -43,7 +38,7 @@ Contoso, Ltd. 是一家大型组织，对网络服务具有复杂要求。 为�
 
 ### <a name="scenario"></a>场景
 
-Contoso 的 Trey Research 部门有一个独立的办公室，该办公室只有大约 50 个用户。 他们已在其所有计算机上手动配置 IP 地址，并且想要开始改为使用 DHCP。 你将在 SEA-SVR1 上安装 DHCP，并且为 Trey research 站点创建范围。 此外，你将使用新的 DHCP 服务器来配置 DHCP 故障转移，以便使用 SEA-DC1 实现高可用性。
+The Trey Research subdivision of Contoso has a separate office with only about 50 users. They have been manually configuring IP addresses on all of their computers and want to begin using DHCP instead. You will install DHCP on <bpt id="p1">**</bpt>SEA-SVR1<ept id="p1">**</ept> with a scope for the Trey Research site. Additionally, you will configure DHCP Failover by using the new DHCP server for high availability with <bpt id="p1">**</bpt>SEA-DC1<ept id="p1">**</ept>.
 
 此练习的主要任务如下：
 
@@ -70,11 +65,11 @@ Contoso 的 Trey Research 部门有一个独立的办公室，该办公室只有
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation completes. This should take about 2 minutes.
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。
 
-   >注意：如果链接不起作用，请在 SEA-ADM1 上浏览到 WindowsAdminCenter.msi 文件，打开其上下文菜单，然后选择“修复”   。 修复完成后，刷新 Microsoft Edge。 
+   >Contoso, Ltd. 是一家大型组织，对网络服务具有复杂要求。 
    
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
@@ -139,7 +134,7 @@ Contoso 的 Trey Research 部门有一个独立的办公室，该办公室只有
 
 ### <a name="scenario"></a>场景
 
-在 Contoso 内的 Trey Research 位置工作的人员需要拥有自己的 DNS 服务器，以在其测试环境中创建记录。 但是，他们的测试环境仍需要能够解析 Contoso 的 Internet DNS 名称和资源记录。 为了满足这些需求，你要配置到 Internet 服务提供商 (ISP) 的转发，并为 contoso.com 到 SEA-DC1 创建一个条件转发器 。 还有一个测试应用程序，该应用程序需要基于用户位置进行不同 IP 地址解析。 你使用 DNS 策略来配置 testapp.treyresearch.net，以便对总部的用户进行不同的解析。
+为了帮助满足这些要求，你将部署和配置 DHCP，以确保服务可用性。
 
 此练习的主要任务如下：
 
@@ -239,6 +234,6 @@ Contoso 的 Trey Research 部门有一个独立的办公室，该办公室只有
     ```powershell
     Resolve-DnsName -Server sea-svr1.contoso.com -Name testapp.treyresearch.net
     ```
-   > 注意：验证名称是否解析为 172.30.99.234 。 这是意料之中的，因为 SEA-ADM1 的 IP 地址已经不在 HeadOfficeSubnet 内 。 从 HeadOfficeSubnet (172.16.10.0/24) 向 `testapp.treyresearch.net` 发起的 DNS 查询解析为 172.30.99.100  。 从此子网外部向 `testapp.treyresearch.net` 发起的 DNS 查询解析为 172.30.99.234。
+   > 你还将设置 DNS，以便 Trey Research（Contoso 内的一个部门）可以在测试区域中拥有自己的 DNS 服务器。
 
 1. 将 SEA-ADM1 的 IP 地址更改回其原始值。

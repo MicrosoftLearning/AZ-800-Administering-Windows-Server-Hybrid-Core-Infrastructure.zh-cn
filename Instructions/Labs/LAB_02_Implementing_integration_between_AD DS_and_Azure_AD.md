@@ -2,20 +2,15 @@
 lab:
   title: 实验室：实现 AD DS 与 Azure AD 之间的集成
   module: 'Module 2: Implementing Identity in Hybrid Scenarios'
-ms.openlocfilehash: e3ef2ed624f090989019e4d4c4a23276a2f77330
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039392"
 ---
+
 # <a name="lab-implementing-integration-between-ad-ds-and-azure-ad"></a>实验室：实现 AD DS 与 Azure AD 之间的集成
 
 ## <a name="scenario"></a>场景
 
 为解决因使用 Microsoft Azure Active Directory (Azure AD) 针对 Azure 资源的访问进行身份验证和授权所产生的管理和监视开销的问题，你决定测试本地 Active Directory 域服务 (AD DS) 与 Azure AD 之间的集成，来验证是否可以通过混合使用本地资源和云资源来解决有关管理多个用户帐户的业务问题。
 
-此外，你还需要确保自己的方法能解决信息安全团队的问题，并保留应用于 Active Directory 用户的现有控件，例如登录时间和密码策略。 最后，你需要确定可实现以下目的的 Azure AD 集成功能：能进一步增强本地 Active Directory 安全性，且管理开销尽可能小，包括对 Windows Server Active Directory 的 Azure AD 密码保护、通过密码写回实现的自助式密码重置 (SSPR)。
+Additionally, you want to make sure that your approach addresses the Information Security team's concerns and preserves existing controls applied to Active Directory users, such as sign-in hours and password policies. Finally, you want to identify Azure AD integration features that allow you to further enhance on-premises Active Directory security and minimize its management overhead, including Azure AD Password Protection for Windows Server Active Directory and Self-Service Password Reset (SSPR) with password writeback.
 
 你的目标是在本地 AD DS 和 Azure AD 之间实现直通身份验证。
 
@@ -33,7 +28,7 @@ ms.locfileid: "147039392"
 
 ## <a name="lab-setup"></a>实验室设置
 
-虚拟机：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 必须处于运行状态  。 其他 VM 可以运行，但本实验室不需要这些 VM。 
+Virtual machines: <bpt id="p1">**</bpt>AZ-800T00A-SEA-DC1<ept id="p1">**</ept>, <bpt id="p2">**</bpt>AZ-800T00A-SEA-SVR1<ept id="p2">**</ept>, and <bpt id="p3">**</bpt>AZ-800T00A-ADM1<ept id="p3">**</ept> must be running. Other VMs can be running, but they aren't required for this lab. 
 
 > 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 虚拟机承载 SEA-DC1、SEA-SVR1 和 SEA-ADM1 的安装      
 
@@ -44,13 +39,13 @@ ms.locfileid: "147039392"
    - 密码：Pa55w.rd
    - 域名：CONTOSO
 
-对于本实验室，你将使用可用的 VM 环境和 Azure AD 租户。 在开始实验之前，请确保拥有 Azure AD 租户，且有一个具有该租户中全局管理员角色的用户帐户。
+For this lab, you'll use the available VM environment and an Azure AD tenant. Before you begin the lab, ensure that you have an Azure AD tenant and a user account with the Global Administrator role in that tenant.
 
 ## <a name="exercise-1-preparing-azure-ad-for-ad-ds-integration"></a>练习 1：为与 AD DS 集成准备 Azure AD
 
 ### <a name="scenario"></a>场景
 
-需要确保 Azure AD 环境已准备好与本地 AD DS 集成。 因此需要创建并验证自定义 Azure AD 域名和具有全局管理员角色的帐户。
+You need to ensure that your Azure AD environment is ready for integration with your on-premises AD DS. Therefore, you'll create and verify a custom Azure AD domain name and an account with the Global Administrator role.
 
 此练习的主要任务是：
 
@@ -93,7 +88,7 @@ ms.locfileid: "147039392"
 
 ### <a name="scenario"></a>场景
 
-需要确保现有 Active Directory 环境已为 Azure AD 集成做好准备。 因此，将运行 IdFix 工具，然后确保 Active Directory 用户的 UPN 与 Azure AD 租户的自定义域名匹配。
+You need to ensure that your existing Active Directory environment is ready for Azure AD integration. Therefore, you'll run the IdFix tool, and then ensure that the UPNs of the Active Directory users match the Azure AD tenant's custom domain name.
 
 此练习的主要任务是：
 
@@ -109,7 +104,7 @@ ms.locfileid: "147039392"
 #### <a name="task-2-run-idfix"></a>任务 2：运行 IdFix
 
 1. 在“IdFix”窗口中，选择“查询” 。
-1. 查看本地 Active Directory 中的对象列表，并查看 ERROR 和 ATTRIBUTE 列 。 在这种情况下，“ContosoAdmin”的displayName 的值为空，UPDATE 列中会显示工具建议的新值  。
+1. 此外，你还需要确保自己的方法能解决信息安全团队的问题，并保留应用于 Active Directory 用户的现有控件，例如登录时间和密码策略。
 1. 在“IdFix”窗口中的 ACTION 下拉菜单中，选择“编辑”，然后选择“应用”以自动实现建议的更改   。
 1. 在“应用挂起”对话框中，选择“是”，然后关闭 IdFix 工具 。
 
@@ -138,7 +133,7 @@ ms.locfileid: "147039392"
 
 1. 在“Azure AD 登录配置”页面上，验证添加的新域是否在 Active Directory UPN 后缀列表中。
 
-   > 注意：提供的域名不必是已验证的域。 虽然通常会在安装 Azure AD Connect 之前验证某个域，但此实验不需要执行该验证步骤。
+   > 最后，你需要确定可实现以下目的的 Azure AD 集成功能：能进一步增强本地 Active Directory 安全性，且管理开销尽可能小，包括对 Windows Server Active Directory 的 Azure AD 密码保护、通过密码写回实现的自助式密码重置 (SSPR)。
 
 1. 选择“继续操作且不将所有 UPN 后缀与已验证的域进行匹配”复选框。
 1. 到达“准备好配置”页面后，查看操作列表，然后开始安装。
@@ -147,7 +142,7 @@ ms.locfileid: "147039392"
 
 ### <a name="scenario"></a>场景
 
-现已安装并配置 Azure AD Connect，接下来需要验证其同步机制。 你计划对本地用户帐户进行更改，这将触发同步机制。 然后要验证是否已将更改复制到相应的 Azure AD 用户对象。
+Now that you have installed and configured Azure AD Connect, you must verify its synchronization mechanism. You plan to make changes to an on-premises user account, which will trigger synchronization. Then, you'll verify that the change is replicated to the corresponding Azure AD user object.
 
 此练习的主要任务是：
 
@@ -220,7 +215,7 @@ ms.locfileid: "147039392"
 
 ### <a name="scenario"></a>场景
 
-你想确定能进一步增强本地 Active Directory 安全性且管理开销尽可能小的 Azure AD 集成功能。 你还想实现对 Windows Server Active Directory 的 Azure AD 密码保护和通过密码写回实现的自助式密码重置。
+You want to identify Azure AD integration features that will allow you to further enhance your on-premises Active Directory security and minimize its management overhead. You also want to implement Azure AD Password Protection for Windows Server Active Directory and self-service password reset with password writeback.
 
 此练习的主要任务是：
 
@@ -248,7 +243,7 @@ ms.locfileid: "147039392"
 1. 在“连接到 Azure AD”页面上，输入在练习 1 中创建的 Azure AD 全局管理员用户帐户的用户名和密码。
 1. 在“可选功能”页面上，选择“密码写回” 。
 
-   > 注意：Active Directory 用户的自助式密码重置需要密码写回。 这使用户在 Azure AD 中更改的密码能够同步到 Active Directory。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Password writeback is required for self-service password reset of Active Directory users. This allows passwords changed by users in Azure AD to sync to the Active Directory.
 
 1. 在“准备好配置”页面上，查看要执行的操作的列表，然后选择“配置” 。
 1. 配置完成后，关闭“Microsoft Azure Active Directory Connect”窗口。
@@ -287,7 +282,7 @@ ms.locfileid: "147039392"
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到“Microsoft 下载”网站，然后浏览到可下载安装程序的“Windows Server Active Directory 的 Azure AD 密码保护”页面，然后选择“下载”  。
 1. 将 AzureADPasswordProtectionProxySetup.exe 和 AzureAdPasswordProtectiondAgentSetup.msi 下载到 SEA-ADM1  。
 
-   > 注意：建议在不是域控制器的服务器上安装代理服务。 此外，代理服务不应安装在与 Azure AD Connect 代理相同的服务器上。 将在 SEA-SVR1 上安装代理服务，并在 SEA-DC1 上安装密码保护 DC 代理 。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: We recommend installing the proxy service on a server that isn't a domain controller. In addition, the proxy service should not be installed on the same server as the Azure AD Connect agent. You will install the proxy service on <bpt id="p1">**</bpt>SEA-SVR1<ept id="p1">**</ept> and the Password Protection DC Agent on <bpt id="p2">**</bpt>SEA-DC1<ept id="p2">**</ept>.
 
 1. 在 SEA-ADM1 上的 Windows PowerShell 控制台中，运行以下命令，删除 Zone.Identifier 替代数据流，指示已从 internet 下载文件 ：
 
@@ -367,7 +362,7 @@ ms.locfileid: "147039392"
 
 ### <a name="scenario"></a>场景
 
-你需要禁用从本地 Active Directory 到 Azure 的同步。 这涉及删除 Azure AD Connect 和禁用与 Azure 的同步。
+You want to disable synchronization from the on-premises Active Directory to Azure. This will involve removing Azure AD Connect and disabling synchronization with Azure.
 
 此练习的主要任务是：
 

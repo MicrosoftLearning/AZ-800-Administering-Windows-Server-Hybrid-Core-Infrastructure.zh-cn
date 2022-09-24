@@ -2,20 +2,15 @@
 lab:
   title: 实验室：在 Windows Server 中实现和配置虚拟化
   module: 'Module 5: Hyper-V virtualization in Windows Server'
-ms.openlocfilehash: 7120bfad95a023f547426f44af6a775b98dbf491
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039389"
 ---
+
 # <a name="lab-implementing-and-configuring-virtualization-in-windows-server"></a>实验室：在 Windows Server 中实现和配置虚拟化
 
 ## <a name="scenario"></a>场景
 
-Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市。 IT 办公室和数据中心位于西雅图，以支持西雅图位置和其他位置。 Contoso 最近部署了一个 Windows Server 服务器和客户端基础结构。 
+Contoso is a global engineering and manufacturing company with its head office in Seattle, USA. An IT office and data center are in Seattle to support the Seattle location and other locations. Contoso recently deployed a Windows Server server and client infrastructure. 
 
-由于目前许多物理服务器未得到充分利用，公司计划扩展虚拟化以优化环境。 因此，你决定执行概念证明来验证如何使用 Hyper-V 管理虚拟机环境。 另外，Contoso DevOps 团队想要探索容器技术，确定它是否有助于减少新应用程序的部署时间，并简化将应用程序移动到云的过程。 你计划与该团队合作，评估 Windows 服务器容器并考虑在容器中提供 Internet Information Services（Web 服务）。
+Because of many physical servers being currently underutilized, the company plans to expand virtualization to optimize the environment. Because of this, you decide to perform a proof of concept to validate how Hyper-V can be used to manage a virtual machine environment. Also, the Contoso DevOps team wants to explore container technology to determine whether they can help reduce deployment times for new applications and to simplify moving applications to the cloud. You plan to work with the team to evaluate Windows Server containers and to consider providing Internet Information Services (Web services) in a container.
 
 ## <a name="objectives"></a>目标
 
@@ -28,7 +23,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 
 ## <a name="lab-setup"></a>实验室设置
 
-虚拟机：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 必须正在运行  。 其他 VM 可以运行，但此实验室不需要这些 VM。
+Virtual machines: <bpt id="p1">**</bpt>AZ-800T00A-SEA-DC1<ept id="p1">**</ept>, <bpt id="p2">**</bpt>AZ-800T00A-SEA-SVR1<ept id="p2">**</ept>, and <bpt id="p3">**</bpt>AZ-800T00A-ADM1<ept id="p3">**</ept> must be running. Other VMs can be running, but they aren't required for this lab.
 
 > 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-SEA-ADM1 虚拟机承载 SEA-DC1、SEA-SVR1 和 SEA-ADM1 的安装      
 
@@ -45,7 +40,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 
 ### <a name="scenario"></a>场景
 
-在此练习中，使用 Hyper-V 管理器和 Windows Admin Center 来创建和配置虚拟机。 首先，你将创建一个专用虚拟网络交换机。 接下来，你决定创建一个基础映像的差分驱动器，该驱动器已准备好要安装到 VM 上的操作系统。 最后，你将创建第 1 代 VM，该 VM 使用已为概念证明准备的差分驱动器和专用交换机。
+In this exercise, you will use Hyper-V Manager and Windows Admin Center to create and configure a virtual machine. You will start with creating a private virtual network switch. Next, you decide to create a differencing drive of a base image that has already been prepared with the operating system to be installed on the VM. Finally, you will create a generation 1 VM that uses the differencing drive and private switch that you have prepared for the proof of concept.
 
 此练习的主要任务如下：
 
@@ -105,7 +100,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 备注：请等待安装完成。 这大约需要 2 分钟。
+   > Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
@@ -128,7 +123,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 
 ### <a name="scenario"></a>场景
 
-在本练习中，你将使用 Docker 来安装和运行 Windows 容器。 你还将使用 Windows Admin Center 来管理容器。
+IT 办公室和数据中心位于西雅图，以支持西雅图位置和其他位置。
 
 此练习的主要任务如下：
 
@@ -215,15 +210,15 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
    ipconfig
    ```
 
-   > 注意：标识名为 vEthernet (nat) 的以太网适配器的 IPv4 地址。 这是新容器的地址。 接下来，标识名为 Ethernet 的以太网适配器的 IPv4 地址。 这是主机 (SEA-SVR1) 的 IP 地址，设置为 172.16.10.12 。
+   > Contoso 最近部署了一个 Windows Server 服务器和客户端基础结构。
 
-1. 在 SEA-ADM1 上，切换到 Microsoft Edge 窗口，打开另一个选项卡并转到 http://172.16.10.12 。 确认浏览器显示默认 IIS 页。
+1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, switch to the Microsoft Edge window, open another tab and go to <bpt id="p2">**</bpt><ph id="ph1">http://172.16.10.12</ph><ept id="p2">**</ept>. Verify that the browser displays the default IIS page.
 1. 在 SEA-ADM1 上，切换回与 SEA-SVR1 的 PowerShell 远程处理会话，然后在 Windows PowerShell 控制台中，运行以下命令以列出正在运行的容器  ：
 
    ```powershell
    docker ps
    ```
-   > 注意：此命令提供有关当前正在 SEA-SVR1 上运行的容器的信息 。 记录容器 ID，因为你将使用它来停止容器。 
+   > 由于目前许多物理服务器未得到充分利用，公司计划扩展虚拟化以优化环境。 
 
 1. 运行以下命令以停止正在运行的容器（将 `<ContainerID>` 占位符替换为你在上一步中标识的容器 ID）：
 
@@ -238,7 +233,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 
 #### <a name="task-3-use-windows-admin-center-to-manage-containers"></a>任务 3：使用 Windows Admin Center 管理容器
 
-1. 在 SEA-ADM1 上，在 Windows Admin Center 中 sea-svr1.contoso.com 的“工具”菜单中，选择“容器”   。 系统提示关闭 PowerShell 会话时，选择“继续” 。
+1. 因此，你决定执行概念证明来验证如何使用 Hyper-V 管理虚拟机环境。
 1. 在“容器”窗格中，浏览“概述”、“容器”、“映像”、“网络”和“卷”选项卡    。
 
 ### <a name="exercise-2-results"></a>练习 2 结果
