@@ -3,16 +3,11 @@ lab:
   title: 实验室：在 Windows Server 中实现存储解决方案
   type: Answer Key
   module: 'Module 9: File servers and storage management in Windows Server'
-ms.openlocfilehash: 6019d7dac7105bf65a5720b292ef5afc46f4faac
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039377"
 ---
+
 # <a name="lab-answer-key-implementing-storage-solutions-in-windows-server"></a>实验室解答：在 Windows Server 中实现存储解决方案
 
-> 注意：请确保在每次练习后复原虚拟机 (VM)。 由于大多数 VM 都是 Windows Server 2019 Server Core，因此在练习中复原和重启所需的时间比尝试撤销对存储环境所做更改所需的时间更快。
+> <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Be sure to revert the virtual machines (VMs) between each exercise. Due to most of the VMs being Windows Server 2019 Server Core, the time it takes to revert and restart is faster than attempting to undo changes made to the storage environment in the exercises.
 
 ## <a name="exercise-1-implementing-data-deduplication"></a>练习 1：实施重复数据删除
 
@@ -27,7 +22,7 @@ ms.locfileid: "147039377"
 1. 在“选择功能”页上，选择“下一步”，然后在“确认安装选择”页中，选择“安装”   。
 1. 在安装角色服务时，请在任务栏上选择“文件资源管理器”图标。
 1. 在文件资源管理器中，浏览到 C 盘 。
-1. 选择“Labfiles”目录，然后显示上下文相关菜单。 在菜单中，选择“授予访问权限”，然后在层叠菜单中，选择“特定人员...” 。
+1. Select the <bpt id="p1">**</bpt>Labfiles<ept id="p1">**</ept> directory, and then display the context-sensitive menu. In the menu, select <bpt id="p1">**</bpt>Give access to<ept id="p1">**</ept>, and then, in the cascading menu, select <bpt id="p2">**</bpt>Specific people...<ept id="p2">**</ept>.
 1. 在“网络访问”窗口的“键入名称，然后单击‘添加’，或单击箭头查找用户”文本框中，键入“用户”，然后单击“添加”   。
 1. 在“网络访问”窗口中，选择“共享”，在出现“你的文件夹已共享”窗口后，选择“完成”   。
 1. 切换回“服务器管理器”窗口，然后在“添加角色和功能向导安装成功”页上，选择“关闭”  。
@@ -84,7 +79,7 @@ ms.locfileid: "147039377"
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation completes. This should take about 2 minutes.
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后转到 `https://SEA-ADM1.contoso.com`。 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
@@ -170,7 +165,7 @@ ms.locfileid: "147039377"
    $partition3.DriveLetter
    ```
 
-   > 注意：该说明假定驱动器号分别为 E 和 F  。 如果驱动器号分配不同，则请考虑在本练习中按照说明进行操作。
+   > 注意：请确保在每次练习后复原虚拟机 (VM)。
 
 #### <a name="task-2-connect-to-and-configure-iscsi-targets"></a>任务 2：连接并配置 iSCSI 目标
 
@@ -185,7 +180,7 @@ ms.locfileid: "147039377"
 1. 在服务器管理器的“文件和存储服务”中，选择“iSCSI”，选择“任务”，然后在下拉菜单中选择“新建 iSCSI 虚拟磁盘”    。
 1. 在“新建 iSCSI 虚拟磁盘向导”中，在“选择 iSCSI 虚拟磁盘位置”页面的“SEA-SVR3”服务器下，选择“E:”卷，然后选择“下一步”    。
 1. 在“指定 iSCSI 虚拟磁盘名称”页面的“名称”文本框中输入“iSCSIDisk1”，然后选择“下一步”   。
-1. 在“指定 iSCSI 虚拟磁盘大小”页面的“大小”文本框中，输入“5”  。 将所有其他设置保留默认值，然后选择“下一步”。
+1. 由于大多数 VM 都是 Windows Server 2019 Server Core，因此在练习中复原和重启所需的时间比尝试撤销对存储环境所做更改所需的时间更快。
 1. 在“分配 iSCSI 目标”页面，确保选择“新建 iSCSI 目标”单选按钮，然后选择“下一步”  。
 1. 在“指定目标名称”页面的“名称”字段中，输入“iSCSIFarm”，然后选择“下一步”   。
 1. 在“指定访问服务器”页面中，选择“添加”按钮 。
@@ -230,7 +225,7 @@ ms.locfileid: "147039377"
    Get-Disk
    ```
 
-   > 注意：这两个磁盘均存在且正常，但处于脱机状态。 若要使用它们，需要对其进行初始化和格式化。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Both disks are present and healthy, but offline. To use them, you need to initialize and format them.
 
 1. 输入以下命令，然后在每个命令后按 Enter 键以创建使用 ReFS 格式化且驱动器号为 E 的卷。
 
@@ -264,10 +259,10 @@ ms.locfileid: "147039377"
 1. 在服务器管理器中，通过在窗口右上角的“任务”菜单中选择“刷新”，刷新“文件和存储服务”中的“磁盘”窗格   。 
 1. 在“磁盘”窗格中向下滚动，注意列出的 SEA-SVR3 磁盘 1 到 4 具有“未知”分区和“脱机”状态  。 
 1. 依次选择四个磁盘中的每一个，显示其上下文相关菜单，选择菜单中的“联机”选项，然后在“磁盘联机”窗口中，选择“是”  。
-1. 验证所有列出的磁盘是否都为“联机”状态。 在“服务器管理器”窗格中，选择“存储池” 。
+1. Verify that all disks are listed with the <bpt id="p1">**</bpt>Online<ept id="p1">**</ept> status. In <bpt id="p1">**</bpt>Server Manager<ept id="p1">**</ept>, in the navigation pane, select <bpt id="p2">**</bpt>Storage Pools<ept id="p2">**</ept>.
 1. 在服务器管理器的“存储池”区域中的“任务”列表中，选择“新建存储池”   。 
 1. 在“新建存储池向导”中，在“准备工作”页上，单击“下一步”  。
-1. 在“指定存储池名称和子系统”页上的“名称”文本框中，输入“SP1”  。 在“说明”文本框中，输入“存储池 1” 。 在“选择你要使用的可用磁盘组(也称为原始池)”列表中，选择“SEA-SVR3”条目，然后选择“下一步”  。
+1. On the <bpt id="p1">**</bpt>Specify a storage pool name and subsystem<ept id="p1">**</ept> page, in the <bpt id="p2">**</bpt>Name<ept id="p2">**</ept> text box, enter <bpt id="p3">**</bpt>SP1<ept id="p3">**</ept>. In the <bpt id="p1">**</bpt>Description<ept id="p1">**</ept> text box, enter <bpt id="p2">**</bpt>Storage Pool 1<ept id="p2">**</ept>. In the <bpt id="p1">**</bpt>Select the group of available disks (also known as a primordial pool) that you want to use<ept id="p1">**</ept> listing, select the <bpt id="p2">**</bpt>SEA-SVR3<ept id="p2">**</ept> entry, and then select <bpt id="p3">**</bpt>Next<ept id="p3">**</ept>.
 1. 在“选择存储池的物理磁盘”页上，选中大小为 127 GB 的三个磁盘旁边的复选框，然后选择“下一步”  。
 1. 在“确认选择”页上，查看设置，然后选择“创建” 。
 1. 选择“关闭”。
@@ -291,7 +286,7 @@ ms.locfileid: "147039377"
 1. 在“选择服务器和磁盘”页上，选择“SEA-SVR3”，选择“Three-Mirror”，然后选择“下一步”   。
 1. 在“指定卷的大小”页上，选择“下一步” 。
 1. 在“分配到驱动器号或文件夹”页上，选择“驱动器号”，选择“T”，然后选择“下一步”   。
-1. 在“选择文件系统设置”页的“文件系统”下拉列表中，选择“ReFS”  。 在“卷标签”文本框中，输入“TestData”，然后选择“下一步”  。
+1. On the <bpt id="p1">**</bpt>Select file system settings<ept id="p1">**</ept> page, in the <bpt id="p2">**</bpt>File system<ept id="p2">**</ept> drop-down list, select <bpt id="p3">**</bpt>ReFS<ept id="p3">**</ept>. In the <bpt id="p1">**</bpt>Volume label<ept id="p1">**</ept> text box, enter <bpt id="p2">**</bpt>TestData<ept id="p2">**</ept>, and then select <bpt id="p3">**</bpt>Next<ept id="p3">**</ept>.
 1. 在“启用重复数据删除”页上，选择“下一步” 。
 1. 在“确认选择”页面上，选择“创建” 。
 1. 在“完成”页中，选择“关闭” 。
@@ -307,15 +302,15 @@ ms.locfileid: "147039377"
 
 1. 在 SEA-ADM1 的任务栏中，选择“文件资源管理器”图标 。
 1. 在“文件资源管理器”窗口的“地址栏”中，输入 \\\\SEA-SVR3.contoso.com\\t$  。
-1. 在文件资源管理器的“详细信息”窗格中，显示上下文相关菜单，然后在菜单中选择“新建文件夹”。 将分配给新文件夹的默认名称替换为 TestData，然后按 Enter 键。
+1. In File Explorer, in the Details pane, display the context-sensitive menu, and then, in the menu, select <bpt id="p1">**</bpt>New Folder<ept id="p1">**</ept>. Replace the default name assigned to the new folder with <bpt id="p1">**</bpt>TestData<ept id="p1">**</ept>, and then press Enter.
 1. 在文件资源管理器中，双击新创建的 TestData 文件夹。
-1. 在文件资源管理器的“详细信息”窗格中，显示上下文相关的菜单，然后在菜单中选择“新建”，然后选择“文本文档” 。 将分配给新文件的默认名称替换为 TestDocument，然后按 Enter 键。
+1. In File Explorer, in the Details pane, display context-sensitive menu, and then, in the menu, select <bpt id="p1">**</bpt>New<ept id="p1">**</ept>, and then select <bpt id="p2">**</bpt>Text Document<ept id="p2">**</ept>. Replace the default name assigned to the new file with <bpt id="p1">**</bpt>TestDocument<ept id="p1">**</ept>, and then press Enter.
 
 #### <a name="task-4-disconnect-a-disk-from-the-storage-pool-and-verify-volume-availability"></a>任务 4：断开磁盘与存储池的连接并验证卷的可用性 
 
-1. 在 SEA-ADM1 上，切换到服务器管理器 。 在“文件和服务存储”树形窗格中，选择“存储池”，然后选择“SP1”  。
+1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, switch to <bpt id="p2">**</bpt>Server Manager<ept id="p2">**</ept>. In the <bpt id="p1">**</bpt>File and Storage Services<ept id="p1">**</ept> tree pane, select <bpt id="p2">**</bpt>Storage Pools<ept id="p2">**</ept>, and then select <bpt id="p3">**</bpt>SP1<ept id="p3">**</ept>.
 1. 在“物理磁盘”窗格中，选择“任务”下拉列表，然后选择“添加物理磁盘” 。
-1. 在“添加物理磁盘”对话框，在表示要添加到池中的第四个磁盘的行中，选中磁盘名称旁边的复选框。 在“分配”下拉列表中，确保选中“自动”条目，然后选择“确定”  。
+1. In the <bpt id="p1">**</bpt>Add Physical Disk<ept id="p1">**</ept> dialog box, in the row representing the fourth disk to be added to the pool, select the check box next to the disk name. In the <bpt id="p1">**</bpt>Allocation<ept id="p1">**</ept> drop-down list, ensure that the <bpt id="p2">**</bpt>Automatic<ept id="p2">**</ept> entry is selected, and then select <bpt id="p3">**</bpt>OK<ept id="p3">**</ept>.
 1. 在“物理磁盘”窗格中，右键单击列表中的顶部磁盘，然后选择“删除磁盘”。
 1. 在“删除物理磁盘”窗口中，选择“是” 。
 1. 在“删除物理磁盘”对话框中，查看说明“Windows 正在修复受影响的虚拟磁盘”的消息，然后选择“确定”  。
@@ -324,10 +319,10 @@ ms.locfileid: "147039377"
 
 #### <a name="task-5-add-a-disk-to-the-storage-pool-and-verify-volume-availability"></a>任务 5：将磁盘添加到存储池并验证卷可用性 
 
-1. 在 SEA-ADM1 上，切换到服务器管理器 。 在“文件和存储服务”树形窗格中，选择“存储池”条目后，在右上角的“任务”菜单中，选择“重新扫描存储”   。
+1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, switch to <bpt id="p2">**</bpt>Server Manager<ept id="p2">**</ept>. In <bpt id="p1">**</bpt>File and Storage Services<ept id="p1">**</ept> tree pane, with the <bpt id="p2">**</bpt>Storage Pools<ept id="p2">**</ept> entry selected, in the <bpt id="p3">**</bpt>TASKS<ept id="p3">**</ept> menu in the upper right corner, select <bpt id="p4">**</bpt>Rescan Storage<ept id="p4">**</ept>.
 1. 出现提示时，在“重新扫描存储”对话框中，选择“是” 。
 1. 在“物理磁盘”窗格中，选择“任务”，然后在下拉菜单中选择“添加物理磁盘” 。
-1. 在“添加物理磁盘”窗口，在表示要添加到池中的第四个磁盘的行中，选中磁盘名称旁边的复选框。 在“分配”下拉列表中，确保选中“自动”条目，然后选择“确定”  。
+1. In the <bpt id="p1">**</bpt>Add Physical Disk<ept id="p1">**</ept> window, in the row representing the fourth disk to be added to the pool, select the check box next to the disk name. In the <bpt id="p1">**</bpt>Allocation<ept id="p1">**</ept> drop-down list, ensure that the <bpt id="p2">**</bpt>Automatic<ept id="p2">**</ept> entry is selected, and then select <bpt id="p3">**</bpt>OK<ept id="p3">**</ept>.
 1. 在 SEA-ADM1 上，切换到“文件资源管理器”窗口，并验证 TestData 文件夹及其内容是否仍然可用  。
 
 #### <a name="task-6-revert-disk-configuration"></a>任务 6：还原磁盘配置 
@@ -353,17 +348,17 @@ ms.locfileid: "147039377"
 1. 在服务器管理器的导航窗格中，选择“文件和存储服务”，然后选择“磁盘”  。
 1. 选择“磁盘”窗格后，在其右上角的“任务”菜单中，选择“刷新” 。
 1. 在“磁盘”窗格中，向下滚动到 SEA-SVR3 的磁盘 1 至 4 的列表，并验证它们各自在“分区”列中的条目是否被列为“未知”  。
-1. 依次选择四个磁盘中的每一个，然后显示其上下文相关菜单。 在菜单中，选择“联机”选项，然后在“磁盘联机”窗口中选择“是”  。
+1. Select each of the four disks in sequence, and then display its context-sensitive menu. In the menu, select the <bpt id="p1">**</bpt>Bring Online<ept id="p1">**</ept> option, and then in the <bpt id="p2">**</bpt>Bring Disk Online<ept id="p2">**</ept> window, select <bpt id="p3">**</bpt>Yes<ept id="p3">**</ept>.
 1. 使用相同的方法，将 SEA-SVR1 和 SEA-SVR2 的所有磁盘均联机 。
 1. 在 SEA-ADM1 上，选择“开始”，然后在“开始”菜单中选择“Windows PowerShell ISE”   。
-1. 在 Windows PowerShell ISE 中，选择“文件”菜单 。 在“文件”菜单中，选择“打开”，然后在“打开”对话框中，选择“C:\Labfiles\Lab09”   。
+1. In <bpt id="p1">**</bpt>Windows PowerShell ISE<ept id="p1">**</ept>, select the <bpt id="p2">**</bpt>File<ept id="p2">**</ept> menu. In the <bpt id="p1">**</bpt>File<ept id="p1">**</ept> menu, select <bpt id="p2">**</bpt>Open<ept id="p2">**</ept>, and then, in the <bpt id="p3">**</bpt>Open<ept id="p3">**</ept> dialog box, go to <bpt id="p4">**</bpt>C:\Labfiles\Lab09<ept id="p4">**</ept>.
 1. 选择“Implement-StorageSpacesDirect.ps1”，然后选择“打开” 。
 
-   > 注意：脚本分为多个带编号的步骤。 共有 8 个步骤，每个步骤都有多个命令。 若要执行单个行，可以将光标置于该行中的任意位置，然后按 F8，或在 Windows PowerShell ISE 窗口的工具栏中选择“运行选择” 。 若要执行多个行，请完全选择所有行，然后使用 F8 或“运行选择”工具栏图标。 此练习的说明中介绍了步骤顺序。 确保每个步骤完成后再开始下一个步骤。
+   > 选择“Labfiles”目录，然后显示上下文相关菜单。
 
 1. 选择步骤 1 中的第一行，然后按 F8 在 SEA-SVR1、SEA-SVR2 和 SEA-SVR3 上安装“文件服务器角色和故障转移群集”功能   。
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。 验证在每个命令的输出中，Success 属性是否设置为 True 。
+   > 在菜单中，选择“授予访问权限”，然后在层叠菜单中，选择“特定人员...” 。
 
 1. 选择步骤 1 中的第二行，然后按 F8 重新启动 SEA-SVR1、SEA-SVR2 和 SEA-SVR3  。
 
@@ -379,29 +374,29 @@ ms.locfileid: "147039377"
 1. 在服务器管理器中，选择“工具”，然后选择“故障转移群集管理器”以验证其安装是否已成功完成  。
 1. 在 SEA-ADM1 上，切换到“Administrator: Windows PowerShell ISE”窗口，选择步骤 2 中以“Test-Cluster”开头的行，然后按 F8 键调用群集验证测试  。
 
-   > 注意：请等待测试完成。 这大约需要 2 分钟。 验证所有测试均未失败。 忽略所有警告，因为这是意料之中的。 
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the tests complete. This should take about 2 minutes. Verify that none of the tests fail. Ignore any warnings since these are expected. 
 
 1. 在“Administrator: Windows PowerShell ISE”窗口中，选择步骤 3 中以“New-Cluster”开头的行，然后按 F8 键创建群集 。
 
-   > 注意：请等待步骤完成。 这大约需要 2 分钟。 
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take about 2 minutes. 
 
-1. 在 SEA-ADM1 上，切换到“故障转移群集管理器”窗口 。 在“操作”窗格中，选择“连接到群集”，输入 S2DCluster.Contoso.com，然后选择“确定”  。
+1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, switch to the <bpt id="p2">**</bpt>Failover Cluster Manager<ept id="p2">**</ept> window. In the Actions pane, select <bpt id="p1">**</bpt>Connect to Cluster<ept id="p1">**</ept>, enter <bpt id="p2">**</bpt>S2DCluster.Contoso.com<ept id="p2">**</ept>, and then select <bpt id="p3">**</bpt>OK<ept id="p3">**</ept>.
 
 #### <a name="task-3-enable-storage-spaces-direct"></a>任务 3：启用存储空间直通
 
 1. 在 SEA-ADM1 上，切换到“Administrator: Windows PowerShell ISE”窗口，选择步骤 4 中以“Invoke-Command”开头的行，然后按 F8 键在新安装的群集上启用存储空间直通  。
 
-   > 注意：请等待步骤完成。 这大约需要 1 分钟。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take about 1 minute.
 
 1. 在“Administrator: Windows PowerShell ISE”窗口中，选择步骤 5 中以“Invoke-Command”开头的行，然后按 F8 键创建 S2DStoragePool  。
 
-   > 注意：请等待步骤完成。 此过程应该会在 1 分钟内完成。 在命令输出中，验证 FriendlyName 属性的值是否为 S2DStoragePool 。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take less than 1 minute. In the output of the command, verify that the <bpt id="p1">**</bpt>FriendlyName<ept id="p1">**</ept> attribute has a value of <bpt id="p2">**</bpt>S2DStoragePool<ept id="p2">**</ept>.
 
 1. 切换到“故障转移群集管理器”窗口，展开“S2DCluster.Contoso.com”，展开“存储”，然后选择“池”   。
 1. 验证群集池 1 是否存在。
 1. 在“Administrator: Windows PowerShell ISE”窗口中，选择步骤 6 中以“Invoke-Command”开头的行，然后按 F8 键创建虚拟机 。
 
-   > 注意：请等待步骤完成。 此过程应该会在 1 分钟内完成。 
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take less than 1 minute. 
 
 1. 切换到“故障转移群集管理器”窗口，然后在“存储”节点中，选择“磁盘”  。
 1. 验证群集虚拟磁盘 (CSV) 是否存在。
@@ -410,24 +405,24 @@ ms.locfileid: "147039377"
 
 1. 在“Administrator: Windows PowerShell ISE”窗口中，选择步骤 7 中以“Invoke-Command”开头的行，然后按 F8 键创建文件服务器群集角色 。
 
-   > 注意：请等待步骤完成。 此过程应该会在 1 分钟内完成。 
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take less than 1 minute. 
 
-1. 验证该命令的输出是否包含角色定义，并将属性 FriendlyName 设置为 S2D-SOFS 。 这会验证命令是否成功。
+1. Verify that the output of the command includes the role definition, with the attribute <bpt id="p1">**</bpt>FriendlyName<ept id="p1">**</ept> set to <bpt id="p2">**</bpt>S2D-SOFS<ept id="p2">**</ept>. This validates that the command was successful.
 1. 切换到“故障转移群集管理器”窗口并选择“角色” 。
-1. 验证是否存在 S2D-SOFS 角色。 这还会验证命令是否已成功完成。
+1. Verify the existence of the S2D-SOFS role. This also verifies that the command completed successfully.
 1. 在“Administrator: Windows PowerShell ISE”窗口中，选择步骤 8 中以“Invoke-Command”开头的三行，然后按 F8 键创建文件共享 。
 
-   > 注意：请等待步骤完成。 此过程应该会在 1 分钟内完成。 
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take less than 1 minute. 
 
-1. 验证该命令的输出是否包含文件共享的定义，并且 Path 属性设置为 C:\\ClusterStorage\\CSV\\VM01 。 这会验证命令是否成功完成。
+1. Verify that the output of the command includes definition of a file share, with the attribute <bpt id="p1">**</bpt>Path<ept id="p1">**</ept> set to <bpt id="p2">**</bpt>C:<ph id="ph1">\\</ph>ClusterStorage<ph id="ph2">\\</ph>CSV<ph id="ph3">\\</ph>VM01<ept id="p2">**</ept>. This validates that the command completed successfully.
 1. 在“故障转移群集管理器”窗口中的“角色”窗格中，选择“名称”列下的“S2D-SOFS”，然后选择“共享”选项卡。    
-1. 验证名为 VM01 的共享是否存在。 这还会验证命令是否已成功完成。
+1. Verify the existence of the share named <bpt id="p1">**</bpt>VM01<ept id="p1">**</ept>. This also verifies that the command completed successfully.
 
 #### <a name="task-5-verify-storage-spaces-direct-functionality"></a>任务 5：验证存储空间直通功能
 
 1. 在 SEA-ADM1 的任务栏中，选择“文件资源管理器”图标 。
 1. 在文件资源管理器的地址栏中，输入 \\\\S2D-SOFS.contoso.com\\VM01，然后按 Enter 键打开目标文件共享 。
-1. 在文件资源管理器的“详细信息”窗格中，显示上下文相关菜单，然后在菜单中选择“新建文件夹” 。 将分配给新文件夹的默认名称替换为 VMFolder，然后按 Enter 键。
+1. In <bpt id="p1">**</bpt>File Explorer<ept id="p1">**</ept>, in the details pane, display the context-sensitive menu, and then, in the menu, select <bpt id="p2">**</bpt>New Folder<ept id="p2">**</ept>. Replace the default name assigned to the new folder with <bpt id="p1">**</bpt>VMFolder<ept id="p1">**</ept>, and then press Enter.
 1. 在 SEA-ADM1 上，切换到“Administrator: Windows PowerShell ISE”窗口 。
 1. 在“Administrator: Windows PowerShell ISE”窗口的控制台窗格中，输入以下命令，然后按 Enter 键关闭 SEA-SVR3 ：
 

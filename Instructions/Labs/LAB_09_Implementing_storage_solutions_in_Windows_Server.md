@@ -2,18 +2,13 @@
 lab:
   title: 实验室：在 Windows Server 中实现存储解决方案
   module: 'Module 9: File servers and storage management in Windows Server'
-ms.openlocfilehash: 934803ee453372faa68572a289154e7c89f4b416
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039434"
 ---
+
 # <a name="lab-implementing-storage-solutions-in-windows-server"></a>实验室：在 Windows Server 中实现存储解决方案
 
 ## <a name="scenario"></a>场景
 
-在 Contoso, Ltd，需要在 Windows Server 服务器上实现存储空间功能，以简化存储访问并提供存储级别的冗余。 管理方希望你能测试重复数据删除以节省存储。 他们还希望你能实现 Internet 小型计算机系统接口 (iSCSI) 存储，为在组织中部署存储提供更简单的解决方案。 此外，该组织正在探索能使存储高度可用的选择，且在研究为了实现高可用性而必须满足的要求。 你需要测试使用高度可用存储（尤其是存储空间直通）的可行性。
+At Contoso, Ltd., you need to implement the Storage Spaces feature on the Windows Server servers to simplify storage access and provide redundancy at the storage level. Management wants you to test Data Deduplication to save storage. They also want you to implement Internet Small Computer System Interface (iSCSI) storage to provide a simpler solution for deploying storage in the organization. Additionally, the organization is exploring options for making storage highly available and researching the requirements that it must meet for high availability. You want to test the feasibility of using highly available storage, specifically Storage Spaces Direct.
 
 ## <a name="objectives"></a>目标
 
@@ -48,7 +43,7 @@ ms.locfileid: "147039434"
 
 ### <a name="scenario"></a>场景
 
-你决定使用服务器管理器安装重复数据删除角色服务。 你判定驱动器 M 被过度使用，且怀疑其中的某些文件夹包含重复的文件。 你决定启用并配置重复数据删除角色，以减少此卷上的已占用空间。
+You decide to install the Data Deduplication role service by using Server Manager. You determine that drive <bpt id="p1">**</bpt>M<ept id="p1">**</ept> is heavily used, and you suspect that it contains duplicate files in some folders. You decide to enable and configure the Data Deduplication role to reduce the consumed space on this volume.
 
 此练习的主要任务如下：
 
@@ -110,7 +105,7 @@ ms.locfileid: "147039434"
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation completes. This should take about 2 minutes.
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
@@ -149,7 +144,7 @@ ms.locfileid: "147039434"
 
 ### <a name="scenario"></a>场景
 
-Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成本和复杂性的选项。 若要对此进行测试，必须安装和配置 iSCSI 目标，并配置 iSCSI 发起程序以提供对目标的访问权限。
+Executives at Contoso are exploring the option of using iSCSI to decrease the cost and complexity of configuring centralized storage. To test this, you must install and configure the iSCSI targets, and configure the iSCSI initiators to provide access to the targets.
 
 此练习的主要任务如下：
 
@@ -197,11 +192,11 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
    $partition3.DriveLetter
    ```
 
-   > 注意：该说明假定驱动器号分别为 E 和 F  。 如果驱动器号分配不同，则请考虑在本练习中按照说明进行操作。
+   > 在 Contoso, Ltd，需要在 Windows Server 服务器上实现存储空间功能，以简化存储访问并提供存储级别的冗余。
 
 #### <a name="task-2-connect-to-and-configure-iscsi-targets"></a>任务 2：连接并配置 iSCSI 目标
 
-1. 在 SEA-ADM1 上，刷新服务器管理器中的“磁盘”窗格，并显示 SEA-DC1 的磁盘配置  。 请注意，它仅包含启动卷和系统卷驱动器 C。
+1. 管理方希望你能测试重复数据删除以节省存储。
 1. 在服务器管理器中，在“文件和存储服务”中切换到 iSCSI 窗格 。 
 1. 在 iSCSI 窗格中，采用以下设置创建 iSCSI 虚拟磁盘：
 
@@ -245,7 +240,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
    ```powershell
    Get-Disk
    ```
-   > 注意：这两个磁盘均存在且正常，但处于脱机状态。 若要使用它们，需要对其进行初始化和格式化。
+   > 他们还希望你能实现 Internet 小型计算机系统接口 (iSCSI) 存储，为在组织中部署存储提供更简单的解决方案。
 
 1. 在 SEA-DC1 上的 Windows PowerShell 提示符处运行以下命令，创建使用 ReFS 格式化且驱动器号为 E 的卷  。
 
@@ -275,7 +270,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 
 ### <a name="scenario"></a>场景
 
-为了满足高可用性的一些要求，你决定评估存储空间中的冗余选项。 此外，你想要测试将新磁盘预配到存储池的情况。
+此外，该组织正在探索能使存储高度可用的选择，且在研究为了实现高可用性而必须满足的要求。
 
 此练习的主要任务如下：
 
@@ -286,7 +281,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 1. 将磁盘添加到存储池并验证卷可用性。
 1. 还原磁盘配置。
 
-> **注意：** 在 Windows Server 中，你无法断开存储池中的磁盘的连接。 只能删除磁盘。 如果不先添加新磁盘，那么也无法删除三向镜像中的磁盘。 
+> 你需要测试使用高度可用存储（尤其是存储空间直通）的可行性。 
 
 #### <a name="task-1-create-a-storage-pool"></a>任务 1：创建存储池 
 
@@ -313,7 +308,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 
 #### <a name="task-4-disconnect-a-disk-from-the-storage-pool-and-verify-volume-availability"></a>任务 4：断开磁盘与存储池的连接并验证卷的可用性 
 
-1. 在 SEA-ADM1 上，使用服务器管理器将附加到 SEA-SVR3 的剩余可用磁盘添加到存储池 SP1   。 请确保磁盘使用自动分配。
+1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, use <bpt id="p2">**</bpt>Server Manager<ept id="p2">**</ept> to add the remaining available disk attached to <bpt id="p3">**</bpt>SEA-SVR3<ept id="p3">**</ept> to the storage pool <bpt id="p4">**</bpt>SP1<ept id="p4">**</ept>. Ensure the disk uses automatic allocation.
 1. 使用服务器管理器删除分配到 SP1 池的前三个磁盘之中的一个 。
 1. 在 SEA-ADM1 上使用文件资源管理器验证 TestDocument.txt 是否仍然可用 。 
 
@@ -342,7 +337,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 
 ### <a name="scenario"></a>场景
 
-你想要测试将本地存储用作高可用性存储是否是适合组织的解决方案。 以前，你的组织仅使用存储区域网络 (SAN) 存储 VM。 使用 Windows Server 中的功能，可以仅使用本地存储，因此你想要将存储空间直通实现为测试实现。
+You want to test whether using local storage as highly available storage is a viable solution for your organization. Previously, your organization has only used storage area networks (SANs) for storing VMs. The features in Windows Server make it possible to use only local storage, so you want to implement Storage Spaces Direct as a test implementation.
 
 此练习的主要任务如下：
 
@@ -360,11 +355,11 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 1. 在服务器管理器的“磁盘”窗格中，将附加到 SEA-SVR1、SEA-SVR2 和 SEA-SVR3 的所有磁盘转为联机状态   。
 1. 在 SEA-ADM1 上启动 Windows PowerShell ISE 并在其脚本窗格中打开 C:\\Labfiles\\Lab09\\Implement-StorageSpacesDirect.ps1  。
 
-   > 注意：脚本分为多个带编号的步骤。 共有 8 个步骤，每个步骤都有多个命令。 若要执行单个行，可以将光标置于该行中的任意位置，然后按 F8，或在 Windows PowerShell ISE 窗口的工具栏中选择“运行选择” 。 若要执行多个行，请完全选择所有行，然后使用 F8 或“运行选择”工具栏图标。 此练习的说明中介绍了步骤顺序。 确保每个步骤完成后再开始下一个步骤。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The script is divided into numbered steps. There are eight steps, and each step has a number of commands. To execute an individual line, you can place the cursor anywhere within that line and press F8 or select the <bpt id="p1">**</bpt>Run Selection<ept id="p1">**</ept> in the toolbar of the <bpt id="p2">**</bpt>Windows PowerShell ISE<ept id="p2">**</ept> window. To execute multiple lines, select all of them in their entirety, and then use either F8 or the <bpt id="p1">**</bpt>Run Selection<ept id="p1">**</ept> toolbar icon. The sequence of steps is described in the instructions of this exercise. Ensure that each step completes before starting the next one.
 
 1. 运行步骤 1 中的第一个命令，在 SEA-SVR1、SEA-SVR2 和 SEA-SVR3 上安装文件服务器角色和故障转移群集功能  。
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。 验证在每个命令的输出中，Success 属性是否设置为 True 。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation finishes. This should take about 2 minutes. Verify that, in the output of each command, the <bpt id="p1">**</bpt>Success<ept id="p1">**</ept> property is set to <bpt id="p2">**</bpt>True<ept id="p2">**</ept>.
 
 1. 运行步骤 1 中的第二个命令以重启 SEA-SVR1、SEA-SVR2 和 SEA-SVR3  。
 
@@ -379,11 +374,11 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 1. 在 SEA-ADM1 上，启动“故障转移群集管理器”控制台 。
 1. 在 SEA-ADM1 上，在 Windows PowerShell ISE 中运行步骤 2 命令以调用群集验证测试 。
 
-   > 注意：请等待测试完成。 这大约需要 2 分钟。 验证所有测试均未失败。 忽略所有警告，因为这是意料之中的。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the tests complete. This should take about 2 minutes. Verify that none of the tests fail. Ignore any warnings since these are expected.
 
 1. 在 Windows PowerShell ISE 中运行步骤 3 命令以创建群集。
 
-   > 注意：请等待步骤完成。 这大约需要 2 分钟。 
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take about 2 minutes. 
 
 1. 命令完成后，切换到故障转移群集管理器，并添加新创建的群集（名为 S2DCluster.Contoso.com） 。
 
@@ -391,16 +386,16 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 
 1. 在 SEA-ADM1 上，在 Windows PowerShell ISE 中运行步骤 4 命令以在新安装的群集上启用存储空间直通 。
 
-   > 注意：请等待步骤完成。 这大约需要 1 分钟。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take about 1 minute.
 
 1. 在 Windows PowerShell ISE 中，运行步骤 5 命令以创建名为 S2DStoragePool 的存储池 。
 
-   > 注意：请等待步骤完成。 此过程应该会在 1 分钟内完成。 在命令输出中，验证 FriendlyName 属性的值是否为 S2DStoragePool 。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take less than 1 minute. In the output of the command, verify that the <bpt id="p1">**</bpt>FriendlyName<ept id="p1">**</ept> attribute has a value of <bpt id="p2">**</bpt>S2DStoragePool<ept id="p2">**</ept>.
 
 1. 切换到故障转移群集管理器，验证群集是否包含名为“群集池 1”的存储池 。
 1. 切换到 ，然后运行步骤 6 命令以创建虚拟磁盘。
 
-   > 注意：请等待步骤完成。 此过程应该会在 1 分钟内完成。 
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take less than 1 minute. 
 
 1. 切换到故障转移群集管理器，并验证群集虚拟磁盘 (CSV) 对象是否显示在“磁盘”窗格中 。
 
@@ -408,7 +403,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 
 1. 在 SEA-ADM1 上，在 Windows PowerShell ISE 中运行步骤 7 命令，创建 S2D-SOFS 角色 。
 
-   > 注意：请等待步骤完成。 此过程应该会在 1 分钟内完成。 
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the step completes. This should take less than 1 minute. 
 
 1. 切换到故障转移群集管理器，并验证 S2D-SOFS 对象是否显示“角色”窗格中 。
 1. 切换到 Windows PowerShell ISE 并运行步骤 8 中的所有三个步骤，创建 VM01 共享 。 

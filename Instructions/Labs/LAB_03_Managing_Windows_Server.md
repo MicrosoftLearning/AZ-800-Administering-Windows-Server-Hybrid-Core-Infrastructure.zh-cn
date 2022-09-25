@@ -2,18 +2,13 @@
 lab:
   title: 实验室：管理 Windows Server
   module: 'Module 3: Windows Server administration'
-ms.openlocfilehash: 88b5dda91ee1aa239f87b94e55ed5bd6f42aca10
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039395"
 ---
+
 # <a name="lab-managing-windows-server"></a>实验室：管理 Windows Server
 
 ## <a name="scenario"></a>场景
 
-Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Server Core。 他们还想要实现 Windows Admin Center，以远程管理这些服务器和组织中的其他服务器。
+Contoso, Ltd. wants to implement several new servers in their environment, and they have decided to use Server Core. They also want to implement Windows Admin Center for remote management of both these servers and other servers in the organization.
 
 ## <a name="objectives"></a>目标
 
@@ -23,7 +18,7 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
 
 ## <a name="lab-setup"></a>实验室设置
 
-虚拟机：AZ-800T00A-SEA-DC1 和 AZ-800T00A-ADM1 必须正在运行 。 其他 VM 可以运行，但此实验室不需要这些 VM。
+Virtual machines: <bpt id="p1">**</bpt>AZ-800T00A-SEA-DC1<ept id="p1">**</ept> and <bpt id="p2">**</bpt>AZ-800T00A-ADM1<ept id="p2">**</ept> must be running. Other VMs can be running, but they aren't required for this lab.
 
 > 注意：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 虚拟机托管 SEA-DC1 和 SEA-ADM1 的安装    。
 
@@ -64,9 +59,9 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation completes. This should take about 2 minutes.
 
-   > **注意**：安装完成后，可能会遇到错误消息“ERR_Connection_Refused”。 如果发生这种情况，请重启 SEA-ADM1 以更正此问题。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: After installation completes, you may encounter the error message 'ERR_Connection_Refused'. If this occurs, restart SEA-ADM1 to correct the issue.
 
 #### <a name="task-2-add-servers-for-remote-administration"></a>任务 2：添加用于远程管理的服务器
 
@@ -82,7 +77,7 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
 
 1. 在 SEA-ADM1 的右上角，选择“设置”图标（齿轮） 。
 1. 查看可用的扩展。
-1. 安装“安全性(预览版)”扩展。 该扩展将安装，Windows Admin Center 将刷新。
+1. Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Server Core。
 
    > 注意：如果“安全性(预览版)”扩展不可用，请选择其他 Microsoft 扩展 。
 
@@ -94,7 +89,7 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
 
 #### <a name="task-4-verify-remote-administration"></a>任务 4：验证远程管理
 
-1. 在 SEA-ADM1 上，在 Windows Admin Center 中，连接到 `sea-dc1.contoso.com` 时，查看“概述”窗格。 请注意，Windows Admin Center 的“详细信息”窗格显示基本的服务器信息和性能监视。
+1. 他们还想要实现 Windows Admin Center，以远程管理这些服务器和组织中的其他服务器。
 1. 在 Windows Admin Center 中，使用“角色和功能”工具在 `sea-dc1.contoso.com` 上安装 Telnet 客户端。 
 1. 在 Windows Admin Center 中，使用“设置”界面在 `sea-dc1.contoso.com` 上启用远程桌面。
 1. 在 Windows Admin Center 中，通过远程桌面连接到 `sea-dc1.contoso.com`。
@@ -132,4 +127,4 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
 
 ### <a name="results"></a>结果
 
-完成本练习后，你已安装 Windows Admin Center 并将其连接到实验室环境中的服务器。 你执行了许多远程管理任务，包括安装功能以及启用和测试远程桌面连接。 最后，你使用了 PowerShell 远程处理来检查服务的状态，然后启动它。
+After completing this exercise, you will have installed Windows Admin Center and connected it to the servers in your lab environment. You performed a number of remote management tasks including installing a feature as well as enabling and testing Remote Desktop connectivity. Finally, you used PowerShell Remoting to check the status of a service and then to start it.

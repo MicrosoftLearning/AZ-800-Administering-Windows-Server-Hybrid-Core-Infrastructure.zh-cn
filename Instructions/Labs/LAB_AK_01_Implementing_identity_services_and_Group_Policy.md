@@ -3,13 +3,8 @@ lab:
   title: 实验室：实现标识服务和组策略
   type: Answer Key
   module: 'Module 1: Identity services in Windows Server'
-ms.openlocfilehash: a0e12921f8971d31e92ba495134b22d3ed2b6895
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039440"
 ---
+
 # <a name="lab-answer-key-implementing-identity-services-and-group-policy"></a>实验室解答：实现标识服务和组策略
 
 ## <a name="exercise-1-deploying-a-new-domain-controller-on-server-core"></a>练习 1：在 Server Core 上部署新的域控制器
@@ -28,11 +23,11 @@ ms.locfileid: "147039440"
    ```powershell
    Get-WindowsFeature –ComputerName SEA-SVR1
    ```
-1. 在上一个命令的输出中，搜索“Active Directory 域服务”复选框，然后确认它已被选中。 然后，搜索“远程服务器管理工具”。 请注意其下方的“角色管理工具”节点，然后验证“AD DS 和 AD LDS 工具”节点是否也已被选中 。
+1. In the output of the previous command, search for the <bpt id="p1">**</bpt>Active Directory Domain Services<ept id="p1">**</ept> checkbox, and then verify that it is selected. Then, search for <bpt id="p1">**</bpt>Remote Server Administration Tools<ept id="p1">**</ept>. Notice the <bpt id="p1">**</bpt>Role Administration Tools<ept id="p1">**</ept> node below it, and then verify that the <bpt id="p2">**</bpt>AD DS and AD LDS Tools<ept id="p2">**</ept> node is also selected.
 
-   > **注意**：在“AD DS 和 AD LDS 工具”节点下，仅安装了 Windows PowerShell 的 Active Directory 模块，未安装图形工具（如 Active Directory 管理中心） 。 如果要集中管理服务器，则通常不需要在每个服务器上使用这些工具。 如果要安装 AD DS 工具，则必须通过使用 RSAT-ADDS 命令运行 Add-WindowsFeature cmdlet 进行指定 。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Under the <bpt id="p2">**</bpt>AD DS and AD LDS Tools<ept id="p2">**</ept> node, only <bpt id="p3">**</bpt>Active Directory module for Windows PowerShell<ept id="p3">**</ept> has been installed and not the graphical tools, such as the Active Directory Administrative Center. If you centrally manage your servers, you will not usually need these on each server. If you want to install them, you must specify the AD DS tools by running the <bpt id="p1">**</bpt>Add-WindowsFeature<ept id="p1">**</ept> cmdlet with the <bpt id="p2">**</bpt>RSAT-ADDS<ept id="p2">**</ept> command.
 
-   > **注意**：安装过程完成后，可能需要稍等片刻，然后才能验证 AD DS 角色是否已安装。 如果未观察到 Get-WindowsFeature 命令的预期结果，可在几分钟后重试。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: You might need to wait a brief time after the installation process is complete before verifying that the AD DS role has installed. If you do not observe the expected results from the <bpt id="p1">**</bpt>Get-WindowsFeature<ept id="p1">**</ept> command, you can try again after a few minutes.
 
 #### <a name="task-2-prepare-the-ad-ds-installation-and-promote-a-remote-server"></a>任务 2：准备安装 AD DS 并提升远程服务器
 
@@ -40,13 +35,13 @@ ms.locfileid: "147039440"
 1. 在“管理”菜单上，选择“添加服务器” 。
 1. 在“添加服务器”对话框中，保留默认设置，然后选择“立即查找” 。
 1. 在服务器的 Active Directory 列表中，选择 SEA-SVR1，选择箭头将其添加到“选定项”列表，然后选择“确定”   。
-1. 在 SEA-ADM1 上，确保已在 SEA-SRV1 上安装 AD DS 角色，并且服务器已添加到服务器管理器  。 然后选择“通知”标志符号。
+1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, ensure that the installation of the AD DS role on <bpt id="p2">**</bpt>SEA-SRV1<ept id="p2">**</ept> is complete and that the server was added to <bpt id="p3">**</bpt>Server Manager<ept id="p3">**</ept>. Then select the <bpt id="p1">**</bpt>Notifications<ept id="p1">**</ept> flag symbol.
 1. 记下 SEA-SVR1 的部署后配置，然后选择“将此服务器提升到域控制器”链接 。
 1. 在“Active Directory 域服务配置向导”的“部署配置”页上，在“选择部署操作”下，确认已选中“向现有域添加域控制器”   。
 1. 确保指定了 `Contoso.com` 域，然后在“提供凭据以执行此操作”部分，选择“更改” 。
 1. 在“部署操作的凭据”对话框的“用户名”框中，输入“CONTOSO\\Administrator”，在“密码”框中，输入“Pa55w.rd”    。
 1. 选择“确定”  ，然后选择“下一步”  。
-1. 在“域控制器选项”页上，确保已选中“域名系统(DNS)服务器”和“全局编录(GC)”复选框  。 确保清除“只读域控制器(RODC)”复选框。
+1. On the <bpt id="p1">**</bpt>Domain Controller Options<ept id="p1">**</ept> page, ensure that the <bpt id="p2">**</bpt>Domain Name System (DNS) server<ept id="p2">**</ept> and <bpt id="p3">**</bpt>Global Catalog (GC)<ept id="p3">**</ept> checkboxes are selected. Ensure that the <bpt id="p1">**</bpt>Read-only domain controller (RODC)<ept id="p1">**</ept> checkbox is cleared.
 1. 在“键入目录服务还原模式(DSRM)密码”部分中，输入并确认密码“Pa55w.rd”，然后选择“下一步”  。
 1. 在“DNS 选项”页上，选择“下一步” 。
 1. 在“其他选项”页上，选择“下一步” 。
@@ -59,7 +54,7 @@ ms.locfileid: "147039440"
    - 删除每行末尾的重音符号 (`)。
    - 删除换行符。
 
-1. 现在，Install-ADDSDomainController 命令以及所有参数都位于一行中。 将光标置于该行的前面，然后在“编辑”菜单上，选择“全选”以选择整行 。 在菜单上，选择“编辑”，然后选择“复制” 。
+1. Now the <bpt id="p1">**</bpt>Install-ADDSDomainController<ept id="p1">**</ept> command and all the parameters are on one line. Place the cursor in front of the line, and then, on the <bpt id="p1">**</bpt>Edit<ept id="p1">**</ept> menu, select <bpt id="p2">**</bpt>Select All<ept id="p2">**</ept> to select the whole line. On the menu, select <bpt id="p1">**</bpt>Edit<ept id="p1">**</ept>, and then select <bpt id="p2">**</bpt>Copy<ept id="p2">**</ept>.
 1. 切换到 Active Directory 域服务配置向导，然后选择“取消” 。
 1. 当系统提示确认时，选择“是”以取消该向导。
 1. 在 Windows PowerShell 命令提示符下，输入以下命令：
@@ -67,7 +62,7 @@ ms.locfileid: "147039440"
    ```powershell
    Invoke-Command –ComputerName SEA-SVR1 { }
    ```
-1. 将光标置于大括号 ({ }) 之间，然后粘贴剪贴板中复制的脚本行的内容。 完整的命令应采用以下格式：
+1. Place the cursor between the braces (<bpt id="p1">**</bpt>{ }<ept id="p1">**</ept>), and then paste the content of the copied script line from the clipboard. The complete command should have the following format:
     
    ```powershell
    Invoke-Command –ComputerName SEA-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:\$false -CreateDnsDelegation:\$false -Credential (Get-Credential) -CriticalReplicationOnly:\$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:\$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:\$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:\$true}
@@ -76,9 +71,9 @@ ms.locfileid: "147039440"
 1. 在“Windows PowerShell 凭据请求”对话框中，在“用户名”框中输入 CONTOSO\\Administrator，在“密码”框中输入 Pa55w.rd，然后选择“确定”     。
 1. 当系统提示输入密码时，在 SafeModeAdministratorPassword 文本框中，输入 Pa55w.rd，然后按 Enter 。
 1. 当系统提示进行确认时，在 Confirm SafeModeAdministratorPassword 文本框中，输入 Pa55w.rd，然后按 Enter 。
-1. 等到命令运行并返回“状态成功”消息。 重启 SEA-SVR1 虚拟机。
+1. Wait until the command runs and the <bpt id="p1">**</bpt>Status Success<ept id="p1">**</ept> message is returned. The <bpt id="p1">**</bpt>SEA-SVR1<ept id="p1">**</ept> virtual machine restarts.
 1. 关闭记事本而不保存文件。
-1. 重启 SEA-SVR1 后，在 SEA-ADM1 上切换到“服务器管理器”，在左侧选择 AD DS 节点   。 请注意，SEA-SVR1 已添加为服务器，警告通知已消失。
+1. After <bpt id="p1">**</bpt>SEA-SVR1<ept id="p1">**</ept> restarts, on <bpt id="p2">**</bpt>SEA-ADM1<ept id="p2">**</ept>, switch to <bpt id="p3">**</bpt>Server Manager<ept id="p3">**</ept>, and on the left side, select the <bpt id="p4">**</bpt>AD DS<ept id="p4">**</ept> node. Note that <bpt id="p1">**</bpt>SEA-SVR1<ept id="p1">**</ept> has been added as a server and that the warning notification has disappeared.
 
    > **注意**：可能需要选择“刷新”。
 
@@ -149,7 +144,7 @@ ms.locfileid: "147039440"
 1. 在“阻止访问注册表编辑工具”对话框中，选择“启用”，然后选择“确定”  。
 1. 在导航窗格中，依次展开“用户配置”、“策略”、“管理模板”、“控制面板”，然后选择“个性化”     。
 1. 在详细信息窗格中，双击或选择“屏幕保护程序超时”策略设置，然后按 Enter。
-1. 在“屏幕保护程序超时”对话框中，选择“启用” 。 在“秒”文本框中，输入 600，然后选择“确定”  。 
+1. 在上一个命令的输出中，搜索“Active Directory 域服务”复选框，然后确认它已被选中。 
 1. 双击或选择“对屏幕保护程序使用密码保护”策略设置，然后按 Enter。
 1. 在“对屏幕保护程序使用密码保护”对话框中，选择“启用”，然后选择“确定”  。
 1. 关闭“组策略管理编辑器”窗口。
@@ -168,13 +163,13 @@ ms.locfileid: "147039440"
 1. 注销，然后以 CONTOSO\\Ty 身份使用密码 Pa55w.rd 登录 。
 1. 在任务栏上的搜索框中，输入“控制面板”。
 1. 在“最佳匹配”列表中，选择“控制面板” 。
-1. 在“控制面板”的搜索框中，输入“屏幕保护程序”，然后选择“更改屏幕保护程序” 。 （可能需要几分钟时间才能显示选项。）
-1. 在“屏幕保护程序设置”对话框中，请注意，“等待”选项将灰显 。 不能更改超时。请注意，“恢复时显示登录屏幕”选项处于选中状态并灰显，并且无法更改设置。
+1. 然后，搜索“远程服务器管理工具”。
+1. 请注意其下方的“角色管理工具”节点，然后验证“AD DS 和 AD LDS 工具”节点是否也已被选中 。
 
    > **注意**：如果“恢复时显示登录屏幕”选项未选中且不为灰显，请打开命令提示符，运行 `gpupdate /force`，然后重复上述步骤。
 
 1. 右键单击或访问“开始”的上下文菜单，然后选择“运行” 。
-1. 在“运行”对话框中的“打开”文本框中，输入 Regedit，然后选择“确定”   。 请注意指出“注册表编辑已被管理员禁用”的错误消息。
+1. In the <bpt id="p1">**</bpt>Run<ept id="p1">**</ept> dialog box, in the <bpt id="p2">**</bpt>Open<ept id="p2">**</ept> text box, enter <bpt id="p3">**</bpt>regedit<ept id="p3">**</ept>, and then select <bpt id="p4">**</bpt>OK<ept id="p4">**</ept>. Note the error message stating <bpt id="p1">**</bpt>Registry editing has been disabled by your administrator<ept id="p1">**</ept>.
 1. 在“注册表编辑器”对话框中，选择“确定” 。
 1. 注销，然后以 **CONTOSO\\Administrator 身份使用密码 Pa55w.rd 再次登录** 。
 
@@ -196,7 +191,7 @@ ms.locfileid: "147039440"
 1. 返回到“组策略管理控制台”树中，确保选中“Seattle”组织单位 。
 1. 选择“组策略继承”选项卡并查看其内容。
 
-   > 注意：Seattle Application Override GPO 的优先级高于 CONTOSO Standards GPO。 刚刚在 Seattle Application Override GPO 中配置的屏幕保护程序超时策略设置将在设置 CONTOSO Standards GPO 之后应用。 因此，新设置将覆盖 CONTOSO Standards GPO 设置。 对于 Seattle Application Override GPO 范围内的用户，将禁用屏幕保护程序超时。
+   > **注意**：在“AD DS 和 AD LDS 工具”节点下，仅安装了 Windows PowerShell 的 Active Directory 模块，未安装图形工具（如 Active Directory 管理中心） 。
 
 #### <a name="task-6-configure-the-scope-of-a-gpo-with-security-filtering"></a>任务 6：使用安全筛选配置 GPO 的范围
 
@@ -207,7 +202,7 @@ ms.locfileid: "147039440"
 1. 在“安全筛选”部分，选择“经过身份验证的用户”，然后选择“删除”  。
 1. 在“组策略管理”对话框中，选择“确定”，查看“组策略管理”警告，然后再次选择“确定”   。
 
-   > **注意**：组策略要求每个计算机帐户都有权从域控制器读取 GPO 数据，才能成功地应用用户 GPO 设置。 修改 GPO 的安全筛选设置时，应考虑到这一点。
+   > 如果要集中管理服务器，则通常不需要在每个服务器上使用这些工具。
 
 1. 在详细信息窗格中，选择“添加”。
 1. 在“选择用户、计算机或组”对话框的“输入要选择的对象名称(示例):”文本中，输入 SeattleBranchUsers，然后选择“确定”   。
@@ -234,7 +229,7 @@ ms.locfileid: "147039440"
 1. 在“选择摘要”页上，选择“下一步” 。
 1. 在出现提示时选择“完成”。
 1. 在详细信息窗格中，选择“详细信息”选项卡，然后选择“全部显示” 。
-1. 在报表中向下滚动，直到找到“用户详细信息”部分，然后找到“控制面板/个性化”部分 。 请注意，禁用了 “幕保护程序超时”设置，并且入选的 GPO 设置为 Seattle Application Override GPO。
+1. 如果要安装 AD DS 工具，则必须通过使用 RSAT-ADDS 命令运行 Add-WindowsFeature cmdlet 进行指定 。
 1. 关闭“组策略管理”控制台。
 
 **结果**：完成此练习后，应已成功创建和配置了 GPO。

@@ -3,13 +3,8 @@ lab:
   title: 实验室：实现 AD DS 与 Azure AD 之间的集成
   type: Answer Key
   module: 'Module 2: Implementing Identity in Hybrid Scenarios'
-ms.openlocfilehash: 19bd0eda7cf9282a1ed3ea6f5597e3dc22811cb6
-ms.sourcegitcommit: a93f00deb8cc1f5cd2d826a0e43ef449dd9b36f6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2022
-ms.locfileid: "147563928"
 ---
+
 # <a name="lab-answer-key-implementing-integration-between-ad-ds-and-azure-ad"></a>实验室答案密钥：实现 AD DS 与 Azure AD 之间的集成
 
 ## <a name="exercise-1-preparing-azure-ad-for-ad-ds-integration"></a>练习 1：为与 AD DS 集成准备 Azure AD
@@ -35,7 +30,7 @@ ms.locfileid: "147563928"
 
    > 注意：确保“用户名”的域名下拉菜单列出了以 `onmicrosoft.com` 结尾的默认域名 。
 
-1. 在“密码”下，选中“显示密码”复选框 。 记录密码，因为稍后将在本实验室中使用它。
+1. Under <bpt id="p1">**</bpt>Password<ept id="p1">**</ept>, select the <bpt id="p2">**</bpt>Show Password<ept id="p2">**</ept> checkbox. Record the password as you'll use it later in this lab.
 1. 在“组和角色”下，选择“角色”旁边的“用户”  。
 1. 在“目录角色”页上，从角色列表中选择“全局管理员”，然后选择“选择”  。
 1. 返回到“新建用户”页，在“使用位置”下拉列表中选择“美国”  。
@@ -65,7 +60,7 @@ ms.locfileid: "147563928"
 
 1. 在“IdFix”窗口中，选择“查询” 。
 1. 如果出现“架构警告”对话框，请选择“是” 。
-1. 查看 Active Directory 中的对象列表，并查看 ERROR 和 ATTRIBUTE 列 。 在这种情况下，“ContosoAdmin”的 displayName 的值为空，UPDATE 列中会显示工具建议的新值  。
+1. Review the list of objects from Active Directory, and observe the <bpt id="p1">**</bpt>ERROR<ept id="p1">**</ept> and <bpt id="p2">**</bpt>ATTRIBUTE<ept id="p2">**</ept> columns. In this scenario, the value of <bpt id="p1">**</bpt>displayName<ept id="p1">**</ept> for <bpt id="p2">**</bpt>ContosoAdmin<ept id="p2">**</ept> is blank, and the tool's recommended new value appears in the <bpt id="p3">**</bpt>UPDATE<ept id="p3">**</ept> column.
 1. 在“IdFix”窗口中的 ACTION 下拉菜单中，选择“编辑”，然后选择“应用”以自动实现建议的更改   。
 1. 在“应用挂起”对话框中，选择“是” 。
 1. 关闭 IdFix 工具。
@@ -89,7 +84,7 @@ ms.locfileid: "147563928"
 
 1. 在“Azure AD 登录配置”页面上，注意添加的新域包含在 Active Directory UPN 后缀列表中，但其状态列为“未验证” 。
 
-   > 注意：提供的域名不必是已验证的域。 虽然通常会在安装 Azure AD Connect 之前验证某个域，但此实验不需要执行该验证步骤。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The domain name provided does not have to be a verified domain. While you typically would verify a domain prior to installing Azure AD Connect, this lab doesn't require that verification step.
 
 1. 选择“继续操作且不将所有 UPN 后缀与已验证的域进行匹配”复选框，然后选择“下一步” 。
 1. 在“准备好配置”页上，查看操作列表，然后选择“安装” 。
@@ -189,11 +184,11 @@ ms.locfileid: "147563928"
 1. 在“Microsoft Azure Active Directory Connect”窗口中，选择“配置” 。
 1. 在“其他任务”页上，依次选择“自定义同步选项”和“下一步”。
 1. 在“连接到 Azure AD”页上，输入在练习 1 中创建的 Azure AD 全局管理员用户帐户的用户名和密码，然后选择“下一步” 。
-1. 在“连接目录”页上选择“下一步”。
-1. 在“域和 OU 筛选”页上选择“下一步”。
+1. 在“连接目录”页上选择“下一步”。********
+1. 在“域和 OU 筛选”页上选择“下一步”。********
 1. 在“可选功能”页面上，选中“密码写回”，然后选择“下一步”  。
 
-   > 注意：Active Directory 用户的自助式密码重置需要密码写回。 这使用户在 Azure AD 中更改的密码能够同步到 Active Directory。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Password writeback is required for self-service password reset of Active Directory users. This allows passwords changed by users in Azure AD to sync to the Active Directory.
 
 1. 在“准备好配置”页面上，查看要执行的操作的列表，然后选择“配置” 。
 1. 在“配置完成”页面上，选择“退出” 。
@@ -236,7 +231,7 @@ ms.locfileid: "147563928"
 1. 选择“下载”  。
 1. 在“下载多个文件”对话框中，选择“允许” 。
 
-   > 注意：建议在不是域控制器的服务器上安装代理服务。 此外，代理服务不应安装在与 Azure AD Connect 代理相同的服务器上。 将在 SEA-SVR1 上安装代理服务，并在 SEA-DC1 上安装密码保护 DC 代理 。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: We recommend installing the proxy service on a server that isn't a domain controller. In addition, the proxy service should not be installed on the same server as the Azure AD Connect agent. You will install the proxy service on <bpt id="p1">**</bpt>SEA-SVR1<ept id="p1">**</ept> and the Password Protection DC Agent on <bpt id="p2">**</bpt>SEA-DC1<ept id="p2">**</ept>.
 
 1. 在 SEA-ADM1 上，切换到 Windows PowerShell 控制台窗口 。
 1. 在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，删除 Zone.Identifier 替代数据流，指示已从 internet 下载文件：

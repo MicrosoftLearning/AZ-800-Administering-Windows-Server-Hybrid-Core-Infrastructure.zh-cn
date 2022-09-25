@@ -3,13 +3,8 @@ lab:
   title: 实验室：在 Windows Server 中实现和配置网络基础设施服务
   type: Answer Key
   module: 'Module 7: Network Infrastructure services in Windows Server'
-ms.openlocfilehash: 5157a50a5a5317acfcb7d38b68fa4e16e5201c01
-ms.sourcegitcommit: d34dce53481b0263d0ff82913b3f49cb173d5c06
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2022
-ms.locfileid: "147039383"
 ---
+
 # <a name="lab-answer-key-implementing-and-configuring-network-infrastructure-services-in-windows-server"></a>实验室解答：在 Windows Server 中实现和配置网络基础设施服务
 
 ## <a name="exercise-1-deploying-and-configuring-dhcp"></a>练习 1：部署和配置 DHCP
@@ -32,11 +27,11 @@ ms.locfileid: "147039383"
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 备注：请等待安装完成。 这大约需要 2 分钟。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation completes. This should take about 2 minutes.
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后浏览到 `https://SEA-ADM1.contoso.com`。
 
-   >注意：如果链接不起作用，请在 SEA-ADM1 上浏览到 WindowsAdminCenter.msi 文件，打开其上下文菜单，然后选择“修复”   。 修复完成后，刷新 Microsoft Edge。 
+   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If the link does not work, on <bpt id="p2">**</bpt>SEA-ADM1<ept id="p2">**</ept>, browse to the <bpt id="p3">**</bpt>WindowsAdminCenter.msi<ept id="p3">**</ept> file, open the context menu for it, and then select <bpt id="p4">**</bpt>Repair<ept id="p4">**</ept>. After the repair completes, refresh Microsoft Edge. 
 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
@@ -57,13 +52,13 @@ ms.locfileid: "147039383"
 1. 在“角色和功能”窗格中，选中“DHCP 服务器”复选框，然后选择“+ 安装” 。
 1. 在“安装角色和功能”窗格中，选择“是”。
 
-   > 备注：请等待指示已安装 DHCP 角色的通知。 如有必要，请选择“通知”图标以验证当前状态。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the notification indicating that the DHCP role is installed. If necessary, select the <bpt id="p1">**</bpt>Notifications<ept id="p1">**</ept> icon to verify the current status.
 
 1. 刷新 Microsoft Edge 页面，返回到 sea-svr1.contoso.com 页面上，在“工具”列表中，选择“DHCP”，然后在详细信息窗格中，选择“安装”以安装 DHCP PowerShell 工具    。 
 
    > 备注：如果 sea-svr1.contoso.com 的“工具”列表中未提供“DHCP”条目，请刷新 Microsoft Edge 页面，然后重试    。
 
-1. 等待指示已安装 DHCP PowerShell 工具的通知。 如有必要，请选择“通知”图标以验证当前状态。
+1. Wait for a notification that the DHCP PowerShell tools are installed. If necessary, select the <bpt id="p1">**</bpt>Notifications<ept id="p1">**</ept> icon to verify the current status.
 
 #### <a name="task-2-authorize-the-dhcp-server"></a>任务 2：对 DHCP 服务器授权
 
@@ -77,7 +72,7 @@ ms.locfileid: "147039383"
 
 1. 在 SEA-ADM1 上，在 Microsoft Edge 窗口中切换到 Windows Admin Center，其中显示了 SEA-SVR1 上的“DHCP”设置  。
 
-   > **注意**：DHCP 选项可能需要几分钟时间才会出现在菜单中。 如有必要，请刷新与 sea-svr1 的连接。 如果系统提示安装 DHCP Powershell 工具，请选择“安装”。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: It might take a few minutes for the DHCP option to appear in the menu. If necessary, refresh the connection to sea-svr1. If prompted to install the DHCP Powershell tools, select <bpt id="p1">**</bpt>Install<ept id="p1">**</ept>.
 
 1. 在“DHCP”页面上，选择“+ 新建范围” 。
 1. 在创建新范围的窗格中，指定以下设置，然后选择“创建”。
@@ -128,7 +123,7 @@ ms.locfileid: "147039383"
 1. 在“指定要用于故障转移的伙伴服务器”屏幕上，在“伙伴服务器”框中，输入“172.16.10.12”，选中“重用使用此服务器配置的现有故障转移关系(如果存在)”复选框，然后选择“下一步”    。
 1. 在“从已在此服务器上配置的故障转移关系中选择”屏幕上，选择“下一步”，然后选择“完成”  。
 1. 在“配置故障转移”对话框中，选择“关闭” 。
-1. 在“172.16.10.12”下，选择“IPv4”，然后验证是否已列出了两个范围 。 如有必要，请按 F5 键刷新。
+1. Under <bpt id="p1">**</bpt>172.16.10.12<ept id="p1">**</ept>, select <bpt id="p2">**</bpt>IPv4<ept id="p2">**</ept>, and then verify that both scopes are listed. If necessary, press the <bpt id="p1">**</bpt>F5<ept id="p1">**</ept> key to refresh.
 
 #### <a name="task-5-verify-dhcp-functionality"></a>任务 5：验证 DHCP 功能
 
@@ -161,7 +156,7 @@ ms.locfileid: "147039383"
 
 1. 在“Internet 协议版本 4 (TCP/IPv4) 属性”对话框中，选择“使用以下 DNS 服务器地址”，将“首选 DNS 服务器”设置为“172.16.10.10”，然后选择“确定”    。
 
-   > 备注：使“以太网状态”窗口保持打开状态 。 本实验室中稍后会用到它。 
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Leave the <bpt id="p2">**</bpt>Ethernet Status<ept id="p2">**</ept> window open. You will need it later in this lab. 
 
 ## <a name="exercise-2-deploying-and-configuring-dns"></a>练习 2：部署和配置 DNS
 
@@ -172,13 +167,13 @@ ms.locfileid: "147039383"
 1. 在“角色和功能”窗格中，选中“DNS 服务器”复选框，然后选择“+ 安装” 。
 1. 在“安装角色和功能”窗格中，选择“是”。
 
-   > 备注：请等待指示已安装 DNS 角色的通知。 如有必要，请选择“通知”图标以验证当前状态。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the notification indicating that the DNS role is installed. If necessary, select the <bpt id="p1">**</bpt>Notifications<ept id="p1">**</ept> icon to verify the current status.
 
 1. 刷新 Microsoft Edge 页面，返回到 sea-svr1.contoso.com 页面上，在“工具”列表中，选择“DNS”，然后在详细信息窗格中，选择“安装”以安装 DNS PowerShell 工具    。 
 
    > 备注：如果 sea-svr1.contoso.com 的“工具”列表中未提供“DNS”条目，请刷新 Microsoft Edge 页面，然后重试    。
 
-1. 等待出现指示已安装 DNS PowerShell 工具的通知。 如有必要，请选择“通知”图标以验证当前状态。
+1. Wait until a notification appears indicating that the DNS PowerShell tools are installed. If necessary, select the <bpt id="p1">**</bpt>Notifications<ept id="p1">**</ept> icon to verify the current status.
 
 #### <a name="task-2-create-a-dns-zone"></a>任务 2：创建 DNS 区域
 
@@ -285,7 +280,7 @@ ms.locfileid: "147039383"
    Resolve-DnsName -Server sea-svr1.contoso.com -Name testapp.treyresearch.net
    ```
 
-   > 备注：验证名称是否解析为 172.30.99.234 。 这是意料之中的，因为 SEA-ADM1 的 IP 地址已经不在 HeadOfficeSubnet 内 。 从 HeadOfficeSubnet (172.16.10.0/24) 向 `testapp.treyresearch.net` 发起的 DNS 查询解析为 172.30.99.100  。 从此子网外部向 `testapp.treyresearch.net` 发起的 DNS 查询解析为 172.30.99.234。
+   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Verify that the name resolves to <bpt id="p2">**</bpt>172.30.99.234<ept id="p2">**</ept>. This is expected, because the IP address of <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept> is no longer within the <bpt id="p2">**</bpt>HeadOfficeSubnet<ept id="p2">**</ept>. DNS queries originating from the <bpt id="p1">**</bpt>HeadOfficeSubnet<ept id="p1">**</ept> of <bpt id="p2">**</bpt>(172.16.10.0/24)<ept id="p2">**</ept> targeting <ph id="ph1">`testapp.treyresearch.net`</ph> resolve to <bpt id="p3">**</bpt>172.30.99.100<ept id="p3">**</ept>. DNS queries from outside of this subnet targeting <ph id="ph1">`testapp.treyresearch.net`</ph> resolve to <bpt id="p1">**</bpt>172.30.99.234<ept id="p1">**</ept>.
 
    > 备注：现在将 SEA-ADM1 的 IP 地址更改回其原始值 。
 
