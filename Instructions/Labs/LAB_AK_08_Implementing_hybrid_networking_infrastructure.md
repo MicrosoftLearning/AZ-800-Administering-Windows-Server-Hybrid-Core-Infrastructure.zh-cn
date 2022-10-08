@@ -37,7 +37,7 @@ lab:
       -TemplateParameterFile $HOME/L08-rg_template.parameters.json
    ```
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete before proceeding to the next step. This should take about 3 minutes.
+    >**注意**：在继续下一步之前，请等待部署完成。 这大约需要 3 分钟。
 
 1. 在 Cloud Shell 窗格中，运行以下命令，在上一步中部署的 Azure VM 上安装网络观察程序扩展：
 
@@ -58,7 +58,7 @@ lab:
    }
    ```
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Do not wait for the deployment to complete but instead proceed to the next step. The installation of the Network Watcher extension should take about 5 minutes.
+    >**注意**：请不要等待部署完成，而是继续执行下一步操作。 安装网络观察程序扩展大约需要 5 分钟。
 
 #### <a name="task-2-configure-the-hub-and-spoke-network-topology"></a>任务 2：配置中心辐射型网络拓扑
 
@@ -103,7 +103,7 @@ lab:
     | 从远程虚拟网络转接的流量 | **允许（默认）** |
     | 虚拟网络网关 | **“无”（默认）** |
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This step establishes two peerings - one from <bpt id="p2">**</bpt>az800l08-vnet0<ept id="p2">**</ept> to <bpt id="p3">**</bpt>az800l08-vnet2<ept id="p3">**</ept> and the other from <bpt id="p4">**</bpt>az800l08-vnet2<ept id="p4">**</ept> to <bpt id="p5">**</bpt>az800l08-vnet0<ept id="p5">**</ept>. This completes setting up the hub and spoke topology (with the <bpt id="p1">**</bpt>az800l08-vnet0<ept id="p1">**</ept> virtual network serving the role of the hub, while <bpt id="p2">**</bpt>az800l08-vnet1<ept id="p2">**</ept> and <bpt id="p3">**</bpt>az800l08-vnet2<ept id="p3">**</ept> are its spokes).
+    >**注意**：此步骤将建立两个对等互连：一个从 az800l08-vnet0 到 az800l08-vnet2，另一个从 az800l08-vnet2 到 az800l08-vnet0   。 至此就完成了中心辐射型拓扑的设置（其中 az800l08 vnet0 虚拟网络充当中心，而 az800l08 vnet1 和 az800l08-vnet2 充当分支）  。
 
 #### <a name="task-3-test-transitivity-of-virtual-network-peering"></a>任务 3：测试虚拟网络对等互连的传递性
 
@@ -124,9 +124,9 @@ lab:
     | 协议 | **TCP** |
     | Destination Port | **3389** |
 
-    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: <bpt id="p2">**</bpt>10.81.0.4<ept id="p2">**</ept> represents the private IP address of <bpt id="p3">**</bpt>az800l08-vm1<ept id="p3">**</ept>. The test uses the <bpt id="p1">**</bpt>TCP<ept id="p1">**</ept> port <bpt id="p2">**</bpt>3389<ept id="p2">**</ept> because Remote Desktop is by default enabled on Azure virtual machines and accessible within and between virtual networks.
+    > **注意**：10.81.0.4 表示 az800l08-vm1 的专用 IP 地址 。 此测试使用 TCP 端口 3389，因为在 Azure 虚拟机上默认启用了远程桌面，且虚拟网络内部以及虚拟网络之间可以相互访问 。
 
-1. Select <bpt id="p1">**</bpt>Check<ept id="p1">**</ept> and wait until results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. Review the network path and note that the connection was direct, with no intermediate hops in between the VMs.
+1. 选择“检查”并等到返回连接检查结果。 验证状态是否为可访问。 查看网络路径，请注意，连接是直接的，VM 之间没有中间跃点。
 
     > **注意**：这是预期行为，因为中心虚拟网络直接与第一个分支虚拟网络进行对等互连。
 
@@ -145,7 +145,7 @@ lab:
 
     > **注意**：10.82.0.4 表示 az800l08-vm2 的专用 IP 地址 。 
 
-1. Select <bpt id="p1">**</bpt>Check<ept id="p1">**</ept> and wait until results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. Review the network path and note that the connection was direct, with no intermediate hops in between the VMs.
+1. 选择“检查”并等到返回连接检查结果。 验证状态是否为可访问。 查看网络路径，请注意，连接是直接的，VM 之间没有中间跃点。
 
     > **注意**：这是预期行为，因为中心虚拟网络直接与第二个分支虚拟网络进行对等互连。
 
@@ -164,7 +164,7 @@ lab:
     | 协议 | **TCP** |
     | Destination Port | **3389** |
 
-1. Select <bpt id="p1">**</bpt>Check<ept id="p1">**</ept> and wait until results of the connectivity check are returned. Note that the status is <bpt id="p1">**</bpt>Unreachable<ept id="p1">**</ept>.
+1. 选择“检查”并等到返回连接检查结果。 请注意，状态为“不可访问”。
 
     > **注意**：这是预期行为，因为两个分支虚拟网络彼此之间并不是对等互连的，并且虚拟网络的对等互连性是不可传递的。
 
@@ -216,7 +216,7 @@ lab:
 
 1. 选择“查看 + 创建”，然后选择“创建”。
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the route table to be created. This should take about 1 minute.
+   > **注意**：请等到路由表完成创建。 这大约需要 1 分钟。
 
 1. 选择“转到资源”。 
 1. 在 az800l08-rt12 路由表页上的“设置”部分中，选择“路由”，然后选择“+ 添加”   。
@@ -254,7 +254,7 @@ lab:
 
 1. 选择“查看 + 创建”，然后选择“创建”。
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the route table to be created. This should take about 3 minutes.
+   > **注意**：请等到路由表完成创建。 这大约需要 3 分钟。
 
 1. 选择“转到资源”。 
 1. 在 az800l08-rt21 路由表页上的“设置”部分中，选择“路由”，然后选择“+ 添加”   。
@@ -291,7 +291,7 @@ lab:
     | 协议 | **TCP** |
     | Destination Port | **3389** |
 
-1. Select <bpt id="p1">**</bpt>Check<ept id="p1">**</ept> and wait until results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. Review the network path and note that the traffic was routed via <bpt id="p1">**</bpt>10.80.0.4<ept id="p1">**</ept>, assigned to the <bpt id="p2">**</bpt>az800l08-nic0<ept id="p2">**</ept> network adapter. 
+1. 选择“检查”并等到返回连接检查结果。 验证状态是否为可访问。 查看网络路径，请注意，流量是通过 10.80.0.4 路由的，并且分配给 az800l08-nic0 网络适配器 。 
 
     > **注意**：这是预期行为，因为分支虚拟网络之间的流量现在通过中心虚拟网络中的虚拟机（充当路由器）进行路由。
 
@@ -312,7 +312,7 @@ lab:
 
 1. 选择“查看并创建”，然后选择“创建” 。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the private DNS zone to be created. This should take about 2 minutes.
+    >**注意**：请等到专用 DNS 区域创建完成。 这大约需要 2 分钟。
 
 1. 选择“转到资源”，打开 contoso.org DNS 专用区域页 。
 1. 在 contoso.org 专用 DNS 区域页上的“设置”部分中，选择“虚拟网络链接”  。
@@ -325,7 +325,7 @@ lab:
     | 虚拟网络 | **az800l08-vnet0 (AZ800-L0801-RG)** |
     | 启用自动注册 | 已选定 |
 
-    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> Wait for the virtual network link to be created. This should take less than 1 minute.
+    >**注意：** 请等到虚拟网络链接创建完成。 此过程应会在 1 分钟内完成。
 
 1. 重复前面的步骤，为虚拟网络 az800l08-vnet1 和 az800l08-vnet2 分别创建名为 az800l08-vnet1-link 和 az800l08-vnet2-link 的虚拟网络链接（并启用自动注册）   。
 1. 在 contoso.org 专用 DNS 区域页的左侧垂直菜单中，选择“概述” 。
@@ -350,7 +350,7 @@ lab:
     | 协议 | **TCP** |
     | Destination Port | **3389** |
 
-1. Select <bpt id="p1">**</bpt>Check<ept id="p1">**</ept> and wait until the results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. 
+1. 选择“检查”并等到返回连接检查结果。 验证状态是否为可访问。 
 
     > **注意**：这是预期行为，因为目标完全限定的域名 (FQDN) 可通过 Azure 专用 DNS 区域解析。 
 
@@ -369,7 +369,7 @@ lab:
 
 1. 选择“查看 + 创建”，然后选择“创建”。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the DNS zone to be created. This should take about 1 minute.
+    >**注意**：请等到 DNS 区域创建完成。 这大约需要 1 分钟。
 
 1. 选择“转到资源”以打开新创建的 DNS 区域的页面。
 1. 在“DNS 区域”页上，选择“+ 记录集”。
@@ -384,12 +384,12 @@ lab:
     | TTL 单位 | **小时数** |
     | IP 地址 | 20.30.40.50 |
 
-    >**注意**：在继续下一步之前，请等待部署完成。 
+    >**注意**：IP 地址和相应的名称完全是任意的。 它们旨在提供一个非常简单的示例来说明如何实现公共 DNS 记录，而不是模拟需要从 DNS 注册商处购买命名空间的真实场景。 
 
 1. 选择“确定”
 1. 在“DNS 区域”页上，标识“名称服务器 1”的全名。
 
-    >这大约需要 3 分钟。
+    >**注意**：请记下“名称服务器 1”的全名。 稍后在下一个任务中将用到它。
 
 #### <a name="task-4-validate-azure-public-dns-name-resolution"></a>任务 4：验证 Azure 公用 DNS 名称解析
 
@@ -402,7 +402,7 @@ lab:
 
 1. 验证该命令的输出是否包含 20.30.40.50 的公共 IP 地址。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The name resolution works as expected because the <bpt id="p2">**</bpt>nslookup<ept id="p2">**</ept> command allows you to specify the IP address of the DNS server to query for a record (which, in this case, is <ph id="ph1">`&lt;Name server 1&gt;`</ph>). For the name resolution to work when querying any publicly accessible DNS server, you would need to register the domain name with a DNS registrar and configure the name servers listed on the public DNS zone page in the Azure portal as authoritative for the namespace corresponding to that domain.
+    >**注意**：名称解析按预期方式运行，因为 nslookup 命令允许你指定要查询的 DNS 服务器的 IP 地址（在此示例中为 `<Name server 1>`）。 要在查询任何可公开访问的 DNS 服务器时使用名称解析，需要向 DNS 注册机构注册域名，并将 Azure 门户中的“公共 DNS 区域”页上列出的名称服务器配置为与该域对应的命名空间的权威服务器。
 
 ## <a name="exercise-3-deprovisioning-the-azure-environment"></a>练习 3：取消预配 Azure 环境
 

@@ -24,9 +24,9 @@ lab:
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation completes. This should take about 2 minutes.
+   > 备注：请等待安装完成。 这大约需要 2 分钟。
    
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: After installation completes, you may encounter the error message 'ERR_Connection_Refused'. If this occurs, restart SEA-ADM1 to correct the issue.
+   > **注意**：安装完成后，可能会遇到错误消息“ERR_Connection_Refused”。 如果发生这种情况，请重启 SEA-ADM1 以更正此问题。
 
 #### <a name="task-2-add-servers-for-remote-administration"></a>任务 2：添加用于远程管理的服务器
 
@@ -46,15 +46,15 @@ lab:
    - 用户名：CONTOSO\\Administrator
    - 密码：Pa55w.rd
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: After performing step 7, if an error message that says <bpt id="p2">**</bpt>You can add this server to your list of connections, but we can't confirm it's available.<ept id="p2">**</ept> appears, select <bpt id="p1">**</bpt>Add<ept id="p1">**</ept>. In the All Connections pane,  select <bpt id="p1">**</bpt>sea-svr1.contoso.com<ept id="p1">**</ept>, and then select <bpt id="p2">**</bpt>Manage as<ept id="p2">**</ept>. In the <bpt id="p1">**</bpt>Specify your credentials<ept id="p1">**</ept> dialog box, ensure that the <bpt id="p2">**</bpt>Use another account for this connection<ept id="p2">**</ept> option is selected, enter the Administrator credentials, and then select <bpt id="p3">**</bpt>Continue<ept id="p3">**</ept>.
+   > 注意：执行步骤 7 后，如果出现“你可将此服务器添加到你的连接列表，但我们无法确认它是否可用。”  的错误消息，请选择“添加”。 在“所有连接”窗格中，选择“sea-svr1.contoso.com”，然后选择“管理形式” 。 在“指定凭据”对话框中，确保已选中“对此连接使用另一个帐户”选项，输入管理员凭据，然后选择“继续”  。
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派。
 
 #### <a name="task-3-configure-windows-admin-center-extensions"></a>任务 3：配置 Windows Admin Center 扩展
 
 1. 在 SEA-ADM1 上，在显示 Windows Admin Center 的 Microsoft Edge 窗口的右上角，选择“设置”图标（齿轮） 。
-1. In the left pane, select <bpt id="p1">**</bpt>Extensions<ept id="p1">**</ept>. Review the available extensions.
-1. Select the <bpt id="p1">**</bpt>Security (Preview)<ept id="p1">**</ept> extension, and then select <bpt id="p2">**</bpt>Install<ept id="p2">**</ept>. The extension will install and Windows Admin Center will refresh.
+1. 在左窗格中，选择“扩展”****。 查看可用的扩展。
+1. 选择“安全性(预览版)”扩展，然后选择“安装” 。 该扩展将安装，Windows Admin Center 将刷新。
 
    > 注意：如果“安全性(预览版)”扩展不可用，请选择其他 Microsoft 扩展 。
 
@@ -66,13 +66,13 @@ lab:
    - 用户名：CONTOSO\\Administrator
    - 密码：Pa55w.rd
 
-1. To install the DNS PowerShell tools, in the left pane, in the list of <bpt id="p1">**</bpt>Tools<ept id="p1">**</ept>, select <bpt id="p2">**</bpt>DNS<ept id="p2">**</ept>, and then select <bpt id="p3">**</bpt>Install<ept id="p3">**</ept>. The tools will take less than a minute to install.
+1. 若要安装 DNS PowerShell 工具，请在左侧窗格的“工具”列表中，选择“DNS”，然后选择“安装”  。 安装这些工具需要不到一分钟的时间。
 1. 选择“Contoso.com”区域并查看其 DNS 记录的列表。
 
 #### <a name="task-4-verify-remote-administration"></a>任务 4：验证远程管理
 
-1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, in Windows Admin Center, in the left pane, in the list of <bpt id="p2">**</bpt>Tools<ept id="p2">**</ept>, select <bpt id="p3">**</bpt>Overview<ept id="p3">**</ept>. Note that the details pane of Windows Admin Center displays basic server information and performance monitoring.
-1. In the left pane, in the list of <bpt id="p1">**</bpt>Tools<ept id="p1">**</ept>, scroll down and review the basic administration tools available. Select <bpt id="p1">**</bpt>Roles &amp; features<ept id="p1">**</ept> and note which roles and features are listed as installed and which ones are available to install. Scroll down, select the <bpt id="p1">**</bpt>Telnet Client<ept id="p1">**</ept> checkbox, and then select <bpt id="p2">**</bpt>+ Install<ept id="p2">**</ept> at the top of the pane.
+1. 在 SEA-ADM1 上，在 Windows Admin Center 左侧窗格的“工具”列表中，选择“概述”  。 请注意，Windows Admin Center 的“详细信息”窗格显示基本的服务器信息和性能监视。
+1. 在左侧窗格的“工具”列表中，向下滚动并查看可用的基本管理工具。 选择“角色和功能”，并注意哪些角色和功能被列为已安装，哪些角色和功能可以安装。 向下滚动，选中“Telnet 客户端”复选框，然后选择窗格顶部的“+ 安装” 。
 1. 在“安装角色和功能”窗格中，选择“是”，等待确认已成功安装 Telnet 客户端的消息 。
 1. 在左侧窗格的最底部，在“工具”列表下，选择“设置” 。
 1. 在右侧的“设置”部分，选择“远程桌面” 。
@@ -115,4 +115,4 @@ lab:
 
 ### <a name="results"></a>结果
 
-After completing this exercise, you will have installed Windows Admin Center and connected it to the servers in your lab environment. You performed a number of remote management tasks including installing a feature as well as enabling and testing Remote Desktop connectivity. Finally, you used PowerShell Remoting to check the status of a service and then to start it.
+完成本练习后，你已安装 Windows Admin Center 并将其连接到实验室环境中的服务器。 你执行了许多远程管理任务，包括安装功能以及启用和测试远程桌面连接。 最后，你使用了 PowerShell 远程处理来检查服务的状态，然后启动它。
