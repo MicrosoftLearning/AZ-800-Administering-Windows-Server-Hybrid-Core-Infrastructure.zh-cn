@@ -19,9 +19,9 @@ lab:
    >备注：如果这是你第一次启动 Cloud Shell 且向你显示了“未装载任何存储”消息，请选择要在此实验室中使用的订阅，然后选择“创建存储”  。
 
 1. 在 Cloud Shell 窗格的工具栏中，选择“上传/下载文件”图标，在下拉菜单中选择“上传”，然后将文件 C:\\Labfiles\\Lab04\\L04-sub_template.json 上传到 Cloud Shell 主目录中  。
-1. From the Cloud Shell pane, run the following commands to create a resource group that will contain the resources you provision in this lab. (Replace the <ph id="ph1">`&lt;Azure region&gt;`</ph> placeholder with the name of an Azure region into which you can deploy Azure virtual machines, such as <bpt id="p1">**</bpt>eastus<ept id="p1">**</ept>.)
+1. 在 Cloud Shell 窗格中，运行以下命令以创建一个资源组，其中包含在此实验室中预配的资源。 （将 `<Azure region>` 占位符替换为可在其中部署 Azure 虚拟机的 Azure 区域的名称，例如 eastus。）
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This lab has been tested and verified using East US, so you should use that region. In general, to identify Azure regions where you can provision Azure VMs, refer to <bpt id="p1">[</bpt>Find Azure credit offers in your region<ept id="p1">](https://aka.ms/regions-offers)</ept>.
+   >注意：此实验室已使用“美国东部”进行了测试和验证，因此你应该使用该区域。 通常，若要确定可在其中预配 Azure VM 的 Azure 区域，请参阅[查找你所在区域的 Azure 额度套餐](https://aka.ms/regions-offers)。
 
    ```powershell
    $location = '<Azure region>'
@@ -47,7 +47,7 @@ lab:
      -TemplateParameterFile $HOME/L04-rg_template.parameters.json
    ```
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete before you proceed to the next exercise. The deployment should take about 5 minutes.
+   >注意：请等待部署完成再继续下一个练习。 部署大约需要 5 分钟的时间完成。
 
 1. 在 Azure 门户中，关闭 Cloud Shell 窗格。
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“az800l04-vnet”虚拟网络 。
@@ -73,11 +73,11 @@ lab:
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation completes. This should take about 2 minutes.
+   > 备注：请等待安装完成。 这大约需要 2 分钟。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后浏览到 `https://SEA-ADM1.contoso.com`。
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If the link does not work, on <bpt id="p2">**</bpt>SEA-ADM1<ept id="p2">**</ept>, browse to the <bpt id="p3">**</bpt>WindowsAdminCenter.msi<ept id="p3">**</ept> file, open the context menu for it, and then select <bpt id="p4">**</bpt>Repair<ept id="p4">**</ept>. After the repair completes, refresh Microsoft Edge. 
+   >注意：如果链接不起作用，请在 SEA-ADM1 上浏览到 WindowsAdminCenter.msi 文件，打开其上下文菜单，然后选择“修复”   。 修复完成后，刷新 Microsoft Edge。 
    
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
@@ -104,7 +104,7 @@ lab:
 1. 出现提示“是否尝试登录到 Windows Admin Center?”时，选择“继续” 。
 1. 在 Windows Admin Center 中，验证登录是否成功，并关闭 Microsoft Edge 窗口中新打开的选项卡。
 1. 在“Windows Admin Center 中的 Azure 入门”窗格中，确保“Azure Active Directory 应用程序”设置为“新建”，然后选择“连接”   。
-1. In the listing of the steps of the registration procedure, select <bpt id="p1">**</bpt>Sign in<ept id="p1">**</ept>. This will open a pop-up window labeled <bpt id="p1">**</bpt>Permissions requested<ept id="p1">**</ept>.
+1. 在注册过程的步骤列表中，选择“登录”。 这将打开一个标有“请求的权限”的弹出窗口。
 1. 在“请求的权限”弹出窗口中，选择“代表你的组织同意”，然后选择“接受”  。
 
 #### <a name="task-2-create-an-azure-network-adapter"></a>任务 2：创建 Azure 网络适配器
@@ -126,7 +126,7 @@ lab:
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，在工具栏上的“搜索资源、服务和文档”文本框中搜索并选择“虚拟网络网关”  。
 1. 在“虚拟网络网关”页上，选择“刷新”，并验证名称以“WAC-Created-vpngw-96”开头的新项是否显示在虚拟网络网关列表中  。
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The provisioning of the Azure virtual network gateway can take up to 45 minutes. Do not wait for the provisioning to complete but instead proceed to the next exercise.
+>注意：预配 Azure 虚拟网络网关最多可能需要 45 分钟。 请勿等待预配完成，而是继续执行下一个练习。
 
 ## <a name="exercise-3-deploying-windows-admin-center-gateway-in-azure"></a>练习 3：在 Azure 中部署 Windows Admin Center 网关
 
@@ -183,11 +183,11 @@ lab:
 1. 系统提示提供本地管理员帐户的名称时，请输入“Student”
 1. 系统提示提供本地管理员帐户的密码时，请输入“Pa55w.rd1234”
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the provisioning script to complete. This might take about 5 minutes.
+   >注意：请等待预配脚本完成。 这可能需要大约 5 分钟。
 
 1. 确认脚本已成功完成，并注意最后的消息提供的 URL 包含托管 Windows Admin Center 安装的 Azure VM 的完全限定名称。
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the fully qualified name of the Azure VM. You will need it later in this lab.
+   >注意：记录 Azure VM 的完全限定名称。 本实验室中稍后会用到它。
 
 1. 关闭 Cloud Shell 窗格。
 

@@ -25,7 +25,7 @@ lab:
 
 #### <a name="task-2-create-a-virtual-hard-disk"></a>任务 2：创建虚拟硬盘
 
-1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, in Hyper-V Manager connected to <bpt id="p2">**</bpt>SEA-SVR1<ept id="p2">**</ept>, select <bpt id="p3">**</bpt>New<ept id="p3">**</ept>, and then select <bpt id="p4">**</bpt>Hard Disk<ept id="p4">**</ept>. The <bpt id="p1">**</bpt>New Virtual Hard Disk Wizard<ept id="p1">**</ept> starts.
+1. 在 SEA-ADM1 上，在连接到“SEA-SVR1”的 Hyper-V 管理器中，选择“新建”，然后选择“硬盘”   。 此时会启动“新建虚拟硬盘向导”。
 1. 在“开始之前”**** 页面上，选择“下一步”****。
 1. 在“选择磁盘格式”页上，选择“VHD”，然后选择“下一步”  。
 1. 在“选择磁盘类型”页上，选择“差异”，然后选择“下一步”  。
@@ -39,7 +39,7 @@ lab:
 
 #### <a name="task-3-create-a-virtual-machine"></a>任务 3：创建虚拟机
 
-1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, in Hyper-V Manager, select <bpt id="p2">**</bpt>New<ept id="p2">**</ept>, and then select <bpt id="p3">**</bpt>Virtual Machine<ept id="p3">**</ept>. The <bpt id="p1">**</bpt>New Virtual Machine Wizard<ept id="p1">**</ept> starts.
+1. 在 SEA-ADM1 上，在 Hyper-V 管理器中，选择“新建”，然后选择“虚拟机”  。 “新建虚拟机向导”随即启动。
 1. 在“开始之前”**** 页面上，选择“下一步”****。
 1. 在“指定名称和位置”页上，输入“SEA-VM1”，然后选中“将虚拟机存储在其他位置”旁边的复选框  。
 1. 在“位置”框中，输入 C:\Base，然后选择“下一步”  。
@@ -48,7 +48,7 @@ lab:
 1. 在“配置网络”页上，选择“连接”下拉列表，然后依次选择“Contoso 专用交换机”和“下一步”  。
 1. 在“连接虚拟硬盘”页上，选择“使用现有虚拟硬盘”，然后选择“浏览”  。
 1. 浏览到 C:\Base，选择“SEA-VM1.vhd”，选择“打开”，然后选择“下一步”   。
-1. On the <bpt id="p1">**</bpt>Summary<ept id="p1">**</ept> page, select <bpt id="p2">**</bpt>Finish<ept id="p2">**</ept>. Notice that <bpt id="p1">**</bpt>SEA-VM1<ept id="p1">**</ept> displays in the Virtual Machines list.
+1. 在“摘要”页中，选择“完成” 。 请注意，“SEA-VM1”显示在虚拟机列表中。
 1. 选择“SEA-VM1”，然后在“操作”窗格中的“SEA-VM1”下，选择“设置”  。
 1. 在“硬件”列表中，选择“内存” 。
 1. 在“动态内存”部分中，选中“启用动态内存”旁边的复选框 。
@@ -61,7 +61,7 @@ lab:
 
    >注意：如果尚未在 SEA-ADM1 上安装 Windows Admin Center，请执行后面两个步骤 。
 
-1. In the <bpt id="p1">**</bpt>Windows PowerShell<ept id="p1">**</ept> console, enter the following command. and then press Enter to download the latest version of Windows Admin Center:
+1. 在 Windows PowerShell 控制台中，输入以下命令。 然后按 Enter 下载最新版本的 Windows Admin Center：
     
    ```powershell
    Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
@@ -72,7 +72,7 @@ lab:
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation completes. This should take about 2 minutes. If the web page does not respond, open <bpt id="p1">**</bpt>services.msc<ept id="p1">**</ept> and verify that the Windows Admin Center server is <bpt id="p2">**</bpt>Started<ept id="p2">**</ept>.
+   > 备注：请等待安装完成。 这大约需要 2 分钟。 如果网页没有响应，请打开 services.msc 并验证 Windows Admin Center 服务器是否已启动 。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后转到 `https://SEA-ADM1.contoso.com`。 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
@@ -88,7 +88,7 @@ lab:
    - 用户名：CONTOSO\\Administrator
    - 密码：Pa55w.rd
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: After performing step 8, if an error message that says <bpt id="p2">**</bpt>You can add this server to your list of connections, but we can't confirm it's available.<ept id="p2">**</ept> appears, select <bpt id="p1">**</bpt>Add<ept id="p1">**</ept>. In the All Connections pane,  select <bpt id="p1">**</bpt>sea-svr1.contoso.com<ept id="p1">**</ept>, and then select <bpt id="p2">**</bpt>Manage as<ept id="p2">**</ept>. In the <bpt id="p1">**</bpt>Specify your credentials<ept id="p1">**</ept> dialog box, ensure that the <bpt id="p2">**</bpt>Use another account for this connection<ept id="p2">**</ept> option is selected, enter the Administrator credentials, and then select <bpt id="p3">**</bpt>Continue<ept id="p3">**</ept>.
+   > 注意：执行步骤 8 后，如果出现“你可将此服务器添加到你的连接列表，但我们无法确认它是否可用。”  错误消息，请选择“添加”。 在“所有连接”窗格中，选择“sea-svr1.contoso.com”，然后选择“管理形式” 。 在“指定凭据”对话框中，确保已选中“对此连接使用另一个帐户”选项，输入管理员凭据，然后选择“继续”  。
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派。
 
@@ -113,7 +113,7 @@ lab:
 
 #### <a name="task-1-install-docker-on-windows-server"></a>任务 1：在 Windows Server 上安装 Docker
 
-1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, in the <bpt id="p2">**</bpt>Tools<ept id="p2">**</ept> listing for <bpt id="p3">**</bpt>SEA-SVR1<ept id="p3">**</ept>, select <bpt id="p4">**</bpt>PowerShell<ept id="p4">**</ept>. When prompted, type <bpt id="p1">**</bpt>Pa55w.rd<ept id="p1">**</ept> to authenticate using the <bpt id="p2">**</bpt>CONTOSO<ph id="ph1">\\</ph>Administrator<ept id="p2">**</ept> user account, and then press Enter. 
+1. 在 SEA-ADM1 上，在 SEA-SVR1 的“工具”列表中，选择“PowerShell”   。 出现提示时，键入 Pa55w.rd，使用 CONTOSO\\Administrator 用户帐户进行身份验证，然后按 Enter 。 
 
    > 注意：这将建立与 SEA-SVR1 的 PowerShell 远程处理连接。
 
@@ -194,15 +194,15 @@ lab:
    ipconfig
    ```
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Identify the IPv4 address of the Ethernet adapter named vEthernet (nat). This is the address of the new container. Next, identify the IPv4 address of the Ethernet adapter named <bpt id="p1">**</bpt>Ethernet<ept id="p1">**</ept>. This is the IP address of the host (<bpt id="p1">**</bpt>SEA-SVR1<ept id="p1">**</ept>) and is set to <bpt id="p2">**</bpt>172.16.10.12<ept id="p2">**</ept>.
+   > 注意：标识名为 vEthernet (nat) 的以太网适配器的 IPv4 地址。 这是新容器的地址。 接下来，标识名为 Ethernet 的以太网适配器的 IPv4 地址。 这是主机 (SEA-SVR1) 的 IP 地址，设置为 172.16.10.12 。
 
-1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, switch to the Microsoft Edge window, open another tab and go to <bpt id="p2">**</bpt><ph id="ph1">http://172.16.10.12</ph><ept id="p2">**</ept>. Verify that the browser displays the default IIS page.
+1. 在 SEA-ADM1 上，切换到 Microsoft Edge 窗口，打开另一个选项卡并转到 http://172.16.10.12 。 确认浏览器显示默认 IIS 页。
 1. 在 SEA-ADM1 上，切换回与 SEA-SVR1 的 PowerShell 远程处理会话，然后在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，列出正在运行的容器  ：
 
    ```powershell
    docker ps
    ```
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This command provides information on the container that is currently running on <bpt id="p2">**</bpt>SEA-SVR1<ept id="p2">**</ept>. Record the container ID because you will use it to stop the container. 
+   > 注意：此命令提供有关当前正在 SEA-SVR1 上运行的容器的信息 。 记录容器 ID，因为你将使用它来停止容器。 
 
 1. 输入以下命令然后按 Enter，停止正在运行的容器（将 `<ContainerID>` 占位符替换为你在上一步中标识的容器 ID）： 
 
@@ -217,7 +217,7 @@ lab:
 
 #### <a name="task-3-use-windows-admin-center-to-manage-containers"></a>任务 3：使用 Windows Admin Center 管理容器
 
-1. On <bpt id="p1">**</bpt>SEA-ADM1<ept id="p1">**</ept>, in the Windows Admin Center, in the Tools menu of <bpt id="p2">**</bpt>sea-svr1.contoso.com<ept id="p2">**</ept>, select <bpt id="p3">**</bpt>Containers<ept id="p3">**</ept>. When prompted to close the <bpt id="p1">**</bpt>PowerShell<ept id="p1">**</ept> session, select <bpt id="p2">**</bpt>Continue<ept id="p2">**</ept>.
+1. 在 SEA-ADM1 上，在 Windows Admin Center 中 sea-svr1.contoso.com 的“工具”菜单中，选择“容器”  。 系统提示关闭 PowerShell 会话时，选择“继续” 。
 1. 在“容器”窗格中，浏览“概述”、“容器”、“映像”、“网络”和“卷”选项卡    。
 
 ### <a name="exercise-2-results"></a>练习 2 结果

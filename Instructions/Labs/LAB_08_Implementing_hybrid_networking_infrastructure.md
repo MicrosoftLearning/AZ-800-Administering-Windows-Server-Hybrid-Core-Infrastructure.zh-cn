@@ -8,7 +8,7 @@ lab:
 
 ## <a name="scenario"></a>场景
 
-You were tasked with building a test environment in Azure, consisting of Microsoft Azure virtual machines deployed into separate virtual networks configured in the hub and spoke topology. This testing must include implementing connectivity between spokes by using user-defined routes that force traffic to flow via the hub. You also need to implement DNS name resolution for Azure virtual machines between virtual networks by using Azure private DNS zones and evaluate the use of Azure DNS zones for external name resolution.
+你的任务是在 Azure 中构建一个测试环境，其中包括部署到在中心辐射型拓扑中配置的单独虚拟网络中的 Microsoft Azure 虚拟机。 此测试必须包括通过使用强制流量通过中心流动的用户定义的路由来实现分支之间的连接。 你还需要使用 Azure 专用 DNS 区域为虚拟网络之间的 Azure 虚拟机实现 DNS 名称解析，并对使用 Azure DNS 区域进行外部名称解析作出评估。
 
 ## <a name="objectives"></a>目标
 
@@ -22,7 +22,7 @@ You were tasked with building a test environment in Azure, consisting of Microso
 
 ## <a name="lab-setup"></a>实验室设置
 
-Virtual machines: <bpt id="p1">**</bpt>AZ-800T00A-SEA-DC1<ept id="p1">**</ept> and <bpt id="p2">**</bpt>AZ-800T00A-ADM1<ept id="p2">**</ept> must be running. Other VMs can be running, but they aren't required for this lab.
+虚拟机：AZ-800T00A-SEA-DC1 和 AZ-800T00A-ADM1 必须正在运行 。 其他 VM 可以运行，但此实验室不需要这些 VM。
 
 > **注意**：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 虚拟机托管 SEA-DC1 和 SEA-ADM1 的安装   
 
@@ -33,9 +33,9 @@ Virtual machines: <bpt id="p1">**</bpt>AZ-800T00A-SEA-DC1<ept id="p1">**</ept> a
    - 密码：Pa55w.rd
    - 域名：CONTOSO
 
-For this lab, you'll use the available VM environment and an Azure subscription. Before you begin the lab, ensure that you have an Azure subscription and a user account with the Owner or Contributor role in that subscription.
+对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
-><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This lab, by default, requires a total of 6 vCPUs available in the Standard_Dsv3 series in the region you choose for deployment because it involves deployment of three Azure VMs of Standard_D2s_v3 SKU. If you are using a free Azure account, with the limit of 4 vCPUs, you can use a VM size that requires only one vCPU (such as Standard_B1s).
+>**注意**：默认情况下，此实验室需要在你选择用于部署的区域中的 Standard_Dsv3 系列中总共有 6 个可用的 vCPU，因为它涉及部署 Standard_D2s_v3 SKU 的三个 Azure VM。 如果你使用的是免费的 Azure 帐户，并且限制为 4 个 vCPU，则可使用仅需一个 vCPU 的 VM 大小（例如 Standard_B1s）。
 
 ### <a name="exercise-1-implement-virtual-network-routing-in-azure"></a>练习 1：在 Azure 中实现虚拟网络路由
 
@@ -52,7 +52,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 
 #### <a name="task-1-provision-lab-infrastructure-resources"></a>任务 1：预配实验室基础结构资源
 
-你的任务是在 Azure 中构建一个测试环境，其中包括部署到在中心辐射型拓扑中配置的单独虚拟网络中的 Microsoft Azure 虚拟机。
+此任务需要将三个虚拟机部署到同一 Azure 区域，但部署到不同的虚拟网络中。 第一个虚拟网络将充当中心，而另外两个虚拟网络将充当分支。 这些资源将用作实验室基础结构的基础。
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
@@ -76,7 +76,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
       -TemplateParameterFile $HOME/L08-rg_template.parameters.json
    ```
 
-    >此测试必须包括通过使用强制流量通过中心流动的用户定义的路由来实现分支之间的连接。
+    >**注意**：在继续下一步之前，请等待部署完成。 这大约需要 3 分钟。
 
 1. 在 Cloud Shell 窗格中，运行以下命令，在上一步中部署的 Azure VM 上安装网络观察程序扩展：
 
@@ -97,7 +97,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
    }
    ```
 
-    >你还需要使用 Azure 专用 DNS 区域为虚拟网络之间的 Azure 虚拟机实现 DNS 名称解析，并对使用 Azure DNS 区域进行外部名称解析作出评估。
+    >**注意**：请不要等待部署完成，而是继续执行下一步操作。 安装网络观察程序扩展大约需要 5 分钟。
 
 #### <a name="task-2-configure-the-hub-and-spoke-network-topology"></a>任务 2：配置中心辐射型网络拓扑
 
@@ -141,7 +141,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
     | 从远程虚拟网络转接的流量 | **允许（默认）** |
     | 虚拟网络网关 | **“无”（默认）** |
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This step establishes two peerings - one from <bpt id="p2">**</bpt>az800l08-vnet0<ept id="p2">**</ept> to <bpt id="p3">**</bpt>az800l08-vnet2<ept id="p3">**</ept> and the other from <bpt id="p4">**</bpt>az800l08-vnet2<ept id="p4">**</ept> to <bpt id="p5">**</bpt>az800l08-vnet0<ept id="p5">**</ept>. This completes setting up the hub and spoke topology (with the <bpt id="p1">**</bpt>az800l08-vnet0<ept id="p1">**</ept> virtual network serving the role of the hub, while <bpt id="p2">**</bpt>az800l08-vnet1<ept id="p2">**</ept> and <bpt id="p3">**</bpt>az800l08-vnet2<ept id="p3">**</ept> are its spokes).
+    >**注意**：此步骤将建立两个对等互连：一个从 az800l08-vnet0 到 az800l08-vnet2，另一个从 az800l08-vnet2 到 az800l08-vnet0   。 至此就完成了中心辐射型拓扑的设置（其中 az800l08 vnet0 虚拟网络充当中心，而 az800l08 vnet1 和 az800l08-vnet2 充当分支）  。
 
 #### <a name="task-3-test-transitivity-of-virtual-network-peering"></a>任务 3：测试虚拟网络对等互连的传递性
 
@@ -163,15 +163,15 @@ For this lab, you'll use the available VM environment and an Azure subscription.
     | 协议 | **TCP** |
     | Destination Port | **3389** |
 
-    > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: <bpt id="p2">**</bpt>10.81.0.4<ept id="p2">**</ept> represents the private IP address of <bpt id="p3">**</bpt>az800l08-vm1<ept id="p3">**</ept>. The test uses the <bpt id="p1">**</bpt>TCP<ept id="p1">**</ept> port <bpt id="p2">**</bpt>3389<ept id="p2">**</ept> because Remote Desktop is by default enabled on Azure virtual machines and accessible within and between virtual networks.
+    > **注意**：10.81.0.4 表示 az800l08-vm1 的专用 IP 地址 。 此测试使用 TCP 端口 3389，因为在 Azure 虚拟机上默认启用了远程桌面，且虚拟网络内部以及虚拟网络之间可以相互访问 。
 
-1. Wait until results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. Review the network path and note that the connection was direct, with no intermediate hops in between the VMs.
+1. 等到返回连接检查结果。 验证状态是否为可访问。 查看网络路径，请注意，连接是直接的，VM 之间没有中间跃点。
 
     > **注意**：这是预期行为，因为中心虚拟网络直接与第一个分支虚拟网络进行对等互连。
 
 1. 在“网络观察程序 - 连接故障排除”页面上，使用以下设置启动另一项检查（将其他设置保留为默认值）：
 
-    | 设置 | “值” |
+    | 设置 | 值 |
     | --- | --- |
     | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
@@ -184,7 +184,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 
     > **注意**：10.82.0.4 表示 az800l08-vm2 的专用 IP 地址 。 
 
-1. Select <bpt id="p1">**</bpt>Check<ept id="p1">**</ept> and wait until results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. Review the network path and note that the connection was direct, with no intermediate hops in between the VMs.
+1. 选择“检查”并等到返回连接检查结果。 验证状态是否为可访问。 查看网络路径，请注意，连接是直接的，VM 之间没有中间跃点。
 
     > **注意**：这是预期行为，因为中心虚拟网络直接与第二个分支虚拟网络进行对等互连。
 
@@ -192,7 +192,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 
     > **注意**：可能需要刷新虚拟机 az800l08-vm1 的浏览器页，才能在“虚拟机”下拉列表中显示 。
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --- | --- |
     | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
@@ -203,7 +203,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
     | 协议 | **TCP** |
     | Destination Port | **3389** |
 
-1. Wait until results of the connectivity check are returned. Note that the status is <bpt id="p1">**</bpt>Unreachable<ept id="p1">**</ept>.
+1. 等到返回连接检查结果。 请注意，状态为“不可访问”。
 
     > **注意**：这是预期行为，因为两个分支虚拟网络彼此之间并不是对等互连的，并且虚拟网络的对等互连性是不可传递的。
 
@@ -250,11 +250,11 @@ For this lab, you'll use the available VM environment and an Azure subscription.
     | 名称 | **az800l08-rt12** |
     | 传播网关路由 | **是** |
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the route table to be created. This should take about 1 minute.
+   > **注意**：请等到路由表完成创建。 这大约需要 1 分钟。
 
 1. 浏览到新创建的路由表 az800l08-rt12 的页面，并添加具有以下设置的路由：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --- | --- |
     | 路由名称 | **az800l08-route-vnet1-to-vnet2** |
     | 地址前缀 | **10.82.0.0/20** |
@@ -265,14 +265,14 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 
 1. 在 az800l08-rt12 路由表页面上，将路由表 az800l08-rt12 与以下子网进行关联 ：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --- | --- |
     | 虚拟网络 | **az800l08-vnet1** |
     | 子网 | **subnet0** |
 
 1. 转到“路由表”页面并创建具有以下设置的另一个路由表（将其他设置保留为其默认值）：
 
-    | 设置 | “值” |
+    | 设置 | 值 |
     | --- | --- |
     | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
@@ -280,11 +280,11 @@ For this lab, you'll use the available VM environment and an Azure subscription.
     | 名称 | **az800l08-rt21** |
     | 传播网关路由 | **是** |
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the route table to be created. This should take about 3 minutes.
+   > **注意**：请等到路由表完成创建。 这大约需要 3 分钟。
 
 1. 浏览到 az800l08-rt21 路由表页并添加具有以下设置的路由：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --- | --- |
     | 路由名称 | **az800l08-route-vnet2-to-vnet1** |
     | 地址前缀 | **10.81.0.0/20** |
@@ -293,14 +293,14 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 
 1. 在 az800l08-rt21 路由表页面上，将路由表 az800l08-rt21 与以下子网进行关联 ：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --- | --- |
     | 虚拟网络 | **az800l08-vnet2** |
     | 子网 | **subnet0** |
 
 1. 在 Azure 门户中，浏览到“网络观察程序 - 连接故障排除”页面，使用以下设置启动检查（将其他设置保留为默认值）：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --- | --- |
     | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
@@ -311,7 +311,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
     | 协议 | **TCP** |
     | Destination Port | **3389** |
 
-1. Wait until the results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. Review the network path and note that the traffic was routed via <bpt id="p1">**</bpt>10.80.0.4<ept id="p1">**</ept>, assigned to the <bpt id="p2">**</bpt>az800l08-nic0<ept id="p2">**</ept> network adapter. 
+1. 等到返回连接检查结果。 验证状态是否为可访问。 查看网络路径，请注意，流量是通过 10.80.0.4 路由的，并且分配给 az800l08-nic0 网络适配器 。 
 
     > **注意**：这是预期行为，因为分支虚拟网络之间的流量现在通过中心虚拟网络中的虚拟机（充当路由器）进行路由。
 
@@ -336,14 +336,14 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 1. 在 ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览到“专用 DNS 区域”页面 。 
 1. 使用以下设置创建专用 DNS 区域：
 
-    | 设置 | “值” |
+    | 设置 | 值 |
     | --- | --- |
     | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | 新资源组 AZ800-L0802-RG 的名称 |
     | 名称 | **contoso.org** |
     | 资源组位置 | 此实验室上一练习中部署资源的同一 Azure 区域 |
 
-    >虚拟机：AZ-800T00A-SEA-DC1 和 AZ-800T00A-ADM1 必须正在运行 。
+    >**注意**：请等到专用 DNS 区域创建完成。 这大约需要 2 分钟。
 
 1. 浏览到 Contoso.org DNS 专用区域页面。
 1. 在 contoso.org 专用 DNS 区域页面上，将虚拟网络链接添加到在上一练习中使用以下设置（将其他设置保留为默认值）创建的第一个虚拟网络：
@@ -355,7 +355,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
     | 虚拟网络 | **az800l08-vnet0 (AZ800-L0801-RG)** |
     | 启用自动注册 | 已选定 |
 
-    >其他 VM 可以运行，但此实验室不需要这些 VM。
+    >**注意：** 请等到虚拟网络链接创建完成。 此过程应会在 1 分钟内完成。
 
 1. 重复前面的步骤，为虚拟网络 az800l08-vnet1 和 az800l08-vnet2 分别创建名为 az800l08-vnet1-link 和 az800l08-vnet2-link 的虚拟网络链接（并启用自动注册）   。
 1. 在 contoso.org 专用 DNS 区域页面上，浏览到 contoso.org 专用 DNS 区域页的“概述”窗格，查看 DNS 记录集列表，并验证 az800l08-vm0、az800l08-vm1 和 az800l08-vm2 的 A 记录是否在列表中显示为“自动注册”       。
@@ -369,7 +369,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览到“网络观察程序 - 连接故障排除”页面 。
 1. 使用以下设置启动检查（将其他设置保留为默认值）：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --- | --- |
     | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0801-RG** |
@@ -381,7 +381,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
     | 协议 | **TCP** |
     | Destination Port | **3389** |
 
-1. Wait until the results of the connectivity check are returned. Verify that the status is <bpt id="p1">**</bpt>Reachable<ept id="p1">**</ept>. 
+1. 等到返回连接检查结果。 验证状态是否为可访问。 
 
     > **注意**：这是预期行为，因为目标完全限定的域名 (FQDN) 可通过 Azure 专用 DNS 区域解析。 
 
@@ -394,18 +394,18 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 选项卡，并浏览到“DNS 区域”页面 。
 1. 使用以下设置（将其他设置保留为默认值）创建 DNS 区域：
 
-    | 设置 | “值” |
+    | 设置 | 值 |
     | --- | --- |
     | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
     | 资源组 | **AZ800-L0802-RG** |
     | 名称 | 之前在此任务中标识的 DNS 域名 |
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the DNS zone to be created. This should take about 1 minute.
+    >**注意**：请等到 DNS 区域创建完成。 这大约需要 1 分钟。
 
 1. 浏览到新创建的 DNS 区域的页面。
 1. 添加具有以下设置的记录集（保留其他设置为默认值）：
 
-    | 设置 | Value |
+    | 设置 | 值 |
     | --- | --- |
     | 名称 | **www** |
     | 类型 | **A** |
@@ -414,11 +414,11 @@ For this lab, you'll use the available VM environment and an Azure subscription.
     | TTL 单位 | **小时数** |
     | IP 地址 | 20.30.40.50 |
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The IP address and the corresponding name are entirely arbitrary. They are meant to provide a very simple example illustrating implementing public DNS records, rather than emulate a real world scenario, which would require purchasing a namespace from a DNS registrar. 
+    >**注意**：IP 地址和相应的名称完全是任意的。 它们旨在提供一个非常简单的示例来说明如何实现公共 DNS 记录，而不是模拟需要从 DNS 注册商处购买命名空间的真实场景。 
 
 1. 在“DNS 区域”页上，标识“名称服务器 1”的全名。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the full name of <bpt id="p2">**</bpt>Name server 1<ept id="p2">**</ept>. You will need it in the next task.
+    >**注意**：请记下“名称服务器 1”的全名。 稍后在下一个任务中将用到它。
 
 #### <a name="task-4-validate-azure-public-dns-name-resolution"></a>任务 4：验证 Azure 公用 DNS 名称解析
 
@@ -433,7 +433,7 @@ For this lab, you'll use the available VM environment and an Azure subscription.
 
 1. 验证该命令的输出是否包含 20.30.40.50 的公共 IP 地址。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The name resolution works as expected because the <bpt id="p2">**</bpt>nslookup<ept id="p2">**</ept> command allows you to specify the IP address of the DNS server to query for a record (which, in this case, is <ph id="ph1">`&lt;Name server 1&gt;`</ph>. For the name resolution to work when querying any publicly accessible DNS server, you would need to register the domain name with a DNS registrar and configure the name servers listed on the public DNS zone page in the Azure portal as authoritative for the namespace corresponding to that domain.
+    >**注意**：名称解析按预期方式运行，因为 nslookup 命令允许你指定要查询的 DNS 服务器的 IP 地址（在此示例中为 `<Name server 1>`）。 要在查询任何可公开访问的 DNS 服务器时使用名称解析，需要向 DNS 注册机构注册域名，并将 Azure 门户中的“公共 DNS 区域”页上列出的名称服务器配置为与该域对应的命名空间的权威服务器。
 
 ## <a name="exercise-3-deprovisioning-the-azure-environment"></a>练习 3：取消预配 Azure 环境
 

@@ -24,7 +24,7 @@ lab:
 
 ## <a name="lab-setup"></a>实验室设置
 
-Virtual machines: <bpt id="p1">**</bpt>AZ-800T00A-SEA-DC1<ept id="p1">**</ept> and <bpt id="p2">**</bpt>AZ-800T00A-ADM1<ept id="p2">**</ept> must be running. Other VMs can be running, but they aren't required for this lab.
+虚拟机：AZ-800T00A-SEA-DC1 和 AZ-800T00A-ADM1 必须正在运行 。 其他 VM 可以运行，但此实验室不需要这些 VM。
 
 > 注意：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 VM 托管 SEA-DC1 和 SEA-ADM1 的安装    
 
@@ -35,13 +35,13 @@ Virtual machines: <bpt id="p1">**</bpt>AZ-800T00A-SEA-DC1<ept id="p1">**</ept> a
    - 密码：Pa55w.rd
    - 域名：CONTOSO
 
-For this lab, you'll use the available VM environment and an Azure subscription. Before you begin the lab, ensure that you have an Azure subscription and a user account with the Owner or Contributor role in that subscription, as well as with the Global Administrator role in the Azure Active Directory (Azure AD) tenant associated with that subscription.
+对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保你有一个 Azure 订阅和一个在该订阅中具有“所有者”或“参与者”角色且在与该订阅关联的 Azure Active Directory (Azure AD) 租户中具有“全局管理员角色”的用户帐户。
 
 ## <a name="exercise-1-provisioning-azure-vms-running-windows-server"></a>练习 1：预配运行 Windows Server 的 Azure VM
 
 ### <a name="scenario"></a>场景
 
-You need to verify that you can establish hybrid connectivity between an on-premises server and an Azure virtual network. To start, you'll provision Azure VMs running Windows Server by using an Azure Resource Manager template.
+需要确认可以在本地服务器与 Azure 虚拟网络之间建立混合连接。 首先，使用 Azure 资源管理器模板来预配运行 Windows Server 的 Azure VM。
 
 此练习的主要任务如下：
 
@@ -53,9 +53,9 @@ You need to verify that you can establish hybrid connectivity between an on-prem
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到 Azure 门户，并使用 Azure 凭据进行身份验证。
 1. 在 Azure 门户的 Cloud Shell 窗格中打开一个 PowerShell 会话。
 1. 将 C:\\Labfiles\\Lab04\\L04-sub_template.json 文件上传到 Cloud Shell 主目录。
-1. From the Cloud Shell pane, run the following commands to create a resource group that will contain resources you provision in this lab. (Replace the <ph id="ph1">`&lt;Azure region&gt;`</ph> placeholder with the name of an Azure region into which you can deploy Azure virtual machines, such as <bpt id="p1">**</bpt>eastus<ept id="p1">**</ept>.)
+1. 在 Cloud Shell 窗格中，运行以下命令以创建一个资源组，其中包含在此实验室中预配的资源。 （将 `<Azure region>` 占位符替换为可在其中部署 Azure 虚拟机的 Azure 区域的名称，例如 eastus）
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: This lab has been tested and verified using East US, so you should use that region. In general, to identify Azure regions where you can provision Azure VMs, refer to <bpt id="p1">[</bpt>Find Azure credit offers in your region<ept id="p1">](https://aka.ms/regions-offers)</ept>.
+   >注意：此实验室已使用“美国东部”进行了测试和验证，因此你应该使用该区域。 通常，若要确定可在其中预配 Azure VM 的 Azure 区域，请参阅[查找你所在区域的 Azure 额度套餐](https://aka.ms/regions-offers)。
 
    ```powershell
    $location = '<Azure region>'
@@ -81,7 +81,7 @@ You need to verify that you can establish hybrid connectivity between an on-prem
      -TemplateParameterFile $HOME/L04-rg_template.parameters.json
    ```
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the deployment to complete before you proceed to the next exercise. The deployment should take about 5 minutes.
+   >注意：在继续下一个练习之前，请等待部署完成。 部署大约需要 5 分钟的时间完成。
 
 1. 在 Azure 门户中，关闭 Cloud Shell 窗格。
 1. 在 Azure 门户中，将 IP 地址范围为 10.4.3.224/27 的 GatewaySubnet 添加到 az800l04-vnet 虚拟网络  。
@@ -90,7 +90,7 @@ You need to verify that you can establish hybrid connectivity between an on-prem
 
 ### <a name="scenario"></a>场景
 
-You need to verify that you can establish hybrid connectivity between an on-premises server and the Azure VM you provisioned in the previous exercise. You'll use the Azure Network Adapter feature of Windows Admin Center for this purpose.
+需要确认可在本地服务器与上一练习中预配的 Azure VM 之间建立混合连接。 为实现此目的，你将使用 Windows Admin Center 的 Azure 网络适配器功能。
 
 此练习的主要任务如下：
 
@@ -114,11 +114,11 @@ You need to verify that you can establish hybrid connectivity between an on-prem
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > <bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait until the installation completes. This should take about 2 minutes.
+   > 备注：请等待安装完成。 这大约需要 2 分钟。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。 
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: If the link does not work, on <bpt id="p2">**</bpt>SEA-ADM1<ept id="p2">**</ept>, browse to the <bpt id="p3">**</bpt>WindowsAdminCenter.msi<ept id="p3">**</ept> file, open the context menu for it, and then select <bpt id="p4">**</bpt>Repair<ept id="p4">**</ept>. After the repair completes, refresh Microsoft Edge. 
+   >注意：如果链接不起作用，请在 SEA-ADM1 上浏览到 WindowsAdminCenter.msi 文件，打开其上下文菜单，然后选择“修复”   。 修复完成后，刷新 Microsoft Edge。 
 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
@@ -145,13 +145,13 @@ You need to verify that you can establish hybrid connectivity between an on-prem
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，并确认将预配名称以 WAC-Created-vpngw- 开头的新虚拟网络网关 。
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: The provisioning of the Azure virtual network gateway can take up to 45 minutes. Do not wait for the provisioning to complete but instead proceed to the next exercise.
+   >注意：预配 Azure 虚拟网络网关最多可能需要 45 分钟。 请勿等待预配完成，而是继续执行下一个练习。
 
 ## <a name="exercise-3-deploying-windows-admin-center-gateway-in-azure"></a>练习 3：在 Azure 中部署 Windows Admin Center 网关
 
 ### <a name="scenario"></a>场景
 
-You need to evaluate the ability to manage Azure VMs running Windows Server OS by using Windows Admin Center. To accomplish this, you'll first install a Windows Admin Center gateway in the Azure virtual network you implemented in the first exercise of this lab.
+你需要评估使用 Windows Admin Center 管理运行 Windows Server OS 的 Azure VM 的功能。 为此，首先要在本实验室第一个练习中实现的 Azure 虚拟网络中安装 Windows Admin Center 网关。
 
 此练习的主要任务如下：
 
@@ -206,11 +206,11 @@ You need to evaluate the ability to manage Azure VMs running Windows Server OS b
 1. 系统提示提供本地管理员帐户的名称时，请输入“Student”。
 1. 系统提示提供本地管理员帐户的密码时，请输入“Pa55w.rd1234”。
 
-    ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Wait for the provisioning script to complete. This might take about 5 minutes.
+    >注意：请等待预配脚本完成。 这可能需要大约 5 分钟。
 
 1. 确认脚本已成功完成，并注意最后的消息提供的 URL 包含托管 Windows Admin Center 安装的 Azure VM 的完全限定名称。
 
-   ><bpt id="p1">**</bpt>Note<ept id="p1">**</ept>: Record the fully qualified name of the Azure VM. You will need it later in this lab.
+   >注意：记录 Azure VM 的完全限定名称。 本实验室中稍后会用到它。
 
 1. 关闭 Cloud Shell 窗格。
 
@@ -296,7 +296,7 @@ You need to evaluate the ability to manage Azure VMs running Windows Server OS b
    Get-AzResourceGroup -Name 'az800l04*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
-   >虚拟机：AZ-800T00A-SEA-DC1 和 AZ-800T00A-ADM1 必须正在运行 。
+   >注意：该命令异步执行（由 -AsJob 参数确定）。 因此，尽管可以在同一 PowerShell 会话中立即运行另一个 PowerShell 命令，但在实际删除资源组之前将需要几分钟的时间。
 
 ### <a name="results"></a>结果
 
