@@ -55,7 +55,7 @@ lab:
    - 删除换行符。
 
 1. 现在，Install-ADDSDomainController 命令以及所有参数都位于一行中。 将光标置于该行的前面，然后在“编辑”菜单上，选择“全选”以选择整行 。 在菜单上，选择“编辑”，然后选择“复制” 。
-1. 切换到 Active Directory 域服务配置向导，然后选择“取消” 。
+
 1. 当系统提示确认时，选择“是”以取消该向导。
 1. 在 Windows PowerShell 命令提示符下，输入以下命令：
 
@@ -65,7 +65,7 @@ lab:
 1. 将光标置于大括号 ({ }) 之间，然后粘贴剪贴板中复制的脚本行的内容。 完整的命令应采用以下格式：
     
    ```powershell
-   Invoke-Command –ComputerName SEA-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:\$false -CreateDnsDelegation:\$false -Credential (Get-Credential) -CriticalReplicationOnly:\$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:\$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:\$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:\$true}
+   Invoke-Command –ComputerName SEA-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:\$false -CreateDnsDelegation:$false -Credential (Get-Credential) -CriticalReplicationOnly:$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:\$true}
    ```
 1. 要调用命令，请按 Enter。
 1. 在“Windows PowerShell 凭据请求”对话框中，在“用户名”框中输入 CONTOSO\\Administrator，在“密码”框中输入 Pa55w.rd，然后选择“确定”     。
