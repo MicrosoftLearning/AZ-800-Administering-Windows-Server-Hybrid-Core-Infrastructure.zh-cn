@@ -114,128 +114,129 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 1. 使用 Windows Admin Center 启动 SEA-VM1，然后显示正在运行的 VM 的统计信息。
 1. 使用 Windows Admin Center 关闭 SEA-VM1。
 1. 在“工具”列表中，选择“虚拟交换机”并标识现有交换机 。
+1. 练习 1 结果
 
-### <a name="exercise-1-results"></a>练习 1 结果
+### <a name="exercise-1-results"></a>完成本练习后，你应该已使用 Hyper-V 管理器和 Windows Admin Center 来创建虚拟交换机、虚拟硬盘和虚拟机，然后管理虚拟机。
 
-完成本练习后，你应该已使用 Hyper-V 管理器和 Windows Admin Center 来创建虚拟交换机、虚拟硬盘和虚拟机，然后管理虚拟机。
+练习 2：安装和配置容器
 
-## <a name="exercise-2-installing-and-configuring-containers"></a>练习 2：安装和配置容器
+## <a name="exercise-2-installing-and-configuring-containers"></a>场景
 
-### <a name="scenario"></a>场景
+### <a name="scenario"></a>在本练习中，你将使用 Docker 来安装和运行 Windows 容器。
 
-在本练习中，你将使用 Docker 来安装和运行 Windows 容器。 你还将使用 Windows Admin Center 来管理容器。
+你还将使用 Windows Admin Center 来管理容器。 此练习的主要任务如下：
 
-此练习的主要任务如下：
+在 Windows Server 上安装 Docker
 
-1. 在 Windows Server 上安装 Docker
 1. 安装并运行 Windows 容器
 1. 使用 Windows Admin Center 管理容器
+1. 任务 1：在 Windows Server 上安装 Docker
 
-#### <a name="task-1-install-docker-on-windows-server"></a>任务 1：在 Windows Server 上安装 Docker
+#### <a name="task-1-install-docker-on-windows-server"></a>在 SEA-ADM1 上，在 Windows Admin Center 中，当连接到 sea-svr1.contoso.com 时，使用“工具”菜单与该服务器建立 PowerShell 远程处理会话  。
 
-1. 在 SEA-ADM1 上，在 Windows Admin Center 中，当连接到 sea-svr1.contoso.com 时，使用“工具”菜单与该服务器建立 PowerShell 远程处理会话  。 
+1. 注意：由于实验室中使用了嵌套虚拟化，Windows Admin Center 中的 Powershell 连接可能相对较慢，因此另一种方法是从 SEA-ADM1 上的 Windows Powershell 控制台运行 `Enter-PSSession -ComputerName SEA-SVR1` 。 
 
-   > 注意：由于实验室中使用了嵌套虚拟化，Windows Admin Center 中的 Powershell 连接可能相对较慢，因此另一种方法是从 SEA-ADM1 上的 Windows Powershell 控制台运行 `Enter-PSSession -ComputerName SEA-SVR1` 。
+   > 在 PowerShell 控制台中，运行以下命令，以强制使用 TLS 1.2 并安装 PowerShellGet 模块：
 
-1. 在 PowerShell 控制台中，运行以下命令，以强制使用 TLS 1.2 并安装 PowerShellGet 模块： 
+1. 安装完成后，运行以下命令以重启 SEA-SVR1： 
 
    ```powershell
    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
    Install-PackageProvider -Name NuGet -Force
    Install-Module PowerShellGet -RequiredVersion 2.2.4 -SkipPublisherCheck
    ```
-1. 安装完成后，运行以下命令以重启 SEA-SVR1：
+1. 在 SEA-SVR1 重启后，再次使用 PowerShell 工具与 SEA-SVR1 建立新的 PowerShell 远程处理会话  。
 
    ```powershell
    Restart-Computer -Force
    ```
-1. 在 SEA-SVR1 重启后，再次使用 PowerShell 工具与 SEA-SVR1 建立新的 PowerShell 远程处理会话  。
-
 1. 在 Windows PowerShell 控制台中，运行以下命令，在 SEA-SVR1 上安装 Docker Microsoft PackageManagement 提供程序 ：
+
+1. 在 Windows PowerShell 控制台中，运行以下命令，在 SEA-SVR1 上安装 Docker 运行时 ：
 
    ```powershell
    Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
    ```
-1. 在 Windows PowerShell 控制台中，运行以下命令，在 SEA-SVR1 上安装 Docker 运行时 ：
+1. 安装完成后，运行以下命令以重启 SEA-SVR1：
 
    ```powershell
    Install-Package -Name docker -ProviderName DockerMsftProvider
    ```
-1. 安装完成后，运行以下命令以重启 SEA-SVR1：
+1. 任务 2：安装并运行 Windows 容器
 
    ```powershell
    Restart-Computer -Force
    ```
 
-#### <a name="task-2-install-and-run-a-windows-container"></a>任务 2：安装并运行 Windows 容器
+#### <a name="task-2-install-and-run-a-windows-container"></a>在 SEA-SVR1 重启后，再次使用 PowerShell 工具与 SEA-SVR1 建立新的 PowerShell 远程处理会话  。
 
-1. 在 SEA-SVR1 重启后，再次使用 PowerShell 工具与 SEA-SVR1 建立新的 PowerShell 远程处理会话  。
 1. 在 Windows PowerShell 控制台中，运行以下命令以验证安装的 Docker 版本：
+1. 运行以下命令，标识 SEA-SVR1 上当前存在的 Docker 映像：
 
    ```powershell
    Get-Package -Name Docker -ProviderName DockerMsftProvider
    ```
-1. 运行以下命令，标识 SEA-SVR1 上当前存在的 Docker 映像： 
+1. 注意：确认本地存储库存储中没有映像。 
 
    ```powershell
    docker images
    ```
 
-   > 注意：确认本地存储库存储中没有映像。
+   > 运行以下命令，下载包含 Internet Information Services (IIS) 安装的 Nano Server 映像：
 
-1. 运行以下命令，下载包含 Internet Information Services (IIS) 安装的 Nano Server 映像：
+1. 注意：完成下载所用的时间取决于从实验室 VM 到 Microsoft 容器注册表的网络连接的可用带宽。
 
    ```powershell
    docker pull nanoserver/iis
    ```
 
-   > 注意：完成下载所用的时间取决于从实验室 VM 到 Microsoft 容器注册表的网络连接的可用带宽。
+   > 运行以下命令，确认已成功下载 Docker 映像：
 
-1. 运行以下命令，确认已成功下载 Docker 映像：
+1. 运行以下命令，根据下载的映像启动容器：
 
    ```powershell
    docker images
    ```
-1. 运行以下命令，根据下载的映像启动容器：
+1. 注意：docker 命令以 Hyper-V 隔离模式（可解决任何主机操作系统不兼容问题）作为后台服务 (`-d`) 启动容器，并配置网络以使容器主机的端口 80 映射到容器的端口 80。
 
    ```powershell
    docker run --isolation=hyperv -d -t --name nano -p 80:80 nanoserver/iis 
    ```
 
-   > 注意：docker 命令以 Hyper-V 隔离模式（可解决任何主机操作系统不兼容问题）作为后台服务 (`-d`) 启动容器，并配置网络以使容器主机的端口 80 映射到容器的端口 80。 
+   > 运行以下命令，检索容器主机的 IP 地址信息： 
 
-1. 运行以下命令，检索容器主机的 IP 地址信息：
+1. 注意：标识名为 vEthernet (nat) 的以太网适配器的 IPv4 地址。
 
    ```powershell
    ipconfig
    ```
 
-   > 注意：标识名为 vEthernet (nat) 的以太网适配器的 IPv4 地址。 这是新容器的地址。 接下来，标识名为 Ethernet 的以太网适配器的 IPv4 地址。 这是主机 (SEA-SVR1) 的 IP 地址，设置为 172.16.10.12 。
+   > 这是新容器的地址。 接下来，标识名为 Ethernet 的以太网适配器的 IPv4 地址。 这是主机 (SEA-SVR1) 的 IP 地址，设置为 172.16.10.12 。 在 SEA-ADM1 上，切换到 Microsoft Edge 窗口，打开另一个选项卡并转到 http://172.16.10.12 。
 
-1. 在 SEA-ADM1 上，切换到 Microsoft Edge 窗口，打开另一个选项卡并转到 http://172.16.10.12 。 确认浏览器显示默认 IIS 页。
-1. 在 SEA-ADM1 上，切换回与 SEA-SVR1 的 PowerShell 远程处理会话，然后在 Windows PowerShell 控制台中，运行以下命令以列出正在运行的容器  ：
+1. 确认浏览器显示默认 IIS 页。 在 SEA-ADM1 上，切换回与 SEA-SVR1 的 PowerShell 远程处理会话，然后在 Windows PowerShell 控制台中，运行以下命令以列出正在运行的容器  ：
+1. 注意：此命令提供有关当前正在 SEA-SVR1 上运行的容器的信息 。
 
    ```powershell
    docker ps
    ```
-   > 注意：此命令提供有关当前正在 SEA-SVR1 上运行的容器的信息 。 记录容器 ID，因为你将使用它来停止容器。 
+   > 记录容器 ID，因为你将使用它来停止容器。 运行以下命令以停止正在运行的容器（将 `<ContainerID>` 占位符替换为你在上一步中标识的容器 ID）： 
 
-1. 运行以下命令以停止正在运行的容器（将 `<ContainerID>` 占位符替换为你在上一步中标识的容器 ID）：
+1. 运行以下命令，确认容器已停止：
 
    ```powershell
    docker stop <ContainerID>
    ```
-1. 运行以下命令，确认容器已停止：
+1. 任务 3：使用 Windows Admin Center 管理容器
 
    ```powershell
    docker ps
    ```
 
-#### <a name="task-3-use-windows-admin-center-to-manage-containers"></a>任务 3：使用 Windows Admin Center 管理容器
+#### <a name="task-3-use-windows-admin-center-to-manage-containers"></a>在 SEA-ADM1 上，在 Windows Admin Center 中 sea-svr1.contoso.com 的“工具”菜单中，选择“容器”   。
 
-1. 在 SEA-ADM1 上，在 Windows Admin Center 中 sea-svr1.contoso.com 的“工具”菜单中，选择“容器”   。 系统提示关闭 PowerShell 会话时，选择“继续” 。
-1. 在“容器”窗格中，浏览“概述”、“容器”、“映像”、“网络”和“卷”选项卡    。
+1. 系统提示关闭 PowerShell 会话时，选择“继续” 。 在“容器”窗格中，浏览“概述”、“容器”、“映像”、“网络”和“卷”选项卡    。
+1. 练习 2 结果
 
-### <a name="exercise-2-results"></a>练习 2 结果
+### <a name="exercise-2-results"></a>完成本练习后，你应该已在 Windows Server 上安装了 Docker，下载了包含 Web 服务的 Windows 容器映像，并验证了其功能。
 
-完成本练习后，你应该已在 Windows Server 上安装了 Docker，下载了包含 Web 服务的 Windows 容器映像，并验证了其功能。
+After this exercise, you should have installed Docker on Windows Server, downloaded a Windows container image containing web services, and verified its functionality.
