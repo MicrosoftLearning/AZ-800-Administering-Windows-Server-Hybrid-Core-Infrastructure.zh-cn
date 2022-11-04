@@ -75,139 +75,139 @@ lab:
 
 1. 现在，Install-ADDSDomainController 命令以及所有参数都位于一行中，请复制该命令。
 
-1. 切换到 Active Directory 域服务配置向导，然后选择“取消” 。
+1. 切换到 Windows PowerShell，然后在命令提示符处输入以下命令：
 
    ```powershell
    Invoke-Command –ComputerName SEA-SVR1 { }
    ```
-1. 切换到 Windows PowerShell，然后在命令提示符处输入以下命令： 将复制的命令粘贴在大括号 ({ }) 之间，并运行生成的命令以开始安装。
+1. 将复制的命令粘贴在大括号 ({ }) 之间，并运行生成的命令以开始安装。 完整的命令应采用以下格式：
 
    ```powershell
    Invoke-Command –ComputerName SEA-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:$false -CreateDnsDelegation:$false -Credential (Get-Credential) -CriticalReplicationOnly:$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:$true}
    ```
 
-1. 完整的命令应采用以下格式：
+1. 提供以下凭据：
 
-   - 提供以下凭据：
    - 用户名：CONTOSO\\Administrator
+   - 密码：Pa55w.rd
 
-1. 密码：Pa55w.rd
-1. 将“SafeModeAdministratorPassword”设置为“Pa55w.rd” 。 重启 SEA-SVR1 后，在 SEA-ADM1 上切换到“服务器管理器”，然后选择“AD DS”节点   。 请注意，SEA-SVR1 已添加为域控制器，警告通知已消失。
+1. 将“SafeModeAdministratorPassword”设置为“Pa55w.rd” 。
+1. 重启 SEA-SVR1 后，在 SEA-ADM1 上切换到“服务器管理器”，然后选择“AD DS”节点   。 请注意，SEA-SVR1 已添加为域控制器，警告通知已消失。 可能必须选择“刷新”。
 
-#### <a name="task-3-manage-objects-in-ad-ds"></a>可能必须选择“刷新”。
+#### <a name="task-3-manage-objects-in-ad-ds"></a>任务 3：管理 AD DS 中的对象
 
-1. 任务 3：管理 AD DS 中的对象
 1. 在 SEA-ADM1 上，切换到 Windows PowerShell 控制台 。
+1. 若要创建名为“Seattle”的组织单位 (OU)，请在 Windows PowerShell 控制台中运行以下命令 ：
 
    ```powershell
    New-ADOrganizationalUnit -Name "Seattle" -Path "DC=contoso,DC=com" -ProtectedFromAccidentalDeletion $true -Server SEA-DC1.contoso.com
    ```
-1. 若要创建名为“Seattle”的组织单位 (OU)，请在 Windows PowerShell 控制台中运行以下命令 ：
+1. 若要在 Seattle OU 中为 Ty Carlson 创建用户帐户，请运行以下命令 ：
 
    ```powershell
    New-ADUser -Name Ty -DisplayName 'Ty Carlson' -GivenName Ty -Surname Carlson -Path 'OU=Seattle,DC=contoso,DC=com'
    ```
-1. 若要在 Seattle OU 中为 Ty Carlson 创建用户帐户，请运行以下命令 ：
+1. 若要将用户的密码设置为“Pa55w.rd”，请运行以下命令：
 
    ```powershell
    Set-ADAccountPassword Ty
    ```
 
-> 若要将用户的密码设置为“Pa55w.rd”，请运行以下命令：
+> 注意：当前密码为空。
 
-1. 注意：当前密码为空。
+1. 若要启用用户帐户，请运行以下命令：
 
    ```powershell
    Enable-ADAccount Ty
    ```
-1. 若要启用用户帐户，请运行以下命令：
+1. 若要创建名为 SeattleBranchUsers 的域全局组，请运行以下命令：
 
    ```powershell
    New-ADGroup SeattleBranchUsers -Path 'OU=Seattle,DC=contoso,DC=com' -GroupScope Global -GroupCategory Security
    ```
-1. 若要创建名为 SeattleBranchUsers 的域全局组，请运行以下命令：
+1. 要将 Ty 用户帐户添加到新创建的组，请运行以下命令：
 
    ```powershell
    Add-ADGroupMember -Identity SeattleBranchUsers -Members Ty
    ```
-1. 要将 Ty 用户帐户添加到新创建的组，请运行以下命令：
+1. 若要确认用户是否在该组中，请运行以下命令：
 
    ```powershell
    Get-ADGroupMember -Identity SeattleBranchUsers
    ```
-1. 若要确认用户是否在该组中，请运行以下命令：
+1. 若要将用户添加到本地管理员组，请运行以下命令：
 
    ```powershell
    Add-LocalGroupMember -Group 'Administrators' -Member 'CONTOSO\Ty'
    ```
 
-   > 若要将用户添加到本地管理员组，请运行以下命令：
+   > **注意**:使用 **CONTOSO\\Ty** 用户帐户登录 SEA-ADM1 时必需此信息
 
-### <a name="results"></a>**注意**:使用 **CONTOSO\\Ty** 用户帐户登录 SEA-ADM1 时必需此信息
+### <a name="results"></a>结果
 
-结果
+完成本练习后，应已成功在 AD DS 中创建了新的域控制器和托管对象。
 
-## <a name="exercise-2-configuring-group-policy"></a>完成本练习后，应已成功在 AD DS 中创建了新的域控制器和托管对象。
+## <a name="exercise-2-configuring-group-policy"></a>练习 2：配置组策略
 
-### <a name="scenario"></a>练习 2：配置组策略
-
-场景
+### <a name="scenario"></a>场景
 
 作为组策略实现的一部分，你想要为 Office 应用导入自定义管理模板，并配置设置。
 
-1. 此练习的主要任务如下：
+此练习的主要任务如下：
+
 1. 创建并编辑 GPO 设置。
+1. 应用并验证客户端计算机上的设置。
 
-#### <a name="task-1-create-and-edit-a-gpo"></a>应用并验证客户端计算机上的设置。
+#### <a name="task-1-create-and-edit-a-gpo"></a>任务 1：创建并编辑 GPO
 
-1. 任务 1：创建并编辑 GPO
 1. 在 SEA-ADM1 上，从“服务器管理器”中，打开“组策略管理”控制台  。
 1. 在“组策略对象”容器中创建一个名为“Contoso Standards”的 GPO 。
 1. 在组策略管理编辑器中打开“Contoso Standards”GPO，然后浏览到 User Configuration\Policies\Administrative Templates\System 。
 1. 启用“阻止访问注册表编辑工具”策略设置。
 1. 浏览到 User Configuration\Policies\Administrative Templates\Control Panel\Personalization 文件夹，然后将“屏幕保护”超时策略配置为“600”秒  。
+1. 启用“对屏幕保护使用密码保护”策略设置，然后关闭“组策略管理编辑器”窗口 。
 
-#### <a name="task-2-link-the-gpo"></a>启用“对屏幕保护使用密码保护”策略设置，然后关闭“组策略管理编辑器”窗口 。
+#### <a name="task-2-link-the-gpo"></a>任务 2：链接 GPO
 
-  - 任务 2：链接 GPO
+  - 将“Contoso Standards”GPO 链接到 `contoso.com` 域。
 
-#### <a name="task-3-review-the-effects-of-the-gpos-settings"></a>将“Contoso Standards”GPO 链接到 `contoso.com` 域。
+#### <a name="task-3-review-the-effects-of-the-gpos-settings"></a>任务 3：查看 GPO 设置的效果
 
-1. 任务 3：查看 GPO 设置的效果
-1. 在 SEA-ADM1 上，打开“控制面板” 。 
-1. 使用“Windows Defender 防火墙”接口，启用“远程事件日志管理”域流量 。
-1. 注销，然后以 CONTOSO\\Ty 身份使用密码 Pa55w.rd 登录 。 尝试更改屏幕保护等待时间和恢复设置。
-1. 确认组策略会阻止这些操作。 尝试运行注册表编辑器。 
-1. 确认组策略会阻止此操作。
+1. 在 SEA-ADM1 上，打开“控制面板” 。
+1. 使用“Windows Defender 防火墙”接口，启用“远程事件日志管理”域流量 。 
+1. 注销，然后以 CONTOSO\\Ty 身份使用密码 Pa55w.rd 登录 。
+1. 尝试更改屏幕保护等待时间和恢复设置。 确认组策略会阻止这些操作。
+1. 尝试运行注册表编辑器。 确认组策略会阻止此操作。 
+1. 注销，然后以 **CONTOSO\\Administrator 身份使用密码 Pa55w.rd 登录** 。
 
-#### <a name="task-4-create-and-link-the-required-gpos"></a>注销，然后以 **CONTOSO\\Administrator 身份使用密码 Pa55w.rd 登录** 。
+#### <a name="task-4-create-and-link-the-required-gpos"></a>任务 4：创建并链接所需的 GPO
 
-1. 任务 4：创建并链接所需的 GPO
 1. 在 SEA-ADM1 上，在“组策略管理”控制台中，创建名为“Seattle Application Override”的新 GPO，该 GPO 链接到 Seattle OU   。
+1. 将“屏幕保护超时”策略设置配置为禁用，然后关闭“组策略管理编辑器”窗口 。
 
-#### <a name="task-5-verify-the-order-of-precedence"></a>将“屏幕保护超时”策略设置配置为禁用，然后关闭“组策略管理编辑器”窗口 。
+#### <a name="task-5-verify-the-order-of-precedence"></a>任务 5：验证优先顺序
 
-1. 任务 5：验证优先顺序
 1. 在 SEA-ADM1 上，从“服务器管理器”中，打开“组策略管理”控制台  。
 1. 在“组策略管理控制台”树中，选择“Seattle”OU 。
+1. 选择“组策略继承”选项卡并查看其内容。
 
-   > 选择“组策略继承”选项卡并查看其内容。 注意：Seattle Application Override GPO 的优先级高于 CONTOSO Standards GPO。 刚刚在 Seattle Application Override GPO 中配置的屏幕保护程序超时策略设置将在设置 CONTOSO Standards GPO 之后应用。 因此，新设置将覆盖 CONTOSO Standards GPO 设置。
+   > 注意：Seattle Application Override GPO 的优先级高于 CONTOSO Standards GPO。 刚刚在 Seattle Application Override GPO 中配置的屏幕保护程序超时策略设置将在设置 CONTOSO Standards GPO 之后应用。 因此，新设置将覆盖 CONTOSO Standards GPO 设置。 对于 Seattle Application Override GPO 范围内的用户，将禁用屏幕保护程序超时。
 
-#### <a name="task-6-configure-the-scope-of-a-gpo-with-security-filtering"></a>对于 Seattle Application Override GPO 范围内的用户，将禁用屏幕保护程序超时。
+#### <a name="task-6-configure-the-scope-of-a-gpo-with-security-filtering"></a>任务 6：使用安全筛选配置 GPO 的范围
 
-1. 任务 6：使用安全筛选配置 GPO 的范围 在 SEA-ADM1 上，在“组策略管理”控制台中，选择“Seattle Application Override”GPO  。
-1. 注意，在“安全筛选”部分，GPO 默认应用于所有经过身份验证的用户。
+1. 在 SEA-ADM1 上，在“组策略管理”控制台中，选择“Seattle Application Override”GPO  。 注意，在“安全筛选”部分，GPO 默认应用于所有经过身份验证的用户。
+1. 在“安全筛选”部分中，首先删除“经过身份验证的用户”，然后添加“SeattleBranchUsers”组和“SEA-ADM1”计算机帐户   。
 
-#### <a name="task-7-verify-the-application-of-settings"></a>在“安全筛选”部分中，首先删除“经过身份验证的用户”，然后添加“SeattleBranchUsers”组和“SEA-ADM1”计算机帐户   。
+#### <a name="task-7-verify-the-application-of-settings"></a>任务 7：验证应用程序的设置
 
-1. 任务 7：验证应用程序的设置
 1. 在“组策略管理”的导航窗格中，选择“组策略建模”。
 1. 启动“组策略建模向导”。
-1. 将目标用户和计算机分别设置为 CONTOSO\\Ty 用户帐户和 SEA-ADM1 计算机 。
+1. 将目标用户和计算机分别设置为 CONTOSO\Ty 用户帐户和 CONTOSO\SEA-ADM1 计算机 。
 1. 逐步完成向导的剩余页面，在不修改默认设置的情况下查看这些设置，并完成向导，这将生成包含其结果的报表。
-1. 创建报表后，在“详细信息”窗格中，选择“详细信息”选项卡，然后选择“全部显示” 。 在报表中向下滚动，直到找到“用户详细信息”部分，然后找到“控制面板/个性化”部分 。
-1. 你应该注意到“屏幕保护超时”设置获取自 Seattle Application Override GPO。
+1. 创建报表后，在“详细信息”窗格中，选择“详细信息”选项卡，然后选择“全部显示” 。
+1. 在报表中向下滚动，直到找到“用户详细信息”部分，然后找到“控制面板/个性化”部分 。 你应该注意到“屏幕保护超时”设置获取自 Seattle Application Override GPO。
+1. 关闭“组策略管理”控制台。
 
-### <a name="results"></a>关闭“组策略管理”控制台。
+### <a name="results"></a>结果
 
-结果
+完成此练习后，你应已成功创建并配置了 GPO。
