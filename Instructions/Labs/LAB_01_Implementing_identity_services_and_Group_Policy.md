@@ -74,7 +74,7 @@ lab:
    - 删除换行符。
 
 1. 现在，Install-ADDSDomainController 命令以及所有参数都位于一行中，请复制该命令。
-1. 切换到 Active Directory 域服务配置向导，然后选择“取消” 。
+
 1. 切换到 Windows PowerShell，然后在命令提示符处输入以下命令：
 
    ```powershell
@@ -83,7 +83,7 @@ lab:
 1. 将复制的命令粘贴在大括号 ({ }) 之间，并运行生成的命令以开始安装。 完整的命令应采用以下格式：
 
    ```powershell
-   Invoke-Command –ComputerName SEA-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:\$false -CreateDnsDelegation:\$false -Credential (Get-Credential) -CriticalReplicationOnly:\$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:\$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:\$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:\$true}
+   Invoke-Command –ComputerName SEA-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:$false -CreateDnsDelegation:$false -Credential (Get-Credential) -CriticalReplicationOnly:$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:$true}
    ```
 
 1. 提供以下凭据：
@@ -202,7 +202,7 @@ lab:
 
 1. 在“组策略管理”的导航窗格中，选择“组策略建模”。
 1. 启动“组策略建模向导”。
-1. 将目标用户和计算机分别设置为 CONTOSO\\Ty 用户帐户和 SEA-ADM1 计算机 。
+1. 将目标用户和计算机分别设置为 CONTOSO\Ty 用户帐户和 CONTOSO\SEA-ADM1 计算机 。
 1. 逐步完成向导的剩余页面，在不修改默认设置的情况下查看这些设置，并完成向导，这将生成包含其结果的报表。
 1. 创建报表后，在“详细信息”窗格中，选择“详细信息”选项卡，然后选择“全部显示” 。
 1. 在报表中向下滚动，直到找到“用户详细信息”部分，然后找到“控制面板/个性化”部分 。 你应该注意到“屏幕保护超时”设置获取自 Seattle Application Override GPO。

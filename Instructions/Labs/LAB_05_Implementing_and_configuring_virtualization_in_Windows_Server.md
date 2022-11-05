@@ -110,6 +110,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 
 1. 在 Windows Admin Center 中，向 sea-svr1.contoso.com 添加一个连接，并以 CONTOSO\\Administrator 身份使用密码 Pa55w.rd 连接  。 
 1. 在“工具”列表中，选择“虚拟机”，并查看“摘要”窗格  。
+1. 在“库存”窗格中，打开“SEA-VM1”并查看“设置”  。
 1. 使用 Windows Admin Center 创建新磁盘，大小为 5 GB。
 1. 使用 Windows Admin Center 启动 SEA-VM1，然后显示正在运行的 VM 的统计信息。
 1. 使用 Windows Admin Center 关闭 SEA-VM1。
