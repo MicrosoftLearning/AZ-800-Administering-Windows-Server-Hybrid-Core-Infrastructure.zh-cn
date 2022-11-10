@@ -10,6 +10,8 @@ lab:
 
 你在 Contoso Ltd. 担任管理员。公司正在多个新地方扩展其业务 Active Directory 域服务 (AD DS) 管理团队当前正在评估 Windows Server 中可用于非交互式远程域控制器部署的方法。 该团队还在寻找一种方法来自动执行某些 AD DS 管理任务。 此外，该团队希望建立基于组策略对象 (GPO) 的配置管理。
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20identity%20services%20and%20Group%20Policy)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="objectives"></a>目标
 
 完成本实验室后，你将能够：

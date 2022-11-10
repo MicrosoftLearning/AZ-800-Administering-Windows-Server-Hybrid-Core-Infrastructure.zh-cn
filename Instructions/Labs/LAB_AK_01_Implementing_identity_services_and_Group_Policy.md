@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-implementing-identity-services-and-group-policy"></a>实验室解答：实现标识服务和组策略
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20identity%20services%20and%20Group%20Policy)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-deploying-a-new-domain-controller-on-server-core"></a>练习 1：在 Server Core 上部署新的域控制器
 
 #### <a name="task-1-deploy-ad-ds-on-a-new-windows-server-core-server"></a>任务 1：在新的 Windows Server Core 服务器上部署 AD DS

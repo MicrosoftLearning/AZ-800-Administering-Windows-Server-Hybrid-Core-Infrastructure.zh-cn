@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-implementing-storage-solutions-in-windows-server"></a>实验室解答：在 Windows Server 中实现存储解决方案
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20storage%20solutions%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 > 注意：请确保在每次练习后复原虚拟机 (VM)。 由于大多数 VM 都是 Windows Server 2019 Server Core，因此在练习中复原和重启所需的时间比尝试撤销对存储环境所做更改所需的时间更快。
 
 ## <a name="exercise-1-implementing-data-deduplication"></a>练习 1：实施重复数据删除
