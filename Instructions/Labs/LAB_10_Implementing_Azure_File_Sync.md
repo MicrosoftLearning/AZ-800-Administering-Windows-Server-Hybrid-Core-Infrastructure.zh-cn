@@ -10,6 +10,8 @@ lab:
 
 为了解决关于 Contoso 伦敦总部和西雅图分公司之间分布式文件系统 (DFS) 复制的问题，你决定测试 Azure 文件同步是否能成为两个本地文件共享之间的替代复制机制。
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20Azure%20File%20Sync)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="objectives"></a>目标
 
 完成本实验室后，你将能够：

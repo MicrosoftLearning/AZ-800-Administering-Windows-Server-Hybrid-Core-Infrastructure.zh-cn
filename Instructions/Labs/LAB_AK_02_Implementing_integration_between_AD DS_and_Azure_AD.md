@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-implementing-integration-between-ad-ds-and-azure-ad"></a>实验室答案密钥：实现 AD DS 与 Azure AD 之间的集成
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20integration%20between%20AD%20DS%20and%20Azure%20AD)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-preparing-azure-ad-for-ad-ds-integration"></a>练习 1：为与 AD DS 集成准备 Azure AD
 
 #### <a name="task-1-create-a-custom-domain-in-azure"></a>任务 1：在 Azure 中创建自定义域

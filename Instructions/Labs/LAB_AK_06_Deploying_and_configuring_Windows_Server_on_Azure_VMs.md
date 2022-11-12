@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-deploying-and-configuring-windows-server-on-azure-vms"></a>实验室解答：在 Azure VM 上部署和配置 Windows Server
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Deploying%20and%20configuring%20Windows%20Server%20on%20Azure%20VMs)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-authoring-azure-resource-manager-arm-templates-for-azure-vm-deployment"></a>练习 1：创作用于 Azure VM 部署的 Azure 资源管理器 (ARM) 模板
 
 #### <a name="task-1-connect-to-your-azure-subscription-and-enable-enhanced-security-of-microsoft-defender-for-cloud"></a>任务 1：连接到你的 Azure 订阅并启用 Microsoft Defender for Cloud 增强的安全性

@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-using-windows-admin-center-in-hybrid-scenarios"></a>实验室解答：在混合场景中使用 Windows Admin Center
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Using%20Windows%20Admin%20Center%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-provisioning-azure-vms-running-windows-server"></a>练习 1：预配运行 Windows Server 的 Azure VM
 
 #### <a name="task-1-create-an-azure-resource-group-by-using-an-azure-resource-manager-template"></a>任务 1：使用 Azure 资源管理器模板创建 Azure 资源组

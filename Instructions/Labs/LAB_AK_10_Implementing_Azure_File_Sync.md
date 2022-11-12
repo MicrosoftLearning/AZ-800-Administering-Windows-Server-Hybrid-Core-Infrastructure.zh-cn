@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-implementing-azure-file-sync"></a>实验室答案密钥：实施 Azure 文件同步
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20Azure%20File%20Sync)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-implementing-distributed-file-system-dfs-replication-in-your-on-premises-environment"></a>练习 1：在本地环境中实现分布式文件系统 (DFS) 复制
 
 ### <a name="task-1-deploy-dfs"></a>任务 1：部署 DFS
