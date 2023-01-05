@@ -13,7 +13,7 @@ lab:
 
 #### <a name="task-1-create-a-custom-domain-in-azure"></a>任务 1：在 Azure 中创建自定义域
 
-1. 连接到 SEA-ADM1，然后根据需要，以 Contoso\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
+1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到 Azure 门户，并使用 Azure 凭据进行身份验证。
 1. 在 Azure 门户中，浏览到“Azure Active Directory”。
 1. 在“Azure Active Directory”  页上，选择“自定义域名”  。
@@ -81,7 +81,7 @@ lab:
 1. 在“连接到 Azure AD”页上，输入在练习 1 中创建的 Azure AD 全局管理员用户帐户的用户名和密码，然后选择“下一步” 。
 1. 在“连接 AD DS”页上，输入以下凭据，然后选择“下一步” ：
 
-   - 用户名：CONTOSO\\Administrator
+   - 用户名：CONTOSO\Administrator
    - 密码：Pa55w.rd
 
 1. 在“Azure AD 登录配置”页面上，注意添加的新域包含在 Active Directory UPN 后缀列表中，但其状态列为“未验证” 。
