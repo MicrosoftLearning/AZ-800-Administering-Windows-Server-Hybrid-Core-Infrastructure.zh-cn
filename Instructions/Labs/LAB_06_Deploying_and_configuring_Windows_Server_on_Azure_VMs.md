@@ -265,7 +265,7 @@ lab:
 
 1. 在 Azure 门户中，浏览回 az800l06-vm0 页。
 1. 在“az800l06-vm0”页上，选择“配置” 。 
-1. 在“az800l06-vm0 \| 配置”页上，选择“启用实时 VM 访问”，然后选择“打开 Azure 安全中心”链接  。
+1. 在“az800l06-vm0 \| 配置”页上，选择“启用实时 VM 访问”，然后选择“打开 Microsoft Defender for Cloud”链接  。
 1. 在“实时 VM 访问”页面上，验证代表 az800l06-vm0 Azure VM 的条目是否出现在“已配置”选项卡上  。
 
 #### <a name="task-4-connect-to-the-azure-vm-via-jit-vm-access"></a>任务 4：通过 JIT VM 访问连接到 Azure VM

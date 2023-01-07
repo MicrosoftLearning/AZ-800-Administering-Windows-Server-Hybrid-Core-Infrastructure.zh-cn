@@ -13,7 +13,7 @@ lab:
 
 #### <a name="task-1-install-windows-admin-center"></a>任务 1：安装 Windows Admin Center
 
-1. 连接到 SEA-ADM1，然后根据需要，以 Contoso\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
+1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 下载最新版本的 Windows Admin Center：
     
@@ -32,20 +32,25 @@ lab:
 
 #### <a name="task-2-add-servers-for-remote-administration"></a>任务 2：添加用于远程管理的服务器
 
-1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后转到 `https://SEA-ADM1.contoso.com`。 
-1. 出现提示时，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
+1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后转到 `https://SEA-ADM1.contoso.com`。
 
-   - 用户名：CONTOSO\\Administrator
+   >注意：如果链接不起作用，请在 SEA-ADM1 上打开文件资源管理器，选择“下载”文件夹，在“下载”文件夹中选择 WindowsAdminCenter.msi 文件并手动安装。 安装完成后，刷新 Microsoft Edge。
+
+   >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。
+
+2. 出现提示时，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
+
+   - 用户名：CONTOSO\Administrator
    - 密码：Pa55w.rd
 
-1. 查看“此版本中的新增功能”弹出窗口，然后在其右上角选择“关闭” 。
-1. 查看“所有连接”页，注意它包含 sea-adm1.contoso.com 条目 。 
-1. 在“所有连接”页面上，选择“+ 添加” 。 
-1. 在“添加或创建资源”窗格中的“服务器”磁贴上，选择“添加” 。
-1. 在“服务器名称”文本框中，输入“sea-dc1.contoso.com” 。
-1. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
+3. 查看“此版本中的新增功能”弹出窗口，然后在其右上角选择“关闭” 。
+4. 查看“所有连接”页，注意它包含 sea-adm1.contoso.com 条目 。 
+5. 在“所有连接”页面上，选择“+ 添加” 。 
+6. 在“添加或创建资源”窗格中的“服务器”磁贴上，选择“添加” 。
+7. 在“服务器名称”文本框中，输入“sea-dc1.contoso.com” 。
+8. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
 
-   - 用户名：CONTOSO\\Administrator
+   - 用户名：CONTOSO\Administrator
    - 密码：Pa55w.rd
 
    > 注意：执行步骤 7 后，如果出现“你可将此服务器添加到你的连接列表，但我们无法确认它是否可用。”  的错误消息，请选择“添加”。 在“所有连接”窗格中，选择“sea-svr1.contoso.com”，然后选择“管理形式” 。 在“指定凭据”对话框中，确保已选中“对此连接使用另一个帐户”选项，输入管理员凭据，然后选择“继续”  。
@@ -65,7 +70,7 @@ lab:
 1. 在“服务器连接”页上，选择“sea-dc1.contoso.com”链接 。
 1. 确保已选中“对此连接使用另一个帐户”选项，选择“对所有连接使用这些凭据”，输入以下凭据，然后选择“继续”  ：
 
-   - 用户名：CONTOSO\\Administrator
+   - 用户名：CONTOSO\Administrator
    - 密码：Pa55w.rd
 
 1. 若要安装 DNS PowerShell 工具，请在左侧窗格的“工具”列表中，选择“DNS”，然后选择“安装”  。 安装这些工具需要不到一分钟的时间。
