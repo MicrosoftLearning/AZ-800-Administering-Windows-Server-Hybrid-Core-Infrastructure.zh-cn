@@ -5,13 +5,13 @@ lab:
   module: 'Module 1: Identity services in Windows Server'
 ---
 
-# <a name="lab-answer-key-implementing-identity-services-and-group-policy"></a>实验室解答：实现标识服务和组策略
+# 实验室解答：实现标识服务和组策略
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20identity%20services%20and%20Group%20Policy)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20identity%20services%20and%20Group%20Policy)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-deploying-a-new-domain-controller-on-server-core"></a>练习 1：在 Server Core 上部署新的域控制器
+## 练习 1：在 Server Core 上部署新的域控制器
 
-#### <a name="task-1-deploy-ad-ds-on-a-new-windows-server-core-server"></a>任务 1：在新的 Windows Server Core 服务器上部署 AD DS
+#### 任务 1：在新的 Windows Server Core 服务器上部署 AD DS
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
@@ -31,7 +31,7 @@ lab:
 
    > **注意**：安装过程完成后，可能需要稍等片刻，然后才能验证 AD DS 角色是否已安装。 如果未观察到 Get-WindowsFeature 命令的预期结果，可在几分钟后重试。
 
-#### <a name="task-2-prepare-the-ad-ds-installation-and-promote-a-remote-server"></a>任务 2：准备安装 AD DS 并提升远程服务器
+#### 任务 2：准备安装 AD DS 并提升远程服务器
 
 1.  在 SEA-ADM1 的“开始”菜单上，选择“服务器管理器”，然后在“服务器管理器”视图中选择“所有服务器”视图    。
 1. 在“管理”菜单上，选择“添加服务器” 。
@@ -79,7 +79,7 @@ lab:
 
    > **注意**：可能需要选择“刷新”。
 
-#### <a name="task-3-manage-objects-in-ad-ds"></a>任务 3：管理 AD DS 中的对象
+#### 任务 3：管理 AD DS 中的对象
 
 1. 确保已连接到 SEA-ADM1 的控制台会话。
 1. 切换到“Windows PowerShell (管理员)”。
@@ -131,9 +131,9 @@ lab:
 
 **结果**：完成本练习后，应已成功在 AD DS 中创建了新的域控制器和托管对象。
 
-## <a name="exercise-2-configuring-group-policy"></a>练习 2：配置组策略
+## 练习 2：配置组策略
 
-#### <a name="task-1-create-and-edit-a-gpo"></a>任务 1：创建和编辑 GPO
+#### 任务 1：创建和编辑 GPO
 
 1. 在 SEA-ADM1 上，从服务器管理器中选择“工具”，然后选择“组策略管理”  。
 1. 如有必要，请切换到“组策略管理”窗口。
@@ -151,12 +151,12 @@ lab:
 1. 在“对屏幕保护程序使用密码保护”对话框中，选择“启用”，然后选择“确定”  。
 1. 关闭“组策略管理编辑器”窗口。
 
-#### <a name="task-2-link-the-gpo"></a>任务 2：链接 GPO
+#### 任务 2：链接 GPO
 
 1. 在“组策略管理”窗口中的导航窗格中，右键单击或访问 `Contoso.com` 域的上下文菜单，然后选择“链接现有 GPO” 。
 1. 在“选择 GPO”对话框中，选择“CONTOSO 标准”，然后选择“确定”  。
 
-#### <a name="task-3-review-the-effects-of-the-gpos-settings"></a>任务 3：查看 GPO 设置的效果
+#### 任务 3：查看 GPO 设置的效果
 
 1. 在 SEA-ADM1 上，在任务栏上的搜索框中，输入“控制面板” 。 
 1. 在“最佳匹配”列表中，选择“控制面板” 。
@@ -175,7 +175,7 @@ lab:
 1. 在“注册表编辑器”对话框中，选择“确定” 。
 1. 注销，然后以 CONTOSO\Administrator 身份使用密码 Pa55w.rd 再次登录 。
 
-#### <a name="task-4-create-and-link-the-required-gpos"></a>任务 4：创建并链接所需的 GPO
+#### 任务 4：创建并链接所需的 GPO
 
 1. 在 SEA-ADM1 上，从服务器管理器中选择“工具”，然后选择“组策略管理”  。
 1. 如有必要，请切换到“组策略管理”窗口。
@@ -188,14 +188,14 @@ lab:
 1. 选择“禁用”，然后选择“确定” 。
 1. 关闭“组策略管理编辑器”窗口。
 
-#### <a name="task-5-verify-the-order-of-precedence"></a>任务 5：验证优先顺序
+#### 任务 5：验证优先顺序
 
 1. 返回到“组策略管理控制台”树中，确保选中“Seattle”组织单位 。
 1. 选择“组策略继承”选项卡并查看其内容。
 
    > 注意：Seattle Application Override GPO 的优先级高于 CONTOSO Standards GPO。 刚刚在 Seattle Application Override GPO 中配置的屏幕保护程序超时策略设置将在设置 CONTOSO Standards GPO 之后应用。 因此，新设置将覆盖 CONTOSO Standards GPO 设置。 对于 Seattle Application Override GPO 范围内的用户，将禁用屏幕保护程序超时。
 
-#### <a name="task-6-configure-the-scope-of-a-gpo-with-security-filtering"></a>任务 6：使用安全筛选配置 GPO 的范围
+#### 任务 6：使用安全筛选配置 GPO 的范围
 
 1. 在 SEA-ADM1 上，在“组策略管理”控制台的“导航”窗格中，如有必要，展开“Seattle”组织单位，然后选择其下方的“Seattle Application Override”GPO    。
 1. 在“组策略管理控制台”对话框中，查看以下消息：“你选择了一个指向组策略对象 (GPO) 的链接。除了对链接属性所做的更改，你在此处所做的更改对 GPO 是全局的，并且会影响在其中链接此 GPO 的所有其他位置” 。
@@ -213,7 +213,7 @@ lab:
 1. 在“对象类型”对话框中，选中“计算机”复选框，然后选择“确定”  。
 1. 在“选择用户、计算机或组”对话框的“输入要选择的对象名称(示例):”文本中，输入 SEA-ADM1，然后选择“确定”   。
 
-#### <a name="task-7-verify-the-application-of-settings"></a>任务 7：验证应用程序的设置
+#### 任务 7：验证应用程序的设置
 
 1. 在导航窗格的“组策略管理”中，选择 “组策略建模” 。
 1. 右键单击或访问“组策略建模”的上下文菜单，然后选择“组策略建模向导” 。

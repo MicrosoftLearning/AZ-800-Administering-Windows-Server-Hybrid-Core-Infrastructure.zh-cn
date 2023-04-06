@@ -5,13 +5,13 @@ lab:
   module: 'Module 10: Implementing a hybrid file server infrastructure'
 ---
 
-# <a name="lab-answer-key-implementing-azure-file-sync"></a>实验室答案密钥：实施 Azure 文件同步
+# 实验室答案密钥：实施 Azure 文件同步
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20Azure%20File%20Sync)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20Azure%20File%20Sync)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-implementing-distributed-file-system-dfs-replication-in-your-on-premises-environment"></a>练习 1：在本地环境中实现分布式文件系统 (DFS) 复制
+## 练习 1：在本地环境中实现分布式文件系统 (DFS) 复制
 
-### <a name="task-1-deploy-dfs"></a>任务 1：部署 DFS
+### 任务 1：部署 DFS
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，在“开始”菜单中选择 Windows PowerShell  。
@@ -28,7 +28,7 @@ lab:
 
 1. 在 Windows PowerShell ISE 脚本窗格中，查看脚本，然后通过选择工具栏中的“运行脚本”图标或按 F5 来执行该脚本 。 
 
-### <a name="task-2-test-dfs-deployment"></a>任务 2：测试 DFS 部署
+### 任务 2：测试 DFS 部署
 
 1. 在 SEA-ADM1 上，选择“开始”，输入“DFS”，然后选择“DFS管理”   。
 1. 在“DFS 管理”的导航窗格中，右键单击或访问“名称空间”的上下文菜单，然后选择“添加要显示的名称空间”  。
@@ -48,9 +48,9 @@ lab:
 
    >注意：等待文件复制完毕，两个文件资源管理器窗口中会记录相同的内容。
 
-## <a name="exercise-2-creating-and-configuring-a-sync-group"></a>练习 2：创建和配置同步组
+## 练习 2：创建和配置同步组
 
-### <a name="task-1-create-an-azure-file-share"></a>任务 1：创建 Azure 文件共享
+### 任务 1：创建 Azure 文件共享
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“存储帐户” 。
@@ -73,7 +73,7 @@ lab:
 1. 在“存储帐户”页面上，选择“文件共享”，然后选择“+ 文件共享”  。
 1. 在“新文件共享”选项卡上，在“名称”文本框中输入“share1”，然后选择“创建”   。
 
-### <a name="task-2-use-an-azure-file-share"></a>任务 2：使用 Azure 文件共享
+### 任务 2：使用 Azure 文件共享
 
 1. 在 SEA-ADM1 上，在 Azure 门户的详细信息窗格中，选择“share1” 。
 1. 在详细信息窗格中，选择“上传”。
@@ -94,7 +94,7 @@ lab:
 1. 双击或选择“File1.txt”，选择 Enter，然后确认它不包含你的名字。 这是因为你还原了在修改该文件之前创建的快照。
 1. 关闭“记事本”。
 
-### <a name="task-3-deploy-storage-sync-service-and-a-file-sync-group"></a>任务 3：部署存储同步服务和文件同步组
+### 任务 3：部署存储同步服务和文件同步组
 
 1. 在 SEA-ADM1 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“Azure 文件同步”  。
 1. 在“部署文件同步”页面的“基本信息”选项卡上，在“资源组”下拉列表中，选择“AZ800-L1001-RG”   。 
@@ -111,9 +111,9 @@ lab:
 1. 在“Azure 文件共享”下拉列表中，选择“share1”，然后选择“创建”  。
 1. 在“存储同步服务”页面上，选择“注册的服务器”，并验证当前没有注册的服务器 。
 
-## <a name="exercise-3-replacing-dfs-replication-with-file-sync-based-replication"></a>练习 3：将“DFS 复制”替换为“基于文件同步的复制”
+## 练习 3：将“DFS 复制”替换为“基于文件同步的复制”
 
-### <a name="task-1-add-sea-svr1-as-a-server-endpoint"></a>任务 1：添加 SEA-SVR1 作为服务器终结点
+### 任务 1：添加 SEA-SVR1 作为服务器终结点
 
 1. 在 SEA-ADM1 上，在 Azure门 户中“FileSync1 \| 注册的服务器”页面上，选择“Azure 文件同步代理”链接，转到“Azure 文件同步代理”的 Microsoft 下载页面   。  
 1. 在“Azure 文件同步代理”的 Microsoft 下载页面上，选择“下载”，选中 Windows Server 2022 的文件同步代理条目旁边的复选框 (StorageSyncAgent_WS2022.msi)，然后选择“下一步”开始下载   。 下载完成后，关闭为下载打开的“Microsoft Edge”选项卡。
@@ -140,7 +140,7 @@ lab:
 
    >注意：已将“File1.txt”上传到 Azure 文件共享中，上传的位置是文件同步将其同步到 SEA-SVR1 的位置  。
 
-### <a name="task-2-register-sea-svr2-with-file-sync"></a>任务 2：将 SEA-SVR2 注册到文件同步
+### 任务 2：将 SEA-SVR2 注册到文件同步
 
 1. 在 SEA-ADM1 上，切换到“Windows PowerShell ISE”窗口，进入显示“Install-FileSyncServerCore.ps1”文件的脚本窗格的选项卡  。
 1. 在“Windows PowerShell ISE”脚本窗格的第一行，将 `SEA-SVR1` 替换为 `SEA-SVR2`，保存更改，并通过选择工具栏中的“运行脚本”图标或按 F5 执行脚本 。 
@@ -154,16 +154,16 @@ lab:
 1. 脚本完成后，切换到显示 Azure 门户的 Microsoft Edge 窗口，并浏览回“FileSync1 \| 注册的服务器”页面。
 1. 确认 SEA-SVR1.Contoso.com 和 SEA-SVR2.Contoso.com 现在均列为注册了 FileSync1 存储同步服务的服务器  。
 
-### <a name="task-3-remove-dfs-replication-and-add-sea-svr2-as-a-server-endpoint"></a>任务 3：删除“DFS 复制”并添加 SEA-SVR2 作为服务器终结点
+### 任务 3：删除“DFS 复制”并添加 SEA-SVR2 作为服务器终结点
 
 1. 在 SEA-ADM1 上，选择任务栏上的“DFS 管理” 。
 1. 在“DFS 管理”的导航窗格中，右键单击或访问 Branch1 的上下文菜单，选择“删除”，选择“是，删除该复制组，停止复制所有关联的已复制的文件夹并删除该复制组的所有成员”选项，然后选择“确定”    。
 1. 切换到显示 Azure 门户的 Microsoft Edge 窗口，浏览回 FileSync1 存储同步服务页面，在同步组列表中，选择“Sync1”，然后在“Sync1”页面上选择“添加服务器终结点”    。
 1. 在“添加服务器终结点”窗格中，选择“注册的服务器”列表中的“SEA-SVR2.Contoso.com”，在“路径”文本框中输入“S:\\Data”，然后选择“创建”    。
 
-## <a name="exercise-4-verifying-replication-and-enabling-cloud-tiering"></a>练习 4：验证复制并启用云分层
+## 练习 4：验证复制并启用云分层
 
-### <a name="task-1-verify-file-sync"></a>任务 1：验证文件同步
+### 任务 1：验证文件同步
 
 1. 在 SEA-ADM1 上，切换到显示“\\\\SEA-SVR1\\Data”共享内容的文件资源管理器窗口， 。 
 1. 在“\\SEA-SVR1\\Data **”文件夹中创建另一个任意命名的文件\\** 。
@@ -171,7 +171,7 @@ lab:
 
    >注意：已在上一个练习中删除了“DFS 复制”，这意味着“文件同步”复制了新创建的文件。
 
-### <a name="task-2-enable-cloud-tiering"></a>任务 2：启用云分层
+### 任务 2：启用云分层
 
 1. 在 SEA-ADM1 上，在 Azure 门户的 Sync1 同步组页面上，选择“服务器终结点”部分的“SEA-SVR2.Contoso.com”   。
 1. 在“服务器终结点属性”窗格中，选择“云分层”部分的“启用” 。
@@ -196,9 +196,9 @@ lab:
 1. 将“属性”列拖到“名称”列旁边，然后记下文件日期及其属性 。
 1. 使用属性 L、M 和 O 对文件进行标识，指示发生了分层  。 
 
-## <a name="exercise-5-troubleshooting-replication-issues"></a>练习 5：排查复制问题
+## 练习 5：排查复制问题
 
-### <a name="task-1-monitor-file-sync-replication"></a>任务 1：监视文件同步复制
+### 任务 1：监视文件同步复制
 
 1. 在 SEA-ADM1 上，使用文件资源管理器将 C:\\Windows\\INF 文件夹复制到“\\\\SEA-SVR2\\Data”  **\\** 。 文件夹将同步到云终结点，这将导致同步流量。
 1. 在 SEA-ADM1 上，切换到显示 FileSync1 存储同步服务的 Sync1 同步组页面的 Azure 门户  。
@@ -210,7 +210,7 @@ lab:
 
    >注意：可能需要刷新显示 Azure 门户的页面来查看更新的统计信息。
 
-### <a name="task-2-test-replication-conflict-resolution"></a>任务 2：测试复制冲突的解决
+### 任务 2：测试复制冲突的解决
 
 1. 在 SEA-ADM1 上，找到并排显示 SEA-SVR1\Data 和 SEA-SVR2\Data 内容的文件浏览器窗口 **\\\\\\** **\\\\\\** 。
 1. 在显示 SEA-SVR1\Data 内容的文件资源管理器窗口中，创建一个名为“Demo.txt”的文件 **\\\\\\** 。 
@@ -226,9 +226,9 @@ lab:
 
    >注意：可能需要等待几分钟才会看到同步冲突。
 
-## <a name="exercise-6-cleaning-up-the-azure-subscription"></a>练习 6：清理 Azure 订阅
+## 练习 6：清理 Azure 订阅
 
-### <a name="task-1-delete-the-azure-resources-that-were-created-in-the-lab"></a>任务1：删除在实验中创建的 Azure 资源
+### 任务1：删除在实验中创建的 Azure 资源
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，并浏览到“FileSync1 存储同步服务”页面 。
 1. 在“存储同步服务”页面中，选择“注册的服务器” 。

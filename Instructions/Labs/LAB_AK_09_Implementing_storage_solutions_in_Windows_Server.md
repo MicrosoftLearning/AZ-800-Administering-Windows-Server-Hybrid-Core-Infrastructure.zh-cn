@@ -5,15 +5,15 @@ lab:
   module: 'Module 9: File servers and storage management in Windows Server'
 ---
 
-# <a name="lab-answer-key-implementing-storage-solutions-in-windows-server"></a>实验室解答：在 Windows Server 中实现存储解决方案
+# 实验室解答：在 Windows Server 中实现存储解决方案
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20storage%20solutions%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20storage%20solutions%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 > 注意：请确保在每次练习后复原虚拟机 (VM)。 由于大多数 VM 都是 Windows Server 2019 Server Core，因此在练习中复原和重启所需的时间比尝试撤销对存储环境所做更改所需的时间更快。
 
-## <a name="exercise-1-implementing-data-deduplication"></a>练习 1：实施重复数据删除
+## 练习 1：实施重复数据删除
 
-#### <a name="task-1-install-the-data-deduplication-role-service"></a>任务 1：安装重复数据删除角色服务
+#### 任务 1：安装重复数据删除角色服务
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“服务器管理器”  。
@@ -55,7 +55,7 @@ lab:
 
    > 注意：记录 M 盘上的可用空间 。 
 
-#### <a name="task-2-enable-and-configure-data-deduplication"></a>任务 2：启用和配置重复数据删除
+#### 任务 2：启用和配置重复数据删除
 
 1. 将控制台会话切换回 SEA-ADM1，然后在控制台会话中切换到服务器管理器 。
 1. 在“服务器管理器”树形窗格中，选择“文件和存储服务”，然后选择“磁盘”  。
@@ -67,7 +67,7 @@ lab:
 1. 在“SEA-SVR3 重复数据删除计划”窗口中，选择“启用吞吐量优化”，然后选择“确定”  。
 1. 返回“卷(M:\\)重复数据删除设置”窗口，选择“确定” 。
 
-#### <a name="task-3-test-data-deduplication"></a>任务 3：测试重复数据删除
+#### 任务 3：测试重复数据删除
 
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
 
@@ -133,9 +133,9 @@ lab:
 15. 在“卷”部分中选择“M:”卷，显示其上下文相关菜单，然后从菜单中选择“属性”  。 
 16. 在“卷(M:\\)属性”窗口中，查看“重复数据删除率”和“重复数据删除节省”的值  。
 
-## <a name="exercise-2-configuring-iscsi-storage"></a>练习 2：配置 iSCSI 存储
+## 练习 2：配置 iSCSI 存储
 
-#### <a name="task-1-install-iscsi-and-configure-targets"></a>任务 1：安装 iSCSI 并配置目标
+#### 任务 1：安装 iSCSI 并配置目标
 
 1. 在 SEA-ADM1 上，切换到 Windows PowerShell 窗口 。
 1. 在 Windows PowerShell 控制台中，输入以下命令并按下 Enter 键，建立与 SEA-SVR3 的 PowerShell 远程会话 ：
@@ -177,7 +177,7 @@ lab:
 
    > 注意：该说明假定驱动器号分别为 E 和 F  。 如果驱动器号分配不同，则请考虑在本练习中按照说明进行操作。
 
-#### <a name="task-2-connect-to-and-configure-iscsi-targets"></a>任务 2：连接并配置 iSCSI 目标
+#### 任务 2：连接并配置 iSCSI 目标
 
 1. 在 SEA-ADM1 上，切换到服务器管理器 。
 1. 在 SEA-ADM1 上，切换到服务器管理器中的“磁盘”窗格，然后在右上角的“任务”菜单中选择“刷新”   。
@@ -223,7 +223,7 @@ lab:
 1. 在“快速连接”对话框中，注意“发现的目标名称”是“iqn.1991-05.com.microsoft:sea-svr3-iscscifarm-target”，然后选择“完成”   。
 1. 在“iSCSI 发起程序属性”对话框中，选择“确定” 。
 
-#### <a name="task-3-verify-iscsi-disk-configuration"></a>任务 3：验证 iSCSI 磁盘配置
+#### 任务 3：验证 iSCSI 磁盘配置
 
 1. 将控制台会话切换回 SEA-ADM1，并且将“服务器管理器”窗口保持活动状态 。
 1. 在服务器管理器中，从“文件和存储服务”中的“iSCSI”窗格切换到“磁盘”窗格，然后在右上角的“任务”菜单中选择“刷新”   。 
@@ -249,7 +249,7 @@ lab:
 1. 在服务器管理器中，通过在窗口右上角的“任务”菜单中选择“刷新”，刷新“文件和存储服务”中的“磁盘”窗格   。 
 1. 查看 SEA-DC1 磁盘配置，验证这两个驱动器现在是否都为联机状态 。
 
-#### <a name="task-4-revert-disk-configuration"></a>任务 4：还原磁盘配置 
+#### 任务 4：还原磁盘配置 
 
 1. 将控制台会话切换回 SEA-SVR3。
 1. 在 Windows PowerShell 提示符下，输入以下命令，并在每个命令后按 Enter 键将 SEA-SVR3 上的磁盘重置为原始状态（当系统提示确认 Clear-Disk cmdlet 的执行时，按 Y 键，然后在每个循环迭代之前按 Enter 键）   ：
@@ -261,9 +261,9 @@ lab:
 
    > 注意：这是准备下一次练习的必需的操作。
 
-## <a name="exercise-3-configuring-redundant-storage-spaces"></a>练习 3：配置冗余存储空间
+## 练习 3：配置冗余存储空间
 
-#### <a name="task-1-create-a-storage-pool"></a>任务 1：创建存储池
+#### 任务 1：创建存储池
 
 1. 将控制台会话切换回 SEA-ADM1，并且将“服务器管理器”窗口保持活动状态 。
 1. 在服务器管理器中，通过在窗口右上角的“任务”菜单中选择“刷新”，刷新“文件和存储服务”中的“磁盘”窗格   。 
@@ -277,7 +277,7 @@ lab:
 1. 在“确认选择”页上，查看设置，然后选择“创建” 。
 1. 选择“关闭”。
 
-#### <a name="task-2-create-a-volume-based-on-a-three-way-mirrored-disk"></a>任务 2：基于三向镜像磁盘创建卷 
+#### 任务 2：基于三向镜像磁盘创建卷 
 
 1. 在 SEA-ADM1 上，在服务器管理器的“存储池”窗格中，选择“SP1”  。
 1. 在“虚拟磁盘”区域中，选择“任务”，然后选择“新建虚拟磁盘”  。
@@ -301,7 +301,7 @@ lab:
 1. 在“确认选择”页面上，选择“创建” 。
 1. 在“完成”页中，选择“关闭” 。
 
-#### <a name="task-3-manage-a-volume-in-file-explorer"></a>任务 3：在文件资源管理器中管理卷
+#### 任务 3：在文件资源管理器中管理卷
 
 1. 在 SEA-ADM1 上，切换到托管 SEA-SVR3 的 PowerShell 远程会话的 Windows PowerShell  。
 1. 在 Windows PowerShell 控制台的 [SEA-SVR3] 提示符下，输入以下命令，然后按 Enter 键以启用具有高级安全性的 Windows Defender 防火墙的所有文件和打印机共享规则 ：
@@ -316,7 +316,7 @@ lab:
 1. 在文件资源管理器中，双击新创建的 TestData 文件夹。
 1. 在文件资源管理器的“详细信息”窗格中，显示上下文相关的菜单，然后在菜单中选择“新建”，然后选择“文本文档” 。 将分配给新文件的默认名称替换为 TestDocument，然后按 Enter 键。
 
-#### <a name="task-4-disconnect-a-disk-from-the-storage-pool-and-verify-volume-availability"></a>任务 4：断开磁盘与存储池的连接并验证卷的可用性 
+#### 任务 4：断开磁盘与存储池的连接并验证卷的可用性 
 
 1. 在 SEA-ADM1 上，切换到服务器管理器 。 在“文件和服务存储”树形窗格中，选择“存储池”，然后选择“SP1”  。
 1. 在“物理磁盘”窗格中，选择“任务”下拉列表，然后选择“添加物理磁盘” 。
@@ -327,7 +327,7 @@ lab:
 1. 切换回“文件资源管理器”窗口，其中显示 TestData 文件夹的内容 。
 1. 打开 TestDocument.txt 并验证其内容是否仍然可用。
 
-#### <a name="task-5-add-a-disk-to-the-storage-pool-and-verify-volume-availability"></a>任务 5：将磁盘添加到存储池并验证卷可用性 
+#### 任务 5：将磁盘添加到存储池并验证卷可用性 
 
 1. 在 SEA-ADM1 上，切换到服务器管理器 。 在“文件和存储服务”树形窗格中，选择“存储池”条目后，在右上角的“任务”菜单中，选择“重新扫描存储”   。
 1. 出现提示时，在“重新扫描存储”对话框中，选择“是” 。
@@ -335,7 +335,7 @@ lab:
 1. 在“添加物理磁盘”窗口，在表示要添加到池中的第四个磁盘的行中，选中磁盘名称旁边的复选框。 在“分配”下拉列表中，确保选中“自动”条目，然后选择“确定”  。
 1. 在 SEA-ADM1 上，切换到“文件资源管理器”窗口，并验证 TestData 文件夹及其内容是否仍然可用  。
 
-#### <a name="task-6-revert-disk-configuration"></a>任务 6：还原磁盘配置 
+#### 任务 6：还原磁盘配置 
 
 1. 将控制台会话切换回 SEA-SVR3。
 1. 在 Windows PowerShell 提示符下，输入以下命令，并在每个命令后按 Enter 键将 SEA-SVR3 上的磁盘重置为原始状态（当系统提示确认 Remove-VirtualDisk、Remove-StoragePool 和 Clear-Disk cmdlet 的执行时，按 Y 键，然后在每个 cmdlet 执行之前按 Enter 键）     ：
@@ -349,9 +349,9 @@ lab:
 
    > 注意：这是准备下一次练习的必需的操作。
 
-## <a name="exercise-4-implementing-storage-spaces-direct"></a>练习 4：实施存储空间直通
+## 练习 4：实施存储空间直通
 
-#### <a name="task-1-prepare-for-installation-of-storage-spaces-direct"></a>任务 1：准备安装存储空间直通 
+#### 任务 1：准备安装存储空间直通 
 
 1. 将控制会话切换回 SEA-ADM1，然后选择“所有服务器” 。
 1. 在 SEA-ADM1 上，在服务器管理器的控制台树中，选择“所有服务器”，并确认 SEA-SVR1、SEA-SVR2 和 SEA-SVR3 的可管理性状态为“联机 - 性能计数器未启动”，然后再继续       。
@@ -378,7 +378,7 @@ lab:
 
    > 注意：服务器重新启动时请等待几分钟，故障转移群集管理器工具将安装在 SEA-ADM1 上  。
 
-#### <a name="task-2-create-and-validate-a-failover-cluster"></a>任务 2：创建并验证故障转移群集 
+#### 任务 2：创建并验证故障转移群集 
 
 1. 在 SEA-ADM1 上，切换到“服务器管理器”窗口 。
 1. 在服务器管理器中，选择“工具”，然后选择“故障转移群集管理器”以验证其安装是否已成功完成  。
@@ -392,7 +392,7 @@ lab:
 
 1. 在 SEA-ADM1 上，切换到“故障转移群集管理器”窗口 。 在“操作”窗格中，选择“连接到群集”，输入 S2DCluster.Contoso.com，然后选择“确定”  。
 
-#### <a name="task-3-enable-storage-spaces-direct"></a>任务 3：启用存储空间直通
+#### 任务 3：启用存储空间直通
 
 1. 在 SEA-ADM1 上，切换到“Administrator: Windows PowerShell ISE”窗口，选择步骤 4 中以“Invoke-Command”开头的行，然后按 F8 键在新安装的群集上启用存储空间直通  。
 
@@ -411,7 +411,7 @@ lab:
 1. 切换到“故障转移群集管理器”窗口，然后在“存储”节点中，选择“磁盘”  。
 1. 验证群集虚拟磁盘 (CSV) 是否存在。
 
-#### <a name="task-4-create-a-storage-pool-a-virtual-disk-and-a-share"></a>任务 4：创建存储池、虚拟磁盘和共享
+#### 任务 4：创建存储池、虚拟磁盘和共享
 
 1. 在“Administrator: Windows PowerShell ISE”窗口中，选择步骤 7 中以“Invoke-Command”开头的行，然后按 F8 键创建文件服务器群集角色 。
 
@@ -428,7 +428,7 @@ lab:
 1. 在“故障转移群集管理器”窗口中的“角色”窗格中，选择“名称”列下的“S2D-SOFS”，然后选择“共享”选项卡。    
 1. 验证名为 VM01 的共享是否存在。 这还会验证命令是否已成功完成。
 
-#### <a name="task-5-verify-storage-spaces-direct-functionality"></a>任务 5：验证存储空间直通功能
+#### 任务 5：验证存储空间直通功能
 
 1. 在 SEA-ADM1 的任务栏中，选择“文件资源管理器”图标 。
 1. 在文件资源管理器的地址栏中，输入 \\\\S2D-SOFS.contoso.com\\VM01，然后按 Enter 键打开目标文件共享 。

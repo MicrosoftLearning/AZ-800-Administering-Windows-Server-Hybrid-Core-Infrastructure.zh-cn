@@ -5,13 +5,13 @@ lab:
   module: 'Module 7: Network Infrastructure services in Windows Server'
 ---
 
-# <a name="lab-answer-key-implementing-and-configuring-network-infrastructure-services-in-windows-server"></a>实验室解答：在 Windows Server 中实现和配置网络基础设施服务
+# 实验室解答：在 Windows Server 中实现和配置网络基础设施服务
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20and%20configuring%20network%20infrastructure%20services%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20and%20configuring%20network%20infrastructure%20services%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-deploying-and-configuring-dhcp"></a>练习 1：部署和配置 DHCP
+## 练习 1：部署和配置 DHCP
 
-#### <a name="task-1-install-the-dhcp-role"></a>任务 1：安装 DHCP 角色
+#### 任务 1：安装 DHCP 角色
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
@@ -65,7 +65,7 @@ lab:
 
 11. 等待指示已安装 DHCP PowerShell 工具的通知。 如有必要，请选择“通知”图标以验证当前状态。
 
-#### <a name="task-2-authorize-the-dhcp-server"></a>任务 2：对 DHCP 服务器授权
+#### 任务 2：对 DHCP 服务器授权
 
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“服务器管理器”  。
 1. 在“服务器管理器”中，选择菜单中的“通知”，然后选择“完成 DHCP 配置”  。
@@ -73,7 +73,7 @@ lab:
 1. 在“授权”屏幕上，确保已选中“CONTOSO\Administrator”选项，然后选择“提交”  。
 1. 完成这两项任务后，选择“关闭”。
 
-#### <a name="task-3-create-a-scope"></a>任务 3：创建范围
+#### 任务 3：创建范围
 
 1. 在 SEA-ADM1 上，在 Microsoft Edge 窗口中切换到 Windows Admin Center，其中显示了 SEA-SVR1 上的“DHCP”设置  。
 
@@ -100,7 +100,7 @@ lab:
 1. 在“范围选项”对话框中，选中“006 DNS 服务器”复选框 。
 1. 在“服务器名称”文本框中，输入 sea-dc1.contoso.com，选择“解析”，确认名称已解析为 172.16.10.10，选择“添加”，然后选择“确定”     。
 
-#### <a name="task-4-configure-dhcp-failover"></a>任务 4：配置 DHCP 故障转移
+#### 任务 4：配置 DHCP 故障转移
 
 1. 在 SEA-ADM1 上，在“DHCP”窗口中选择“IPv4”，在“操作”窗格中选择“更多操作”，然后选择“配置故障转移”    。
 1. 在“配置故障转移”窗口中，确认已选中“全部选择”复选框，然后选择“下一步”  。
@@ -130,7 +130,7 @@ lab:
 1. 在“配置故障转移”对话框中，选择“关闭” 。
 1. 在“sea-svr1”下，选择“IPv4”，然后验证是否已列出了两个范围。 如有必要，请按 F5 键刷新。
 
-#### <a name="task-5-verify-dhcp-functionality"></a>任务 5：验证 DHCP 功能
+#### 任务 5：验证 DHCP 功能
 
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“设置”  。
 1. 在“设置”窗口中，选择“网络和 Internet”，然后选择“网络和共享中心”  。
@@ -163,9 +163,9 @@ lab:
 
    > 备注：使“以太网状态”窗口保持打开状态 。 本实验室中稍后会用到它。 
 
-## <a name="exercise-2-deploying-and-configuring-dns"></a>练习 2：部署和配置 DNS
+## 练习 2：部署和配置 DNS
 
-#### <a name="task-1-install-the-dns-role"></a>任务 1：安装 DNS 角色
+#### 任务 1：安装 DNS 角色
 
 1. 在 SEA-ADM1 上，切换回 Microsoft Edge 窗口，其中显示了到 Windows Admin Center 中 sea-svr1.contoso.com 的连接 。 
 1. 在“工具”列表中，选择“角色和功能” 。
@@ -180,7 +180,7 @@ lab:
 
 1. 等待出现指示已安装 DNS PowerShell 工具的通知。 如有必要，请选择“通知”图标以验证当前状态。
 
-#### <a name="task-2-create-a-dns-zone"></a>任务 2：创建 DNS 区域
+#### 任务 2：创建 DNS 区域
 
 1. 在 SEA-ADM1 上，在 Windows Admin Center 中的 DNS 窗格中，选择“操作”，然后在“操作”菜单上，选择“+ 创建新的 DNS 区域”   。
 1. 在“创建新的 DNS 区域”对话框中，指定以下设置，然后选择“创建” ：
@@ -206,7 +206,7 @@ lab:
    Resolve-DnsName -Server sea-svr1.contoso.com -Name testapp.treyresearch.net
    ```
 
-#### <a name="task-3-configure-forwarding"></a>任务 3：配置转发
+#### 任务 3：配置转发
 
 1. 在 SEA-ADM1 上，切换到“服务器管理器”。
 1. 在“服务器管理器”中，选择“工具”，然后选择“DNS” 。
@@ -217,7 +217,7 @@ lab:
 1. 在“编辑转发器”对话框中，在“转发服务器的 IP 地址”框中，输入“131.107.0.100”，然后选择“确定”   。
 1. 在“SEA-SVR1.contoso.com 属性”对话框中，选择“确定” 。
 
-#### <a name="task-4-configure-conditional-forwarding"></a>任务 4：配置条件转发
+#### 任务 4：配置条件转发
 
 1. 在 SEA-ADM1 上，在“DNS 管理器”中，展开“SEA-SVR1.contoso.com”，然后选择“条件转发器”   。
 1. 选择“条件转发器”，显示其上下文相关菜单，然后在菜单中，选择“新建条件转发器” 。
@@ -234,7 +234,7 @@ lab:
    Resolve-DnsName -Server sea-svr1.contoso.com -Name sea-dc1.contoso.com
    ```
 
-#### <a name="task-5-configure-dns-policies"></a>任务 5：配置 DNS 策略
+#### 任务 5：配置 DNS 策略
 
 1. 在 SEA-ADM1 上，切换回 Microsoft Edge 窗口，其中显示了到 Windows Admin Center 中 sea-svr1.contoso.com 的连接 。
 1. 在“工具”列表中，选择“PowerShell”，当出现提示时，以 CONTOSO\Administrator 用户身份使用密码 Pa55w.rd 登录   。
@@ -259,7 +259,7 @@ lab:
    Add-DnsServerQueryResolutionPolicy -Name 'HeadOfficePolicy' -Action ALLOW -ClientSubnet 'eq,HeadOfficeSubnet' -ZoneScope 'HeadOfficeScope,1' -ZoneName 'TreyResearch.net'
    ```
 
-#### <a name="task-6-verify-dns-policy-functionality"></a>任务 6：验证 DNS 策略功能
+#### 任务 6：验证 DNS 策略功能
 
 1. 在 SEA-ADM1 上，切换到 Windows PowerShell 控制台 。
 1. 在 Windows PowerShell 控制台中，输入 `ipconfig`，然后按 Enter 显示其当前的 IP 配置。

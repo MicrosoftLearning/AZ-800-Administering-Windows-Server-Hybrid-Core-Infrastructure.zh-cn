@@ -5,13 +5,13 @@ lab:
   module: 'Module 4: Facilitating hybrid management'
 ---
 
-# <a name="lab-answer-key-using-windows-admin-center-in-hybrid-scenarios"></a>实验室解答：在混合场景中使用 Windows Admin Center
+# 实验室解答：在混合场景中使用 Windows Admin Center
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Using%20Windows%20Admin%20Center%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Using%20Windows%20Admin%20Center%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-provisioning-azure-vms-running-windows-server"></a>练习 1：预配运行 Windows Server 的 Azure VM
+## 练习 1：预配运行 Windows Server 的 Azure VM
 
-#### <a name="task-1-create-an-azure-resource-group-by-using-an-azure-resource-manager-template"></a>任务 1：使用 Azure 资源管理器模板创建 Azure 资源组
+#### 任务 1：使用 Azure 资源管理器模板创建 Azure 资源组
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
@@ -36,7 +36,7 @@ lab:
      -rgName $rgName
    ```
 
-#### <a name="task-2-create-an-azure-vm-by-using-an-azure-resource-manager-template"></a>任务 2：使用 Azure 资源管理器模板创建 Azure VM
+#### 任务 2：使用 Azure 资源管理器模板创建 Azure VM
 
 1. 从 Cloud Shell 窗格中，上传 Azure 资源管理器模板 C:\\Labfiles\\Lab04\\L04-rg_template.json 和相应的 Azure 资源管理器参数文件 C:\\Labfiles\\Lab04\\L04-rg_template.parameters.json 。
 1. 从 Cloud Shell 窗格中，运行以下命令以部署运行 Windows Server 的 Azure VM，你将在此实验室中使用它：
@@ -56,9 +56,9 @@ lab:
 1. 在“az800l04-vnet”页上，选择“子网”，然后在“子网”页上，选择“+ 网关子网”   。
 1. 在“添加子网”页上，将“子网地址范围”设置为“10.4.3.224/27”，然后选择“保存”以创建 GatewaySubnet    。
 
-## <a name="exercise-2-implementing-hybrid-connectivity-by-using-the-azure-network-adapter"></a>练习 2：使用 Azure 网络适配器实现混合连接
+## 练习 2：使用 Azure 网络适配器实现混合连接
 
-#### <a name="task-1-register-windows-admin-center-with-azure"></a>任务 1：向 Azure 注册 Windows Admin Center
+#### 任务 1：向 Azure 注册 Windows Admin Center
 
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
 
@@ -111,7 +111,7 @@ lab:
 1. 在注册过程的步骤列表中，选择“登录”。 这将打开一个标有“请求的权限”的弹出窗口。
 1. 在“请求的权限”弹出窗口中，选择“代表你的组织同意”，然后选择“接受”  。
 
-#### <a name="task-2-create-an-azure-network-adapter"></a>任务 2：创建 Azure 网络适配器
+#### 任务 2：创建 Azure 网络适配器
 
 1. 在 SEA-ADM1 上，回到显示 Windows Admin Center 的 Microsoft Edge 窗口，浏览到“sea-adm1.contoso.com”页，然后选择“网络”  。
 1. 在 Windows Admin Center 的“网络”页上，从“操作”菜单中，再次选择“+ 添加 Azure 网络适配器(预览版)”条目  。
@@ -132,9 +132,9 @@ lab:
 
 >注意：预配 Azure 虚拟网络网关最多可能需要 45 分钟。 请勿等待预配完成，而是继续执行下一个练习。
 
-## <a name="exercise-3-deploying-windows-admin-center-gateway-in-azure"></a>练习 3：在 Azure 中部署 Windows Admin Center 网关
+## 练习 3：在 Azure 中部署 Windows Admin Center 网关
 
-#### <a name="task-1-install-windows-admin-center-gateway-in-azure"></a>任务 1：在 Azure 中安装 Windows Admin Center 网关
+#### 任务 1：在 Azure 中安装 Windows Admin Center 网关
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的浏览器窗口。
 1. 返回 Azure 门户，通过选择 Cloud Shell 图标打开 Cloud Shell 窗格。
@@ -196,16 +196,16 @@ lab:
 
 1. 关闭 Cloud Shell 窗格。
 
-#### <a name="task-2-review-results-of-the-script-provisioning"></a>任务 2：查看脚本预配的结果
+#### 任务 2：查看脚本预配的结果
 
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“资源组”，然后在“资源组”页上选择“AZ800-L0401-RG”条目   。
 1. 在“AZ800-L0401-RG”页的“概述”页上，查看资源列表，其中包括 Azure VM“az800l04-vmwac”  。
 1. 在资源列表中，选择 Azure VM“az800l04-vmwac”条目，然后在“az800l04-vmwac”页上选择“网络”  。
 1. 在“az800l04-vmwac | 网络”页上的“入站端口规则”选项卡上，注意表示允许 TCP 端口 5986 上的连接的入站端口规则和允许 TCP 端口 443 上的连接的入站规则的条目 。
 
-## <a name="exercise-4-verifying-functionality-of-the-windows-admin-center-gateway-in-azure"></a>练习 4：在 Azure 中验证 Windows Admin Center 网关的功能
+## 练习 4：在 Azure 中验证 Windows Admin Center 网关的功能
 
-#### <a name="task-1-connect-to-the-windows-admin-center-gateway-running-in-azure-vm"></a>任务 1：连接到在 Azure VM 中运行的 Windows Admin Center 网关
+#### 任务 1：连接到在 Azure VM 中运行的 Windows Admin Center 网关
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，并转到包含目标 Azure VM 的完全限定名称的 URL，该 VM 托管你在上一个练习中确定的 Windows Admin Center 安装。
 1. 在 Microsoft Edge 窗口中，忽略消息“你的连接不是专用连接”，选择“高级”，然后选择以文本“继续转到”开始的链接  。
@@ -213,7 +213,7 @@ lab:
 1. 在 Windows Admin Center 的“所有连接”窗格中，选择“az800l04-vmwac [网关]” 。
 1. 查看 Windows Admin Center 的“概述”窗格。
 
-#### <a name="task-2-enable-powershell-remoting-on-an-azure-vm"></a>任务 2：在 Azure VM 上启用 PowerShell 远程处理
+#### 任务 2：在 Azure VM 上启用 PowerShell 远程处理
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口中，然后在工具栏上的“搜索资源、服务和文档”文本框中搜索并选择“虚拟机”  。
 1. 在“虚拟机”页上，选择“az800l04-vm0” 。
@@ -236,7 +236,7 @@ lab:
    Enable-PSRemoting -Force -SkipNetworkProfileCheck
    ```
 
-#### <a name="task-3-connect-to-an-azure-vm-by-using-the-windows-admin-center-gateway-running-in-azure-vm"></a>任务 3：使用 Azure VM 中运行的 Windows Admin Center 网关连接到 Azure VM
+#### 任务 3：使用 Azure VM 中运行的 Windows Admin Center 网关连接到 Azure VM
 
 1. 在 SEA-ADM1 上，在显示在 Azure VM az800l04-vmwac 上运行的 Windows Admin Center 网关界面的 Microsoft Edge 窗口中，选择“Windows Admin Center”  。
 1. 在“所有连接”页面上，选择“+ 添加” 。
@@ -246,14 +246,14 @@ lab:
 1. 在连接列表中，选择“az800l04-vm0”
 1. 成功连接到该 Azure VM 后，在 Windows Admin Center 中查看 Azure VM az800l04-vmwac 的“概述”窗格。
 
-## <a name="exercise-5-deprovisioning-the-azure-environment"></a>练习 5：取消预配 Azure 环境
+## 练习 5：取消预配 Azure 环境
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
+#### 任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口。
 1. 在显示 Azure 门户的 Microsoft Edge 窗口中，通过选择 Cloud Shell 图标打开 Cloud Shell 窗格。
 
-#### <a name="task-2-identify-all-azure-resources-provisioned-in-the-lab"></a>任务 2：标识实验室中预配的所有 Azure 资源
+#### 任务 2：标识实验室中预配的所有 Azure 资源
 
 1. 在 Cloud Shell 窗格中，运行以下命令，列出在此实验室中创建的所有资源组：
 
