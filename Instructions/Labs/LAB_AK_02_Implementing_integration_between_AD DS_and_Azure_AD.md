@@ -5,13 +5,13 @@ lab:
   module: 'Module 2: Implementing Identity in Hybrid Scenarios'
 ---
 
-# <a name="lab-answer-key-implementing-integration-between-ad-ds-and-azure-ad"></a>实验室答案密钥：实现 AD DS 与 Azure AD 之间的集成
+# 实验室答案密钥：实现 AD DS 与 Azure AD 之间的集成
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20integration%20between%20AD%20DS%20and%20Azure%20AD)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20integration%20between%20AD%20DS%20and%20Azure%20AD)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-preparing-azure-ad-for-ad-ds-integration"></a>练习 1：为与 AD DS 集成准备 Azure AD
+## 练习 1：为与 AD DS 集成准备 Azure AD
 
-#### <a name="task-1-create-a-custom-domain-in-azure"></a>任务 1：在 Azure 中创建自定义域
+#### 任务 1：在 Azure 中创建自定义域
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到 Azure 门户，并使用 Azure 凭据进行身份验证。
@@ -24,7 +24,7 @@ lab:
 
    > 注意：虽然一般来说要使用 DNS 记录来验证域，但此实验不需要使用验证的域。
 
-#### <a name="task-2-create-a-user-with-the-global-administrator-role"></a>任务 2：创建具有全局管理员角色的用户
+#### 任务 2：创建具有全局管理员角色的用户
 
 1. 在 SEA-ADM1 上，在 Azure 门户中的“Azure Active Directory”页上选择“用户”  。
 1. 在“所有用户”页上，选择“新建用户” 。
@@ -38,7 +38,7 @@ lab:
 1. 返回到“新建用户”页，在“使用位置”下拉列表中选择“美国”  。
 1. 在“新建用户”页上，选择“创建” 。
 
-#### <a name="task-3-change-the-password-for-the-user-with-the-global-administrator-role"></a>任务 3：更改具有全局管理员角色的用户的密码
+#### 任务 3：更改具有全局管理员角色的用户的密码
 
 1. 在 Azure 门户中，选择你的用户帐户，然后选择“注销”。
 1. 在“选取帐户”页上，选择“使用另一个帐户” 。
@@ -48,9 +48,9 @@ lab:
 
    > 注意：记录所使用的复杂密码，因为稍后将在本实验中使用。
 
-## <a name="exercise-2-preparing-on-premises-ad-ds-for-azure-ad-integration"></a>练习 2：为 Azure AD 集成准备本地 AD DS
+## 练习 2：为 Azure AD 集成准备本地 AD DS
 
-#### <a name="task-1-install-idfix"></a>任务 1：安装 IdFix
+#### 任务 1：安装 IdFix
 
 1. 在 SEA-ADM1 上，打开 Microsoft Edge，然后浏览到 https://github.com/microsoft/idfix 。
 1. 在“Github”页面上的“ClickOnce 启动”下，选择“启动”  。
@@ -58,7 +58,7 @@ lab:
 1. 在“应用程序安装 - 安全警告”对话框中，选择“安装” 。
 1. 在“IdFix 隐私声明”对话框中，查看免责声明，然后选择“确定” 。
 
-#### <a name="task-2-run-idfix"></a>任务 2：运行 IdFix
+#### 任务 2：运行 IdFix
 
 1. 在“IdFix”窗口中，选择“查询” 。
 1. 如果出现“架构警告”对话框，请选择“是” 。
@@ -67,9 +67,9 @@ lab:
 1. 在“应用挂起”对话框中，选择“是” 。
 1. 关闭 IdFix 工具。
 
-## <a name="exercise-3-downloading-installing-and-configuring-azure-ad-connect"></a>练习 3：下载、安装和配置 Azure AD Connect
+## 练习 3：下载、安装和配置 Azure AD Connect
 
-#### <a name="task-1-install-and-configure-azure-ad-connect"></a>任务 1：安装和配置 Azure AD Connect
+#### 任务 1：安装和配置 Azure AD Connect
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览到“Azure Active Directory” 。
 1. 在“Azure Active Directory”页上，选择“Azure AD Connect” 。
@@ -92,9 +92,9 @@ lab:
 1. 在“准备好配置”页上，查看操作列表，然后选择“安装” 。
 1. 在“配置完成”页面上，选择“退出” 。
 
-## <a name="exercise-4-verifying-integration-between-ad-ds-and-azure-ad"></a>练习 4：验证 AD DS 与 Azure AD 之间的集成
+## 练习 4：验证 AD DS 与 Azure AD 之间的集成
 
-#### <a name="task-1-verify-synchronization-in-the-azure-portal"></a>任务 1：验证 Azure 门户中的同步
+#### 任务 1：验证 Azure 门户中的同步
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口。 
 1. 刷新“Azure AD Connect”页面，查看“从 Active Directory 预配”下的信息 。
@@ -107,7 +107,7 @@ lab:
 1. 在“Azure Active Directory”页上，选择“组” 。
 1. 请注意从 Active Directory 同步的组的列表。 
 
-#### <a name="task-2-verify-synchronization-in-the-synchronization-service-manager"></a>任务 2：验证 Synchronization Service Manager 中的同步
+#### 任务 2：验证 Synchronization Service Manager 中的同步
 
 1. 在 SEA-ADM1 上的“开始”菜单上，展开“Azure AD Connect”，然后选择“同步服务”   。
 1. 在“Synchronization Service Manager”窗口中的“操作”选项卡下，观察为同步 Active Directory 对象执行的任务 。
@@ -117,14 +117,14 @@ lab:
 
 1. 关闭“Synchronization Service Manager”窗口。
 
-#### <a name="task-3-update-a-user-account-in-active-directory"></a>任务 3：更新 Active Directory 中的用户帐户
+#### 任务 3：更新 Active Directory 中的用户帐户
 
 1. 在 SEA-ADM1 上，在服务器管理器的“工具”菜单中选择“Active Directory 用户和计算机”  。
 1. 在“Active Directory 用户和计算机”中，展开“销售”组织单位 (OU)，然后打开“Sumesh Rajan”的属性  。
 1. 在用户的属性中，选择“组织”选项卡。
 1. 在“职务”文本框中，输入“经理”，然后选择“确定”  。
 
-#### <a name="task-4-create-a-user-account-in-active-directory"></a>任务 4：在 Active Directory 中创建用户帐户
+#### 任务 4：在 Active Directory 中创建用户帐户
 
 1. 在“Active Directory 用户和计算机”中，右键单击或访问“销售”OU 的上下文菜单，选择“新建”，然后选择“用户”   。
 1. 在“新建对象 - 用户”窗口中，输入每个字段的以下用户详细信息，然后选择“下一步” ：
@@ -136,7 +136,7 @@ lab:
 1. 在“密码”和“确认密码”字段中，输入“Pa55w.rd”，然后选择“下一步”   。
 1. 选择“完成”。
 
-#### <a name="task-5-sync-changes-to-azure-ad"></a>任务 5：将更改同步到 Azure AD
+#### 任务 5：将更改同步到 Azure AD
 
 1. 在 SEA-ADM1 上，在“开始”菜单中选择“Windows PowerShell”  。
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 触发同步：
@@ -147,7 +147,7 @@ lab:
 
    > 注意：同步周期启动后，Active Directory 对象会在最多 15 分钟后显示在 Azure AD 门户中。
 
-#### <a name="task-6-verify-changes-in-azure-ad"></a>任务 6：验证 Azure AD 中的更改
+#### 任务 6：验证 Azure AD 中的更改
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，然后返回“Azure Active Directory”页面 。
 1. 在“Azure Active Directory”页上，选择“用户” 。
@@ -157,9 +157,9 @@ lab:
 1. 在“所有用户”页面上，搜索用户“Jordan” 。
 1. 打开用户 Jordan Mitchell 的属性页，然后查看已从 Active Directory 同步的该用户帐户的属性。
 
-## <a name="exercise-5-implementing-azure-ad-integration-features-in-ad-ds"></a>练习 5：在 AD DS 中实现 Azure AD 集成功能
+## 练习 5：在 AD DS 中实现 Azure AD 集成功能
 
-#### <a name="task-1-enable-self-service-password-reset-in-azure"></a>任务 1：在 Azure 中启用自助式密码重置
+#### 任务 1：在 Azure 中启用自助式密码重置
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览到“Azure Active Directory”页 。
 1. 在“Azure Active Directory”页上，选择“许可证” 。
@@ -180,7 +180,7 @@ lab:
 
    > 注意：不要启用密码重置功能，因为它会中断本实验稍后要执行的配置步骤。
 
-#### <a name="task-2-enable-password-writeback-in-azure-ad-connect"></a>任务 2：在 Azure AD Connect 中启用密码写回
+#### 任务 2：在 Azure AD Connect 中启用密码写回
 
 1. 在 SEA-ADM1 上的“开始”菜单上，展开“Azure AD Connect”，然后选择“Azure AD Connect”   。
 1. 在“Microsoft Azure Active Directory Connect”窗口中，选择“配置” 。
@@ -195,7 +195,7 @@ lab:
 1. 在“准备好配置”页面上，查看要执行的操作的列表，然后选择“配置” 。
 1. 在“配置完成”页面上，选择“退出” 。
 
-#### <a name="task-3-enable-pass-through-authentication-in-azure-ad-connect"></a>任务 3：在 Azure AD Connect 中启用直通身份验证
+#### 任务 3：在 Azure AD Connect 中启用直通身份验证
 
 1. 在 SEA-ADM1 上的“开始”菜单上，展开“Azure AD Connect”，然后选择“Azure AD Connect”   。
 1. 在“Microsoft Azure Active Directory Connect”窗口中，选择“配置” 。
@@ -213,7 +213,7 @@ lab:
 1. 在“准备好配置”页面上，查看要执行的操作的列表，然后选择“配置” 。
 1. 在“配置完成”页面上，选择“退出” 。
 
-#### <a name="task-4-verify-pass-through-authentication-in-azure"></a>任务 4：验证 Azure 中的直通身份验证
+#### 任务 4：验证 Azure 中的直通身份验证
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，然后返回“Azure Active Directory”页面 。
 1. 在 Azure 门户中的“Azure Active Directory”页上选择“Azure AD Connect” 。
@@ -226,7 +226,7 @@ lab:
 
    > 注意：若要在环境中的多台服务器上安装 Azure AD 身份验证代理，可以从 Azure 门户中的“直通身份验证”页面下载其二进制文件 。 
 
-#### <a name="task-5-install-and-register-the-azure-ad-password-protection-proxy-service-and-dc-agent"></a>任务 5：安装并注册 Azure AD 密码保护代理服务和 DC 代理
+#### 任务 5：安装并注册 Azure AD 密码保护代理服务和 DC 代理
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，转到“Microsoft 下载”网站，然后浏览到可下载安装程序的“Windows Server Active Directory 的 Azure AD 密码保护”页面，然后选择“下载”  。
 1. 在“对 Windows Server Active Directory 的 Azure AD 密码保护”页上，选择“AzureADPasswordProtectionProxySetup.exe”和“AzureADPasswordProtectionDCAgentSetup.msi”文件，然后选择“下一步”   。
@@ -305,7 +305,7 @@ lab:
    Exit-PSsession
    ```
 
-#### <a name="task-6-enable-password-protection-in-azure"></a>任务 6：在 Azure 中启用密码保护
+#### 任务 6：在 Azure 中启用密码保护
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，返回“Azure Active Directory”页面，然后在“Azure Active Directory”页上选择“安全”   。
 1. 在“安全”页面上，选择“身份验证方法” 。
@@ -321,9 +321,9 @@ lab:
 1. 验证“在 Windows Server Active Directory 上启用密码保护”滑块是否设置为“是” 。
 1. 验证“模式”滑块是否设置为“审核”，然后选择“保存”  。
 
-## <a name="exercise-6-cleaning-up"></a>练习 6：清理
+## 练习 6：清理
 
-#### <a name="task-1-uninstall-azure-ad-connect"></a>任务 1：卸载 Azure AD Connect
+#### 任务 1：卸载 Azure AD Connect
 
 1. 在 SEA-ADM1 上，在“开始”菜单中选择“控制面板”  。
 1. 在“控制面板”窗口中的“程序”下选择“卸载程序”  。
@@ -332,7 +332,7 @@ lab:
 1. 在“卸载 Azure AD Connect”窗口中，选择“删除” 。
 1. 卸载 Azure AD Connect 后，请在“卸载 Azure AD Connect”窗口中选择“退出” 。
 
-#### <a name="task-2-disable-directory-synchronization-in-azure"></a>任务 2：在 Azure 中禁用目录同步
+#### 任务 2：在 Azure 中禁用目录同步
 
 1. 在 SEA-ADM1 上，切换到 Windows PowerShell 控制台窗口 。
 1. 在“Windows PowerShell”控制台中，输入以下命令并按 Enter，安装适用于 Azure AD 的 Microsoft Online 模块：

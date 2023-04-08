@@ -5,13 +5,13 @@ lab:
   module: 'Module 3: Windows Server administration'
 ---
 
-# <a name="lab-answer-key-managing-windows-server"></a>实验室答案密钥：管理 Windows Server
+# 实验室答案密钥：管理 Windows Server
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Managing%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Managing%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-implementing-and-using-remote-server-administration"></a>练习 1：实现和使用远程服务器管理
+## 练习 1：实现和使用远程服务器管理
 
-#### <a name="task-1-install-windows-admin-center"></a>任务 1：安装 Windows Admin Center
+#### 任务 1：安装 Windows Admin Center
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
@@ -30,7 +30,7 @@ lab:
    
    > **注意**：安装完成后，可能会遇到错误消息“ERR_Connection_Refused”。 如果发生这种情况，请重启 SEA-ADM1 以更正此问题。
 
-#### <a name="task-2-add-servers-for-remote-administration"></a>任务 2：添加用于远程管理的服务器
+#### 任务 2：添加用于远程管理的服务器
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后转到 `https://SEA-ADM1.contoso.com`。
 
@@ -57,7 +57,7 @@ lab:
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派。
 
-#### <a name="task-3-configure-windows-admin-center-extensions"></a>任务 3：配置 Windows Admin Center 扩展
+#### 任务 3：配置 Windows Admin Center 扩展
 
 1. 在 SEA-ADM1 上，在显示 Windows Admin Center 的 Microsoft Edge 窗口的右上角，选择“设置”图标（齿轮） 。
 1. 在左窗格中，选择“扩展”****。 查看可用的扩展。
@@ -76,7 +76,7 @@ lab:
 1. 若要安装 DNS PowerShell 工具，请在左侧窗格的“工具”列表中，选择“DNS”，然后选择“安装”  。 安装这些工具需要不到一分钟的时间。
 1. 选择“Contoso.com”区域并查看其 DNS 记录的列表。
 
-#### <a name="task-4-verify-remote-administration"></a>任务 4：验证远程管理
+#### 任务 4：验证远程管理
 
 1. 在 SEA-ADM1 上，在 Windows Admin Center 左侧窗格的“工具”列表中，选择“概述”  。 请注意，Windows Admin Center 的“详细信息”窗格显示基本的服务器信息和性能监视。
 1. 在左侧窗格的“工具”列表中，向下滚动并查看可用的基本管理工具。 选择“角色和功能”，并注意哪些角色和功能被列为已安装，哪些角色和功能可以安装。 向下滚动，选中“Telnet 客户端”复选框，然后选择窗格顶部的“+ 安装” 。
@@ -91,7 +91,7 @@ lab:
 1. 选择“断开”。
 1. 关闭 Microsoft Edge 窗口。
 
-#### <a name="task-5-administer-servers-with-remote-powershell"></a>任务 5：使用远程 PowerShell 管理服务器
+#### 任务 5：使用远程 PowerShell 管理服务器
 
 1. 在 SEA-ADM1 上，切换到 PowerShell 控制台会话 。 
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按下 Enter 键，将一个 PowerShell 远程处理会话启动到 SEA-DC1 ：
@@ -120,6 +120,6 @@ lab:
 
    > 注意：确认服务当前正在运行。
 
-### <a name="results"></a>结果
+### 结果
 
 完成本练习后，你已安装 Windows Admin Center 并将其连接到实验室环境中的服务器。 你执行了许多远程管理任务，包括安装功能以及启用和测试远程桌面连接。 最后，你使用了 PowerShell 远程处理来检查服务的状态，然后启动它。
