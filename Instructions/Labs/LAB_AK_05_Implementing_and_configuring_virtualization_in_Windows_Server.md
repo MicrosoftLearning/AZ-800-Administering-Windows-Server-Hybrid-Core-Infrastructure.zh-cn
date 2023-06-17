@@ -5,13 +5,13 @@ lab:
   module: 'Module 5: Hyper-V virtualization in Windows Server'
 ---
 
-# <a name="lab-answer-key-implementing-and-configuring-virtualization-in-windows-server"></a>实验室解答：在 Windows Server 中实现和配置虚拟化
+# 实验室解答：在 Windows Server 中实现和配置虚拟化
 
                 **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20and%20configuring%20virtualization%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-### <a name="exercise-1-creating-and-configuring-vms"></a>练习 1：创建和配置 VM
+### 练习 1：创建和配置 VM
 
-#### <a name="task-1-create-a-hyper-v-virtual-switch"></a>任务 1：创建 Hyper-V 虚拟交换机
+#### 任务 1：创建 Hyper-V 虚拟交换机
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“服务器管理器”  。
@@ -25,7 +25,7 @@ lab:
    - 名称：Contoso 专用交换机
    - 连接类型：专用网络
 
-#### <a name="task-2-create-a-virtual-hard-disk"></a>任务 2：创建虚拟硬盘
+#### 任务 2：创建虚拟硬盘
 
 1. 在 SEA-ADM1 上，在连接到“SEA-SVR1”的 Hyper-V 管理器中，选择“新建”，然后选择“硬盘”   。 此时会启动“新建虚拟硬盘向导”。
 1. 在“开始之前”**** 页面上，选择“下一步”****。
@@ -39,7 +39,7 @@ lab:
 1. 在“配置磁盘”页上的“位置”框中，输入 C:\Base\BaseImage.vhd，然后选择“下一步”   。
 1. 在“摘要”页中，选择“完成” 。
 
-#### <a name="task-3-create-a-virtual-machine"></a>任务 3：创建虚拟机
+#### 任务 3：创建虚拟机
 
 1. 在 SEA-ADM1 上，在 Hyper-V 管理器中，选择“新建”，然后选择“虚拟机”  。 “新建虚拟机向导”随即启动。
 1. 在“开始之前”**** 页面上，选择“下一步”****。
@@ -57,7 +57,7 @@ lab:
 1. 在“最大 RAM”旁边输入 4096，然后选择“确定”  。
 1. 关闭 HYPER-V 管理器。
 
-#### <a name="task-4-manage-virtual-machines-using-windows-admin-center"></a>任务 4：使用 Windows Admin Center 管理虚拟机
+#### 任务 4：使用 Windows Admin Center 管理虚拟机
 
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
 
@@ -112,13 +112,13 @@ lab:
 17. 刷新页面，依次选择“电源”和“关机”，然后选择“是”进行确认  。
 18. 在“工具”列表中，选择“虚拟交换机”并标识现有交换机 。
 
-### <a name="exercise-1-results"></a>练习 1 结果
+### 练习 1 结果
 
 完成本练习后，你应该已使用 Hyper-V 管理器和 Windows Admin Center 来创建虚拟交换机、虚拟硬盘和虚拟机，然后管理虚拟机。
 
-### <a name="exercise-2-installing-and-configuring-containers"></a>练习 2：安装和配置容器
+### 练习 2：安装和配置容器
 
-#### <a name="task-1-install-docker-on-windows-server"></a>任务 1：在 Windows Server 上安装 Docker
+#### 任务 1：在 Windows Server 上安装 Docker
 
 1. 在 SEA-ADM1 上，在 SEA-SVR1 的“工具”列表中，选择“PowerShell”   。 出现提示时，键入 Pa55w.rd，使用 CONTOSO\Administrator 用户帐户进行身份验证，然后按 Enter 。 
 
@@ -158,7 +158,7 @@ lab:
    Restart-Computer -Force
    ```
 
-#### <a name="task-2-install-and-run-a-windows-container"></a>任务 2：安装并运行 Windows 容器
+#### 任务 2：安装并运行 Windows 容器
 
 1. 在 SEA-SVR1 重启后，再次使用 PowerShell 工具与 SEA-SVR1 建立新的 PowerShell 远程处理会话 。
 1. 在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，验证已安装 Docker 版本：
@@ -222,11 +222,11 @@ lab:
    docker ps
    ```
 
-#### <a name="task-3-use-windows-admin-center-to-manage-containers"></a>任务 3：使用 Windows Admin Center 管理容器
+#### 任务 3：使用 Windows Admin Center 管理容器
 
 1. 在 SEA-ADM1 上，在 Windows Admin Center 中 sea-svr1.contoso.com 的“工具”菜单中，选择“容器”  。 系统提示关闭 PowerShell 会话时，选择“继续” 。
 1. 在“容器”窗格中，浏览“概述”、“容器”、“映像”、“网络”和“卷”选项卡    。
 
-### <a name="exercise-2-results"></a>练习 2 结果
+### 练习 2 结果
 
 完成本练习后，你应该已在 Windows Server 上安装了 Docker，下载了包含 Web 服务的 Windows 容器映像，并验证了其功能。

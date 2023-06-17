@@ -5,13 +5,13 @@ lab:
   module: 'Module 8: Implementing Windows Server IaaS VM networking'
 ---
 
-# <a name="lab-answer-key-implementing-hybrid-networking-infrastructure"></a>实验室答案密钥：实现混合网络基础结构
+# 实验室答案密钥：实现混合网络基础结构
 
                 **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20hybrid%20networking%20infrastructure)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-### <a name="exercise-1-implement-virtual-network-routing-in-azure"></a>练习 1：在 Azure 中实现虚拟网络路由
+### 练习 1：在 Azure 中实现虚拟网络路由
 
-#### <a name="task-1-provision-lab-infrastructure-resources"></a>任务 1：预配实验室基础结构资源
+#### 任务 1：预配实验室基础结构资源
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份使用密码 Pa55w.rd 登录  。
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。 
@@ -62,7 +62,7 @@ lab:
 
     >**注意**：请不要等待部署完成，而是继续执行下一步操作。 安装网络观察程序扩展大约需要 5 分钟。
 
-#### <a name="task-2-configure-the-hub-and-spoke-network-topology"></a>任务 2：配置中心辐射型网络拓扑
+#### 任务 2：配置中心辐射型网络拓扑
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开另一个选项卡，浏览到 [Azure 门户](https://portal.azure.com) 。
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟网络” 。
@@ -107,7 +107,7 @@ lab:
 
     >**注意**：此步骤将建立两个对等互连：一个从 az800l08-vnet0 到 az800l08-vnet2，另一个从 az800l08-vnet2 到 az800l08-vnet0   。 至此就完成了中心辐射型拓扑的设置（其中 az800l08 vnet0 虚拟网络充当中心，而 az800l08 vnet1 和 az800l08-vnet2 充当分支）  。
 
-#### <a name="task-3-test-transitivity-of-virtual-network-peering"></a>任务 3：测试虚拟网络对等互连的传递性
+#### 任务 3：测试虚拟网络对等互连的传递性
 
 >**注意**：在开始此任务之前，请确保在此练习的第一个任务中调用的脚本已成功完成。
 
@@ -170,7 +170,7 @@ lab:
 
     > **注意**：这是预期行为，因为两个分支虚拟网络彼此之间并不是对等互连的，并且虚拟网络的对等互连性是不可传递的。
 
-#### <a name="task-4-configure-routing-in-the-hub-and-spoke-topology"></a>任务 4：在中心辐射型拓扑中配置路由
+#### 任务 4：在中心辐射型拓扑中配置路由
 
 1. 在 Azure 门户中，搜索并选择“虚拟机”。
 1. 在“虚拟机”页上的虚拟机列表中，选择“az800l08-vm0” 。
@@ -299,9 +299,9 @@ lab:
     > **注意**：这是预期行为，因为分支虚拟网络之间的流量现在通过中心虚拟网络中的虚拟机（充当路由器）进行路由。
 
 
-### <a name="exercise-2-implement-dns-name-resolution-in-azure"></a>练习 2：在 Azure 中实现 DNS 名称解析
+### 练习 2：在 Azure 中实现 DNS 名称解析
 
-#### <a name="task-1-configure-azure-private-dns-name-resolution"></a>任务 1：配置 Azure 专用 DNS 名称解析
+#### 任务 1：配置 Azure 专用 DNS 名称解析
 
 1. 在显示 Azure 门户的 Microsoft Edge 窗口的“SEA-ADM1”上，在工具栏的“搜索资源、服务和文档”文本框中，搜索并选择“专用 DNS 区域”，然后在“专用 DNS 区域”页上，选择“+ 创建”。    
 1. 使用以下设置创建专用 DNS 区域：
@@ -336,7 +336,7 @@ lab:
 
     >**注意：** 如果未列出记录集，你可能需要等待几分钟并刷新页面。
 
-#### <a name="task-2-validate-azure-private-dns-name-resolution"></a>任务 2：验证 Azure 专用 DNS 名称解析
+#### 任务 2：验证 Azure 专用 DNS 名称解析
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览到“网络观察程序 - 连接故障排除”页面 。
 1. 在“网络观察程序 - 连接故障排除”页面上，使用以下设置启动检查（将其他设置保留为默认值）：
@@ -357,7 +357,7 @@ lab:
 
     > **注意**：这是预期行为，因为目标完全限定的域名 (FQDN) 可通过 Azure 专用 DNS 区域解析。 
 
-#### <a name="task-3-configure-azure-public-dns-name-resolution"></a>任务 3：配置 Azure 公用 DNS 名称解析
+#### 任务 3：配置 Azure 公用 DNS 名称解析
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开一个新选项卡，浏览到 https://www.godaddy.com/domains/domain-name-search 。
 1. 使用域名搜索标识当前未使用的域名。
@@ -394,7 +394,7 @@ lab:
 
     >**注意**：请记下“名称服务器 1”的全名。 稍后在下一个任务中将用到它。
 
-#### <a name="task-4-validate-azure-public-dns-name-resolution"></a>任务 4：验证 Azure 公用 DNS 名称解析
+#### 任务 4：验证 Azure 公用 DNS 名称解析
 
 1. 在 SEA-ADM1 上，在“开始”菜单中选择“Windows PowerShell”  。
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter，测试新创建的 DNS 区域中 www DNS 记录集的外部名称解析（将占位符 `<Name server 1>` 替换为之前记下的名称服务器 1 的名称，并将 `<domain name>` 占位符替换为之前在此任务中创建的 DNS 域的名称）  ：
@@ -407,14 +407,14 @@ lab:
 
     >**注意**：名称解析按预期方式运行，因为 nslookup 命令允许你指定要查询的 DNS 服务器的 IP 地址（在此示例中为 `<Name server 1>`）。 要在查询任何可公开访问的 DNS 服务器时使用名称解析，需要向 DNS 注册机构注册域名，并将 Azure 门户中的“公共 DNS 区域”页上列出的名称服务器配置为与该域对应的命名空间的权威服务器。
 
-## <a name="exercise-3-deprovisioning-the-azure-environment"></a>练习 3：取消预配 Azure 环境
+## 练习 3：取消预配 Azure 环境
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
+#### 任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口。
 1. 在显示 Azure 门户的 Microsoft Edge 窗口中，通过选择 Cloud Shell 图标打开 Cloud Shell 窗格。
 
-#### <a name="task-2-identify-all-azure-resources-provisioned-in-the-lab"></a>任务 2：标识实验室中预配的所有 Azure 资源
+#### 任务 2：标识实验室中预配的所有 Azure 资源
 
 1. 在 Cloud Shell 页面中，运行以下命令，列出在此实验室中创建的所有资源组：
 
