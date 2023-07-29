@@ -157,12 +157,12 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 1. 在 Windows PowerShell 控制台中，运行以下命令，在 SEA-SVR1 上安装 Docker Microsoft PackageManagement 提供程序 ：
 
    ```powershell
-   Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
+   Install-Module -Name DockerProvider -Repository PSGallery -Force
    ```
 1. 在 Windows PowerShell 控制台中，运行以下命令，在 SEA-SVR1 上安装 Docker 运行时 ：
 
    ```powershell
-   Install-Package -Name docker -ProviderName DockerMsftProvider
+   Install-Package -Name docker -ProviderName DockerProvider
    ```
 1. 安装完成后，运行以下命令以重启 SEA-SVR1：
 
@@ -176,7 +176,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 1. 在 Windows PowerShell 控制台中，运行以下命令以验证安装的 Docker 版本：
 
    ```powershell
-   Get-Package -Name Docker -ProviderName DockerMsftProvider
+   Get-Package -Name Docker -ProviderName DockerProvider
    ```
 1. 运行以下命令，标识 SEA-SVR1 上当前存在的 Docker 映像： 
 
