@@ -12,7 +12,7 @@ lab:
 
 你的目标是确认 Windows Admin Center 可通过一致的方式得到使用，而不考虑托管系统的位置。
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Using%20Windows%20Admin%20Center%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Using%20Windows%20Admin%20Center%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ## 目标
 
@@ -28,7 +28,7 @@ lab:
 
 虚拟机：AZ-800T00A-SEA-DC1 和 AZ-800T00A-ADM1 必须正在运行 。 其他 VM 可以运行，但此实验室不需要这些 VM。
 
-> 注意：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 VM 托管 SEA-DC1 和 SEA-ADM1 的安装    
+> 注意：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 VM 托管 SEA-DC1 和 SEA-ADM1 的安装
 
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：

@@ -14,7 +14,7 @@ lab:
 
 你的目标是以满足可管理性和安全性要求的方式部署和配置运行 Windows Server 的 Azure VM。
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Deploying%20and%20configuring%20Windows%20Server%20on%20Azure%20VMs)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Deploying%20and%20configuring%20Windows%20Server%20on%20Azure%20VMs)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ## 目标
 
@@ -78,7 +78,7 @@ lab:
    |资源组|新资源组 AZ800-L0601-RG 的名称|
    |虚拟机名称|**az800L06-vm0**|
    |区域|使用可以在其中预配 Azure 虚拟机的 Azure 区域的名称|
-   |可用性选项|没有所需的基础结构冗余|
+   |可用性选项|不需要基础结构冗余|
    |映像|Windows Server 2022 Datacenter：Azure Edition - Gen2|
    |Azure Spot 实例|否|
    |大小|**Standard_D2s_v3**|

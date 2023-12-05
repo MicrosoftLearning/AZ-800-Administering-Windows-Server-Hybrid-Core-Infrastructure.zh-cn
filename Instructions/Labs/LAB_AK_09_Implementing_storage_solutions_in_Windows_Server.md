@@ -7,7 +7,7 @@ lab:
 
 # 实验室解答：在 Windows Server 中实现存储解决方案
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20storage%20solutions%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20storage%20solutions%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 > 注意：请确保在每次练习后复原虚拟机 (VM)。 由于大多数 VM 都是 Windows Server 2019 Server Core，因此在练习中复原和重启所需的时间比尝试撤销对存储环境所做更改所需的时间更快。
 
@@ -205,7 +205,7 @@ lab:
 
    - 存储位置：F:
    - 名称：iSCSIDisk2
-   - 磁盘大小：5 GB，动态扩展 
+   - 磁盘大小：5 GB，动态扩展
    - iSCSI 目标：iSCSIFarm
 
 1. 切换到 SEA-DC1 控制台会话，然后根据需要以 CONTOSO\Administrator 身份使用密码 Pa55w.rd 登录  。
@@ -425,7 +425,7 @@ lab:
    > 注意：请等待步骤完成。 此过程应该会在 1 分钟内完成。 
 
 1. 验证该命令的输出是否包含文件共享的定义，并且 Path 属性设置为 C:\\ClusterStorage\\CSV\\VM01 。 这会验证命令是否成功完成。
-1. 在“故障转移群集管理器”窗口中的“角色”窗格中，选择“名称”列下的“S2D-SOFS”，然后选择“共享”选项卡。    
+1. 在“故障转移群集管理器”窗口中的“角色”窗格中，选择“名称”列下的“S2D-SOFS”，然后选择“共享”选项卡。
 1. 验证名为 VM01 的共享是否存在。 这还会验证命令是否已成功完成。
 
 #### 任务 5：验证存储空间直通功能

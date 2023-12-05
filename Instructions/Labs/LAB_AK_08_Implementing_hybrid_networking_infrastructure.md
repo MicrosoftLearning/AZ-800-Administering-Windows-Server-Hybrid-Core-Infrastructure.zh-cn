@@ -7,14 +7,14 @@ lab:
 
 # 实验室答案密钥：实现混合网络基础结构
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20hybrid%20networking%20infrastructure)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20hybrid%20networking%20infrastructure)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ### 练习 1：在 Azure 中实现虚拟网络路由
 
 #### 任务 1：预配实验室基础结构资源
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份使用密码 Pa55w.rd 登录  。
-1. 在 SEA-ADM1 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。 
+1. 在 SEA-ADM1 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 1. 在 Azure 门户中，通过选择搜索文本框旁边的工具栏图标打开“Cloud Shell”窗格。
 1. 如果系统提示选择 Bash 或 PowerShell，请选择 PowerShell  。
 
@@ -184,7 +184,7 @@ lab:
 
 1. 在 Azure 门户中，浏览回 az800l08-vm0 Azure 虚拟机页。
 1. 在“az800l08-vm0”页的“操作”部分，选择“运行命令”，然后在命令列表中选择“RunPowerShellScript”   。
-1. 在“运行命令脚本”页上，输入以下命令，然后选择“运行”以安装远程访问 Windows Server 角色。 
+1. 在“运行命令脚本”页上，输入以下命令，然后选择“运行”以安装远程访问 Windows Server 角色。
 
    ```powershell
    Install-WindowsFeature RemoteAccess -IncludeManagementTools
@@ -220,7 +220,7 @@ lab:
 
    > **注意**：请等到路由表完成创建。 这大约需要 1 分钟。
 
-1. 选择“转到资源”。 
+1. 选择“转到资源”。
 1. 在 az800l08-rt12 路由表页上的“设置”部分中，选择“路由”，然后选择“+ 添加”   。
 1. 添加具有以下设置的新路由：
 
@@ -259,7 +259,7 @@ lab:
 
    > **注意**：请等到路由表完成创建。 这大约需要 3 分钟。
 
-1. 选择“转到资源”。 
+1. 选择“转到资源”。
 1. 在 az800l08-rt21 路由表页上的“设置”部分中，选择“路由”，然后选择“+ 添加”   。
 1. 添加具有以下设置的新路由：
 
@@ -303,7 +303,7 @@ lab:
 
 #### 任务 1：配置 Azure 专用 DNS 名称解析
 
-1. 在显示 Azure 门户的 Microsoft Edge 窗口的“SEA-ADM1”上，在工具栏的“搜索资源、服务和文档”文本框中，搜索并选择“专用 DNS 区域”，然后在“专用 DNS 区域”页上，选择“+ 创建”。    
+1. 在显示 Azure 门户的 Microsoft Edge 窗口的“SEA-ADM1”上，在工具栏的“搜索资源、服务和文档”文本框中，搜索并选择“专用 DNS 区域”，然后在“专用 DNS 区域”页上，选择“+ 创建”。
 1. 使用以下设置创建专用 DNS 区域：
 
     | 设置 | 值 |
@@ -332,7 +332,7 @@ lab:
 
 1. 重复前面的步骤，为虚拟网络 az800l08-vnet1 和 az800l08-vnet2 分别创建名为 az800l08-vnet1-link 和 az800l08-vnet2-link 的虚拟网络链接（并启用自动注册）   。
 1. 在 contoso.org 专用 DNS 区域页的左侧垂直菜单中，选择“概述” 。
-1. 在 contoso.org 专用 DNS 区域页面的“概述”部分中，查看 DNS 记录集列表，并验证 az800l08-vm0、az800l08-vm1 和 az800l08-vm2 的 A 记录是否在列表中显示为“自动注册”。      
+1. 在 contoso.org 专用 DNS 区域页面的“概述”部分中，查看 DNS 记录集列表，并验证 az800l08-vm0、az800l08-vm1 和 az800l08-vm2 的 A 记录是否在列表中显示为“自动注册”。
 
     >**注意：** 如果未列出记录集，你可能需要等待几分钟并刷新页面。
 
@@ -361,7 +361,7 @@ lab:
 
 1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开一个新选项卡，浏览到 https://www.godaddy.com/domains/domain-name-search 。
 1. 使用域名搜索标识当前未使用的域名。
-1. 在“SEA-ADM1”上，切换到显示 Azure 门户的 Microsoft Edge 选项卡，在工具栏的“搜索资源、服务和文档”文本框中，搜索并选择“DNS 区域”，然后在“DNS 区域”页上，选择“+ 创建”。    
+1. 在“SEA-ADM1”上，切换到显示 Azure 门户的 Microsoft Edge 选项卡，在工具栏的“搜索资源、服务和文档”文本框中，搜索并选择“DNS 区域”，然后在“DNS 区域”页上，选择“+ 创建”。
 1. 在“创建 DNS 区域”页上，指定以下设置（其他设置保留默认值）：
 
     | 设置 | 值 |
