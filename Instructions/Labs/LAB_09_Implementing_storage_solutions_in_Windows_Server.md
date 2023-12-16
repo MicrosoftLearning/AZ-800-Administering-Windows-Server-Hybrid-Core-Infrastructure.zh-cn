@@ -10,7 +10,7 @@ lab:
 
 在 Contoso, Ltd，需要在 Windows Server 服务器上实现存储空间功能，以简化存储访问并提供存储级别的冗余。 管理方希望你能测试重复数据删除以节省存储。 他们还希望你能实现 Internet 小型计算机系统接口 (iSCSI) 存储，为在组织中部署存储提供更简单的解决方案。 此外，该组织正在探索能使存储高度可用的选择，且在研究为了实现高可用性而必须满足的要求。 你需要测试使用高度可用存储（尤其是存储空间直通）的可行性。
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20storage%20solutions%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20storage%20solutions%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ## 目标
 
@@ -27,8 +27,8 @@ lab:
 
 虚拟机：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1、AZ-800T00A-SEA-SVR2、AZ-800T00A-SEA-SVR3 和 AZ-800T00A-ADM1 必须处于运行状态    。 
 
-- 用于练习 1-3：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR3 和 AZ-800T00A-SEA-ADM1  
-- 用于练习 4：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1、AZ-800T00A-SEA-SVR2、AZ-800T00A-SEA-SVR3 和 AZ-800T00A-SEA-ADM1    
+- 用于练习 1-3：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR3 和 AZ-800T00A-SEA-ADM1
+- 用于练习 4：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1、AZ-800T00A-SEA-SVR2、AZ-800T00A-SEA-SVR3 和 AZ-800T00A-SEA-ADM1
 
 > 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1、AZ-800T00A-SEA-SVR2、AZ-800T00A-SEA-SVR3 和 AZ-800T00A-SEA-ADM1 分别托管 SEA-DC1、SEA-SVR1、SEA-SVR2、SEA-SVR3 和 SEA-ADM1 的安装           。
 
@@ -204,7 +204,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 
    - 存储位置：E:
    - 名称：iSCSIDisk1
-   - 磁盘大小：5 GB，动态扩展 
+   - 磁盘大小：5 GB，动态扩展
    - iSCSI 目标：新建
    - 目标名称：iSCSIFarm
    - 访问服务器：SEA-DC1
@@ -213,7 +213,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 
    - 存储位置：F:
    - 名称：iSCSIDisk2
-   - 磁盘大小：5 GB，动态扩展 
+   - 磁盘大小：5 GB，动态扩展
    - iSCSI 目标：iSCSIFarm
 
 1. 切换到 SEA-DC1 控制台会话，然后根据需要以 CONTOSO\\Administrator 身份使用密码 Pa55w.rd 登录  。

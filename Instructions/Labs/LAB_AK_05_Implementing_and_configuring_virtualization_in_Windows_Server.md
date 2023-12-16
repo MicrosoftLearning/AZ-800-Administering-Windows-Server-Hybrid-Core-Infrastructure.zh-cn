@@ -7,7 +7,7 @@ lab:
 
 # 实验室解答：在 Windows Server 中实现和配置虚拟化
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20and%20configuring%20virtualization%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20and%20configuring%20virtualization%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ### 练习 1：创建和配置 VM
 
@@ -95,7 +95,7 @@ lab:
    - 用户名：CONTOSO\Administrator
    - 密码：Pa55w.rd
 
-   > 注意：执行步骤 8 后，如果出现“你可将此服务器添加到你的连接列表，但我们无法确认它是否可用。”  错误消息，请选择“添加”。 在“所有连接”窗格中，选择“sea-svr1.contoso.com”，然后选择“管理形式” 。 在“指定凭据”对话框中，确保已选中“对此连接使用另一个帐户”选项，输入管理员凭据，然后选择“继续”  。
+   > 注意：执行步骤 8 后，如果出现“你可将此服务器添加到你的连接列表，但我们无法确认它是否可用。” 错误消息，请选择“添加”。 在“所有连接”窗格中，选择“sea-svr1.contoso.com”，然后选择“管理形式” 。 在“指定凭据”对话框中，确保已选中“对此连接使用另一个帐户”选项，输入管理员凭据，然后选择“继续”  。
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派。
 

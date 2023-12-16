@@ -7,7 +7,7 @@ lab:
 
 # 实验室解答：在混合场景中使用 Windows Admin Center
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Using%20Windows%20Admin%20Center%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Using%20Windows%20Admin%20Center%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ## 练习 1：预配运行 Windows Server 的 Azure VM
 
@@ -115,7 +115,7 @@ lab:
 
 1. 在 SEA-ADM1 上，回到显示 Windows Admin Center 的 Microsoft Edge 窗口，浏览到“sea-adm1.contoso.com”页，然后选择“网络”  。
 1. 在 Windows Admin Center 的“网络”页上，从“操作”菜单中，再次选择“+ 添加 Azure 网络适配器(预览版)”条目  。
-1. 在“添加 Azure 网络适配器”设置窗格中，指定以下设置，然后选择“创建”（将其他设置保留为默认值）： 
+1. 在“添加 Azure 网络适配器”设置窗格中，指定以下设置，然后选择“创建”（将其他设置保留为默认值）：
 
    |设置|值|
    |---|---|

@@ -10,7 +10,7 @@ lab:
 
 你的任务是在 Azure 中构建一个测试环境，其中包括部署到在中心辐射型拓扑中配置的单独虚拟网络中的 Microsoft Azure 虚拟机。 此测试必须包括通过使用强制流量通过中心流动的用户定义的路由来实现分支之间的连接。 你还需要使用 Azure 专用 DNS 区域为虚拟网络之间的 Azure 虚拟机实现 DNS 名称解析，并对使用 Azure DNS 区域进行外部名称解析作出评估。
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20hybrid%20networking%20infrastructure)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20hybrid%20networking%20infrastructure)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ## 目标
 
@@ -26,7 +26,7 @@ lab:
 
 虚拟机：AZ-800T00A-SEA-DC1 和 AZ-800T00A-ADM1 必须正在运行 。 其他 VM 可以运行，但此实验室不需要这些 VM。
 
-> **注意**：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 虚拟机托管 SEA-DC1 和 SEA-ADM1 的安装   
+> **注意**：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 虚拟机托管 SEA-DC1 和 SEA-ADM1 的安装
 
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：
