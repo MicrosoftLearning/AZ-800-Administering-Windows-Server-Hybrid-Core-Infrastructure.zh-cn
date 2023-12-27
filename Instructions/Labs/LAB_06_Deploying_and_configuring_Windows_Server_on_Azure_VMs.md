@@ -38,9 +38,9 @@ lab:
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：
 
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+   - 用户名：`Administrator`
+   - 密码：`Pa55w.rd`
+   - 域：`CONTOSO`
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
@@ -61,7 +61,7 @@ lab:
 在此任务中，你将连接到你的 Azure 订阅并启用 Microsoft Defender for Cloud 增强的安全性。
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\\Administrator 的身份使用密码 Pa55w.rd 登录  。
-1. 在 SEA-ADM1 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
+1. 在 **SEA-ADM1** 上，启动 Microsoft Edge，转到 Azure 门户`https://portal.azure.com`，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 
 >备注：如果你的 Azure 订阅中已启用了 Microsoft Defender for Cloud，请跳过此任务中的其余步骤，直接转到下一个任务。
 
@@ -181,8 +181,8 @@ lab:
 
 #### 任务 2：查看 Azure VM 部署的结果
 
-1. 在 Azure 门户中，浏览到 AZ800-L0601-RG 资源组页并查看其资源列表，尤其是 Azure VM az800l06-vm0 。
-1. 浏览到 az800l06-vm0 Azure VM 页面，并验证是否已成功预配 customScriptExtension 。
+1. 在 Azure 门户中，浏览到 AZ800-L0601-RG 资源组页并查看其资源列表，尤其是 Azure VM az800L06-vm0 。
+1. 浏览到 az800L06-vm0 Azure VM 页面，并验证是否已成功预配 customScriptExtension 。
 1. 浏览回 AZ800-L0601-RG 资源组页面，查看其部署，并查看用于部署它的 Microsoft.Template 以确认它与用于部署的模板匹配 。
 
 ## 练习 4：配置对运行 Windows Server 的 Azure VM 的管理访问权限
@@ -229,8 +229,8 @@ lab:
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ800-L0601-RG|
-   |名称|az800l06-vm0-nsg1|
-   |区域|在其中预配了 Azure VM az800l06-vm0 的 Azure 区域的名称|
+   |名称|**az800L06-vm0-nsg1**|
+   |区域|在其中预配了 Azure VM **az800L06-vm0** 的 Azure 区域的名称|
 
 1. 使用以下设置将入站安全规则添加到新创建的网络安全组，并将所有其他设置保留为其默认值：
 
@@ -246,15 +246,15 @@ lab:
 
 #### 任务 2：配置对 Azure VM 的入站 HTTP 访问
 
-1. 在 Azure 门户中，浏览到连接到 az800l06-vm0 Azure VM 的网络接口的页面，并将其与在上一任务中创建的网络安全组关联。
-1. 在 Azure 门户中，浏览到连接到 az800l06-vm0 Azure VM 的网络接口的 IP 配置，并将其与具有以下设置的新的公共 IP 地址相关联，并将所有其他设置保留为其默认值：
+1. 在 Azure 门户中，浏览到连接到 **az800L06-vm0** Azure VM 的网络接口的页面，并将其与在上一任务中创建的网络安全组关联。
+1. 在 Azure 门户中，浏览到连接到 **az800L06-vm0** Azure VM 的网络接口的 IP 配置，并将其与具有以下设置的新的公共 IP 地址相关联，并将所有其他设置保留为其默认值：
 
    |设置|值|
    |---|---|
-   |名称|az800l06-vm0-pip1|
+   |名称|az800L06-vm0-pip1|
    |SKU|**标准**|
 
-1. 从实验室 VM，打开浏览器选项卡，浏览到新创建的公共 IP 地址，并验证该页是否显示以下消息“Hello World from az800l06-vm0”。
+1. 从实验室 VM，打开浏览器选项卡，浏览到新创建的公共 IP 地址，并验证该页是否显示以下消息“Hello World from az800L06-vm0”。
 1. 从实验室 VM，尝试建立与同一 IP 地址的远程桌面连接，并验证连接尝试失败。
 
    >备注：这是预期的结果，因为当前无法通过 TCP 端口 3389 从 Internet 访问 Azure VM。 只能通过 TCP 端口 80 访问它。
@@ -263,14 +263,14 @@ lab:
 
 >备注：若要触发对 Azure VM 的 JIT 状态的重新评估，必须执行此任务。 默认情况下，这可能需要长达 24 小时的时间。
 
-1. 在 Azure 门户中，浏览回 az800l06-vm0 页。
-1. 在“az800l06-vm0”页上，选择“配置” 。 
-1. 在“az800l06-vm0 \| 配置”页上，选择“启用实时 VM 访问”，然后选择“打开 Microsoft Defender for Cloud”链接  。
-1. 在“实时 VM 访问”页面上，验证代表 az800l06-vm0 Azure VM 的条目是否出现在“已配置”选项卡上  。
+1. 在 Azure 门户中，浏览回 az800L06-vm0 页。
+1. 在“az800L06-vm0”页上，选择“配置” 。 
+1. 在“az800L06-vm0 \| 配置”页上，选择“启用实时 VM 访问”，然后选择“打开 Microsoft Defender for Cloud”链接  。
+1. 在“实时 VM 访问”页面上，验证代表 az800L06-vm0 Azure VM 的条目是否出现在“已配置”选项卡上  。
 
 #### 任务 4：通过 JIT VM 访问连接到 Azure VM
 
-1. 在 Azure 门户的 az800l06-vm0 页面中，请求 JIT VM 访问权限。
+1. 在 Azure 门户的 az800L06-vm0 页面中，请求 JIT VM 访问权限。
 1. 请求批准后，启动与目标 Azure VM 的远程桌面会话。
 1. 当系统提示输入凭据时，请指定以下值：
    

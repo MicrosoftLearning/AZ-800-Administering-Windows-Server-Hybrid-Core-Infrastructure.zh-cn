@@ -33,9 +33,9 @@ lab:
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：
 
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+   - 用户名：`Administrator`
+   - 密码：`Pa55w.rd`
+   - 域：`CONTOSO`
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 

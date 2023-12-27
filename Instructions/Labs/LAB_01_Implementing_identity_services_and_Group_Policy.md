@@ -30,9 +30,9 @@ lab:
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：
 
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+   - 用户名：`Administrator`
+   - 密码：`Pa55w.rd`
+   - 域：`CONTOSO`
 
 ## 练习 1：在 Server Core 上部署新的域控制器
 
@@ -90,11 +90,11 @@ lab:
 
 1. 提供以下凭据：
 
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\\Administrator`
+   - 密码：`Pa55w.rd`
 
-1. 将“SafeModeAdministratorPassword”设置为“Pa55w.rd” 。
-1. 重启 SEA-SVR1 后，在 SEA-ADM1 上切换到“服务器管理器”，然后选择“AD DS”节点   。 请注意，SEA-SVR1 已添加为域控制器，警告通知已消失。 可能必须选择“刷新”。
+2. 将“SafeModeAdministratorPassword”设置为“Pa55w.rd” 。
+3. 重启 SEA-SVR1 后，在 SEA-ADM1 上切换到“服务器管理器”，然后选择“AD DS”节点   。 请注意，SEA-SVR1 已添加为域控制器，警告通知已消失。 可能必须选择“刷新”。
 
 #### 任务 3：管理 AD DS 中的对象
 

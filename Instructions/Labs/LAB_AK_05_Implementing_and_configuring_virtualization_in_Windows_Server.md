@@ -82,15 +82,15 @@ lab:
 
    >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。
    
-2. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
+1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
    - 用户名：CONTOSO\Administrator
    - 密码：Pa55w.rd
 
-3. 在“所有连接”窗格中，选择“+ 添加” 。
-4. 在“添加或创建资源”窗格上的“服务器”磁贴中，选择“添加”  。
-5. 在“服务器名称”文本框中，输入“sea-svr1.contoso.com” 。
-6. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
+1. 在“所有连接”窗格中，选择“+ 添加” 。
+1. 在“添加或创建资源”窗格上的“服务器”磁贴中，选择“添加”  。
+1. 在“服务器名称”文本框中，输入“sea-svr1.contoso.com” 。
+1. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
 
    - 用户名：CONTOSO\Administrator
    - 密码：Pa55w.rd
@@ -99,18 +99,18 @@ lab:
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派。
 
-7. 在“sea-svr1.contoso.com ”页上的“工具”列表中，依次选择“虚拟机”和“摘要”选项卡，然后查看其内容   。
-8. 选择“清单”选项卡并验证它包含 SEA-VM1。
-9.  选择“SEA-VM1”，并查看其“属性”窗格。
-10. 选择“设置”，然后选择“磁盘” 。
-11. 滚动到窗格底部，并选择“+ 添加磁盘”。
-12. 选择“新建虚拟硬盘”。
-13. 在“新建虚拟硬盘”窗格的“大小(GB)”文本框中，键入 5，保留其他设置的默认值，然后选择“创建”   。
-14. 选择“保存磁盘设置”，然后选择“关闭” 。
-15. 返回到 SEA-VM1 的“属性”窗格，选择“电源”，然后选择“启动”以启动 SEA-VM1    。
-16. 向下滚动并显示正在运行的 VM 的统计信息。
-17. 刷新页面，依次选择“电源”和“关机”，然后选择“是”进行确认  。
-18. 在“工具”列表中，选择“虚拟交换机”并标识现有交换机 。
+1. 在“sea-svr1.contoso.com ”页上的“工具”列表中，依次选择“虚拟机”和“摘要”选项卡，然后查看其内容   。
+1. 选择“清单”选项卡并验证它包含 SEA-VM1。
+1.  选择“SEA-VM1”，并查看其“属性”窗格。
+1. 选择“设置”，然后选择“磁盘” 。
+1. 滚动到窗格底部，并选择“+ 添加磁盘”。
+1. 选择“新建虚拟硬盘”。
+1. 在“新建虚拟硬盘”窗格的“大小(GB)”文本框中，键入 5，保留其他设置的默认值，然后选择“创建”   。
+1. 选择“保存磁盘设置”，然后选择“关闭” 。
+1. 返回到 SEA-VM1 的“属性”窗格，选择“电源”，然后选择“启动”以启动 SEA-VM1    。
+1. 向下滚动并显示正在运行的 VM 的统计信息。
+1. 刷新页面，依次选择“电源”和“关机”，然后选择“是”进行确认  。
+1. 在“工具”列表中，选择“虚拟交换机”并标识现有交换机 。
 
 ### 练习 1 结果
 
@@ -143,13 +143,13 @@ lab:
 1. 在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，在 SEA-SVR1 上安装 Docker Microsoft PackageManagement 提供程序 ：
 
    ```powershell
-   Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
+   Install-Module -Name DockerProvider -Repository PSGallery -Force
    ```
 1. 在 NuGet 提供程序提示符处，按 Y 键，然后按 Enter。
 1. 在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，在 SEA-SVR1 上安装 Docker 运行时 ：
 
    ```powershell
-   Install-Package -Name docker -ProviderName DockerMsftProvider
+   Install-Package -Name docker -ProviderName DockerProvider
    ```
 1. 出现确认提示时，按 A 键，然后按 Enter。
 1. 安装完成后，输入以下命令然后按 Enter，重启 SEA-SVR1：
@@ -164,7 +164,7 @@ lab:
 1. 在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，验证已安装 Docker 版本：
 
    ```powershell
-   Get-Package -Name Docker -ProviderName DockerMsftProvider
+   Get-Package -Name Docker -ProviderName DockerProvider
    ```
 1. 输入以下命令然后按 Enter，识别 SEA-SVR1 上当前存在的 Docker 映像： 
 
@@ -203,7 +203,7 @@ lab:
 
    > 注意：标识名为 vEthernet (nat) 的以太网适配器的 IPv4 地址。 这是新容器的地址。 接下来，标识名为 Ethernet 的以太网适配器的 IPv4 地址。 这是主机 (SEA-SVR1) 的 IP 地址，设置为 172.16.10.12 。
 
-1. 在 SEA-ADM1 上，切换到 Microsoft Edge 窗口，打开另一个选项卡并转到 http://172.16.10.12 。 确认浏览器显示默认 IIS 页。
+1. 在 SEA-ADM1 上，切换到 Microsoft Edge 窗口，打开另一个选项卡并转到  。 确认浏览器显示默认 IIS 页。
 1. 在 SEA-ADM1 上，切换回与 SEA-SVR1 的 PowerShell 远程处理会话，然后在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，列出正在运行的容器  ：
 
    ```powershell

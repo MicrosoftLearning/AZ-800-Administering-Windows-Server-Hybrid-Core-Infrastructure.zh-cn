@@ -33,7 +33,7 @@ lab:
    
    > 注意：若要从 PowerShell 打开记事本，请键入“记事本”，然后按 Enter。
 
-2. 在 Windows PowerShell 提示符下，输入以下命令，然后在每个命令后面按 Enter 键以创建使用 ReFS 格式化的新驱动器：
+1. 在 Windows PowerShell 提示符下，输入以下命令，然后在每个命令后面按 Enter 键以创建使用 ReFS 格式化的新驱动器：
 
    ```powershell
    Get-Disk
@@ -41,7 +41,7 @@ lab:
    New-Partition -DiskNumber 1 -UseMaximumSize -DriveLetter M
    Format-Volume -DriveLetter M -FileSystem ReFS
    ```
-3. 在 Windows PowerShell 提示符下，输入以下命令，然后在每个命令后按 Enter 键从 SEA-ADM1 复制一个可创建要删除重复数据的示例文件的脚本，执行该脚本，然后识别结果 ：
+1. 在 Windows PowerShell 提示符下，输入以下命令，然后在每个命令后按 Enter 键从 SEA-ADM1 复制一个可创建要删除重复数据的示例文件的脚本，执行该脚本，然后识别结果 ：
 
    ```powershell
    New-PSDrive –Name 'X' –PSProvider FileSystem –Root '\\SEA-ADM1\Labfiles'
@@ -92,27 +92,27 @@ lab:
 
    >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。
 
-2. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
+1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
-   - 用户名：CONTOSO\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\Administrator`
+   - 密码：`Pa55w.rd`
 
-3. 在“所有连接”窗格中，选择“+ 添加”。
-4. 在“添加或创建资源”窗格上的“服务器”磁贴中，选择“添加” 。
-5. 在“服务器名称”文本框中，输入“sea-svr3.contoso.com” 。 
-6. 如果需要，请确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
+1. 在“所有连接”窗格中，选择“+ 添加”。
+1. 在“添加或创建资源”窗格上的“服务器”磁贴中，选择“添加” 。
+1. 在“服务器名称”文本框中，输入“sea-svr3.contoso.com” 。 
+1. 如果需要，请确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
 
-   - 用户名：CONTOSO\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\Administrator`
+   - 密码：`Pa55w.rd`
 
-7. 在“sea-svr3.contoso.com”页上的“工具”菜单中，选择“PowerShell”，然后在出现提示时，以 CONTOSO\Administrator 用户身份使用密码 Pa55w.rd 登录    。
-8. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 键触发重复数据删除：
+1. 在“sea-svr3.contoso.com”页上的“工具”菜单中，选择“PowerShell”，然后在出现提示时，以 CONTOSO\Administrator 用户身份使用密码 Pa55w.rd 登录    。
+1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 键触发重复数据删除：
 
    ```powershell
    Start-DedupJob -Volume M: -Type Optimization –Memory 50
    ```
-9.  将控制台会话切换回 SEA-SVR3。
-10. 在 SEA-SVR3 上的 Windows PowerShell 提示符下，输入以下命令并按 Enter 键，以确定要删除重复数据的卷上的可用空间 ：
+1.  将控制台会话切换回 SEA-SVR3。
+1. 在 SEA-SVR3 上的 Windows PowerShell 提示符下，输入以下命令并按 Enter 键，以确定要删除重复数据的卷上的可用空间 ：
 
    ```powershell
    Get-PSDrive -Name M
@@ -120,18 +120,18 @@ lab:
 
    > 注意：将以前显示的值与当前值进行比较。 
 
-11. 等待五到十分钟让删除重复作业完成并重复上一步。
-12. 将控制台会话切换回 SEA-ADM1。
-13. 在 SEA-ADM1 上，在 Microsoft Edge 窗口内的 Windows PowerShell 控制台中（其中显示 Windows Admin Center 与 sea-svr3.contoso.com 的连接），输入以下命令，并在每个命令后按 Enter 键来确定重复数据删除作业的状态   ：
+1. 等待五到十分钟让删除重复作业完成并重复上一步。
+1. 将控制台会话切换回 SEA-ADM1。
+1. 在 SEA-ADM1 上，在 Microsoft Edge 窗口内的 Windows PowerShell 控制台中（其中显示 Windows Admin Center 与 sea-svr3.contoso.com 的连接），输入以下命令，并在每个命令后按 Enter 键来确定重复数据删除作业的状态   ：
 
    ```powershell
    Get-DedupStatus –Volume M: | fl
    Get-DedupVolume –Volume M: |fl
    Get-DedupMetadata –Volume M: |fl
    ```
-14. 在 SEA-ADM1 上，切换到服务器管理器中的“磁盘”窗格，然后在右上角的“任务”菜单中选择“刷新”   。
-15. 在“卷”部分中选择“M:”卷，显示其上下文相关菜单，然后从菜单中选择“属性”  。 
-16. 在“卷(M:\\)属性”窗口中，查看“重复数据删除率”和“重复数据删除节省”的值  。
+1. 在 SEA-ADM1 上，切换到服务器管理器中的“磁盘”窗格，然后在右上角的“任务”菜单中选择“刷新”   。
+1. 在“卷”部分中选择“M:”卷，显示其上下文相关菜单，然后从菜单中选择“属性”  。 
+1. 在“卷(M:\\)属性”窗口中，查看“重复数据删除率”和“重复数据删除节省”的值  。
 
 ## 练习 2：配置 iSCSI 存储
 
@@ -451,8 +451,8 @@ lab:
 1. 在“群集名称”文本框中，输入“S2DCluster.Contoso.com” 。
 1. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用帐户连接” ：
 
-   - 用户名：CONTOSO\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\Administrator`
+   - 密码：`Pa55w.rd`
    
 1. 清除“同时在群集中添加服务器”选项，然后选择“添加” 。
 1. 返回到“所有连接”页，选择“s2dcluster.contoso.com” 。

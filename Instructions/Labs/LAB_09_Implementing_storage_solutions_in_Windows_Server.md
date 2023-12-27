@@ -35,9 +35,9 @@ lab:
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：
 
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+   - 用户名：`Administrator`
+   - 密码：`Pa55w.rd`
+   - 域：`CONTOSO`
 
 对于本实验室，你将使用可用的 VM 环境。
 
@@ -112,8 +112,8 @@ lab:
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\\Administrator`
+   - 密码：`Pa55w.rd`
 
 1. 在 Windows Admin Center 中，向 sea-svr3.contoso.com 添加一个连接，并以 CONTOSO\\Administrator 身份使用密码 Pa55w.rd 连接  。
 1. 连接到 sea-svr3.contoso.com 时，使用“工具”列表中的“PowerShell”工具运行以下命令来触发重复数据删除  ：

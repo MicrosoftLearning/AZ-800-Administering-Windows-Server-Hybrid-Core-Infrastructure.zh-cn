@@ -52,7 +52,7 @@ lab:
 
 ### 任务 1：创建 Azure 文件共享
 
-1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
+1. 在 **SEA-ADM1** 上，启动 Microsoft Edge，浏览到 Azure 门户`https://portal.azure.com`，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“存储帐户” 。
 1. 在“存储帐户”页上，选择“+ 创建” 。
 1. 在“创建存储帐户”页的“基本信息”选项卡上，指定以下设置 ：
@@ -127,7 +127,7 @@ lab:
    >注意：监视脚本执行。 这大约需要 3 分钟。
 
 1. 当出现“WARNING”消息提示登录时，将警告消息中的九个字符的代码复制到剪贴板中。
-1. 切换到显示 Azure 门户的 Microsoft Edge 窗口，通过选择 + 打开一个新选项卡，然后在新选项卡上浏览到 https://microsoft.com/devicelogin。
+1. 切换到显示 Azure 门户的 Microsoft Edge 窗口，通过选择 + 打开一个新选项卡，然后在新选项卡上浏览到 。
 1. 在 Microsoft Edge 中，在“输入代码”对话框中，将复制的代码粘贴到剪贴板，然后，如果需要，在显示消息“是否正在尝试登录 Microsoft Azure PowerShell？”的页面上使用 Azure 凭据登录，然后选择“继续”，并关闭上一步中打开的“Microsoft Edge”选项卡  。
 1. 切换到“Windows PowerShell ISE”窗口，并确保脚本成功完成。 
 1. 切换回显示 Azure 门户的 Microsoft Edge 窗口，然后在“FileSync1 \| 注册的服务器”页面上，选择“刷新”以显示注册的服务器的当前列表 。
@@ -148,7 +148,7 @@ lab:
    >注意：监视脚本执行。 这大约需要 3 分钟。
 
 1. 当出现“WARNING”消息提示登录时，将警告消息中的九个字符的代码复制到剪贴板中。
-1. 切换到显示 Azure 门户的 Microsoft Edge 窗口，通过选择 + 打开一个新选项卡，然后在新选项卡上浏览到 https://microsoft.com/devicelogin。
+1. 切换到显示 Azure 门户的 Microsoft Edge 窗口，通过选择 + 打开一个新选项卡，然后在新选项卡上浏览到 。
 1. 在 Microsoft Edge 中，在“输入代码”对话框中，将复制的代码粘贴到剪贴板，然后，如果需要，在显示消息“是否正在尝试登录 Microsoft Azure PowerShell？”的页面上使用 Azure 凭据登录，然后选择“继续”，并关闭上一步中打开的“Microsoft Edge”选项卡  。
 1. 切换到“Windows PowerShell ISE”窗口，并确保脚本成功完成。 
 1. 脚本完成后，切换到显示 Azure 门户的 Microsoft Edge 窗口，并浏览回“FileSync1 \| 注册的服务器”页面。
