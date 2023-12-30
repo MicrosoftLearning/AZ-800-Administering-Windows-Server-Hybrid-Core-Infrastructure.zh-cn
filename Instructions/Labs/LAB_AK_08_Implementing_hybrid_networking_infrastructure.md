@@ -14,7 +14,7 @@ lab:
 #### 任务 1：预配实验室基础结构资源
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份使用密码 Pa55w.rd 登录  。
-1. 在 SEA-ADM1 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
+1. 在 **SEA-ADM1** 上，启动 Microsoft Edge，转到 Azure 门户`https://portal.azure.com`，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 1. 在 Azure 门户中，通过选择搜索文本框旁边的工具栏图标打开“Cloud Shell”窗格。
 1. 如果系统提示选择 Bash 或 PowerShell，请选择 PowerShell  。
 
@@ -64,7 +64,7 @@ lab:
 
 #### 任务 2：配置中心辐射型网络拓扑
 
-1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开另一个选项卡，浏览到 [Azure 门户](https://portal.azure.com) 。
+1. 在 **SEA-ADM1** 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开另一个选项卡，浏览到 Azure 门户 `https://portal.azure.com`。
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟网络” 。
 1. 在虚拟网络列表中，选择“az800l08-vnet0”。
 1. 在 az800l08-vnet0 虚拟网络页上的“设置”部分中，选择“对等互连”，然后选择“+ 添加”   。
@@ -359,7 +359,7 @@ lab:
 
 #### 任务 3：配置 Azure 公用 DNS 名称解析
 
-1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开一个新选项卡，浏览到 https://www.godaddy.com/domains/domain-name-search 。
+1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开一个新选项卡，浏览到  。
 1. 使用域名搜索标识当前未使用的域名。
 1. 在“SEA-ADM1”上，切换到显示 Azure 门户的 Microsoft Edge 选项卡，在工具栏的“搜索资源、服务和文档”文本框中，搜索并选择“DNS 区域”，然后在“DNS 区域”页上，选择“+ 创建”。
 1. 在“创建 DNS 区域”页上，指定以下设置（其他设置保留默认值）：

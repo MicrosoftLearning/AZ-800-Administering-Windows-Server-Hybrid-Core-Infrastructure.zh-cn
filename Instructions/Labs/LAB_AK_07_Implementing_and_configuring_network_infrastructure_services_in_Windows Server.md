@@ -37,33 +37,33 @@ lab:
 
    >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。
 
-2. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
+1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
-   - 用户名：CONTOSO\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\Administrator`
+   - 密码：`Pa55w.rd`
 
-3. 在“所有连接”窗格中，选择“+ 添加”。
-4. 在“添加或创建资源”窗格中的“服务器”磁贴上，选择“添加” 。
-5. 在“服务器名称”文本框中，输入“sea-svr1.contoso.com” 。 
-6. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
+1. 在“所有连接”窗格中，选择“+ 添加”。
+1. 在“添加或创建资源”窗格中的“服务器”磁贴上，选择“添加” 。
+1. 在“服务器名称”文本框中，输入“sea-svr1.contoso.com” 。 
+1. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
 
-   - 用户名：CONTOSO\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\Administrator`
+   - 密码：`Pa55w.rd`
 
    > 备注：若要执行单一登录，你需要设置 Kerberos 约束委派。
 
-7. 在 sea-svr1.contoso.com 页面上的“工具”列表中，选择“角色和功能”  。
-8. 在“角色和功能”窗格中，选中“DHCP 服务器”复选框，然后选择“+ 安装” 。
-9. 在“安装角色和功能”窗格中，选择“是”。
+1. 在 sea-svr1.contoso.com 页面上的“工具”列表中，选择“角色和功能”  。
+1. 在“角色和功能”窗格中，选中“DHCP 服务器”复选框，然后选择“+ 安装” 。
+1. 在“安装角色和功能”窗格中，选择“是”。
 
    > 备注：请等待指示已安装 DHCP 角色的通知。 如有必要，请选择“通知”图标以验证当前状态。
 
-10. 刷新 Microsoft Edge 页面，返回到 sea-svr1.contoso.com 页面上，在“工具”列表中，选择“DHCP”，然后在详细信息窗格中，选择“安装”以安装 DHCP PowerShell 工具    。 
+1. 刷新 Microsoft Edge 页面，返回到 sea-svr1.contoso.com 页面上，在“工具”列表中，选择“DHCP”，然后在详细信息窗格中，选择“安装”以安装 DHCP PowerShell 工具    。 
 
    > 备注：如果 sea-svr1.contoso.com 的“工具”列表中未提供“DHCP”条目，请刷新 Microsoft Edge 页面，然后重试    。
    根据网络性能，DHCP 服务器最长可能需要 5 分钟才能显示。
 
-11. 等待指示已安装 DHCP PowerShell 工具的通知。 如有必要，请选择“通知”图标以验证当前状态。
+1. 等待指示已安装 DHCP PowerShell 工具的通知。 如有必要，请选择“通知”图标以验证当前状态。
 
 #### 任务 2：对 DHCP 服务器授权
 

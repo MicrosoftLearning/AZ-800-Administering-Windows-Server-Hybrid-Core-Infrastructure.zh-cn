@@ -1,18 +1,18 @@
 ---
 lab:
-  title: 实验室：实现 AD DS 与 Azure AD 之间的集成
+  title: 实验室：实现 AD DS 与 Microsoft Entra AD 之间的集成
   module: 'Module 2: Implementing Identity in Hybrid Scenarios'
 ---
 
-# 实验室：实现 AD DS 与 Azure AD 之间的集成
+# 实验室：实现 AD DS 与 Microsoft Entra AD 之间的集成
 
-## 场景
+## 方案
 
-为解决因使用 Microsoft Azure Active Directory (Azure AD) 针对 Azure 资源的访问进行身份验证和授权所产生的管理和监视开销的问题，你决定测试本地 Active Directory 域服务 (AD DS) 与 Azure AD 之间的集成，来验证是否可以通过混合使用本地资源和云资源来解决有关管理多个用户帐户的业务问题。
+为解决因使用 Microsoft Entra AD 针对 Azure 资源的访问进行身份验证和授权所产生的管理和监视开销的问题，你决定测试本地 Active Directory 域服务 (AD DS) 与 Microsoft Entra AD 之间的集成，来验证是否可以通过混合使用本地资源和云资源来解决有关管理多个用户帐户的业务问题。
 
-此外，你还需要确保自己的方法能解决信息安全团队的问题，并保留应用于 Active Directory 用户的现有控件，例如登录时间和密码策略。 最后，你需要确定可实现以下目的的 Azure AD 集成功能：能进一步增强本地 Active Directory 安全性，且管理开销尽可能小，包括对 Windows Server Active Directory 的 Azure AD 密码保护、通过密码写回实现的自助式密码重置 (SSPR)。
+此外，你还需要确保自己的方法能解决信息安全团队的问题，并保留应用于 Active Directory 用户的现有控件，例如登录时间和密码策略。 最后，你需要确定可实现以下目的的 Microsoft Entra ID 集成功能：能进一步增强本地 Active Directory 安全性，且管理开销尽可能小，包括对 Windows Server Active Directory 的 Microsoft Entra ID 密码保护、通过密码写回实现的自助式密码重置 (SSPR)。
 
-你的目标是在本地 AD DS 和 Azure AD 之间实现直通身份验证。
+你的目标是在本地 AD DS 和 Microsoft Entra AD 之间实现直通身份验证。
 
 **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20integration%20between%20AD%20DS%20and%20Azure%20AD)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
@@ -20,13 +20,13 @@ lab:
 
 完成本实验后，你将能够：
 
-- 做好 Azure AD 的相关准备工作，以便与本地 AD DS 集成，包括添加和验证自定义域。
-- 做好本地 AD DS 的相关准备工作，以便与 Azure AD 集成，包括运行 IdFix DirSync 错误修正工具。
-- 安装并配置 Azure AD Connect。
-- 通过测试同步过程来验证 AD DS 与 Azure AD 之间的集成。
-- 实现 Active Directory 中的 Azure AD 集成功能，包括对 Windows Server Active Directory 的 Azure AD 密码保护和通过密码写回实现的 SSPR。
+- 做好 Microsoft Entra AD 的相关准备工作，以便与本地 AD DS 集成，包括添加和验证自定义域。
+- 做好本地 AD DS 的相关准备工作，以便与 Microsoft Entra AD 集成，包括运行 IdFix DirSync 错误修正工具。
+- 安装和配置 Microsoft Entra Connect。
+- 通过测试同步过程来验证 AD DS 与 Microsoft Entra AD 之间的集成。
+- 实现 Active Directory 中的 Microsoft Entra ID 集成功能，包括对 Windows Server Active Directory 的 Microsoft Entra ID 密码保护和通过密码写回实现的 SSPR。
 
-## 预计时间：60 分钟
+## 估计时间：60 分钟
 
 ## 实验室设置
 
@@ -37,17 +37,17 @@ lab:
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：
 
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+   - 用户名：`Administrator`
+   - 密码：`Pa55w.rd`
+   - 域：`CONTOSO`
 
-对于本实验室，你将使用可用的 VM 环境和 Azure AD 租户。 在开始实验之前，请确保拥有 Azure AD 租户，且有一个具有该租户中全局管理员角色的用户帐户。
+对于本实验室，你将使用可用的 VM 环境和 Microsoft Entra 租户。 在开始实验之前，请确保拥有 Microsoft Entra 租户，且有一个具有该租户中全局管理员角色的用户帐户。
 
-## 练习 1：为与 AD DS 集成准备 Azure AD
+## 练习 1：为 AD DS 集成准备本地 Microsoft Entra ID
 
-### 场景
+### 方案
 
-需要确保 Azure AD 环境已准备好与本地 AD DS 集成。 因此需要创建并验证自定义 Azure AD 域名和具有全局管理员角色的帐户。
+需要确保 Microsoft Entra AD 环境已准备好与本地 AD DS 集成。 因此需要创建并验证自定义 Microsoft Entra ID 域名和具有全局管理员角色的帐户。
 
 此练习的主要任务是：
 
@@ -59,17 +59,17 @@ lab:
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后转到 Azure 门户。
 1. 使用讲师提供的凭据登录到 Azure 门户。
-1. 在 Azure 门户中，浏览到“Azure Active Directory”。
-1. 在“Azure Active Directory”页面上，选择“自定义域名”，然后添加 `contoso.com` 。
+1. 在 **Azure 门户**中浏览到 Microsoft Entra ID。
+1. 在**Microsoft Entra ID**选项页上，选择**自定义域名**，然后添加`contoso.com`。
 1. 查看要用于验证域的 DNS 记录类型，然后关闭窗格而不验证域名。
 
    > 注意：虽然一般来说要使用 DNS 记录来验证域，但此实验不需要使用验证的域。
 
 #### 任务 2：创建具有全局管理员角色的用户
 
-1. 在 SEA-ADM1 上，在显示“Azure Active Directory”页面的 Microsoft Edge 窗口中，浏览到“所有用户”页面，并创建具有以下属性的用户帐户  ： 
+1. 在 SEA-ADM1 上，在显示“Microsoft Entra ID”页面的 Microsoft Edge 窗口中，浏览到“所有用户”页面，并创建具有以下属性的用户帐户  ： 
 
-   - 用户名：admin
+   - 用户名：`admin`
 
    > 注意：确保“用户名”的域名下拉菜单列出了以 `onmicrosoft.com` 结尾的默认域名 。
 
@@ -86,11 +86,11 @@ lab:
 
    > 注意：记录所使用的复杂密码，因为稍后将在本实验中使用。
 
-## 练习 2：为 Azure AD 集成准备本地 AD DS
+## 练习 2：为 Microsoft Entra AD 集成准备本地 AD DS
 
-### 场景
+### 方案
 
-需要确保现有 Active Directory 环境已为 Azure AD 集成做好准备。 因此，将运行 IdFix 工具，然后确保 Active Directory 用户的 UPN 与 Azure AD 租户的自定义域名匹配。
+需要确保现有 Active Directory 环境已为 Microsoft Entra ID 集成做好准备。 因此，将运行 IdFix 工具，然后确保 Active Directory 用户的 UPN 与 Microsoft Entra 租户的自定义域名匹配。
 
 此练习的主要任务是：
 
@@ -99,7 +99,7 @@ lab:
 
 #### 任务 1：安装 IdFix
 
-1. 在 SEA-ADM1 上，打开 Microsoft Edge，然后转到 https://github.com/microsoft/idfix 。
+1. 在 SEA-ADM1 上，打开 Microsoft Edge，然后转到  。
 1. 在“Github”页面上的“ClickOnce 启动”下，选择“启动”  。
 1. 在“IdFix 隐私声明”对话框中，查看免责声明，然后选择“确定” 。
 
@@ -110,41 +110,41 @@ lab:
 1. 在“IdFix”窗口中的 ACTION 下拉菜单中，选择“编辑”，然后选择“应用”以自动实现建议的更改   。
 1. 在“应用挂起”对话框中，选择“是”，然后关闭 IdFix 工具 。
 
-## 练习 3：下载、安装和配置 Azure AD Connect
+## 练习 3：下载、安装和配置 Microsoft Entra Connect
 
-### 场景
+### 方案
 
-练习方案：现在已可以实现集成，方法是下载 Azure AD Connect、在 SEA-ADM1 上安装并将其设置配置为与集成目标相匹配。
+练习方案：现在已可以实现集成，方法是下载 Microsoft Entra Connect、在 SEA-ADM1 上安装并将其设置配置为与集成目标相匹配。
 
 此练习的主要任务是：
 
-1. 安装并配置 Azure AD Connect。
+1. 安装和配置 Microsoft Entra Connect。
 
-#### 任务 1：安装和配置 Azure AD Connect
+#### 任务 1：安装和配置 Microsoft Entra Connect
 
-1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，从“Azure Active Directory”页面浏览到“Azure AD Connect”页面  。
-1. 在”Microsoft Azure Active Directory Connect”页面中，选择“下载” 。
-1. 下载 Azure AD Connect 安装二进制文件并开始安装。
-1. 在“Microsoft Azure Active Directory Connect”页面上，选中“我同意许可条款和隐私通知”复选框，然后选择“继续”  。
+1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，从“Microsoft Entra ID”页面浏览到“Microsoft Entra Connect”页面  。
+1. 在”Microsoft Entra Connect”页面中，选择“下载” 。
+1. 下载 Microsoft Entra Connect 安装二进制文件并开始安装。
+1. 在“Microsoft Entra Connect”页面上，选中“我同意许可条款和隐私通知”复选框，然后选择“继续”  。
 1. 在“Express 设置”页面上，选择“使用快速设置” 。
-1. 在“连接到 Azure AD”页上，输入在练习 1 中创建的 Azure AD 全局管理员用户帐户的用户名和密码。
+1. 在“连接到 Microsoft Entra ID”页面上，输入在练习 1 中创建的 Microsoft Entra ID 全局管理员用户帐户的用户名和密码。
 1. 在“连接 AD DS”页上，输入以下凭据：
 
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\\Administrator`
+   - 密码：`Pa55w.rd`
 
-1. 在“Azure AD 登录配置”页面上，验证添加的新域是否在 Active Directory UPN 后缀列表中。
+1. 在“Microsoft Entra ID 登录配置”页面上，验证添加的新域是否在 Active Directory UPN 后缀列表中。
 
-   > 注意：提供的域名不必是已验证的域。 虽然通常会在安装 Azure AD Connect 之前验证某个域，但此实验不需要执行该验证步骤。
+   > 注意：提供的域名不必是已验证的域。 虽然通常会在安装 Microsoft Entra Connect 之前验证某个域，但此实验不需要执行该验证步骤。
 
 1. 选择“继续操作且不将所有 UPN 后缀与已验证的域进行匹配”复选框。
 1. 到达“准备好配置”页面后，查看操作列表，然后开始安装。
 
-## 练习 4：验证 AD DS 与 Azure AD 之间的集成
+## 练习 4：验证 AD DS 与 Microsoft Entra AD 之间的集成
 
-### 场景
+### 方案
 
-现已安装并配置 Azure AD Connect，接下来需要验证其同步机制。 你计划对本地用户帐户进行更改，这将触发同步机制。 然后要验证是否已将更改复制到相应的 Azure AD 用户对象。
+现已安装并配置 Microsoft Entra Connect，接下来需要验证其同步机制。 你计划对本地用户帐户进行更改，这将触发同步机制。 然后要验证是否已将更改复制到相应的 Microsoft Entra ID 用户对象。
 
 此练习的主要任务是：
 
@@ -152,28 +152,28 @@ lab:
 1. 验证同步服务管理器中的同步。
 1. 更新 Active Directory 中的用户帐户。
 1. 在 Active Directory 中创建用户帐户。
-1. 将更改同步到 Azure AD。
-1. 在 Azure AD 中验证更改。
+1. 同步更改到 Microsoft Entra ID。
+1. 验证更改到 Microsoft Entra ID。
 
 #### 任务 1：验证 Azure 门户中的同步
 
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口。 
-1. 刷新“Azure AD Connect”页面，查看“从 Active Directory 预配”下的信息 。
-1. 从“Azure Active Directory”页面浏览到“用户”页面 。
+1. 刷新“Microsoft Entra Connect”页面，查看“从 Active Directory 预配”下的信息 。
+1. 从“Microsoft Entra ID”页面浏览到“用户”页面 。
 1. 观察从 Active Directory 同步的用户的列表。
 
-   > 注意：目录同步启动后，Active Directory 对象会在最多 15 分钟后显示在 Azure AD 门户中。
+   > 注意：目录同步启动后，Active Directory 对象会在最多 15 分钟后显示在 Microsoft Entra ID 门户中。
 
 1. 从“用户”页面浏览到“组”页面 。
 1. 查看从 Active Directory 同步的组的列表。
 
 #### 任务 2：验证同步服务管理器中的同步
 
-1. 在 SEA-ADM1 上的“开始”菜单上，展开“Azure AD Connect”，然后选择“同步服务”   。
+1. 在 SEA-ADM1 上的“开始”菜单上，展开“Microsoft Entra Connect”，然后选择“同步服务”   。
 1. 在“同步服务管理器”窗口中的“操作”选项卡下，查看为同步 Active Directory 对象执行的任务 。
 1. 选择“连接器”选项卡，并记下这两个连接器。
 
-   > 注意：一个连接器用于 AD DS，另一个连接器用于 Azure AD 租户。 
+   > 注意：一个连接器用于 AD DS，另一个连接器用于 Microsoft Entra 租户。 
 
 1. 关闭“Synchronization Service Manager”窗口。
 
@@ -192,7 +192,7 @@ lab:
    - 用户登录名：Jordan
    - 密码：Pa55w.rd
 
-#### 任务 5：将更改同步到 Azure AD
+#### 任务 5：同步更改到 Microsoft Entra ID
 
 1. 在 SEA-ADM1 上，以管理员身份启动 Windows PowerShell 。
 1. 在 Windows PowerShell 控制台中，运行以下命令来触发同步：
@@ -201,90 +201,90 @@ lab:
    Start-ADSyncSyncCycle
    ```
 
-   > 注意：同步周期启动后，Active Directory 对象会在最多 15 分钟后显示在 Azure AD 门户中。
+   > 注意：同步循环启动后，Active Directory 对象会在最多 15 分钟后显示在 Microsoft Entra ID 门户中。
 
-#### 任务 6：验证 Azure AD 中的更改
+#### 任务 6：验证更改到 Microsoft Entra ID
 
-1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，然后返回“Azure Active Directory”页面 。
-1. 从“Azure Active Directory”页面浏览到“用户”页面 。
+1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，，返回“Microsoft Entra ID”页面 。
+1. 从“Microsoft Entra ID”页面浏览到“用户”页面 。
 1. 在“所有用户”页上，搜索用户“Sumesh” 。
 1. 打开用户 Sumesh Rajan 的属性页，然后验证“职务”属性是否已从 Active Directory 同步 。
 1. 在 Microsoft Edge 中，返回“所有用户”页面。
 1. 在“所有用户”页面上，搜索用户“Jordan” 。
 1. 打开用户 Jordan Mitchell 的属性页，然后查看已从 Active Directory 同步的该用户帐户的属性。
 
-## 练习 5：在 AD DS 中实现 Azure AD 集成功能
+## 练习 5：在 AD DS 中实现 Microsoft Entra AD 集成功能
 
-### 场景
+### 方案
 
-你想确定能进一步增强本地 Active Directory 安全性且管理开销尽可能小的 Azure AD 集成功能。 你还想实现对 Windows Server Active Directory 的 Azure AD 密码保护和通过密码写回实现的自助式密码重置。
+你想确定能进一步增强本地 Active Directory 安全性且管理开销尽可能小的 Microsoft Entra ID 集成功能。 你还想实现对 Windows Server Active Directory 的 Microsoft Entra ID 密码保护和通过密码写回实现的自助式密码重置。
 
 此练习的主要任务是：
 
 1. 在 Azure 中启用自助式密码重置。
-1. 在 Azure AD Connect 中启用密码写回。
-1. 在 Azure AD Connect 中启用直通身份验证。
+1. 在 Microsoft Entra Connect 中启用密码写回。
+1. 在 Microsoft Entra Connect 中启用直通身份验证。
 1. 验证 Azure 中的直通身份验证。
-1. 安装并注册 Azure AD 密码保护代理服务和 DC 代理。
+1. 安装并注册 Microsoft Entra ID 密码保护代理服务和 DC 代理。
 1. 在 Azure 中启用密码保护。
 
 #### 任务 1：在 Azure 中启用自助式密码重置
 
-1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览到 Azure AD 的“许可证”页面，并激活“Azure AD Premium P2”免费试用版  。 
-1. 将 Azure AD Premium P2 许可证分配给练习 1 中创建的 Azure AD 全局管理员用户帐户。
-1. 在 Azure 门户中，浏览到 Azure AD“密码重置”页面。
+1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览到 Microsoft Entra ID 的“许可证”页面，并激活“Microsoft Entra ID P2”免费试用版  。 
+1. 将 Microsoft Entra ID P2 许可证分配给在练习 1 中创建的 Microsoft Entra ID 全局管理员用户帐户。
+1. 在 Azure 门户中，浏览到 Microsoft Entra ID“密码重置”页面****。
 1. 注意，在“密码重置”页面上可以选择要应用配置的用户范围。
 
    > 注意：不要启用密码重置功能，因为它会中断本实验稍后要执行的配置步骤。
 
-#### 任务 2：在 Azure AD Connect 中启用密码写回
+#### 任务 2：在 Microsoft Entra Connect 中启用密码写回
 
-1. 在 SEA-ADM1 上，打开“Azure AD Connect” 。
-1. 在“Microsoft Azure Active Directory Connect”窗口中，选择“配置” 。
+1. 在 **SEA-ADM1** 上，打开 **Microsoft Entra Connect**。
+1. 在 **Microsoft Entra Connect** 窗口中，选择“**配置**”。
 1. 在“其他任务”页面上，选择“自定义同步选项” 。
-1. 在“连接到 Azure AD”页面上，输入在练习 1 中创建的 Azure AD 全局管理员用户帐户的用户名和密码。
+1. 在**连接到 Microsoft Entra ID**页面上，输入在练习 1 中创建的 Microsoft Entra ID 全局管理员用户帐户的用户名和密码。
 1. 在“可选功能”页面上，选择“密码写回” 。
 
-   > 注意：Active Directory 用户的自助式密码重置需要密码写回。 这使用户在 Azure AD 中更改的密码能够同步到 Active Directory。
+   > 注意：Active Directory 用户的自助式密码重置需要密码写回。 这使用户在 Microsoft Entra ID 中更改的密码能够同步到 Active Directory。
 
 1. 在“准备好配置”页面上，查看要执行的操作的列表，然后选择“配置” 。
-1. 配置完成后，关闭“Microsoft Azure Active Directory Connect”窗口。
+1. 配置完成后，关闭**Microsoft Entra Connect**窗口。
 
-#### 任务 3：在 Azure AD Connect 中启用直通身份验证
+#### 任务 3：在 Microsoft Entra Connect 中启用直通身份验证
 
-1. 在 SEA-ADM1 上的“开始”菜单上，展开“Azure AD Connect”，然后选择“Azure AD Connect”   。
-1. 在“Microsoft Azure Active Directory Connect”窗口中，选择“配置” 。
+1. 在 SEA-ADM1 上的“开始”菜单上，展开“Microsoft Entra Connect”，然后选择“Microsoft Entra Connect”。
+1. 在 **Microsoft Entra Connect** 窗口中，选择“**配置**”。
 1. 在“其他任务”页面上，选择“更改用户登录名” 。
-1. 在“连接到 Azure AD”页上，输入在练习 1 中创建的 Azure AD 全局管理员用户帐户的用户名和密码。
+1. 在**连接到 Microsoft Entra ID**页面上，输入在练习 1 中创建的 Microsoft Entra ID 全局管理员用户帐户的用户名和密码。
 1. 在“用户登录”页面上，选择“直通身份验证” 。
 1. 验证是否选中了“启用单一登录”复选框。
 1. 在“启用单一登录”页面上，选择“输入凭证” 。
 1. 在“林凭据”对话框中，使用下列凭据进行身份验证：
 
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`Administrator`
+   - 密码：`Pa55w.rd`
 
-1. 在“启用单一登录”页面上，验证“输入凭证”旁边是否有绿色复选标记 。
-1. 在“准备好配置”页面上，查看要执行的操作的列表，然后选择“配置” 。
-1. 配置完成后，关闭“Microsoft Azure Active Directory Connect”窗口。
+2. 在“启用单一登录”页面上，验证“输入凭证”旁边是否有绿色复选标记 。
+3. 在“准备好配置”页面上，查看要执行的操作的列表，然后选择“配置” 。
+4. 配置完成后，关闭**Microsoft Entra Connect**窗口。
 
 #### 任务 4：验证 Azure 中的直通身份验证
 
-1. 在 SEA-ADM1 上，从 Azure 门户中的“Azure Active Directory”页面浏览到“Azure AD Connect”页面  。
-1. 在“Azure AD Connect”页面上，查看“用户登录”下的信息 。
+1. 在 **SEA-ADM1** 上，从 Azure 门户中的 **Microsoft Entra ID** 页面浏览到 **Microsoft Entra Connect** 页面。
+1. 在**Microsoft Entra Connect**页面上，查看**用户登录**下的信息 。
 1. 在“用户登录”下，选择“无缝单一登录” 。
 1. 在“无缝单一登录”页面上，查看本地域名。
 1. 从“无缝单一登录”页面，浏览到“直通身份验证”页 。
 1. 在“直通身份验证”页上，查看“身份验证代理”下的服务器列表 。
 
-   > 注意：若要在环境中的多台服务器上安装 Azure AD 身份验证代理，可以从 Azure 门户中的“直通身份验证”页面下载其二进制文件 。
+   > **注意**：若要在环境中的多台服务器上安装 Microsoft Entra ID 身份验证代理，可以从 Azure 门户中的**直通身份验证**页面下载其二进制文件 。
 
-#### 任务 5：安装并注册 Azure AD 密码保护代理服务和 DC 代理
+#### 任务 5：安装并注册 Microsoft Entra ID 密码保护代理服务和 DC 代理
 
-1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到“Microsoft 下载”网站，然后浏览到可下载安装程序的“Windows Server Active Directory 的 Azure AD 密码保护”页面，然后选择“下载”  。
+1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到“Microsoft 下载”网站，然后浏览到可下载安装程序的“Windows Server Active Directory 的 Microsoft Entra ID 密码保护”页面，然后选择“下载”  。
 1. 将 AzureADPasswordProtectionProxySetup.exe 和 AzureAdPasswordProtectiondAgentSetup.msi 下载到 SEA-ADM1  。
 
-   > 注意：建议在不是域控制器的服务器上安装代理服务。 此外，代理服务不应安装在与 Azure AD Connect 代理相同的服务器上。 将在 SEA-SVR1 上安装代理服务，并在 SEA-DC1 上安装密码保护 DC 代理 。
+   > 注意：建议在不是域控制器的服务器上安装代理服务。 此外，代理服务不应安装在与 Microsoft Entra Connect 代理相同的服务器上。 将在 SEA-SVR1 上安装代理服务，并在 SEA-DC1 上安装密码保护 DC 代理 。
 
 1. 在 SEA-ADM1 上的 Windows PowerShell 控制台中，运行以下命令，删除 Zone.Identifier 替代数据流，指示已从 internet 下载文件 ：
 
@@ -306,7 +306,7 @@ lab:
    Invoke-Command -ComputerName SEA-DC1.contoso.com -ScriptBlock { Start-Process msiexec.exe -ArgumentList '/i C:\Temp\AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart /log C:\Temp\AzureADPPInstall.log' -Wait }
    Restart-Computer -ComputerName SEA-DC1.contoso.com -Force
    ```
-1. 运行以下命令，验证安装过程是否会创建实现 Azure AD 密码保护所需的服务：
+1. 运行以下命令，验证安装过程是否会创建实现 Microsoft Entra ID 密码保护所需的服务：
 
    ```powershell
    Get-Service -Computer SEA-SVR1 -Name AzureADPasswordProtectionProxy | fl
@@ -321,13 +321,13 @@ lab:
    Enter-PSSession -ComputerName SEA-SVR1
    ```
 
-1. 在 PowerShell 远程处理会话中，运行以下命令以在 Active Directory 中注册代理服务（将 `<Azure_AD_Global_Admin>` 占位符替换为在练习 1 中创建的 Azure AD 全局管理员用户帐户的完全限定用户主体名称）：
+1. 在 PowerShell 远程处理会话中，运行以下命令以在 Active Directory 中注册代理服务（将 `<Azure_AD_Global_Admin>` 占位符替换为在练习 1 中创建的 Microsoft Entra ID 全局管理员用户帐户的完全限定用户主体名称）：
 
    ```powershell
    Register-AzureADPasswordProtectionProxy -AccountUpn <Azure_AD_Global_Admin> -AuthenticateUsingDeviceCode
    ```
 
-1. 按照提示使用在练习 1 中创建的 Azure AD 全局管理员用户帐户进行身份验证。 
+1. 按照提示使用在练习 1 中创建的 Microsoft Entra ID 全局管理员用户帐户进行身份验证。 
 1. 退出 PowerShell 远程处理会话。
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按下 Enter 键，将一个 PowerShell 远程处理会话启动到 SEA-DC1 ：
 
@@ -335,18 +335,18 @@ lab:
    Enter-PSSession -ComputerName SEA-DC1
    ```
 
-1. 在 PowerShell 远程处理会话中，运行以下命令以在 Active Directory 中注册代理服务（将 `<Azure_AD_Global_Admin>` 占位符替换为在练习 1 中创建的 Azure AD 全局管理员用户帐户的完全限定用户主体名称）：
+1. 在 PowerShell 远程处理会话中，运行以下命令以在 Active Directory 中注册代理服务（将 `<Azure_AD_Global_Admin>` 占位符替换为在练习 1 中创建的 Microsoft Entra ID 全局管理员用户帐户的完全限定用户主体名称）：
 
    ```powershell
    Register-AzureADPasswordProtectionForest -AccountUpn <Azure_AD_Global_Admin> -AuthenticateUsingDeviceCode
    ```
 
-1. 按照提示使用在练习 1 中创建的 Azure AD 全局管理员用户帐户进行身份验证。 
+1. 按照提示使用在练习 1 中创建的 Microsoft Entra ID 全局管理员用户帐户进行身份验证。 
 1. 退出 PowerShell 远程处理会话。
 
 #### 任务 6：在 Azure 中启用密码保护
 
-1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，返回“Azure Active Directory”页面，然后浏览到其“安全”页面  。
+1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，返回“Microsoft Entra ID”页面，然后浏览到其“安全”页面  。
 1. 在“安全”页面上，选择“身份验证方法” 。
 1. 在“身份验证方法”页面上，选择“密码保护” 。
 1. 在“密码保护”页面上，启用“强制执行自定义列表” 。
@@ -364,22 +364,22 @@ lab:
 
 ### 场景
 
-你需要禁用从本地 Active Directory 到 Azure 的同步。 这涉及删除 Azure AD Connect 和禁用与 Azure 的同步。
+你需要禁用从本地 Active Directory 到 Azure 的同步。 这涉及删除 Microsoft Entra Connect 和禁用与 Azure 的同步。
 
 此练习的主要任务是：
 
-1. 卸载 Azure AD Connect。
+1. 卸载 Microsoft Entra Connect。
 1. 在 Azure 中禁用目录同步。
 
-#### 任务 1：卸载 Azure AD Connect
+#### 任务 1：卸载 Microsoft Entra Connect
 
 1. 在 SEA-ADM1 上，打开“控制面板” 。
-1. 使用“卸载或更改程序”功能卸载 Microsoft Azure AD Connect 。
+2. 使用**卸载或更改程序**功能卸载 **Microsoft Entra Connect**。
 
 #### 任务 2：在 Azure 中禁用目录同步
 
 1. 在 SEA-ADM1 上，切换到“Windows PowerShell”窗口 。
-1. 在“Windows PowerShell”控制台中，运行以下命令以安装适用于 Azure AD 的 Microsoft Online 模块：
+1. 在**Windows PowerShell**控制台中，运行以下命令以安装适用于 Microsoft Entra ID 的 Microsoft Online 模块：
 
    ```powershell
    Install-Module -Name MSOnline

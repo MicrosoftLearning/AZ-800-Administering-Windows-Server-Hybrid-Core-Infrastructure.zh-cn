@@ -31,9 +31,9 @@ lab:
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：
 
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+   - 用户名：`Administrator`
+   - 密码：`Pa55w.rd`
+   - 域：`CONTOSO`
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
@@ -57,7 +57,7 @@ lab:
 此任务需要将三个虚拟机部署到同一 Azure 区域，但部署到不同的虚拟网络中。 第一个虚拟网络将充当中心，而另外两个虚拟网络将充当分支。 这些资源将用作实验室基础结构的基础。
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
-1. 在 SEA-ADM1 上，启动 Microsoft Edge，浏览到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
+1. 在 **SEA-ADM1** 上，启动 Microsoft Edge，浏览到 Azure 门户`https://portal.azure.com`，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
 1. 在 Azure 门户的 Cloud Shell 窗格中打开一个 PowerShell 会话。
 1. 将 C:\\Labfiles\\Lab08\\L08-rg_template.json 和 C:\\Labfiles\\Lab08\\L08-rg_template.parameters.json 文件加载到 Cloud Shell 主目录 。
 1. 在 Cloud Shell 窗格中，运行以下命令以创建将托管实验室环境的第一个资源组（将占位符 `<Azure_region>` 替换为要用于部署的 Azure 区域的名称）：
@@ -105,7 +105,7 @@ lab:
 
 此任务将在之前任务中部署的虚拟网络之间配置本地对等互连，以创建中心辐射型网络拓扑。
 
-1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开另一个选项卡，浏览到 [Azure 门户](https://portal.azure.com) 。
+1. 在 **SEA-ADM1** 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开另一个选项卡，浏览到 Azure 门户 `https://portal.azure.com`。
 1. 在 Azure 门户中，浏览到 az800l08-vnet0 虚拟网络页面。
 1. 在 az800l08-vnet0 虚拟网络页面上，使用以下设置创建一个对等互连（保留其余设置为默认值）：
 
@@ -391,7 +391,7 @@ lab:
 
 此任务将使用 Azure 公用 DNS 区域配置外部 DNS 名称解析。
 
-1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开一个新选项卡，浏览到 https://www.godaddy.com/domains/domain-name-search 。
+1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，打开一个新选项卡，浏览到  。
 1. 使用域名搜索标识当前未使用的域名。
 1. 在 SEA-ADM1 上，切换到显示 Azure 门户的 Microsoft Edge 选项卡，并浏览到“DNS 区域”页面 。
 1. 使用以下设置（将其他设置保留为默认值）创建 DNS 区域：

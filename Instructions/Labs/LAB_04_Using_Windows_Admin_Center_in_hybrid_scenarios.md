@@ -33,11 +33,11 @@ lab:
 1. 选择“SEA-ADM1”。
 1. 使用以下凭据登录：
 
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+   - 用户名：`Administrator`
+   - 密码：`Pa55w.rd`
+   - 域：`CONTOSO`
 
-对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保你有一个 Azure 订阅和一个在该订阅中具有“所有者”或“参与者”角色且在与该订阅关联的 Azure Active Directory (Azure AD) 租户中具有“全局管理员角色”的用户帐户。
+对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保你有一个 Azure 订阅和一个在该订阅中具有“所有者”或“参与者”角色且在与该订阅关联的 Microsoft Entra 租户 租户中具有“全局管理员角色”的用户帐户。
 
 ## 练习 1：预配运行 Windows Server 的 Azure VM
 
@@ -124,8 +124,8 @@ lab:
 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\\Administrator`
+   - 密码：`Pa55w.rd`
 
 1. 从 Windows Admin Center 页中，尝试添加 Azure 网络适配器。
 1. 出现提示时，将 Windows Admin Center 注册到你在上一练习中使用的 Azure 订阅。

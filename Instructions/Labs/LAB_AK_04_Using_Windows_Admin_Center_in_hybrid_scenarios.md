@@ -14,7 +14,7 @@ lab:
 #### 任务 1：使用 Azure 资源管理器模板创建 Azure 资源组
 
 1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
-1. 在 SEA-ADM1 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
+1. 在 **SEA-ADM1** 上，启动 Microsoft Edge，转到 Azure 门户`https://portal.azure.com`，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 1. 在 Azure 门户中，通过选择搜索文本框旁边的工具栏图标打开“Cloud Shell”窗格。
 1. 如果系统提示选择 Bash 或 PowerShell，请选择 PowerShell  。
 
@@ -85,8 +85,8 @@ lab:
    
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
-   - 用户名：CONTOSO\Administrator
-   - 密码：Pa55w.rd
+   - 用户名：`CONTOSO\Administrator`
+   - 密码：`Pa55w.rd`
 
 1. 在“所有连接”页上，选择“sea-adm1.contoso.com”条目 。 
 1. 在 Windows Admin Center 中，选择“网络”，然后选择“+ 添加 Azure 网络适配器(预览版)” 。
@@ -107,7 +107,7 @@ lab:
 1. 在“登录”页上，提供在上一个练习中用于登录到 Azure 订阅的用户名，选择“下一步”，提供相应的密码，然后选择“登录”  。
 1. 出现提示“是否尝试登录到 Windows Admin Center?”时，选择“继续” 。
 1. 在 Windows Admin Center 中，验证登录是否成功，并关闭 Microsoft Edge 窗口中新打开的选项卡。
-1. 在“Windows Admin Center 中的 Azure 入门”窗格中，确保“Azure Active Directory 应用程序”设置为“新建”，然后选择“连接”   。
+1. 在“Windows Admin Center 中的 Azure 入门”窗格中，确保“Microsoft Entra 应用程序”设置为“新建”，然后选择“连接”。
 1. 在注册过程的步骤列表中，选择“登录”。 这将打开一个标有“请求的权限”的弹出窗口。
 1. 在“请求的权限”弹出窗口中，选择“代表你的组织同意”，然后选择“接受”  。
 
@@ -176,6 +176,9 @@ lab:
 
    ```powershell
    Install-Module -Name pswsman
+   ```
+
+   ```powershell
    Disable-WSManCertVerification -All
    ```
 
