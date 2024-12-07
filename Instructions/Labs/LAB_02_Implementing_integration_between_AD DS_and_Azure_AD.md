@@ -6,7 +6,7 @@ lab:
 
 # 实验室：实现 AD DS 与 Microsoft Entra AD 之间的集成
 
-## 方案
+## 场景
 
 为解决因使用 Microsoft Entra AD 针对 Azure 资源的访问进行身份验证和授权所产生的管理和监视开销的问题，你决定测试本地 Active Directory 域服务 (AD DS) 与 Microsoft Entra AD 之间的集成，来验证是否可以通过混合使用本地资源和云资源来解决有关管理多个用户帐户的业务问题。
 
@@ -45,7 +45,7 @@ lab:
 
 ## 练习 1：为 AD DS 集成准备本地 Microsoft Entra ID
 
-### 方案
+### 场景
 
 需要确保 Microsoft Entra AD 环境已准备好与本地 AD DS 集成。 因此需要创建并验证自定义 Microsoft Entra ID 域名和具有全局管理员角色的帐户。
 
@@ -88,7 +88,7 @@ lab:
 
 ## 练习 2：为 Microsoft Entra AD 集成准备本地 AD DS
 
-### 方案
+### 场景
 
 需要确保现有 Active Directory 环境已为 Microsoft Entra ID 集成做好准备。 因此，将运行 IdFix 工具，然后确保 Active Directory 用户的 UPN 与 Microsoft Entra 租户的自定义域名匹配。
 
@@ -112,7 +112,7 @@ lab:
 
 ## 练习 3：下载、安装和配置 Microsoft Entra Connect
 
-### 方案
+### 场景
 
 练习方案：现在已可以实现集成，方法是下载 Microsoft Entra Connect、在 SEA-ADM1 上安装并将其设置配置为与集成目标相匹配。
 
@@ -142,7 +142,7 @@ lab:
 
 ## 练习 4：验证 AD DS 与 Microsoft Entra AD 之间的集成
 
-### 方案
+### 场景
 
 现已安装并配置 Microsoft Entra Connect，接下来需要验证其同步机制。 你计划对本地用户帐户进行更改，这将触发同步机制。 然后要验证是否已将更改复制到相应的 Microsoft Entra ID 用户对象。
 
@@ -215,7 +215,7 @@ lab:
 
 ## 练习 5：在 AD DS 中实现 Microsoft Entra AD 集成功能
 
-### 方案
+### 场景
 
 你想确定能进一步增强本地 Active Directory 安全性且管理开销尽可能小的 Microsoft Entra ID 集成功能。 你还想实现对 Windows Server Active Directory 的 Microsoft Entra ID 密码保护和通过密码写回实现的自助式密码重置。
 
