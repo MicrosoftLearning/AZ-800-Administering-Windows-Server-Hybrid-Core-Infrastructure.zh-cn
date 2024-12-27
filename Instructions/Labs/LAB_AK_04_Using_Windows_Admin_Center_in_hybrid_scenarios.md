@@ -13,7 +13,7 @@ lab:
 
 #### 任务 1：使用 Azure 资源管理器模板创建 Azure 资源组
 
-1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-ADM1**，如果需要，请使用讲师提供的凭据登录。
 1. 在 **SEA-ADM1** 上，启动 Microsoft Edge，转到 Azure 门户`https://portal.azure.com`，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 1. 在 Azure 门户中，通过选择搜索文本框旁边的工具栏图标打开“Cloud Shell”窗格。
 1. 如果系统提示选择 Bash 或 PowerShell，请选择 PowerShell  。
@@ -83,10 +83,7 @@ lab:
 
    >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。 
    
-1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
-
-   - 用户名：`CONTOSO\Administrator`
-   - 密码：`Pa55w.rd`
+1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
 
 1. 在“所有连接”页上，选择“sea-adm1.contoso.com”条目 。 
 1. 在 Windows Admin Center 中，选择“网络”，然后选择“+ 添加 Azure 网络适配器(预览版)” 。

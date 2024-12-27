@@ -31,11 +31,7 @@ lab:
 > 注意：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 VM 托管 SEA-DC1 和 SEA-ADM1 的安装
 
 1. 选择“SEA-ADM1”。
-1. 使用以下凭据登录：
-
-   - 用户名：`Administrator`
-   - 密码：`Pa55w.rd`
-   - 域：`CONTOSO`
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保你有一个 Azure 订阅和一个在该订阅中具有“所有者”或“参与者”角色且在与该订阅关联的 Microsoft Entra 租户 租户中具有“全局管理员角色”的用户帐户。
 
@@ -122,10 +118,7 @@ lab:
 
    >注意：如果链接不起作用，请在 SEA-ADM1 上浏览到 WindowsAdminCenter.msi 文件，打开其上下文菜单，然后选择“修复”   。 修复完成后，刷新 Microsoft Edge。 
 
-1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
-
-   - 用户名：`CONTOSO\\Administrator`
-   - 密码：`Pa55w.rd`
+1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
 
 1. 从 Windows Admin Center 页中，尝试添加 Azure 网络适配器。
 1. 出现提示时，将 Windows Admin Center 注册到你在上一练习中使用的 Azure 订阅。
@@ -265,7 +258,7 @@ lab:
 #### 任务 3：使用 Azure VM 中运行的 Windows Admin Center 网关连接到 Azure VM
 
 1. 在 SEA-ADM1 上，在显示在 Azure VM az800l04-vmwac 上运行的 Windows Admin Center 网关界面的 Microsoft Edge 窗口中，通过使用 Azure VM az800l04-vm0 的名称来添加与其的连接  。
-1. 出现提示时，使用“Student”用户名和“Pa55w.rd1234”密码进行身份验证 。
+1. 出现提示时，使用讲师提供的凭据进行验证。
 1. 成功连接到该 VM 后，在 Windows Admin Center 中检查 Azure VM az800l04-vmwac 的“概述”窗格。
 
 ## 练习 5：取消预配 Azure 环境

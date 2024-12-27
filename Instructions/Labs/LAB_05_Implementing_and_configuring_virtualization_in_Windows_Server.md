@@ -30,11 +30,7 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
 > 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-SEA-ADM1 虚拟机承载 SEA-DC1、SEA-SVR1 和 SEA-ADM1 的安装
 
 1. 选择“SEA-ADM1”。
-1. 使用以下凭据登录：
-
-   - 用户名：`Administrator`
-   - 密码：`Pa55w.rd`
-   - 域：`CONTOSO`
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境。
 
@@ -105,12 +101,9 @@ Contoso 是一家全球工程和制造公司，其总部位于美国西雅图市
    > 备注：请等待安装完成。 这大约需要 2 分钟。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。 
-1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
+1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
 
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
-
-1. 在 Windows Admin Center 中，向 sea-svr1.contoso.com 添加一个连接，并以 CONTOSO\\Administrator 身份使用密码 Pa55w.rd 连接  。 
+1. 在 Windows Admin Center 中，添加与 **sea-svr1.contoso.com** 的连接，并使用讲师提供的凭据与之连接。
 1. 在“工具”列表中，选择“虚拟机”，并查看“摘要”窗格  。
 1. 在“库存”窗格中，打开“SEA-VM1”并查看“设置”  。
 1. 使用 Windows Admin Center 创建新磁盘，大小为 5 GB。

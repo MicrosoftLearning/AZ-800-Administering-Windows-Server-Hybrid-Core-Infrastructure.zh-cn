@@ -13,7 +13,7 @@ lab:
 
 ### 任务 1：部署 DFS
 
-1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-ADM1**，然后根据需要使用讲师提供的凭据登录。
 1. 在 SEA-ADM1 上，在“开始”菜单中选择 Windows PowerShell  。
 1. 在 Windows PowerShell 控制台中，输入以下内容，然后按 Enter 键安装分布式文件系统 (DFS) 管理工具：
 

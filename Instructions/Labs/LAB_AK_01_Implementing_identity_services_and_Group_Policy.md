@@ -13,7 +13,7 @@ lab:
 
 #### 任务 1：在新的 Windows Server Core 服务器上部署 AD DS
 
-1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份，使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-ADM1**，如果需要，请使用讲师提供的凭据登录。
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
 1. 要安装 AD DS 服务器角色，请在 Windows PowerShell 命令提示符处输入以下命令，然后按 Enter：
     
@@ -41,10 +41,10 @@ lab:
 1. 记下 SEA-SVR1 的部署后配置，然后选择“将此服务器提升到域控制器”链接 。
 1. 在“Active Directory 域服务配置向导”的“部署配置”页上，在“选择部署操作”下，确认已选中“向现有域添加域控制器”   。
 1. 确保指定了 `Contoso.com` 域，然后在“提供凭据以执行此操作”部分，选择“更改” 。
-1. 在“部署操作的凭据”对话框的“用户名”框中，输入“CONTOSO\Administrator”，在“密码”框中，输入“Pa55w.rd”    。
+1. 在“**部署操作凭据**”对话框中，插入讲师提供的凭据。
 1. 选择“确定”  ，然后选择“下一步”  。
 1. 在“域控制器选项”页上，确保已选中“域名系统(DNS)服务器”和“全局编录(GC)”复选框  。 确保清除“只读域控制器(RODC)”复选框。
-1. 在“键入目录服务还原模式(DSRM)密码”部分中，输入并确认密码“Pa55w.rd”，然后选择“下一步”  。
+1. 在“**键入目录服务还原模式 (DSRM) 密码**”部分，输入并确认讲师提供的密码，然后选择“**下一步**”。
 1. 在“DNS 选项”页上，选择“下一步” 。
 1. 在“其他选项”页上，选择“下一步” 。
 1. 在“路径”页上，保留“Database”文件夹、“Log files”文件夹和“SYSVOL”文件夹的默认路径设置，然后选择“下一步”    。
@@ -70,7 +70,7 @@ lab:
    Invoke-Command –ComputerName SEA-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:$false -CreateDnsDelegation:$false -Credential (Get-Credential) -CriticalReplicationOnly:$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:$true}
    ```
 1. 要调用命令，请按 Enter。
-1. 在“Windows PowerShell 凭据请求”对话框中，在“用户名”框中输入 CONTOSO\Administrator，在“密码”框中输入 Pa55w.rd，然后选择“确定”     。
+1. 在“**Windows PowerShell 凭据请求**”对话框中，输入讲师提供的凭据。
 1. 当系统提示输入密码时，在 SafeModeAdministratorPassword 文本框中，输入 Pa55w.rd，然后按 Enter 。
 1. 当系统提示进行确认时，在 Confirm SafeModeAdministratorPassword 文本框中，输入 Pa55w.rd，然后按 Enter 。
 1. 等到命令运行并返回“状态成功”消息。 重启 SEA-SVR1 虚拟机。
@@ -161,7 +161,7 @@ lab:
 1. 在 SEA-ADM1 上，在任务栏上的搜索框中，输入“控制面板” 。 
 1. 在“最佳匹配”列表中，选择“控制面板” 。
 1. 选择“系统和安全”，然后选择“允许应用通过 Windows 防火墙” 。
-1. 在“允许的应用和功能”列表中，找到“远程事件日志管理”条目，选中“域”列中的复选框，然后选择“确定”   。 
+1. 在“**允许的应用和功能**”列表中，找到“**远程事件日志管理**”条目，选中“**域**”列中的复选框，然后选择“**确定**”。 
 1. 注销，然后以 CONTOSO\\Ty 身份使用密码 Pa55w.rd 登录 。
 1. 在任务栏上的搜索框中，输入“控制面板”。
 1. 在“最佳匹配”列表中，选择“控制面板” 。
@@ -173,7 +173,7 @@ lab:
 1. 右键单击或访问“开始”的上下文菜单，然后选择“运行” 。
 1. 在“运行”对话框中的“打开”文本框中，输入 Regedit，然后选择“确定”   。 请注意指出“注册表编辑已被管理员禁用”的错误消息。
 1. 在“注册表编辑器”对话框中，选择“确定” 。
-1. 注销，然后以 CONTOSO\Administrator 身份使用密码 Pa55w.rd 再次登录 。
+1. 注销，然后使用讲师提供的凭据重新登录。
 
 #### 任务 4：创建并链接所需的 GPO
 

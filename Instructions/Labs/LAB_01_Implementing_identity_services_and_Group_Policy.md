@@ -28,11 +28,7 @@ lab:
 > 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-ADM1 和 AZ-800T00A-SEA-SVR1 虚拟机承载 SEA-DC1、SEA-SVR1 和 SEA-ADM1 的安装      。 
 
 1. 选择“SEA-ADM1”。
-1. 使用以下凭据登录：
-
-   - 用户名：`Administrator`
-   - 密码：`Pa55w.rd`
-   - 域：`CONTOSO`
+1. 使用讲师提供的凭据进行登录。
 
 ## 练习 1：在 Server Core 上部署新的域控制器
 
@@ -63,7 +59,7 @@ lab:
 
    - 类型：现有域的附加域控制器
    - 域：`contoso.com`
-   - 凭据：密码为 Pa55w.rd 的 CONTOSO\\Administrator
+   - 插入讲师提供的凭据。
    - 目录服务还原模式 (DSRM) 密码：Pa55w.rd
    - 请勿删除针对 DNS 和全局编录的选项
 
@@ -88,10 +84,7 @@ lab:
    Invoke-Command –ComputerName SEA-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:$false -CreateDnsDelegation:$false -Credential (Get-Credential) -CriticalReplicationOnly:$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:$true}
    ```
 
-1. 提供以下凭据：
-
-   - 用户名：`CONTOSO\\Administrator`
-   - 密码：`Pa55w.rd`
+1. 插入讲师提供的凭据。
 
 2. 将“SafeModeAdministratorPassword”设置为“Pa55w.rd” 。
 3. 重启 SEA-SVR1 后，在 SEA-ADM1 上切换到“服务器管理器”，然后选择“AD DS”节点   。 请注意，SEA-SVR1 已添加为域控制器，警告通知已消失。 可能必须选择“刷新”。
@@ -180,7 +173,7 @@ lab:
 1. 注销，然后以 CONTOSO\\Ty 身份使用密码 Pa55w.rd 登录 。
 1. 尝试更改屏幕保护等待时间和恢复设置。 确认组策略会阻止这些操作。
 1. 尝试运行注册表编辑器。 确认组策略会阻止此操作。 
-1. 注销，然后以 **CONTOSO\\Administrator 身份使用密码 Pa55w.rd 登录** 。
+1. 注销，然后使用讲师提供的凭据登录。
 
 #### 任务 4：创建并链接所需的 GPO
 

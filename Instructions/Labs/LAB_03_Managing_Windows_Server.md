@@ -25,11 +25,7 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
 > 注意：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 虚拟机托管 SEA-DC1 和 SEA-ADM1 的安装    。
 
 1. 选择“SEA-ADM1”。
-1. 使用以下凭据登录：
-
-   - 用户名：`Administrator`
-   - 密码：`Pa55w.rd`
-   - 域：`CONTOSO`
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境和 Microsoft Entra 租户。
 
@@ -68,10 +64,10 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
 #### 任务 2：添加用于远程管理的服务器
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后转到 `https://SEA-ADM1.contoso.com`。 
-1. 出现提示时，使用 CONTOSO\\Administrator 用户名和 Pa55w.rd 密码登录 。
+1. 出现提示时，请使用讲师提供的凭据登录。
 1. 查看“所有连接”页，注意它包含 sea-adm1.contoso.com 条目 。 
 1. 在“所有连接”窗格中，添加与 `sea-dc1.contoso.com` 的连接。
-1. 出现提示时，使用 CONTOSO\\Administrator 用户名和 Pa55w.rd 密码登录 。
+1. 出现提示时，请使用讲师提供的凭据登录。
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派。
 
@@ -85,7 +81,7 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
 
 1. 确认已安装的扩展列表包括“DNS (预览版)”扩展。
 1. 在顶部菜单的“设置”旁边，选择下拉箭头，然后选择“服务器管理器” 。
-1. 在 Windows Admin Center 中，连接到 `sea-dc1.contoso.com`，如果需要，使用 CONTOSO\\Administrator 用户名和 Pa55w.rd 密码登录 。
+1. 在 Windows Admin Center 中，连接到 `sea-dc1.contoso.com`，然后根据需要使用讲师提供的凭据进行登录。
 1. 连接到 `sea-dc1.contoso.com` 上的 DNS 服务器并安装 DNS PowerShell 工具。
 1. 选择“Contoso.com”区域并查看其 DNS 记录的列表。
 
