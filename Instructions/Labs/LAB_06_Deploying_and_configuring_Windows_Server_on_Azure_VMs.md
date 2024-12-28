@@ -36,11 +36,7 @@ lab:
 > 注意：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 虚拟机托管 SEA-DC1 和 SEA-ADM1 的安装    。
 
 1. 选择“SEA-ADM1”。
-1. 使用以下凭据登录：
-
-   - 用户名：`Administrator`
-   - 密码：`Pa55w.rd`
-   - 域：`CONTOSO`
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
@@ -60,7 +56,7 @@ lab:
 
 在此任务中，你将连接到你的 Azure 订阅并启用 Microsoft Defender for Cloud 增强的安全性。
 
-1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\\Administrator 的身份使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-ADM1**，然后根据需要使用讲师提供的凭据登录。
 1. 在 **SEA-ADM1** 上，启动 Microsoft Edge，转到 Azure 门户`https://portal.azure.com`，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 
 >备注：如果你的 Azure 订阅中已启用了 Microsoft Defender for Cloud，请跳过此任务中的其余步骤，直接转到下一个任务。

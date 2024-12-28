@@ -15,7 +15,7 @@ lab:
 
 在此任务中，你将连接到你的 Azure 订阅并启用 Microsoft Defender for Cloud 增强的安全性。
 
-1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-ADM1**，然后根据需要使用讲师提供的凭据登录。
 1. 在 **SEA-ADM1** 上，启动 Microsoft Edge，转到 Azure 门户`https://portal.azure.com`，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 
 >备注：如果你的 Azure 订阅中已启用了 Microsoft Defender for Cloud，请跳过此任务中的其余步骤，直接转到下一个任务。
@@ -106,24 +106,24 @@ lab:
    >**注意**：如果使用逐行粘贴代码的工具，IntelliSense 可能会添加多余的括号，从而导致验证错误。 可能需要先将代码粘贴到记事本，再将其粘贴到 JSON 文件中。
 
    ```json
-        {
-           "type": "Microsoft.Compute/virtualMachines/extensions",
-           "name": "[concat(parameters('virtualMachineName'), '/customScriptExtension')]",
-           "apiVersion": "2018-06-01",
-           "location": "[resourceGroup().location]",
-           "dependsOn": [
-               "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
-           ],
-           "properties": {
-               "publisher": "Microsoft.Compute",
-               "type": "CustomScriptExtension",
-               "typeHandlerVersion": "1.7",
-               "autoUpgradeMinorVersion": true,
-               "settings": {
-                   "commandToExecute": "powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)"
-              }
-           }
-        },
+   {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(parameters('virtualMachineName'), '/customScriptExtension')]",
+      "apiVersion": "2018-06-01",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+         "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
+      ],
+      "properties": {
+         "publisher": "Microsoft.Compute",
+         "type": "CustomScriptExtension",
+         "typeHandlerVersion": "1.7",
+         "autoUpgradeMinorVersion": true,
+         "settings": {
+               "commandToExecute": "powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)"
+         }
+      }
+   },
    ```
 
 1. 保存更改并关闭文件。

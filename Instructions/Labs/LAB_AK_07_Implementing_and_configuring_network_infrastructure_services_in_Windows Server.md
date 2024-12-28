@@ -13,7 +13,7 @@ lab:
 
 #### 任务 1：安装 DHCP 角色
 
-1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\Administrator 的身份使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-ADM1**，然后根据需要使用讲师提供的凭据登录。
 1. 在 SEA-ADM1 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
 
    >注意：如果尚未在 SEA-ADM1 上安装 Windows Admin Center，请执行后面两个步骤 。
@@ -37,18 +37,12 @@ lab:
 
    >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。
 
-1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
-
-   - 用户名：`CONTOSO\Administrator`
-   - 密码：`Pa55w.rd`
+1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
 
 1. 在“所有连接”窗格中，选择“+ 添加”。
 1. 在“添加或创建资源”窗格中的“服务器”磁贴上，选择“添加” 。
 1. 在“服务器名称”文本框中，输入“sea-svr1.contoso.com” 。 
-1. 确保已选中“为此连接使用另一个帐户”选项，输入以下凭据，然后选择“使用凭据添加” ：
-
-   - 用户名：`CONTOSO\Administrator`
-   - 密码：`Pa55w.rd`
+1. 确保已选中“**为此连接使用另一个帐户**”选项，输入讲师提供的凭据，然后选择“**使用凭据添加**”。
 
    > 备注：若要执行单一登录，你需要设置 Kerberos 约束委派。
 
@@ -237,7 +231,7 @@ lab:
 #### 任务 5：配置 DNS 策略
 
 1. 在 SEA-ADM1 上，切换回 Microsoft Edge 窗口，其中显示了到 Windows Admin Center 中 sea-svr1.contoso.com 的连接 。
-1. 在“工具”列表中，选择“PowerShell”，当出现提示时，以 CONTOSO\Administrator 用户身份使用密码 Pa55w.rd 登录   。
+1. 在“**工具**”列表中，选择 **PowerShell**，并在出现提示时使用讲师提供的凭据进行登录。
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 以创建总部子网：
 
    ```powershell

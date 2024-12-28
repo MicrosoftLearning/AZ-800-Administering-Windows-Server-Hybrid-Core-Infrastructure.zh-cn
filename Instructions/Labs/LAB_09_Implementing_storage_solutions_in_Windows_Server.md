@@ -33,11 +33,7 @@ lab:
 > 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1、AZ-800T00A-SEA-SVR2、AZ-800T00A-SEA-SVR3 和 AZ-800T00A-SEA-ADM1 分别托管 SEA-DC1、SEA-SVR1、SEA-SVR2、SEA-SVR3 和 SEA-ADM1 的安装           。
 
 1. 选择“SEA-ADM1”。
-1. 使用以下凭据登录：
-
-   - 用户名：`Administrator`
-   - 密码：`Pa55w.rd`
-   - 域：`CONTOSO`
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境。
 
@@ -57,7 +53,7 @@ lab:
 
 1. 在 SEA-ADM1 上，使用服务器管理器在 SEA-SVR3 上安装重复数据删除角色服务  。
 1. 在 SEA-ADM1 上，使用授予“用户”组的读取权限共享 C:\Labfiles 文件夹  。
-1. 切换到 SEA-SVR3 控制台会话，然后根据需要以 CONTOSO\\Administrator 身份使用密码 Pa55w.rd 登录  。
+1. 切换到 **SEA-SVR3** 控制台会话，然后根据需要使用讲师提供的凭据登录。
 1. 在 SEA-SVR3 上，启动 Windows PowerShell 会话，然后在 Windows PowerShell 控制台中运行以下命令，以创建通过 ReFS 格式化的卷，并向其分配驱动器号“M”   ：
 
    ```powershell
@@ -110,12 +106,9 @@ lab:
    > 注意：请等待安装完成。 这大约需要 2 分钟。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。 
-1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
+1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
 
-   - 用户名：`CONTOSO\\Administrator`
-   - 密码：`Pa55w.rd`
-
-1. 在 Windows Admin Center 中，向 sea-svr3.contoso.com 添加一个连接，并以 CONTOSO\\Administrator 身份使用密码 Pa55w.rd 连接  。
+1. 在 Windows Admin Center 中，添加与 **sea-svr3.contoso.com** 的连接，并使用讲师提供的凭据与之连接。
 1. 连接到 sea-svr3.contoso.com 时，使用“工具”列表中的“PowerShell”工具运行以下命令来触发重复数据删除  ：
 
    ```powershell
@@ -216,7 +209,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
    - 磁盘大小：5 GB，动态扩展
    - iSCSI 目标：iSCSIFarm
 
-1. 切换到 SEA-DC1 控制台会话，然后根据需要以 CONTOSO\\Administrator 身份使用密码 Pa55w.rd 登录  。
+1. 切换到 **SEA-DC1** 控制台会话，然后根据需要使用讲师提供的凭据登录。
 1. 在 SEA-SVR3 上启动 Windows PowerShell 会话，然后在 Windows PowerShell 控制台中运行以下命令，启动 iSCSI 发起程序服务并显示 iSCSI 发起程序配置  ：
 
    ```powershell

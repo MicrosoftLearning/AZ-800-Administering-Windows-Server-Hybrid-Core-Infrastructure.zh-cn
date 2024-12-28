@@ -28,11 +28,7 @@ Contoso, Ltd. 是一家大型组织，对网络服务具有复杂要求。 为�
 > 注意：AZ-800T00A-SEA-DC1、AZ-800T00A-SEA-SVR1 和 AZ-800T00A-ADM1 虚拟机承载 SEA-DC1、SEA-SVR1 和 SEA-ADM1 的安装
 
 1. 选择“SEA-ADM1”。
-1. 使用以下凭据登录：
-
-   - 用户名：`Administrator`
-   - 密码：`Pa55w.rd`
-   - 域：`CONTOSO`
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境。
 
@@ -73,12 +69,9 @@ Contoso 的 Trey Research 部门有一个独立的办公室，该办公室只有
 
    >注意：如果链接不起作用，请在 SEA-ADM1 上浏览到 WindowsAdminCenter.msi 文件，打开其上下文菜单，然后选择“修复”   。 修复完成后，刷新 Microsoft Edge。 
    
-1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
+1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
 
-   - 用户名：`CONTOSO\\Administrator`
-   - 密码：`Pa55w.rd`
-
-1. 在 Windows Admin Center 中，向 sea-svr1.contoso.com 添加一个连接，并以 CONTOSO\\Administrator 身份使用密码 Pa55w.rd 连接  。
+1. 在 Windows Admin Center 中，添加与 **sea-svr1.contoso.com** 的连接，并使用讲师提供的凭据与之连接。
 1. 在“工具”列表中，使用“角色和功能”在 SEA-SVR1 上安装 DHCP 角色  。
 1. 在“工具”列表中，浏览到 DHCP 工具并安装 DHCP PowerShell 工具  。 
 

@@ -29,11 +29,7 @@ lab:
 > **注意**：AZ-800T00A-SEA-DC1 和 AZ-800T00A-SEA-ADM1 虚拟机托管 SEA-DC1 和 SEA-ADM1 的安装
 
 1. 选择“SEA-ADM1”。
-1. 使用以下凭据登录：
-
-   - 用户名：`Administrator`
-   - 密码：`Pa55w.rd`
-   - 域：`CONTOSO`
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
@@ -56,7 +52,7 @@ lab:
 
 此任务需要将三个虚拟机部署到同一 Azure 区域，但部署到不同的虚拟网络中。 第一个虚拟网络将充当中心，而另外两个虚拟网络将充当分支。 这些资源将用作实验室基础结构的基础。
 
-1. 连接到 SEA-ADM1，然后根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-ADM1**，然后根据需要使用讲师提供的凭据登录。
 1. 在 **SEA-ADM1** 上，启动 Microsoft Edge，浏览到 Azure 门户`https://portal.azure.com`，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
 1. 在 Azure 门户的 Cloud Shell 窗格中打开一个 PowerShell 会话。
 1. 将 C:\\Labfiles\\Lab08\\L08-rg_template.json 和 C:\\Labfiles\\Lab08\\L08-rg_template.parameters.json 文件加载到 Cloud Shell 主目录 。
