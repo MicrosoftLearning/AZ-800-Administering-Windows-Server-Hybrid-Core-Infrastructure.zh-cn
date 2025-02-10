@@ -1,3 +1,11 @@
+#README
+
+We've turned off the ability to report issues directly on this repo and do not monitor PRs.
+
+Provide feedback here: https://aka.ms/provide-feedback
+
+Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
+
 # AZ-800T00：管理 Windows Server 混合核心基础结构
 
 - **[下载最新学生手册和 AllFiles 内容](../../releases/latest)**
