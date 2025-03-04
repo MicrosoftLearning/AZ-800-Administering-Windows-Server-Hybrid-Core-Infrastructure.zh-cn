@@ -87,17 +87,17 @@ lab:
 1. 在 Azure 门户中的“创建虚拟机”页面上，选择“下载自动化模板” 。
 1. 在“模板”页面上，选择“下载” 。
 1. 选择 template.zip 旁的省略号按钮，然后在弹出菜单中，选择“在文件夹中显示” 。 这将自动打开文件资源管理器，其中将显示 Downloads 文件夹的内容。
-1. 在文件资源管理器中，将 template.zip 复制到 SEA-ADM1 上的 C:\\Labfiles\\Lab06 文件夹（根据需要创建新文件夹）  。
+1. 在文件资源管理器中，复制 **template.zip**，转到目录 **C:\\** 并新建名为 **Lab06files** 的文件夹，打开文件夹并粘贴 **template.zip** 文件。
 1. 在“模板”页面中，浏览回“创建虚拟机”页面，在不完成部署的情况下关闭它 。
 
 ## 练习 2：修改 ARM 模板以包括基于 VM 扩展的配置
 
 #### 任务 1：查看用于 Azure VM 部署的 ARM 模板和参数文件
 
-1. 在 SEA-ADM1 上，启动文件资源管理器，然后浏览到 C:\\Labfiles\\Lab06 文件夹 。
+1. 在 **SEA-ADM1** 上，启动文件资源管理器，然后浏览到 **C:\\Lab06files** 文件夹。
 1. 将 template.zip 文件的内容提取到同一文件夹中。
 1. 在记事本中打开 template.json 文件，并查看其内容。 使记事本窗口保持打开状态。
-1. 从文件资源管理器中，在记事本中打开 C:\\Labfiles\\Lab06\\parameters.json 文件，并查看其内容。
+1. 从文件资源管理器的记事本中，打开 **C:\\Lab06files\\parameters.json** 文件并查看其内容。
 1. 关闭显示 parameters.json 文件的记事本窗口。
 
 #### 任务 2：将 Azure VM 扩展部分添加到现有模板
@@ -106,25 +106,26 @@ lab:
    >**注意**：如果使用逐行粘贴代码的工具，IntelliSense 可能会添加多余的括号，从而导致验证错误。 可能需要先将代码粘贴到记事本，再将其粘贴到 JSON 文件中。
 
    ```json
-   {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(parameters('virtualMachineName'), '/customScriptExtension')]",
-      "apiVersion": "2018-06-01",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-         "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
-      ],
-      "properties": {
-         "publisher": "Microsoft.Compute",
-         "type": "CustomScriptExtension",
-         "typeHandlerVersion": "1.7",
-         "autoUpgradeMinorVersion": true,
-         "settings": {
-               "commandToExecute": "powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)"
+      {
+         "type": "Microsoft.Compute/virtualMachines/extensions",
+         "name": "[concat(parameters('virtualMachineName'), '/customScriptExtension')]",
+         "apiVersion": "2018-06-01",
+         "location": "[resourceGroup().location]",
+         "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
+         ],
+         "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.7",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                  "commandToExecute": "powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)"
+            }
          }
-      }
-   },
+      },
    ```
+   >备注：请确保代码片段与脚本的其余部分保持一致。
 
 1. 保存更改并关闭文件。
 
@@ -159,7 +160,7 @@ lab:
 1. 在“资源组”页面上，选择“AZ800-L0601-RG”条目 。
 1. 在“AZ800-L0601-RG”页的“概述”页上，查看资源列表，其中包括 Azure VM“az800L06-vm0”  。
 1. 在资源列表中，选择 Azure VM“az800L06-vm0”条目。 
-1. 在“az800L06-vm0”页上，选择“扩展 + 应用程序”，然后在扩展列表中验证是否已成功预配 customScriptExtension  。
+1. 在“**az800L06-vm0**”页的“设置”选项卡下，选择“**扩展 + 应用程序**”，然后在扩展列表中验证是否已成功预配 **customScriptExtension**。
 1. 浏览回“AZ800-L0601-RG”页面，然后在“设置”部分中，选择“部署”  。
 1. 在“AZ800-L0601-RG \| 部署”页面上，选择“Microsoft.Template”链接 。
 1. 在“Microsoft.Template \| 概述”页面上，选择“模板”，你会注意到这是用于部署的同一模板 。
@@ -217,7 +218,7 @@ lab:
 
 #### 任务 2：配置对 Azure VM 的入站 HTTP 访问
 
-1. 在 Azure 门户的工具栏上，在“搜索资源、服务和文档”**** 文本框中，搜索并选择“公共 IP 地址”****。
+1. 在 Azure 门户的工具栏上，在“**搜索资源、服务和文档**”文本框中，搜索并选择“**公共 IP 地址**”。
 1. 在“公共 IP 地址”**** 页上，选择“+ 创建”****。
 1. 在“创建公共 IP 地址”**** 页的“基本信息”**** 选项卡上，请指定以下设置（将其他设置保留为默认值）：
 
@@ -232,12 +233,12 @@ lab:
 1. 在“创建公共 IP 地址”**** 页的“基本信息”**** 选项卡上，选择“查看 + 创建”****，然后选择“创建”****。
 1. 验证部署是否已成功完成。
 1. 在 Azure 门户中，浏览回“AZ800-L0601-RG”页面，然后在资源列表中，选择代表 Azure VM az800l06-vm0 的条目 。
-1. 在“az800l06-vm0”页面上，选择“网络” 。
-1. 在“az800l06-vm0 \| 网络”页面上，选择用于指定附加到 az800l06-vm0 的网络接口的链接 。
+1. 在“**az800l06-vm0**”页上的“**网络**”菜单下，选择“**网络设置**”。
+1. 在“**az800l06-vm0”\|“网络设置**”页上，选择用于指定附加到 **az800l06-vm0** 的网络接口链接。
 1. 在显示网络接口属性的页面上，在左侧垂直菜单的“设置”部分中，选择“网络安全组” 。 
 1. 在“网络安全组”页面的下拉列表中，选择“az800l06-vm0-nsg1”，然后选择“保存”  。
 1. 返回到显示网络接口属性的页面上，选择“IP 配置”，然后选择“ipconfig1”条目 。
-1. 在“ipconfig1”**** 页的“公共 IP 地址”**** 部分中，选择“关联”****，然后在“公共 IP 地址”**** 下拉列表下，选择“az800l06-vm0-pip1”****。
+1. 在“**ipconfig1**”页的“**公共 IP 地址**”部分中，选择“**关联公共 IP 地址**”框，然后从“**公共 IP 地址**”下拉列表中，选择“**az800l06-vm0-pip1**”。
 1. 在“ipconfig1”**** 页上，选择“保存”****。
 1. 浏览回到显示网络接口属性的页面，选择“概述”。 请注意分配给接口的公共 IP 地址的值。
 1. 打开另一个浏览器选项卡，浏览到该 IP 地址，验证网页是否已打开，其中是否显示了“来自 az800L06-vm0 的 Hello World”。
@@ -250,7 +251,7 @@ lab:
 >备注：若要触发对 Azure VM 的 JIT 状态的重新评估，必须执行此任务。 默认情况下，这可能需要长达 24 小时的时间。
 
 1. 在 Azure 门户中，浏览回“AZ800-L0601-RG”页面，然后在资源列表中，选择代表 Azure VM az800L06-vm0 的条目 。
-1. 在“az800L06-vm0”页上，选择“配置” 。 
+1. 在“**az800L06-vm0**”页的“设置”部分下，选择“**配置**”。 
 1. 在“az800L06-vm0 \| 配置”页上，选择“启用实时 VM 访问”，然后选择“打开 Microsoft Defender for Cloud”链接  。
 1. 在“实时 VM 访问”页面上，验证代表 az800L06-vm0 Azure VM 的条目是否出现在“已配置”选项卡上  。
 
