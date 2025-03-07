@@ -38,23 +38,29 @@ lab:
 
 #### 任务 2：使用 Azure 资源管理器模板创建 Azure VM
 
-1. 从 Cloud Shell 窗格中，上传 Azure 资源管理器模板 C:\\Labfiles\\Lab04\\L04-rg_template.json 和相应的 Azure 资源管理器参数文件 C:\\Labfiles\\Lab04\\L04-rg_template.parameters.json 。
+1. 在 Cloud Shell 窗格中，上传 Azure 资源管理器模板 **C:\\Labfiles\\Lab04\\L04-rg_template.json**。
 1. 从 Cloud Shell 窗格中，运行以下命令以部署运行 Windows Server 的 Azure VM，你将在此实验室中使用它：
 
    ```powershell
    New-AzResourceGroupDeployment `
      -Name az800l04rgDeployment `
      -ResourceGroupName $rgName `
-     -TemplateFile $HOME/L04-rg_template.json `
-     -TemplateParameterFile $HOME/L04-rg_template.parameters.json
+     -TemplateFile $HOME/L04-rg_template.json
    ```
 
-   >注意：请等待部署完成再继续下一个练习。 部署大约需要 5 分钟的时间完成。
+1. 出现提示时，插入讲师提供的凭据。
+
+   >注意：在继续下一个练习之前，请等待部署完成。 部署大约需要 5 分钟的时间完成。
 
 1. 在 Azure 门户中，关闭 Cloud Shell 窗格。
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“az800l04-vnet”虚拟网络 。
-1. 在“az800l04-vnet”页上，选择“子网”，然后在“子网”页上，选择“+ 网关子网”   。
-1. 在“添加子网”页上，将“子网地址范围”设置为“10.4.3.224/27”，然后选择“保存”以创建 GatewaySubnet    。
+1. 在“**az800l04-vnet**”页的“**设置**”部分，选择“**子网**”，然后在“**子网**”页上，选择“**+ 子网**”。
+1. 在“**添加子网**”页的“设置”窗格中，指定以下设置，然后选择“**添加**”（将其他项保留为默认值）：
+
+   |设置|“值”|
+   |---|---|
+   |子网用途|**虚拟网络网关**|
+   |开始地址|**10.4.3.224/27**|
 
 ## 练习 2：使用 Azure 网络适配器实现混合连接
 
@@ -67,15 +73,16 @@ lab:
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 下载最新版本的 Windows Admin Center：
     
    ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
+   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.exe"
    ```
-1. 输入以下命令，然后按 Enter 安装 Windows Admin Center：
-    
-   ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
-   ```
-
-   > 备注：请等待安装完成。 这大约需要 2 分钟。
+1. 打开文件资源管理器，导航到 **Downloads** 文件夹，并运行 **WindowsAdminCenter.exe** 文件。 这将启动 **Windows Admin Center (v2) 安装程序** 向导。
+1. 在“**欢迎使用 Windows Admin Center 安装向导**”页上，选择“**下一步**”。
+1. 在“**许可条款和隐私声明**”页上，**接受条款**并选择“**下一步**”。
+1. 在“**选择安装模式**”页上，确保选中“**快速安装**”，然后选择“**下一步**”。
+1. 在“**选择 TLS 证书**”页上，确保选中“**生成自签名证书（60 天内过期）**”，然后选择“**下一步**”。
+1. 在“**自动更新**”页上，选择“**通知我可用更新而不下载或安装更新**”，然后选择“**下一步**”。
+1. 在“**将诊断数据发送到 Microsoft**”页上，确保选中“**必需诊断数据**”，然后选择“**下一步**”。
+1. 选择“**安装**”，并在安装完成后，确保选中“**启动 Windows Admin Center: `https://SEA-ADM1.contoso.com:443`**”框，然后选择“**完成**”。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge，然后浏览到 `https://SEA-ADM1.contoso.com`。
 
@@ -111,24 +118,7 @@ lab:
 
 #### 任务 2：创建 Azure 网络适配器
 
-1. 在 SEA-ADM1 上，回到显示 Windows Admin Center 的 Microsoft Edge 窗口，浏览到“sea-adm1.contoso.com”页，然后选择“网络”  。
-1. 在 Windows Admin Center 的“网络”页上，从“操作”菜单中，再次选择“+ 添加 Azure 网络适配器(预览版)”条目  。
-1. 在“添加 Azure 网络适配器”设置窗格中，指定以下设置，然后选择“创建”（将其他设置保留为默认值）：
-
-   |设置|值|
-   |---|---|
-   |订阅|你在此实验室中使用的 Azure 订阅的名称|
-   |位置|eastus|
-   |虚拟网络|az800l04-vnet|
-   |网关子网|10.4.3.224/27|
-   |网关 SKU|VpnGw1|
-   |客户端地址空间|192.168.0.0/24|
-   |身份验证证书|自动生成的自签名根证书和客户端证书|
-
-1. 在 SEA-ADM1 上，在显示 Azure 门户的 Microsoft Edge 窗口中，在工具栏上的“搜索资源、服务和文档”文本框中搜索并选择“虚拟网络网关”  。
-1. 在“虚拟网络网关”页上，选择“刷新”，并验证名称以“WAC-Created-vpngw-ID_NO”开头的新项是否显示在虚拟网络网关列表中  。
-
->注意：预配 Azure 虚拟网络网关最多可能需要 45 分钟。 请勿等待预配完成，而是继续执行下一个练习。
+>**备注**：由于 WAC 控制台中最近的更改，此步骤当前无法执行。
 
 ## 练习 3：在 Azure 中部署 Windows Admin Center 网关
 
@@ -186,42 +176,41 @@ lab:
    ./Deploy-WACAzVM.ps1 @scriptParams
    ```
 
-1. 系统提示提供本地管理员帐户的名称时，请输入“Student”
-1. 系统提示提供本地管理员帐户的密码时，请输入“Pa55w.rd1234”
+1. 系统提示提供本地管理员帐户的名称时，请输入讲师提供的**用户名**。
+1. 系统提示提供本地管理员帐户的密码时，请输入讲师提供的**密码**。
 
    >注意：请等待预配脚本完成。 这可能需要大约 5 分钟。
-
-   >**备注**：如果收到有关 WSMan 安装的错误，请按照以下步骤完成设置并继续执行实验室：
-   - 在 Azure 门户中，搜索“**虚拟机**”，然后选择“az800l04-vmwac VM”
-   - 在左侧，单击“**连接**”，然后选择“**下载 RDP 文件**”。
-   - 使用步骤 9 和 10 中提到的凭据打开文件并连接。
-   - 登录后，关闭所有打开的窗口，打开 Edge 浏览器并搜索“**Windows Admin Center**”。
-   - 单击第一个返回链接，然后在页面上选择“**下载 Windows Admin Center**”。
-   - 打开该文件，选中“**我接受这些条款**”框，单击“**下一步**” 5 次
-   - 单击“**安装**”，然后单击“**完成**”。
-
-1. 确认脚本已成功完成，并注意最后的消息提供的 URL 包含托管 Windows Admin Center 安装的 Azure VM 的完全限定名称。
-
-   >注意：记录 Azure VM 的完全限定名称。 本实验室中稍后会用到它。
-
+   
 1. 关闭 Cloud Shell 窗格。
+1. 在 Azure 门户工具栏上的“**搜索资源、服务和文档**”文本框中，搜索并选择“**虚拟机**”，然后在“**虚拟机**”页上，选择 **az800l04-vmwac** 条目。
+1. 在“**连接**”部分下，选择“**连接**”，然后选择“**下载 RDP 文件**”。
+1. 出现提示时，插入讲师提供的凭据。
+1. 在与 **az800l04-vmwac** VM 的远程桌面会话中，选择“**开始**”，然后选择“**Windows PowerShell（管理员）**”。
 
-#### 任务 2：查看脚本预配的结果
+1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 下载最新版本的 Windows Admin Center：
+    
+   ```powershell
+   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.exe"
+   ```
+1. 打开文件资源管理器，导航到 **Downloads** 文件夹，并运行 **WindowsAdminCenter.exe** 文件。 这将启动 **Windows Admin Center (v2) 安装程序** 向导。
+1. 在“**欢迎使用 Windows Admin Center 安装向导**”页上，选择“**下一步**”。
+1. 在“**许可条款和隐私声明**”页上，**接受条款**并选择“**下一步**”。
+1. 在“**选择安装模式**”页上，确保选中“**快速安装**”，然后选择“**下一步**”。
+1. 在“**选择 TLS 证书**”页上，确保选中“**生成自签名证书（60 天内过期）**”，然后选择“**下一步**”。
+1. 在“**自动更新**”页上，选择“**通知我可用更新而不下载或安装更新**”，然后选择“**下一步**”。
+1. 在“**将诊断数据发送到 Microsoft**”页上，确保选中“**必需诊断数据**”，然后选择“**下一步**”。
+1. 选择“**安装**”，并在安装完成后，确保选中“**启动 Windows Admin Center: `https://az800l04-vmwac:443`**”框，然后选择“**完成**”。
 
-1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“资源组”，然后在“资源组”页上选择“AZ800-L0401-RG”条目   。
-1. 在“AZ800-L0401-RG”页的“概述”页上，查看资源列表，其中包括 Azure VM“az800l04-vmwac”  。
-1. 在资源列表中，选择 Azure VM“az800l04-vmwac”条目，然后在“az800l04-vmwac”页上选择“网络”  。
-1. 在“az800l04-vmwac | 网络”页上的“入站端口规则”选项卡上，注意表示允许 TCP 端口 5986 上的连接的入站端口规则和允许 TCP 端口 443 上的连接的入站规则的条目 。
-
->**备注**：如果未显示入站端口规则，请导航到“**虚拟机**”选项卡，打开 az800l04-vmwac，复制 **DNS 名称**并以 https:// 格式将其粘贴到新浏览器选项卡中。 检查输出。
+  >**备注**：安装可能需要 5 分钟。
 
 ## 练习 4：在 Azure 中验证 Windows Admin Center 网关的功能
 
 #### 任务 1：连接到在 Azure VM 中运行的 Windows Admin Center 网关
 
-1. 在 SEA-ADM1 上，启动 Microsoft Edge，并转到包含目标 Azure VM 的完全限定名称的 URL，该 VM 托管你在上一个练习中确定的 Windows Admin Center 安装。
+1. 在 **SEA-ADM1** 上的 **az800l04-vmwac** 页上，选择左侧菜单上的“**概述**”条目并复制“**DNS 名称**”。
+1. 在 **SEA-ADM1** 上，启动 Microsoft Edge， 并以 `https://` 格式粘贴 **DNS 名称**。
 1. 在 Microsoft Edge 窗口中，忽略消息“你的连接不是专用连接”，选择“高级”，然后选择以文本“继续转到”开始的链接  。
-1. 出现提示时，在“登录以访问此站点”对话框中，使用用户名“Student”和密码“Pa55w.rd1234”登录  。
+1. 出现提示时，在“**登录以访问此网站**”对话框中，使用讲师提供的凭据登录。
 1. 在 Windows Admin Center 的“所有连接”窗格中，选择“az800l04-vmwac [网关]” 。
 1. 查看 Windows Admin Center 的“概述”窗格。
 
@@ -254,7 +243,7 @@ lab:
 1. 在“所有连接”页面上，选择“+ 添加” 。
 1. 在“添加或创建资源”页上的“服务器”部分中，选择“添加”  。
 1. 在“服务器名称”文本框中，输入“az800l04-vm0” 。
-1. 选择“为此连接使用另一个帐户”选项，提供用户名“Student”和密码“Pa55w.rd1234”，然后选择“使用凭据添加”   。
+1. 选择“**为此连接使用另一个帐户**”选项，提供讲师提供的凭据，然后选择“**使用凭据添加**”。
 1. 在连接列表中，选择“az800l04-vm0”
 1. 成功连接到该 Azure VM 后，在 Windows Admin Center 中查看 Azure VM az800l04-vmwac 的“概述”窗格。
 
