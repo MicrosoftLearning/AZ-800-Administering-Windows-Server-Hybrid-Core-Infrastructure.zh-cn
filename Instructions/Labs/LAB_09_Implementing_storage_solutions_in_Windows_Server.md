@@ -205,7 +205,7 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 1. 采用下列设置创建第二个 iSCSI 虚拟磁盘：
 
    - 存储位置：F:
-   - 名称：iSCSIDisk2
+   - 名称：**iSCSIDisk2**
    - 磁盘大小：5 GB，动态扩展
    - iSCSI 目标：iSCSIFarm
 
