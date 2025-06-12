@@ -7,8 +7,6 @@ lab:
 
 # 实验室答案密钥：实现 AD DS 与 Microsoft Entra AD 之间的集成
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20integration%20between%20AD%20DS%20and%20Azure%20AD)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 ## 实验室教学设置
 
 1. 连接到 **SEA-ADM1**，如果需要，请使用讲师提供的凭据登录。

@@ -14,8 +14,6 @@ lab:
 
 你的目标是以满足可管理性和安全性要求的方式部署和配置运行 Windows Server 的 Azure VM。
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Deploying%20and%20configuring%20Windows%20Server%20on%20Azure%20VMs)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 ## 目标
 
 完成本实验室后，你将能够：
