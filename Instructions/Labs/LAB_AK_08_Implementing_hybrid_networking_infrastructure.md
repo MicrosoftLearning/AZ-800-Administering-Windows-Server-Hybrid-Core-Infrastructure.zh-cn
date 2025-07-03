@@ -7,8 +7,6 @@ lab:
 
 # 实验室答案密钥：实现混合网络基础结构
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-800%20Lab%20Simulation%20-%20Implementing%20hybrid%20networking%20infrastructure)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 ### 练习 1：在 Azure 中实现虚拟网络路由
 
 #### 任务 1：预配实验室基础结构资源
