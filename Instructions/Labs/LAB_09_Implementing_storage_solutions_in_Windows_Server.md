@@ -93,19 +93,23 @@ lab:
 1. 在 Windows PowerShell 控制台中，运行以下命令，下载最新版本的 Windows Admin Center：
     
    ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
+   $parameters = @{
+     Source = "https://aka.ms/WACdownload"
+     Destination = ".\WindowsAdminCenter.exe"
+     }
+   Start-BitsTransfer @parameters
    ```
 1. 运行以下命令以安装 Windows Admin Center：
     
    ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
+   Start-Process -FilePath '.\WindowsAdminCenter.exe' -ArgumentList '/VERYSILENT' -Wait
    ```
 
    > 注意：请等待安装完成。 这大约需要 2 分钟。
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (`https://SEA-ADM1.contoso.com`)。 
 1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
-
+1. 查看“配置 Windows Admin Center 设置和环境”弹出窗口上的所有选项卡，包括“扩展”选项卡，然后选择“完成”以关闭窗口。************
 1. 在 Windows Admin Center 中，添加与 **sea-svr3.contoso.com** 的连接，并使用讲师提供的凭据与之连接。
 1. 连接到 sea-svr3.contoso.com 时，使用“工具”列表中的“PowerShell”工具运行以下命令来触发重复数据删除  ：
 
@@ -418,7 +422,8 @@ Contoso 的管理人员正在探索使用 iSCSI 降低配置集中存储的成�
 
    > **注意**：请勿添加群集节点，因为 Windows Admin Center 中已有群集节点。 
 
-1. 在 Windows Admin Center 中，在群集的仪表板窗格上，找到表示 SEA-SVR3 已不可访问的警报。 
+1. 在 Windows Admin Center 中，在群集的仪表板窗格上，找到表示 SEA-SVR3 已不可访问的警报。
+   > **注意**：如果概述页未显示警报，请滚动到左侧菜单上的“群集资源”，然后选择“服务器”来查看群集成员服务器的状态。********
 1. 将控制台会话切换到 SEA-SVR3 并启动它。 
 1. 验证该警报是否在几分钟后自动消失。
 1. 刷新显示 Windows Admin Center 的浏览器页面，并验证所有服务器是否正常运行。
