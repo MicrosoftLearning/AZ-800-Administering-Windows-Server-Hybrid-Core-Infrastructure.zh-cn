@@ -47,14 +47,17 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
 1. 从 Windows PowerShell 控制台中，运行以下命令，下载最新版本的 Windows Admin Center：
     
    ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
+   $parameters = @{
+         Source = "https://aka.ms/WACdownload"
+         Destination = ".\WindowsAdminCenter.exe"
+    }
+    Start-BitsTransfer @parameters
    ```
 1. 输入以下命令，然后按 Enter 安装 Windows Admin Center：
     
    ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
+    Start-Process -FilePath '.\WindowsAdminCenter.exe' -ArgumentList '/VERYSILENT' -Wait
    ```
-
    > 注意：请等待安装完成。 这大约需要 2 分钟。
 
    > **注意**：安装完成后，可能会遇到错误消息“ERR_Connection_Refused”。 如果发生这种情况，请重启 SEA-ADM1 以更正此问题。
@@ -73,11 +76,9 @@ Contoso, Ltd. 想要在环境中实现多个新服务器，他们决定使用 Se
 
 1. 在 SEA-ADM1 的右上角，选择“设置”图标（齿轮） 。
 1. 查看可用的扩展。
-1. 安装“安全性(预览版)”扩展。 该扩展将安装，Windows Admin Center 将刷新。
+1. 安装“DNS”**** 扩展。 该扩展将安装，Windows Admin Center 将刷新。
 
-   > 注意：如果“安全性(预览版)”扩展不可用，请选择其他 Microsoft 扩展 。
-
-1. 确认已安装的扩展列表包括“DNS (预览版)”扩展。
+1. 确认已安装的扩展列表中包含 DNS 扩展。
 1. 在顶部菜单的“设置”旁边，选择下拉箭头，然后选择“服务器管理器” 。
 1. 在 Windows Admin Center 中，连接到 `sea-dc1.contoso.com`，然后根据需要使用讲师提供的凭据进行登录。
 1. 连接到 `sea-dc1.contoso.com` 上的 DNS 服务器并安装 DNS PowerShell 工具。

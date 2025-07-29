@@ -74,12 +74,16 @@ lab:
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 下载最新版本的 Windows Admin Center：
     
    ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
+   $parameters = @{
+     Source = "https://aka.ms/WACdownload"
+     Destination = ".\WindowsAdminCenter.exe"
+     }
+   Start-BitsTransfer @parameters
    ```
 1. 输入以下命令，然后按 Enter 安装 Windows Admin Center：
     
    ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
+   Start-Process -FilePath '.\WindowsAdminCenter.exe' -ArgumentList '/VERYSILENT' -Wait
    ```
 
    > 注意：请等待安装完成。 这大约需要 2 分钟。
@@ -91,7 +95,7 @@ lab:
    >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。
 
 1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
-
+1. 查看“配置 Windows Admin Center 设置和环境”弹出窗口上的所有选项卡，包括“扩展”选项卡，然后选择“完成”以关闭窗口。************
 1. 在“所有连接”窗格上，选择“**+ 添加**”。
 1. 在“添加或创建资源”窗格上的“服务器”磁贴中，选择“添加” 。
 1. 在“服务器名称”文本框中，输入“sea-svr3.contoso.com” 。 
@@ -445,7 +449,8 @@ lab:
    
 1. 清除“同时在群集中添加服务器”选项，然后选择“添加” 。
 1. 返回到“所有连接”页，选择“s2dcluster.contoso.com” 。
-1. 验证在加载页面时，“仪表板”窗格中是否有一个警报，指出无法访问 SEA-SVR3。 
+1. 验证在加载页面时，“仪表板”窗格中是否有一个警报，指出无法访问 SEA-SVR3。
+   > **注意**：如果概述页未显示警报，请滚动到左侧菜单上的“群集资源”，然后选择“服务器”来查看群集成员服务器的状态。********
 1. 将控制台会话切换到 SEA-SVR3 并启动它。 
 
    > 注意：自动删除警报可能需要几分钟时间。
