@@ -19,12 +19,16 @@ lab:
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 下载最新版本的 Windows Admin Center：
     
    ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
+   $parameters = @{
+     Source = "https://aka.ms/WACdownload"
+     Destination = ".\WindowsAdminCenter.exe"
+   }
+   Start-BitsTransfer @parameters
    ```
 1. 输入以下命令，然后按 Enter 安装 Windows Admin Center：
     
    ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
+   Start-Process -FilePath '.\WindowsAdminCenter.exe' -ArgumentList '/VERYSILENT' -Wait
    ```
 
    > 备注：请等待安装完成。 这大约需要 2 分钟。
@@ -36,7 +40,11 @@ lab:
    >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。
 
 1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
-
+1. 查看“配置 Windows Admin Center 设置和环境”弹出窗口上的所有选项卡，包括“扩展”选项卡，然后选择“完成”以关闭窗口。************
+1. 在 SEA-ADM1 上，在显示 Windows Admin Center 的 Microsoft Edge 窗口的右上角，选择“设置”图标（齿轮） 。
+1. 在左窗格中，选择“扩展”****。 查看可用的扩展。
+1. 选择 DHCP 和 DNS 扩展，然后选择“安装”（如果尚未安装）************。 该扩展将安装，Windows Admin Center 将刷新。
+1. 在“详细信息”窗格中，选择“已安装扩展”并确认列表中包含刚安装的扩展****。
 1. 在“所有连接”窗格中，选择“+ 添加”。
 1. 在“添加或创建资源”窗格中的“服务器”磁贴上，选择“添加” 。
 1. 在“服务器名称”文本框中，输入“sea-svr1.contoso.com” 。 
@@ -269,7 +277,7 @@ lab:
 1. 在 SEA-ADM1 上，切换回“以太网状态”窗口 。
 1. 在“以太网状态”窗口中，选择“属性” 。
 1. 在“以太网属性”对话框中，选择“Internet 协议版本 4 (TCP/IPv4)”，然后选择“属性”  。
-1. 在“Internet 协议版本 4 (TCP/IPv4) 属性”对话框中，将当前分配的 IP 地址 (172.16.10.11) 更改为不在 HeadOfficeSubnet 的 IP 地址范围内的一个 IP 地址 172.16.11.11，然后选择“确定”    。
+1. 在“Internet 协议第四版 (TCP/IPv4) 属性”对话框中，将当前分配的 IP 地址 (172.16.10.11) 更改为不在 HeadOfficeSubnet 的 IP 地址范围内的 IP 地址 172.16.11.11，使用子网掩码 255.255.0.0 和 DNS 服务器 IP 172.60.10.12，然后选择“确定”****************************。
 1. 在 SEA-ADM1 上，切换到 Windows PowerShell 控制台 。
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 测试 `testapp.treyresearch.net` DNS 记录的解析：
 

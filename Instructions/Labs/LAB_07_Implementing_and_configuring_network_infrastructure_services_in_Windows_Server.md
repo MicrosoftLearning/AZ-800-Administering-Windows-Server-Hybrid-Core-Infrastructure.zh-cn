@@ -53,12 +53,16 @@ Contoso 的 Trey Research 部门有一个独立的办公室，该办公室只有
 1. 在 Windows PowerShell 控制台中，运行以下命令，下载最新版本的 Windows Admin Center：
     
    ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
+   $parameters = @{
+     Source = "https://aka.ms/WACdownload"
+     Destination = ".\WindowsAdminCenter.exe"
+   }
+   Start-BitsTransfer @parameters
    ```
 1. 运行以下命令以安装 Windows Admin Center：
     
    ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
+   Start-Process -FilePath '.\WindowsAdminCenter.exe' -ArgumentList '/VERYSILENT' -Wait
    ```
 
    > 注意：请等待安装完成。 这大约需要 2 分钟。
@@ -68,7 +72,11 @@ Contoso 的 Trey Research 部门有一个独立的办公室，该办公室只有
    >注意：如果链接不起作用，请在 SEA-ADM1 上浏览到 WindowsAdminCenter.msi 文件，打开其上下文菜单，然后选择“修复”   。 修复完成后，刷新 Microsoft Edge。 
    
 1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
-
+1. 查看“配置 Windows Admin Center 设置和环境”弹出窗口上的所有选项卡，包括“扩展”选项卡，然后选择“完成”以关闭窗口。************
+1. 在 SEA-ADM1 上，在显示 Windows Admin Center 的 Microsoft Edge 窗口的右上角，选择“设置”图标（齿轮） 。
+1. 在左窗格中，选择“扩展”****。 查看可用的扩展。
+1. 选择 DHCP 和 DNS 扩展，然后选择“安装”（如果尚未安装）************。 该扩展将安装，Windows Admin Center 将刷新。
+1. 在“详细信息”窗格中，选择“已安装扩展”并确认列表中包含刚安装的扩展****。
 1. 在 Windows Admin Center 中，添加与 **sea-svr1.contoso.com** 的连接，并使用讲师提供的凭据与之连接。
 1. 在“工具”列表中，使用“角色和功能”在 SEA-SVR1 上安装 DHCP 角色  。
 1. 在“工具”列表中，浏览到 DHCP 工具并安装 DHCP PowerShell 工具  。 
@@ -221,7 +229,7 @@ Contoso 的 Trey Research 部门有一个独立的办公室，该办公室只有
 
    > 注意：验证名称是否解析为在 HeadOfficePolicy 中配置的 IP 地址 172.30.99.100  。
 
-1. 将分配给 SEA-ADM1 的 IP 地址从 172.16.10.11 改为一个不在 HeadOfficeSubnet 的 IP 地址范围内的 IP 地址 (172.16.11.11)   。
+1. 在“Internet 协议第四版 (TCP/IPv4) 属性”对话框中，将当前分配的 IP 地址 (172.16.10.11) 更改为不在 HeadOfficeSubnet 的 IP 地址范围内的 IP 地址 172.16.11.11，使用子网掩码 255.255.0.0 和 DNS 服务器 IP 172.60.10.12，然后选择“确定”****************************。
 1. 在 Windows PowerShell 控制台中，运行以下命令来测试 DNS 策略：
 
     ```powershell
