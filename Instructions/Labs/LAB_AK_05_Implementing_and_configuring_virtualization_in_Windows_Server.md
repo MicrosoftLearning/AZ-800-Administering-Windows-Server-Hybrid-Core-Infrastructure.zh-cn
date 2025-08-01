@@ -64,12 +64,16 @@ lab:
 1. 在 Windows PowerShell 控制台中，输入以下命令。 然后按 Enter 下载最新版本的 Windows Admin Center：
     
    ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
+   $parameters = @{
+     Source = "https://aka.ms/WACdownload"
+     Destination = ".\WindowsAdminCenter.exe"
+     }
+   Start-BitsTransfer @parameters
    ```
 1. 输入以下命令，然后按 Enter 安装 Windows Admin Center：
     
    ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
+   Start-Process -FilePath '.\WindowsAdminCenter.exe' -ArgumentList '/VERYSILENT' -Wait
    ```
 
    > 备注：请等待安装完成。 这大约需要 2 分钟。 如果网页没有响应，请打开 services.msc 并验证 Windows Admin Center 服务器是否已启动 。
@@ -81,6 +85,9 @@ lab:
    >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。
    
 1. 如果出现提示，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
+
+1. 查看“配置 Windows Admin Center 设置和环境”弹出窗口上的所有选项卡，包括“扩展”选项卡，然后选择“完成”以关闭窗口。************
+1. 查看“此版本中的新增功能”弹出窗口，然后在其右上角选择“关闭” 。
 
 1. 在“所有连接”窗格中，选择“+ 添加” 。
 1. 在“添加或创建资源”窗格上的“服务器”磁贴中，选择“添加”  。
@@ -118,32 +125,14 @@ lab:
 
    > 注意：由于实验室中使用了嵌套虚拟化，Windows Admin Center 中的 Powershell 连接可能相对较慢，因此另一种方法是从 SEA-ADM1 上的 Windows Powershell 控制台运行 `Enter-PSSession -ComputerName SEA-SVR1` 。
 
-1. 在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，以强制使用 TLS 1.2 并安装 PowerShellGet 模块：
+1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter，在 SEA-SVR1 上安装 Docker CE（社区版）********：
 
    ```powershell
-   [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
-   Install-PackageProvider -Name NuGet -Force
-   Install-Module PowerShellGet -RequiredVersion 2.2.4 -SkipPublisherCheck
-   ```
-1. 当系统提示确认从不受信任的存储库安装模块时，请按 A 键，然后按 Enter。
-1. 安装完成后，输入以下命令然后按 Enter，重启 SEA-SVR1：
+   Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/Windows-Containers/Main/helpful_tools/Install-DockerCE/install-docker-ce.ps1" -o install-docker-ce.ps1
 
-   ```powershell
-   Restart-Computer -Force
+   .\install-docker-ce.ps1
    ```
-1. 在 SEA-SVR1 重启后，再次使用 PowerShell 工具与 SEA-SVR1 建立新的 PowerShell 远程处理会话  。
-1. 在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，在 SEA-SVR1 上安装 Docker Microsoft PackageManagement 提供程序 ：
-
-   ```powershell
-   Install-Module -Name DockerProvider -Repository PSGallery -Force
-   ```
-1. 在 NuGet 提供程序提示符处，按 Y 键，然后按 Enter。
-1. 在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，在 SEA-SVR1 上安装 Docker 运行时 ：
-
-   ```powershell
-   Install-Package -Name docker -ProviderName DockerProvider
-   ```
-1. 出现确认提示时，按 A 键，然后按 Enter。
+ 
 1. 安装完成后，输入以下命令然后按 Enter，重启 SEA-SVR1：
 
    ```powershell
@@ -153,12 +142,8 @@ lab:
 #### 任务 2：安装并运行 Windows 容器
 
 1. 在 SEA-SVR1 重启后，再次使用 PowerShell 工具与 SEA-SVR1 建立新的 PowerShell 远程处理会话 。
-1. 在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，验证已安装 Docker 版本：
 
-   ```powershell
-   Get-Package -Name Docker -ProviderName DockerProvider
-   ```
-1. 输入以下命令然后按 Enter，识别 SEA-SVR1 上当前存在的 Docker 映像： 
+1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter，识别 SEA-SVR1 上当前存在的 Docker 映像********： 
 
    ```powershell
    docker images
@@ -166,10 +151,10 @@ lab:
 
    > 注意：确认本地存储库存储中没有映像。
 
-1. 输入以下命令然后按 Enter，下载包含 Internet Information Services (IIS) 安装的 Nano Server 映像：
+1. 输入以下命令，然后按 Enter，下载 Nano Server 映像：
 
    ```powershell
-   docker pull nanoserver/iis
+   docker pull mcr.microsoft.com/windows/nanoserver:ltsc2022
    ```
 
    > 注意：完成下载所用的时间取决于从实验室 VM 到 Microsoft 容器注册表的网络连接的可用带宽。
@@ -179,44 +164,76 @@ lab:
    ```powershell
    docker images
    ```
+
 1. 输入以下命令然后按 Enter，启动基于已下载映像的容器：
 
    ```powershell
-   docker run --isolation=hyperv -d -t --name nano -p 80:80 nanoserver/iis 
+   docker run -it mcr.microsoft.com/windows/nanoserver:ltsc2022 cmd.exe 
    ```
 
-   > 注意：docker 命令以 Hyper-V 隔离模式（可解决任何主机操作系统不兼容问题）作为后台服务 (`-d`) 启动容器，并配置网络以使容器主机的端口 80 映射到容器的端口 80。 
+   > **注意**：该 docker 命令会启动容器并将你连接到容器的命令行接口。 
 
 1. 输入以下命令然后按 Enter，检索容器主机的 IP 地址信息：
 
    ```powershell
-   ipconfig
+   hostname
    ```
+    > **注意**：确认这是容器实例的主机名，而不是 SEA-SVR1****。
 
-   > 注意：标识名为 vEthernet (nat) 的以太网适配器的 IPv4 地址。 这是新容器的地址。 接下来，标识名为 Ethernet 的以太网适配器的 IPv4 地址。 这是主机 (SEA-SVR1) 的 IP 地址，设置为 172.16.10.12 。
-
-1. 在 SEA-ADM1 上，切换到 Microsoft Edge 窗口，打开另一个选项卡并转到  。 确认浏览器显示默认 IIS 页。
-1. 在 SEA-ADM1 上，切换回与 SEA-SVR1 的 PowerShell 远程处理会话，然后在 Windows PowerShell 控制台中，输入以下命令然后按 Enter，列出正在运行的容器  ：
+1. 输入以下命令，然后按 Enter 为容器创建文本文件：
 
    ```powershell
-   docker ps
+   echo "Hello World!" > C:\Users\Public\Hello.txt
    ```
-   > 注意：此命令提供有关当前正在 SEA-SVR1 上运行的容器的信息 。 记录容器 ID，因为你将使用它来停止容器。 
 
-1. 输入以下命令然后按 Enter，停止正在运行的容器（将 `<ContainerID>` 占位符替换为你在上一步中标识的容器 ID）： 
-
-   ```powershell
-   docker stop <ContainerID>
-   ```
-1. 输入以下命令然后按 Enter，验证容器是否已停止：
+1. 输入以下命令，然后按 Enter 退出容器的命令行接口，并返回到 SEA-SVR1 上的 PowerShell 提示符****：
 
    ```powershell
-   docker ps
+   exit
    ```
+
+1. 输入以下命令，然后按 Enter，通过运行 docker ps 命令获取刚从其退出的容器的容器 ID：
+
+   ```powershell
+   docker ps -a
+   ```
+   > **注意**：该 `-a` 开关会列出所有容器，包括当前未运行的容器。
+
+1. 创建新的 helloworld 映像，其中包含已运行的第一个容器中的更改。 为此，请运行 docker commit 命令，将 \<containerID\> 替换为容器的 ID：
+
+   ```powershell
+   docker commit <containerID> helloworld
+   ```
+
+1. 现在，你有一个包含 Hello.txt 文件的自定义映像。 可以使用 docker images 命令来查看新映像。
+
+   ```powershell
+   docker images
+   ```
+
+1. 使用带有 --rm 选项的 docker run 命令运行新容器。 使用此选项时，Docker 会在命令（在本例中为 cmd.exe）停止时自动删除容器。
+
+   ```powershell
+   docker run --rm helloworld cmd.exe /s /c type C:\Users\Public\Hello.txt
+   ```
+   > **注意**：此命令行输出之前创建的文件的内容，并再次停止容器。
+
+1. 输入以下命令，然后按 Enter 启动原始映像的新容器实例，并检查创建的文件是否存在：
+
+   ```powershell
+   docker run --rm mcr.microsoft.com/windows/nanoserver:ltsc2022 cmd.exe /s /c type C:\Users\Public\Hello.txt
+   ```
+   > **注意**：原始映像并未因添加文件而修改，并且在停止后恢复到了其原始状态。
+
 
 #### 任务 3：使用 Windows Admin Center 管理容器
 
+1. 在 SEA-ADM1 上的 Windows Admin Center 中，前往左上角的设置图标，然后选择“扩展”********。
+
+1. 在“扩展”窗格中，在“已安装扩展”下确认“容器”扩展已安装并更新************。 如果该扩展未安装，请从“可用扩展”窗格添加****。
+
 1. 在 SEA-ADM1 上，在 Windows Admin Center 中 sea-svr1.contoso.com 的“工具”菜单中，选择“容器”  。 系统提示关闭 PowerShell 会话时，选择“继续” 。
+
 1. 在“容器”窗格中，浏览“概述”、“容器”、“映像”、“网络”和“卷”选项卡    。
 
 ### 练习 2 结果
