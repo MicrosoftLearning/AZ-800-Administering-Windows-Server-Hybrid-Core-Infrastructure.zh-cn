@@ -16,12 +16,16 @@ lab:
 1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 下载最新版本的 Windows Admin Center：
     
    ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
+    $parameters = @{
+         Source = "https://aka.ms/WACdownload"
+         Destination = ".\WindowsAdminCenter.exe"
+    }
+    Start-BitsTransfer @parameters
    ```
 1. 输入以下命令，然后按 Enter 安装 Windows Admin Center：
     
    ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
+   Start-Process -FilePath '.\WindowsAdminCenter.exe' -ArgumentList '/VERYSILENT' -Wait
    ```
 
    > 备注：请等待安装完成。 这大约需要 2 分钟。
@@ -37,14 +41,13 @@ lab:
    >注意：如果收到 NET::ERR_CERT_DATE_INVALID 错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-adm1-contoso.com (不安全)” 。
 
 1. 出现提示时，在“**Windows 安全**”对话框中，输入讲师提供的凭据。
+1. 查看“配置 Windows Admin Center 设置和环境”弹出窗口上的所有选项卡，包括“扩展”选项卡，然后选择“完成”以关闭窗口。************
 1. 查看“此版本中的新增功能”弹出窗口，然后在其右上角选择“关闭” 。
 1. 查看“所有连接”页，注意它包含 sea-adm1.contoso.com 条目 。 
 1. 在“所有连接”页面上，选择“+ 添加” 。 
 1. 在“添加或创建资源”窗格中的“服务器”磁贴上，选择“添加” 。
 1. 在“服务器名称”文本框中，输入“sea-dc1.contoso.com” 。
-1. 确保已选中“**为此连接使用另一个帐户**”选项，输入讲师提供的凭据，然后选择“**使用凭据添加**”
-
-   > 注意：执行步骤 7 后，如果出现“你可将此服务器添加到你的连接列表，但我们无法确认它是否可用。” 的错误消息，请选择“添加”。 在“所有连接”窗格中，选择“sea-svr1.contoso.com”，然后选择“管理形式” 。 在“指定凭据”对话框中，确保已选中“对此连接使用另一个帐户”选项，输入管理员凭据，然后选择“继续”  。
+1. 出现提示时，请使用讲师提供的凭据登录。
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派。
 
@@ -52,14 +55,10 @@ lab:
 
 1. 在 SEA-ADM1 上，在显示 Windows Admin Center 的 Microsoft Edge 窗口的右上角，选择“设置”图标（齿轮） 。
 1. 在左窗格中，选择“扩展”****。 查看可用的扩展。
-1. 选择“安全性(预览版)”扩展，然后选择“安装” 。 该扩展将安装，Windows Admin Center 将刷新。
-
-   > 注意：如果“安全性(预览版)”扩展不可用，请选择其他 Microsoft 扩展 。
-
+1. 选择“DNS”扩展，然后选择“安装”。******** 该扩展将安装，Windows Admin Center 将刷新。
 1. 在“详细信息”窗格中，选择“已安装扩展”并确认列表包含刚安装的扩展。
 1. 在顶部菜单的“设置”旁边，选择下拉箭头，然后选择“服务器管理器” 。
 1. 在“服务器连接”页上，选择“sea-dc1.contoso.com”链接 。
-1. 确保已选中“**对此连接使用另一个帐户**”选项，选择“**对所有连接使用这些凭据**”，输入讲师提供的以下凭据，然后选择“**继续**”。
 
 1. 若要安装 DNS PowerShell 工具，请在左侧窗格的“工具”列表中，选择“DNS”，然后选择“安装”  。 安装这些工具需要不到一分钟的时间。
 1. 选择“Contoso.com”区域并查看其 DNS 记录的列表。
@@ -69,11 +68,11 @@ lab:
 1. 在 SEA-ADM1 上，在 Windows Admin Center 左侧窗格的“工具”列表中，选择“概述”  。 请注意，Windows Admin Center 的“详细信息”窗格显示基本的服务器信息和性能监视。
 1. 在左侧窗格的“工具”列表中，向下滚动并查看可用的基本管理工具。 选择“角色和功能”，并注意哪些角色和功能被列为已安装，哪些角色和功能可以安装。 向下滚动，选中“Telnet 客户端”复选框，然后选择窗格顶部的“+ 安装” 。
 1. 在“安装角色和功能”窗格中，选择“是”，等待确认已成功安装 Telnet 客户端的消息 。
-1. 在左侧窗格的最底部，在“工具”列表下，选择“设置” 。
+1. 在左窗格最顶部的“工具”列表下，选择“设置”。********
 1. 在右侧的“设置”部分，选择“远程桌面” 。
 1. 在“远程桌面”部分中，选中“允许与此计算机的远程连接”复选框，然后选择“保存”  。
 1. 在左侧窗格的“工具”列表中，选择“远程桌面” 。
-1. 在远程桌面窗格中，选中“自动连接到此计算机提供的证书”复选框，然后选择“连接” 。
+1. 在“远程桌面”窗格中，输入讲师提供的密码，选中“自动连接到此计算机提供的证书”复选框，然后选择“连接”********。
 1. 出现提示时，选择“确认”，然后选择“连接” 。
 1. 确认通过远程桌面在 Windows Admin Center 界面中成功连接到的 SEA-DC1。
 1. 选择“断开”。
